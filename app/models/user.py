@@ -1,3 +1,4 @@
+from sqlalchemy.orm import backref
 from .db import db
 from app.models.zodiac_list import ZodiacList
 from app.models.friends import Friend
@@ -14,18 +15,13 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
     profile_picture = db.Column(db.String)
-    sun_sign = db.Column(db.String)
+    sun_sign_id =  db.Column(db.Integer, db.ForeignKey("sun_sign.id"))
     cusp = db.Column(db.Boolean, default=False)
 
     """
-    ZODIAC LIST RELATIONSHIPS
+    SUN SIGN RELATIONSHIPS
     """
-    # user_zodiac_list = db.relationship(
-    #     'ZodiacList', back_populates='zodi_list_owner', cascade="all, delete", foreign_keys=[user_id])
-    # first_match_input = db.relationship(
-    #     'ZodiacList', backref="first_input", primaryjoin=id==ZodiacList.first_name_id)
-    # second_match_input = db.relationship(
-    #     'ZodiacList', backref="second_input", primaryjoin=id==ZodiacList.match_name_id)
+    sign_of_user = db.relationship("SunSign",backref="sign")
 
     """
     FRIENDS RELATIONSHIPS
