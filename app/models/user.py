@@ -16,36 +16,56 @@ class User(db.Model, UserMixin):
     profile_picture = db.Column(db.String)
     sun_sign = db.Column(db.String)
 
-    user_zodiac_list = db.relationship(
-        'ZodiacList', back_populates='owner_of_list', cascade="all, delete")
-    first_match_input = db.relationship(
-        'ZodiacList', backref="first_input", primaryjoin=id == ZodiacList.first_name_id)
-    second_match_input = db.relationship(
-        'ZodiacList', backref="second_input", primaryjoin=id == ZodiacList.match_name_id)
+    """
+    ZODIAC LIST RELATIONSHIPS
+    """
+    # user_zodiac_list = db.relationship(
+    #     'ZodiacList', back_populates='zodi_list_owner', cascade="all, delete", foreign_keys=[user_id])
+    # first_match_input = db.relationship(
+    #     'ZodiacList', backref="first_input", primaryjoin=id==ZodiacList.first_name_id)
+    # second_match_input = db.relationship(
+    #     'ZodiacList', backref="second_input", primaryjoin=id==ZodiacList.match_name_id)
 
-    friend_to = db.relationship(
-        'Friend', backref="friend_to_user", primaryjoin=id == Friend.user_id
+    """
+    FRIENDS RELATIONSHIPS
+    """
+    current_user = db.relationship(
+        'Friend', back_populates="user_in_choice", primaryjoin=id == Friend.user_id
     )
-    friend_of = db.relationship(
-        'Friend', backref="friend_of_user", primaryjoin=id == Friend.friend_id
+    friend_of_user = db.relationship(
+        'Friend', back_populates="friend_to_user", primaryjoin=id == Friend.friend_id
     )
 
+    """
+    FRIEND REQUEST RELATIONSHIPS
+    """
     request_from = db.relationship(
-        'FriendRequest', backref="friend_request_to", primaryjoin=id == FriendRequest.requesting_user_id
+        'FriendRequest', back_populates="request", primaryjoin=id == FriendRequest.requesting_user_id
     )
 
     accept_by = db.relationship(
-        'FriendRequest', backref="accept_friends_request", primaryjoin=id == FriendRequest.accepting_friend_id
+        'FriendRequest', back_populates="pending", primaryjoin=id == FriendRequest.accepting_friend_id
     )
 
+    """
+    HOROSCOPE POST RELATIONSHIPS
+    """
     post_details = db.relationship(
         "HoroscopePost", back_populates="user_details",
         cascade="all, delete")
+
+    """
+    LIKE RELATIONSHIP
+    """
 
     like_details = db.relationship(
         "Like",
         back_populates="user_details",
         cascade="all,delete")
+
+    """
+    COMMENT RELATIONSHIP
+    """
 
     comment_details = db.relationship(
         "Comment",

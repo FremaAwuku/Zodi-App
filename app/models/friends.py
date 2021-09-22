@@ -8,6 +8,10 @@ class Friend(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     friend_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
+    user_in_choice=db.relationship('User', foreign_keys=[user_id], back_populates="current_user")
+    
+    friend_to_user=db.relationship('User', foreign_keys=[friend_id], back_populates='friend_of_user')
+
     def to_dict(self):
         return{
             'id':self.id,

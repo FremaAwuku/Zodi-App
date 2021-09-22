@@ -7,6 +7,11 @@ class FriendRequest(db.Model):
     requesting_user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     accepting_friend_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
+
+    # owner_of_list = db.relationship('User', foreign_keys=[first_name_id])
+    request= db.relationship('User', foreign_keys=[requesting_user_id])
+    pending= db.relationship('User', foreign_keys=[accepting_friend_id])
+    
     def to_dict(self):
         return{
             'id':self.id,
