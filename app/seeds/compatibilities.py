@@ -9,92 +9,87 @@ def seed_compatabilities():
     aries_aries = Compatibility(
         sign_1="Aries",
         sign_2="Aries",
-        rating = ,
-        description= ,
-
+        rating = 6,
+        description="Your signs are conjunct. Your styles in love are so similar, it’s uncanny. Your relationship is very intense." ,
     )
     commit.append(aries_aries)
 
     aries_taurus = Compatibility(
         sign_1="Aries",
         sign_2="Taurus",
-        rating = ,
-        description= ,
-
+        rating = 3,
+        description= "Your signs are semi-sextile. You don’t really understand each other’s style and love. Your relationship requires some adjustments. It would be wise to learn each other‘s love languages.",
     )
     commit.append(aries_taurus)
 
     aries_gemini = Compatibility(
         sign_1="Aries",
         sign_2="Gemini",
-        rating = ,
-        description= ,
-
+        rating = 5 ,
+        description= "Your signs are sextile. You appreciate each others styles in love. It’s easy to collaborate with one another." ,
     )
     commit.append(aries_gemini)
 
     aries_cancer = Compatibility(
         sign_1="Aries",
         sign_2="Cancer",
-        rating = ,
-        description= ,
-
+        rating = 1,
+        description= "Your signs are square. It’s very challenging to understand each other‘s needs and love, and classes are frequent. Nevertheless, the attraction can be very strong",
     )
     commit.append(aries_cancer)
 
     aries_leo = Compatibility(
         sign_1="Aries",
         sign_2="Leo",
-        rating = ,
-        description= ,
-
+        rating = 7,
+        description= "Your signs are trine. Your styles in love are similar enough to understand, and different enough to be exciting.",
     )
     commit.append(aries_leo)
 
     aries_virgo = Compatibility(
         sign_1="Aries",
         sign_2="Virgo",
-        rating = ,
-        description= ,
+        rating =2 ,
+        description= "Your signs are inconjunct. If an attraction exists, it’s magnetic and binding, but it’s hard to find a reason for it, and plenty of adjustments are necessary.",
     )
     commit.append(aries_virgo)
     aries_libra = Compatibility(
         sign_1="Aries",
         sign_2="Libra",
-        rating = ,
-        description= ,
+        rating = 4,
+        description= "Your signs are opposite. You find each other fascinating, frustrating, and intriguing – all at the same time!",
 
     )
     commit.append(aries_libra)
     aries_scorpio = Compatibility(
         sign_1="Aries",
         sign_2="Scorpio",
-        rating = ,
-        description= ,
+        rating =2 ,
+        description= "Your signs are inconjunct. If an attraction exists, it’s magnetic and binding, but it’s hard to find a reason for it, and plenty of adjustments are necessary.",
 
     )
     commit.append(aries_scorpio)
     aries_sagittarius = Compatibility(
         sign_1="Aries",
         sign_2="Sagittarius",
-        rating = ,
-        description= ,
+        rating = 7,
+        description= "Your signs are trine. Your styles in love are similar enough to understand, and different enough to be exciting." ,
 
     )
     commit.append(aries_sagittarius)
     aries_capricorn = Compatibility(
         sign_1="Aries",
         sign_2="Capricorn",
-        rating = ,
-        description= ,
+        rating =1 ,
+        description= "Your signs are square. It’s very challenging to understand each other‘s needs and love, and classes are frequent. Nevertheless, the attraction can be very strong",
 
     )
     commit.append(aries_capricorn)
     aries_aquarius = Compatibility(
         sign_1="Aries",
         sign_2="Aquarius",
-        rating = ,
-        description= ,
+        rating = 5,
+        description="Your signs are sextile. You appreciate each others styles in love. It’s easy to collaborate with one another." ,
 
     )
     commit.append(aries_aquarius)
@@ -102,8 +97,8 @@ def seed_compatabilities():
     aries_pisces = Compatibility(
         sign_1="Aries",
         sign_2="Aquarius",
-        rating = ,
-        description= ,
+        rating = 3,
+        description= "your signs are semi-sextile. You don’t really understand each other’s style and love. Your relationship requires some adjustments. It would be wise to learn each other‘s love languages.",
 
     )
     commit.append(aries_pisces)
@@ -114,8 +109,8 @@ def seed_compatabilities():
     taurus_aries = Compatibility(
         sign_1="Taurus",
         sign_2="Aries",
-        rating = ,
-        description= ,
+        rating = 3,
+        description="Your signs are semi-sextile. You don’t really understand each other’s style and love. Your relationship requires some adjustments. It would be wise to learn each other‘s love languages." ,
 
     )
     commit.append(taurus_aries)
@@ -123,8 +118,8 @@ def seed_compatabilities():
     taurus_taurus = Compatibility(
         sign_1="Taurus",
         sign_2="Taurus",
-        rating = ,
-        description= ,
+        rating= 6,
+        description="Your signs are conjunct. Your styles in love are so similar, it’s uncanny. Your relationship is very intense." ,
 
     )
     commit.append(taurus_taurus)
@@ -132,8 +127,8 @@ def seed_compatabilities():
     taurus_gemini = Compatibility(
         sign_1="Taurus",
         sign_2="Gemini",
-        rating = ,
-        description= ,
+        rating = 3,
+        description= "Your signs are semi-sextile. You don’t really understand each other’s style and love. Your relationship requires some adjustments. It would be wise to learn each other‘s love languages.",
 
     )
     commit.append(taurus_gemini)
@@ -141,8 +136,8 @@ def seed_compatabilities():
     taurus_cancer = Compatibility(
         sign_1="Taurus",
         sign_2="Cancer",
-        rating = ,
-        description= ,
+        rating = 5,
+        description= "Your signs are sextile. You appreciate each others styles in love. It’s easy to collaborate with one another." ,
 
     )
     commit.append(taurus_cancer)
@@ -150,8 +145,8 @@ def seed_compatabilities():
     taurus_leo = Compatibility(
         sign_1="Taurus",
         sign_2="Leo",
-        rating = ,
-        description= ,
+        rating = 1,
+        description= "Your signs are square. It’s very challenging to understand each other‘s needs and love, and classes are frequent. Nevertheless, the attraction can be very strong",
 
     )
     commit.append(taurus_leo)
@@ -159,8 +154,8 @@ def seed_compatabilities():
     taurus_virgo = Compatibility(
         sign_1="Taurus",
         sign_2="Virgo",
-        rating = ,
-        description= ,
+        rating = 7,
+        description= "Your signs are trine. Your styles in love are similar enough to understand, and different enough to be exciting.",
 
     )
     commit.append(taurus_virgo)
@@ -168,8 +163,8 @@ def seed_compatabilities():
     taurus_libra = Compatibility(
         sign_1="Taurus",
         sign_2="Libra",
-        rating = ,
-        description= ,
+        rating = 2,
+        description= "Your signs are inconjunct. If an attraction exists, it’s magnetic and binding, but it’s hard to find a reason for it, and plenty of adjustments are necessary.",
 
     )
     commit.append(taurus_libra)
@@ -177,8 +172,8 @@ def seed_compatabilities():
     taurus_scorpio = Compatibility(
         sign_1="Taurus",
         sign_2="Scorpio",
-        rating = ,
-        description= ,
+        rating =4 ,
+        description= "Your signs are opposite. You find each other fascinating, frustrating, and intriguing – all at the same time!",
 
     )
     commit.append(taurus_scorpio)
@@ -186,8 +181,8 @@ def seed_compatabilities():
     taurus_sagittarius = Compatibility(
         sign_1="Taurus",
         sign_2="Sagittarius",
-        rating = ,
-        description= ,
+        rating = 2,
+        description= "Your signs are inconjunct. If an attraction exists, it’s magnetic and binding, but it’s hard to find a reason for it, and plenty of adjustments are necessary.",
 
     )
     commit.append(taurus_sagittarius)
@@ -195,8 +190,8 @@ def seed_compatabilities():
     taurus_capricorn = Compatibility(
         sign_1="Taurus",
         sign_2="Capricorn",
-        rating = ,
-        description= ,
+        rating = 7,
+        description= "Your signs are trine. Your styles in love are similar enough to understand, and different enough to be exciting.",
 
     )
     commit.append(taurus_capricorn)
@@ -204,8 +199,8 @@ def seed_compatabilities():
     taurus_aquarius = Compatibility(
         sign_1="Taurus",
         sign_2="Aquarius",
-        rating = ,
-        description= ,
+        rating = 1,
+        description= "Your signs are square. It’s very challenging to understand each other‘s needs and love, and classes are frequent. Nevertheless, the attraction can be very strong",
 
     )
     commit.append(taurus_aquarius)
@@ -214,8 +209,8 @@ def seed_compatabilities():
     taurus_pisces = Compatibility(
         sign_1="Taurus",
         sign_2="Pisces",
-        rating = ,
-        description= ,
+        rating = 5,
+        description= "Your signs are sextile. You appreciate each others styles in love. It’s easy to collaborate with one another.",
     )
     commit.append(taurus_pisces)
 
@@ -230,8 +225,8 @@ def seed_compatabilities():
     gemini_aries = Compatibility(
         sign_1="Gemini",
         sign_2="Aries",
-        rating = ,
-        description= ,
+        rating = 5,
+        description= "Your signs are sextile. You appreciate each others styles in love. It’s easy to collaborate with one another.",
 
     )
     commit.append(gemini_aries)
@@ -239,8 +234,8 @@ def seed_compatabilities():
     gemini_taurus = Compatibility(
         sign_1="Gemini",
         sign_2="Gemini",
-        rating = ,
-        description= ,
+        rating = 3,
+        description= "Your signs are semi-sextile. You don’t really understand each other’s style and love. Your relationship requires some adjustments. It would be wise to learn each other‘s love languages.",
 
     )
     commit.append(gemini_taurus)
@@ -248,8 +243,8 @@ def seed_compatabilities():
     gemini_gemini = Compatibility(
         sign_1="Gemini",
         sign_2="Gemini",
-        rating = ,
-        description= ,
+        rating =6,
+        description="Your signs are conjunct. Your styles in love are so similar, it’s uncanny. Your relationship is very intense." ,
 
     )
     commit.append(gemini_gemini)
@@ -257,8 +252,8 @@ def seed_compatabilities():
     gemini_cancer = Compatibility(
         sign_1="Gemini",
         sign_2="Cancer",
-        rating = ,
-        description= ,
+        rating = 3,
+        description= "Your signs are semi-sextile. You don’t really understand each other’s style and love. Your relationship requires some adjustments. It would be wise to learn each other‘s love languages.",
 
     )
     commit.append(gemini_cancer)
@@ -266,8 +261,8 @@ def seed_compatabilities():
     gemini_leo = Compatibility(
         sign_1="Gemini",
         sign_2="Leo",
-        rating = ,
-        description= ,
+        rating =5 ,
+        description= "Your signs are sextile. You appreciate each others styles in love. It’s easy to collaborate with one another.",
 
     )
     commit.append(gemini_leo)
@@ -275,8 +270,8 @@ def seed_compatabilities():
     gemini_virgo = Compatibility(
         sign_1="Gemini",
         sign_2="Virgo",
-        rating = ,
-        description= ,
+        rating = 1,
+        description="Your signs are square. It’s very challenging to understand each other‘s needs and love, and classes are frequent. Nevertheless, the attraction can be very strong" ,
 
     )
     commit.append(gemini_virgo)
@@ -284,8 +279,8 @@ def seed_compatabilities():
     gemini_libra = Compatibility(
         sign_1="Gemini",
         sign_2="Libra",
-        rating = ,
-        description= ,
+        rating = 7,
+        description= "Your signs are trine. Your styles in love are similar enough to understand, and different enough to be exciting.",
 
     )
     commit.append(gemini_libra)
@@ -293,8 +288,8 @@ def seed_compatabilities():
     gemini_scorpio = Compatibility(
         sign_1="Gemini",
         sign_2="Scorpio",
-        rating = ,
-        description= ,
+        rating = 2,
+        description= "Your signs are inconjunct. If an attraction exists, it’s magnetic and binding, but it’s hard to find a reason for it, and plenty of adjustments are necessary.",
 
     )
     commit.append(gemini_scorpio)
@@ -302,8 +297,8 @@ def seed_compatabilities():
     gemini_sagittarius = Compatibility(
         sign_1="Gemini",
         sign_2="Sagittarius",
-        rating = ,
-        description= ,
+        rating = 4,
+        description= "Your signs are opposite. You find each other fascinating, frustrating, and intriguing – all at the same time!",
 
     )
     commit.append(gemini_sagittarius)
@@ -311,8 +306,8 @@ def seed_compatabilities():
     gemini_capricorn = Compatibility(
         sign_1="Gemini",
         sign_2="Capricorn",
-        rating = ,
-        description= ,
+        rating = 2,
+        description= "Your signs are inconjunct. If an attraction exists, it’s magnetic and binding, but it’s hard to find a reason for it, and plenty of adjustments are necessary.",
 
     )
     commit.append(gemini_capricorn)
@@ -320,8 +315,8 @@ def seed_compatabilities():
     gemini_aquarius = Compatibility(
         sign_1="Gemini",
         sign_2="Aquarius",
-        rating = ,
-        description= ,
+        rating = 7,
+        description= "Your signs are trine. Your styles in love are similar enough to understand, and different enough to be exciting.",
 
     )
     commit.append(gemini_aquarius)
@@ -330,8 +325,8 @@ def seed_compatabilities():
     gemini_pisces = Compatibility(
         sign_1="Gemini",
         sign_2="Pisces",
-        rating = ,
-        description= ,
+        rating = 1,
+        description= "Your signs are square. It’s very challenging to understand each other‘s needs and love, and classes are frequent. Nevertheless, the attraction can be very strong",
     )
     commit.append(gemini_pisces)
 
@@ -343,8 +338,8 @@ def seed_compatabilities():
     cancer_aries = Compatibility(
         sign_1="Cancer",
         sign_2="Aries",
-        rating = ,
-        description= ,
+        rating = 1,
+        description= "Your signs are square. It’s very challenging to understand each other‘s needs and love, and classes are frequent. Nevertheless, the attraction can be very strong",
 
     )
     commit.append(cancer_aries)
@@ -352,8 +347,8 @@ def seed_compatabilities():
     cancer_taurus = Compatibility(
         sign_1="Cancer",
         sign_2="Taurus",
-        rating = ,
-        description= ,
+        rating = 5,
+        description= "Your signs are sextile. You appreciate each others styles in love. It’s easy to collaborate with one another.",
 
     )
     commit.append(cancer_taurus)
@@ -361,8 +356,8 @@ def seed_compatabilities():
     cancer_gemini = Compatibility(
         sign_1="Cancer",
         sign_2="Gemini",
-        rating = ,
-        description= ,
+        rating = 3,
+        description="Your signs are semi-sextile. You don’t really understand each other’s style and love. Your relationship requires some adjustments. It would be wise to learn each other‘s love languages." ,
 
     )
     commit.append(cancer_gemini)
@@ -370,8 +365,8 @@ def seed_compatabilities():
     cancer_cancer = Compatibility(
         sign_1="Cancer",
         sign_2="Cancer",
-        rating = ,
-        description= ,
+        rating= 6,
+        description="Your signs are conjunct. Your styles in love are so similar, it’s uncanny. Your relationship is very intense." ,
 
     )
     commit.append(cancer_cancer)
@@ -379,8 +374,8 @@ def seed_compatabilities():
     cancer_leo = Compatibility(
         sign_1="Cancer",
         sign_2="Leo",
-        rating = ,
-        description= ,
+        rating = 3,
+        description="Your signs are semi-sextile. You don’t really understand each other’s style and love. Your relationship requires some adjustments. It would be wise to learn each other‘s love languages." ,
 
     )
     commit.append(cancer_leo)
@@ -388,8 +383,8 @@ def seed_compatabilities():
     cancer_virgo = Compatibility(
         sign_1="Cancer",
         sign_2="Virgo",
-        rating = ,
-        description= ,
+        rating = 5,
+        description= "Your signs are sextile. You appreciate each others styles in love. It’s easy to collaborate with one another.",
 
     )
     commit.append(cancer_virgo)
@@ -397,8 +392,8 @@ def seed_compatabilities():
     cancer_libra = Compatibility(
         sign_1="Cancer",
         sign_2="Libra",
-        rating = ,
-        description= ,
+        rating = 1,
+        description= "Your signs are square. It’s very challenging to understand each other‘s needs and love, and classes are frequent. Nevertheless, the attraction can be very strong",
 
     )
     commit.append(cancer_libra)
@@ -406,8 +401,8 @@ def seed_compatabilities():
     cancer_scorpio = Compatibility(
         sign_1="Cancer",
         sign_2="Scorpio",
-        rating = ,
-        description= ,
+        rating = 7,
+        description= "Your signs are trine. Your styles in love are similar enough to understand, and different enough to be exciting.",
 
     )
     commit.append(cancer_scorpio)
@@ -415,8 +410,8 @@ def seed_compatabilities():
     cancer_sagittarius = Compatibility(
         sign_1="Cancer",
         sign_2="Sagittarius",
-        rating = ,
-        description= ,
+        rating = 2,
+        description= "Your signs are inconjunct. If an attraction exists, it’s magnetic and binding, but it’s hard to find a reason for it, and plenty of adjustments are necessary.",
 
     )
     commit.append(cancer_sagittarius)
@@ -424,8 +419,8 @@ def seed_compatabilities():
     cancer_capricorn = Compatibility(
         sign_1="Cancer",
         sign_2="Capricorn",
-        rating = ,
-        description= ,
+        rating = 4,
+        description= "Your signs are opposite. You find each other fascinating, frustrating, and intriguing – all at the same time!",
 
     )
     commit.append(cancer_capricorn)
@@ -433,8 +428,8 @@ def seed_compatabilities():
     cancer_aquarius = Compatibility(
         sign_1="Cancer",
         sign_2="Aquarius",
-        rating = ,
-        description= ,
+        rating = 2,
+        description= "Your signs are inconjunct. If an attraction exists, it’s magnetic and binding, but it’s hard to find a reason for it, and plenty of adjustments are necessary.",
 
     )
     commit.append(cancer_aquarius)
@@ -443,8 +438,8 @@ def seed_compatabilities():
     cancer_pisces = Compatibility(
         sign_1="Cancer",
         sign_2="Pisces",
-        rating = ,
-        description= ,
+        rating = 7,
+        description= "Your signs are trine. Your styles in love are similar enough to understand, and different enough to be exciting." ,
     )
     commit.append(cancer_pisces)
 
@@ -456,8 +451,8 @@ def seed_compatabilities():
     leo_aries = Compatibility(
         sign_1="Leo",
         sign_2="Aries",
-        rating = ,
-        description= ,
+        rating = 7,
+        description= "Your signs are trine. Your styles in love are similar enough to understand, and different enough to be exciting.",
 
     )
     commit.append(leo_aries)
@@ -465,8 +460,8 @@ def seed_compatabilities():
     leo_taurus = Compatibility(
         sign_1="Leo",
         sign_2="Taurus",
-        rating = ,
-        description= ,
+        rating = 1,
+        description= "Your signs are square. It’s very challenging to understand each other‘s needs and love, and classes are frequent. Nevertheless, the attraction can be very strong",
 
     )
     commit.append(leo_taurus)
@@ -474,8 +469,8 @@ def seed_compatabilities():
     leo_gemini = Compatibility(
         sign_1="Leo",
         sign_2="Gemini",
-        rating = ,
-        description= ,
+        rating = 5,
+        description= "Your signs are sextile. You appreciate each others styles in love. It’s easy to collaborate with one another.",
 
     )
     commit.append(leo_gemini)
@@ -483,8 +478,8 @@ def seed_compatabilities():
     leo_cancer = Compatibility(
         sign_1="Leo",
         sign_2="Cancer",
-        rating = ,
-        description= ,
+        rating = 3,
+        description="Your signs are semi-sextile. You don’t really understand each other’s style and love. Your relationship requires some adjustments. It would be wise to learn each other‘s love languages." ,
 
     )
     commit.append(leo_cancer)
@@ -492,8 +487,8 @@ def seed_compatabilities():
     leo_leo = Compatibility(
         sign_1="Leo",
         sign_2="Leo",
-        rating = ,
-        description= ,
+        rating= 6,
+        description="Your signs are conjunct. Your styles in love are so similar, it’s uncanny. Your relationship is very intense." ,
 
     )
     commit.append(leo_leo)
@@ -501,8 +496,8 @@ def seed_compatabilities():
     leo_virgo = Compatibility(
         sign_1="Leo",
         sign_2="Virgo",
-        rating = ,
-        description= ,
+        rating = 3,
+        description="Your signs are semi-sextile. You don’t really understand each other’s style and love. Your relationship requires some adjustments. It would be wise to learn each other‘s love languages." ,
 
     )
     commit.append(leo_virgo)
@@ -510,8 +505,8 @@ def seed_compatabilities():
     leo_libra = Compatibility(
         sign_1="Leo",
         sign_2="Libra",
-        rating = ,
-        description= ,
+        rating = 5,
+        description= "Your signs are sextile. You appreciate each others styles in love. It’s easy to collaborate with one another.",
 
     )
     commit.append(leo_libra)
@@ -519,8 +514,8 @@ def seed_compatabilities():
     leo_scorpio = Compatibility(
         sign_1="Leo",
         sign_2="Scorpio",
-        rating = ,
-        description= ,
+        rating = 1,
+        description= "Your signs are square. It’s very challenging to understand each other‘s needs and love, and classes are frequent. Nevertheless, the attraction can be very strong",
 
     )
     commit.append(leo_scorpio)
@@ -528,8 +523,8 @@ def seed_compatabilities():
     leo_sagittarius = Compatibility(
         sign_1="Leo",
         sign_2="Sagittarius",
-        rating = ,
-        description= ,
+        rating = 7,
+        description= "Your signs are trine. Your styles in love are similar enough to understand, and different enough to be exciting.",
 
     )
     commit.append(leo_sagittarius)
@@ -537,8 +532,8 @@ def seed_compatabilities():
     leo_capricorn = Compatibility(
         sign_1="Leo",
         sign_2="Capricorn",
-        rating = ,
-        description= ,
+        rating = 2,
+        description= "Your signs are inconjunct. If an attraction exists, it’s magnetic and binding, but it’s hard to find a reason for it, and plenty of adjustments are necessary.",
 
     )
     commit.append(leo_capricorn)
@@ -546,8 +541,8 @@ def seed_compatabilities():
     leo_aquarius = Compatibility(
         sign_1="Leo",
         sign_2="Aquarius",
-        rating = ,
-        description= ,
+        rating = 4,
+        description= "Your signs are opposite. You find each other fascinating, frustrating, and intriguing – all at the same time!",
 
     )
     commit.append(leo_aquarius)
@@ -556,8 +551,8 @@ def seed_compatabilities():
     leo_pisces = Compatibility(
         sign_1="Leo",
         sign_2="Pisces",
-        rating = ,
-        description= ,
+        rating = 2,
+        description= "Your signs are inconjunct. If an attraction exists, it’s magnetic and binding, but it’s hard to find a reason for it, and plenty of adjustments are necessary.",
     )
     commit.append(leo_pisces)
 
@@ -568,8 +563,8 @@ def seed_compatabilities():
     virgo_aries = Compatibility(
         sign_1="Virgo",
         sign_2="Aries",
-        rating = ,
-        description= ,
+        rating = 2,
+        description= "Your signs are inconjunct. If an attraction exists, it’s magnetic and binding, but it’s hard to find a reason for it, and plenty of adjustments are necessary.",
 
     )
     commit.append(virgo_aries)
@@ -577,8 +572,8 @@ def seed_compatabilities():
     virgo_taurus = Compatibility(
         sign_1="Virgo",
         sign_2="Taurus",
-        rating = ,
-        description= ,
+        rating = 7,
+        description= "Your signs are trine. Your styles in love are similar enough to understand, and different enough to be exciting.",
 
     )
     commit.append(virgo_taurus)
@@ -586,8 +581,8 @@ def seed_compatabilities():
     virgo_gemini = Compatibility(
         sign_1="Virgo",
         sign_2="Gemini",
-        rating = ,
-        description= ,
+        rating = 1,
+        description= "Your signs are square. It’s very challenging to understand each other‘s needs and love, and classes are frequent. Nevertheless, the attraction can be very strong",
 
     )
     commit.append(virgo_gemini)
@@ -595,8 +590,8 @@ def seed_compatabilities():
     virgo_cancer = Compatibility(
         sign_1="Virgo",
         sign_2="Cancer",
-        rating = ,
-        description= ,
+        rating = 5,
+        description= "Your signs are sextile. You appreciate each others styles in love. It’s easy to collaborate with one another.",
 
     )
     commit.append(virgo_cancer)
@@ -604,8 +599,8 @@ def seed_compatabilities():
     virgo_leo = Compatibility(
         sign_1="Virgo",
         sign_2="Leo",
-        rating = ,
-        description= ,
+        rating = 3,
+        description="Your signs are semi-sextile. You don’t really understand each other’s style and love. Your relationship requires some adjustments. It would be wise to learn each other‘s love languages." ,
 
     )
     commit.append(virgo_leo)
@@ -613,8 +608,8 @@ def seed_compatabilities():
     virgo_virgo = Compatibility(
         sign_1="Virgo",
         sign_2="Virgo",
-        rating = ,
-        description= ,
+        rating= 6,
+        description="Your signs are conjunct. Your styles in love are so similar, it’s uncanny. Your relationship is very intense." ,
 
     )
     commit.append(virgo_virgo)
@@ -622,8 +617,8 @@ def seed_compatabilities():
     virgo_libra = Compatibility(
         sign_1="Virgo",
         sign_2="Libra",
-        rating = ,
-        description= ,
+        rating = 3,
+        description= "Your signs are semi-sextile. You don’t really understand each other’s style and love. Your relationship requires some adjustments. It would be wise to learn each other‘s love languages.",
 
     )
     commit.append(virgo_libra)
@@ -631,8 +626,8 @@ def seed_compatabilities():
     virgo_scorpio = Compatibility(
         sign_1="Virgo",
         sign_2="Scorpio",
-        rating = ,
-        description= ,
+        rating = 5,
+        description= "Your signs are sextile. You appreciate each others styles in love. It’s easy to collaborate with one another.",
 
     )
     commit.append(virgo_scorpio)
@@ -640,8 +635,8 @@ def seed_compatabilities():
     virgo_sagittarius = Compatibility(
         sign_1="Virgo",
         sign_2="Sagittarius",
-        rating = ,
-        description= ,
+        rating = 1,
+        description= "Your signs are square. It’s very challenging to understand each other‘s needs and love, and classes are frequent. Nevertheless, the attraction can be very strong",
 
     )
     commit.append(virgo_sagittarius)
@@ -649,8 +644,8 @@ def seed_compatabilities():
     virgo_capricorn = Compatibility(
         sign_1="Virgo",
         sign_2="Capricorn",
-        rating = ,
-        description= ,
+        rating = 7,
+        description= "Your signs are trine. Your styles in love are similar enough to understand, and different enough to be exciting." ,
 
     )
     commit.append(virgo_capricorn)
@@ -658,8 +653,8 @@ def seed_compatabilities():
     virgo_aquarius = Compatibility(
         sign_1="Virgo",
         sign_2="Aquarius",
-        rating = ,
-        description= ,
+        rating = 2,
+        description= "Your signs are inconjunct. If an attraction exists, it’s magnetic and binding, but it’s hard to find a reason for it, and plenty of adjustments are necessary.",
 
     )
     commit.append(virgo_aquarius)
@@ -668,8 +663,8 @@ def seed_compatabilities():
     virgo_pisces = Compatibility(
         sign_1="Virgo",
         sign_2="Pisces",
-        rating = ,
-        description= ,
+        rating = 4,
+        description="Your signs are opposite. You find each other fascinating, frustrating, and intriguing – all at the same time!" ,
     )
     commit.append(virgo_pisces)
 
@@ -680,8 +675,8 @@ def seed_compatabilities():
     libra_aries = Compatibility(
         sign_1="Libra",
         sign_2="Aries",
-        rating = ,
-        description= ,
+        rating = 4,
+        description= "Your signs are opposite. You find each other fascinating, frustrating, and intriguing – all at the same time!",
 
     )
     commit.append(libra_aries)
@@ -689,8 +684,8 @@ def seed_compatabilities():
     libra_taurus = Compatibility(
         sign_1="Libra",
         sign_2="Taurus",
-        rating = ,
-        description= ,
+        rating = 2,
+        description= "Your signs are inconjunct. If an attraction exists, it’s magnetic and binding, but it’s hard to find a reason for it, and plenty of adjustments are necessary.",
 
     )
     commit.append(libra_taurus)
@@ -698,8 +693,8 @@ def seed_compatabilities():
     libra_gemini = Compatibility(
         sign_1="Libra",
         sign_2="Gemini",
-        rating = ,
-        description= ,
+        rating = 7,
+        description= "Your signs are trine. Your styles in love are similar enough to understand, and different enough to be exciting." ,
 
     )
     commit.append(libra_gemini)
@@ -707,8 +702,8 @@ def seed_compatabilities():
     libra_cancer = Compatibility(
         sign_1="Libra",
         sign_2="Cancer",
-        rating = ,
-        description= ,
+        rating = 1,
+        description= "Your signs are square. It’s very challenging to understand each other‘s needs and love, and classes are frequent. Nevertheless, the attraction can be very strong",
 
     )
     commit.append(libra_cancer)
@@ -716,8 +711,8 @@ def seed_compatabilities():
     libra_leo = Compatibility(
         sign_1="Libra",
         sign_2="Leo",
-        rating = ,
-        description= ,
+        rating = 5,
+        description= "Your signs are sextile. You appreciate each others styles in love. It’s easy to collaborate with one another.",
 
     )
     commit.append(libra_leo)
@@ -725,8 +720,8 @@ def seed_compatabilities():
     libra_virgo = Compatibility(
         sign_1="Libra",
         sign_2="Virgo",
-        rating = ,
-        description= ,
+        rating = 3,
+        description="Your signs are semi-sextile. You don’t really understand each other’s style and love. Your relationship requires some adjustments. It would be wise to learn each other‘s love languages." ,
 
     )
     commit.append(libra_virgo)
@@ -734,8 +729,8 @@ def seed_compatabilities():
     libra_libra = Compatibility(
         sign_1="Libra",
         sign_2="Libra",
-        rating = ,
-        description= ,
+        rating= 6,
+        description= "Your signs are conjunct. Your styles in love are so similar, it’s uncanny. Your relationship is very intense." ,
 
     )
     commit.append(libra_libra)
@@ -743,8 +738,8 @@ def seed_compatabilities():
     libra_scorpio = Compatibility(
         sign_1="Libra",
         sign_2="Scorpio",
-        rating = ,
-        description= ,
+        rating = 3,
+        description="Your signs are semi-sextile. You don’t really understand each other’s style and love. Your relationship requires some adjustments. It would be wise to learn each other‘s love languages." ,
 
     )
     commit.append(libra_scorpio)
@@ -752,8 +747,8 @@ def seed_compatabilities():
     libra_sagittarius = Compatibility(
         sign_1="Libra",
         sign_2="Sagittarius",
-        rating = ,
-        description= ,
+        rating = 5,
+        description= "Your signs are sextile. You appreciate each others styles in love. It’s easy to collaborate with one another.",
 
     )
     commit.append(libra_sagittarius)
@@ -761,8 +756,8 @@ def seed_compatabilities():
     libra_capricorn = Compatibility(
         sign_1="Libra",
         sign_2="Capricorn",
-        rating = ,
-        description= ,
+        rating = 1,
+        description= "Your signs are square. It’s very challenging to understand each other‘s needs and love, and classes are frequent. Nevertheless, the attraction can be very strong",
 
     )
     commit.append(libra_capricorn)
@@ -770,8 +765,8 @@ def seed_compatabilities():
     libra_aquarius = Compatibility(
         sign_1="Libra",
         sign_2="Aquarius",
-        rating = ,
-        description= ,
+        rating = 7,
+        description= "Your signs are trine. Your styles in love are similar enough to understand, and different enough to be exciting.",
 
     )
     commit.append(libra_aquarius)
@@ -780,8 +775,8 @@ def seed_compatabilities():
     libra_pisces = Compatibility(
         sign_1="Libra",
         sign_2="Pisces",
-        rating = ,
-        description= ,
+        rating = 2,
+        description= "Your signs are inconjunct. If an attraction exists, it’s magnetic and binding, but it’s hard to find a reason for it, and plenty of adjustments are necessary.",
     )
     commit.append(libra_pisces)
 
@@ -792,8 +787,8 @@ def seed_compatabilities():
     scorpio_aries = Compatibility(
         sign_1="Scorpio",
         sign_2="Aries",
-        rating = ,
-        description= ,
+        rating = 2,
+        description="Your signs are inconjunct. If an attraction exists, it’s magnetic and binding, but it’s hard to find a reason for it, and plenty of adjustments are necessary." ,
 
     )
     commit.append(scorpio_aries)
@@ -801,8 +796,8 @@ def seed_compatabilities():
     scorpio_taurus = Compatibility(
         sign_1="Scorpio",
         sign_2="Taurus",
-        rating = ,
-        description= ,
+        rating = 4,
+        description= "Your signs are opposite. You find each other fascinating, frustrating, and intriguing – all at the same time!",
 
     )
     commit.append(scorpio_taurus)
@@ -810,8 +805,8 @@ def seed_compatabilities():
     scorpio_gemini = Compatibility(
         sign_1="Scorpio",
         sign_2="Gemini",
-        rating = ,
-        description= ,
+        rating = 2,
+        description= "Your signs are inconjunct. If an attraction exists, it’s magnetic and binding, but it’s hard to find a reason for it, and plenty of adjustments are necessary.",
 
     )
     commit.append(scorpio_gemini)
@@ -819,8 +814,8 @@ def seed_compatabilities():
     scorpio_cancer = Compatibility(
         sign_1="Scorpio",
         sign_2="Cancer",
-        rating = ,
-        description= ,
+        rating = 7,
+        description= "Your signs are trine. Your styles in love are similar enough to understand, and different enough to be exciting.",
 
     )
     commit.append(scorpio_cancer)
@@ -828,8 +823,8 @@ def seed_compatabilities():
     scorpio_leo = Compatibility(
         sign_1="Scorpio",
         sign_2="Leo",
-        rating = ,
-        description= ,
+        rating = 1,
+        description= "Your signs are square. It’s very challenging to understand each other‘s needs and love, and classes are frequent. Nevertheless, the attraction can be very strong",
 
     )
     commit.append(scorpio_leo)
@@ -837,8 +832,8 @@ def seed_compatabilities():
     scorpio_virgo = Compatibility(
         sign_1="Scorpio",
         sign_2="Virgo",
-        rating = ,
-        description= ,
+        rating = 5,
+        description= "Your signs are sextile. You appreciate each others styles in love. It’s easy to collaborate with one another.",
 
     )
     commit.append(scorpio_virgo)
@@ -846,8 +841,8 @@ def seed_compatabilities():
     scorpio_libra = Compatibility(
         sign_1="Scorpio",
         sign_2="Libra",
-        rating = ,
-        description= ,
+        rating = 3,
+        description= "Your signs are semi-sextile. You don’t really understand each other’s style and love. Your relationship requires some adjustments. It would be wise to learn each other‘s love languages.",
 
     )
     commit.append(scorpio_libra)
@@ -855,8 +850,8 @@ def seed_compatabilities():
     scorpio_scorpio = Compatibility(
         sign_1="Scorpio",
         sign_2="Scorpio",
-        rating = ,
-        description= ,
+        rating= 6,
+        description="Your signs are conjunct. Your styles in love are so similar, it’s uncanny. Your relationship is very intense." ,
 
     )
     commit.append(scorpio_scorpio)
@@ -864,8 +859,8 @@ def seed_compatabilities():
     scorpio_sagittarius = Compatibility(
         sign_1="Scorpio",
         sign_2="Sagittarius",
-        rating = ,
-        description= ,
+        rating = 3,
+        description= "Your signs are semi-sextile. You don’t really understand each other’s style and love. Your relationship requires some adjustments. It would be wise to learn each other‘s love languages.",
 
     )
     commit.append(scorpio_sagittarius)
@@ -873,8 +868,8 @@ def seed_compatabilities():
     scorpio_capricorn = Compatibility(
         sign_1="Scorpio",
         sign_2="Capricorn",
-        rating = ,
-        description= ,
+        rating = 5,
+        description= "Your signs are sextile. You appreciate each others styles in love. It’s easy to collaborate with one another.",
 
     )
     commit.append(scorpio_capricorn)
@@ -882,8 +877,8 @@ def seed_compatabilities():
     scorpio_aquarius = Compatibility(
         sign_1="Scorpio",
         sign_2="Aquarius",
-        rating = ,
-        description= ,
+        rating = 1,
+        description= "Your signs are square. It’s very challenging to understand each other‘s needs and love, and classes are frequent. Nevertheless, the attraction can be very strong",
 
     )
     commit.append(scorpio_aquarius)
@@ -892,8 +887,8 @@ def seed_compatabilities():
     scorpio_pisces = Compatibility(
         sign_1="Scorpio",
         sign_2="Pisces",
-        rating = ,
-        description= ,
+        rating = 7,
+        description= "Your signs are trine. Your styles in love are similar enough to understand, and different enough to be exciting.",
     )
     commit.append(scorpio_pisces)
 
@@ -904,8 +899,8 @@ def seed_compatabilities():
     sagittarius_aries = Compatibility(
         sign_1="Sagittarius",
         sign_2="Aries",
-        rating = ,
-        description= ,
+        rating = 7,
+        description= "Your signs are trine. Your styles in love are similar enough to understand, and different enough to be exciting.",
 
     )
     commit.append(sagittarius_aries)
@@ -913,8 +908,8 @@ def seed_compatabilities():
     sagittarius_taurus = Compatibility(
         sign_1="Sagittarius",
         sign_2="Taurus",
-        rating = ,
-        description= ,
+        rating = 2,
+        description= "Your signs are inconjunct. If an attraction exists, it’s magnetic and binding, but it’s hard to find a reason for it, and plenty of adjustments are necessary.",
 
     )
     commit.append(sagittarius_taurus)
@@ -922,8 +917,8 @@ def seed_compatabilities():
     sagittarius_gemini = Compatibility(
         sign_1="Sagittarius",
         sign_2="Gemini",
-        rating = ,
-        description= ,
+        rating = 4,
+        description= "Your signs are opposite. You find each other fascinating, frustrating, and intriguing – all at the same time!",
 
     )
     commit.append(sagittarius_gemini)
@@ -931,8 +926,8 @@ def seed_compatabilities():
     sagittarius_cancer = Compatibility(
         sign_1="Sagittarius",
         sign_2="Cancer",
-        rating = ,
-        description= ,
+        rating = 2,
+        description="Your signs are inconjunct. If an attraction exists, it’s magnetic and binding, but it’s hard to find a reason for it, and plenty of adjustments are necessary." ,
 
     )
     commit.append(sagittarius_cancer)
@@ -940,8 +935,8 @@ def seed_compatabilities():
     sagittarius_leo = Compatibility(
         sign_1="Sagittarius",
         sign_2="Leo",
-        rating = ,
-        description= ,
+        rating = 7,
+        description= "Your signs are trine. Your styles in love are similar enough to understand, and different enough to be exciting.",
 
     )
     commit.append(sagittarius_leo)
@@ -949,8 +944,8 @@ def seed_compatabilities():
     sagittarius_virgo = Compatibility(
         sign_1="Sagittarius",
         sign_2="Virgo",
-        rating = ,
-        description= ,
+        rating = 1,
+        description= "Your signs are square. It’s very challenging to understand each other‘s needs and love, and classes are frequent. Nevertheless, the attraction can be very strong",
 
     )
     commit.append(sagittarius_virgo)
@@ -958,8 +953,8 @@ def seed_compatabilities():
     sagittarius_libra = Compatibility(
         sign_1="Sagittarius",
         sign_2="Libra",
-        rating = ,
-        description= ,
+        rating = 5,
+        description= "Your signs are sextile. You appreciate each others styles in love. It’s easy to collaborate with one another.",
 
     )
     commit.append(sagittarius_libra)
@@ -967,8 +962,8 @@ def seed_compatabilities():
     sagittarius_scorpio = Compatibility(
         sign_1="Sagittarius",
         sign_2="Scorpio",
-        rating = ,
-        description= ,
+        rating = 3,
+        description= "Your signs are semi-sextile. You don’t really understand each other’s style and love. Your relationship requires some adjustments. It would be wise to learn each other‘s love languages.",
 
     )
     commit.append(sagittarius_scorpio)
@@ -976,8 +971,8 @@ def seed_compatabilities():
     sagittarius_sagittarius = Compatibility(
         sign_1="Sagittarius",
         sign_2="Sagittarius",
-        rating = ,
-        description= ,
+        rating= 6,
+        description= "Your signs are conjunct. Your styles in love are so similar, it’s uncanny. Your relationship is very intense." ,
 
     )
     commit.append(sagittarius_sagittarius)
@@ -985,8 +980,8 @@ def seed_compatabilities():
     sagittarius_capricorn = Compatibility(
         sign_1="Sagittarius",
         sign_2="Capricorn",
-        rating = ,
-        description= ,
+        rating = 3,
+        description= "Your signs are semi-sextile. You don’t really understand each other’s style and love. Your relationship requires some adjustments. It would be wise to learn each other‘s love languages.",
 
     )
     commit.append(sagittarius_capricorn)
@@ -994,8 +989,8 @@ def seed_compatabilities():
     sagittarius_aquarius = Compatibility(
         sign_1="Sagittarius",
         sign_2="Aquarius",
-        rating = ,
-        description= ,
+        rating = 5,
+        description= "Your signs are sextile. You appreciate each others styles in love. It’s easy to collaborate with one another.",
 
     )
     commit.append(sagittarius_aquarius)
@@ -1004,8 +999,8 @@ def seed_compatabilities():
     sagittarius_pisces = Compatibility(
         sign_1="Sagittarius",
         sign_2="Pisces",
-        rating = ,
-        description= ,
+        rating = 1,
+        description= "Your signs are square. It’s very challenging to understand each other‘s needs and love, and classes are frequent. Nevertheless, the attraction can be very strong",
     )
     commit.append(sagittarius_pisces)
 
@@ -1016,8 +1011,8 @@ def seed_compatabilities():
     capricorn_aries = Compatibility(
         sign_1="Capricorn",
         sign_2="Aries",
-        rating = ,
-        description= ,
+        rating = 1,
+        description= "Your signs are square. It’s very challenging to understand each other‘s needs and love, and classes are frequent. Nevertheless, the attraction can be very strong",
 
     )
     commit.append(capricorn_aries)
@@ -1025,8 +1020,8 @@ def seed_compatabilities():
     capricorn_taurus = Compatibility(
         sign_1="Capricorn",
         sign_2="Taurus",
-        rating = ,
-        description= ,
+        rating = 7,
+        description= "Your signs are trine. Your styles in love are similar enough to understand, and different enough to be exciting.",
 
     )
     commit.append(capricorn_taurus)
@@ -1034,8 +1029,8 @@ def seed_compatabilities():
     capricorn_gemini = Compatibility(
         sign_1="Capricorn",
         sign_2="Gemini",
-        rating = ,
-        description= ,
+        rating = 2,
+        description= "Your signs are inconjunct. If an attraction exists, it’s magnetic and binding, but it’s hard to find a reason for it, and plenty of adjustments are necessary.",
 
     )
     commit.append(capricorn_gemini)
@@ -1043,8 +1038,8 @@ def seed_compatabilities():
     capricorn_cancer = Compatibility(
         sign_1="Capricorn",
         sign_2="Cancer",
-        rating = ,
-        description= ,
+        rating = 4,
+        description= "Your signs are opposite. You find each other fascinating, frustrating, and intriguing – all at the same time!",
 
     )
     commit.append(capricorn_cancer)
@@ -1052,8 +1047,8 @@ def seed_compatabilities():
     capricorn_leo = Compatibility(
         sign_1="Capricorn",
         sign_2="Leo",
-        rating = ,
-        description= ,
+        rating = 2,
+        description= "Your signs are inconjunct. If an attraction exists, it’s magnetic and binding, but it’s hard to find a reason for it, and plenty of adjustments are necessary.",
 
     )
     commit.append(capricorn_leo)
@@ -1061,8 +1056,8 @@ def seed_compatabilities():
     capricorn_virgo = Compatibility(
         sign_1="Capricorn",
         sign_2="Virgo",
-        rating = ,
-        description= ,
+        rating = 7,
+        description= "Your signs are trine. Your styles in love are similar enough to understand, and different enough to be exciting.",
 
     )
     commit.append(capricorn_virgo)
@@ -1070,8 +1065,8 @@ def seed_compatabilities():
     capricorn_libra = Compatibility(
         sign_1="Capricorn",
         sign_2="Libra",
-        rating = ,
-        description= ,
+        rating = 1,
+        description="Your signs are square. It’s very challenging to understand each other‘s needs and love, and classes are frequent. Nevertheless, the attraction can be very strong" ,
 
     )
     commit.append(capricorn_libra)
@@ -1079,8 +1074,8 @@ def seed_compatabilities():
     capricorn_scorpio = Compatibility(
         sign_1="Capricorn",
         sign_2="Scorpio",
-        rating = ,
-        description= ,
+        rating = 5,
+        description= "Your signs are sextile. You appreciate each others styles in love. It’s easy to collaborate with one another.",
 
     )
     commit.append(capricorn_scorpio)
@@ -1088,8 +1083,8 @@ def seed_compatabilities():
     capricorn_sagittarius = Compatibility(
         sign_1="Capricorn",
         sign_2="Sagittarius",
-        rating = ,
-        description= ,
+        rating = 3,
+        description= "Your signs are semi-sextile. You don’t really understand each other’s style and love. Your relationship requires some adjustments. It would be wise to learn each other‘s love languages.",
 
     )
     commit.append(capricorn_sagittarius)
@@ -1097,8 +1092,8 @@ def seed_compatabilities():
     capricorn_capricorn = Compatibility(
         sign_1="Capricorn",
         sign_2="Capricorn",
-        rating = ,
-        description= ,
+        rating= 6,
+        description= "Your signs are conjunct. Your styles in love are so similar, it’s uncanny. Your relationship is very intense." ,
 
     )
     commit.append(capricorn_capricorn)
@@ -1106,8 +1101,8 @@ def seed_compatabilities():
     capricorn_aquarius = Compatibility(
         sign_1="Capricorn",
         sign_2="Aquarius",
-        rating = ,
-        description= ,
+        rating = 3,
+        description="Your signs are semi-sextile. You don’t really understand each other’s style and love. Your relationship requires some adjustments. It would be wise to learn each other‘s love languages." ,
 
     )
     commit.append(capricorn_aquarius)
@@ -1116,8 +1111,8 @@ def seed_compatabilities():
     capricorn_pisces = Compatibility(
         sign_1="Capricorn",
         sign_2="Pisces",
-        rating = ,
-        description= ,
+        rating = 5,
+        description= "Your signs are sextile. You appreciate each others styles in love. It’s easy to collaborate with one another.",
     )
     commit.append(capricorn_pisces)
 
@@ -1128,8 +1123,8 @@ def seed_compatabilities():
     aquarius_aries = Compatibility(
         sign_1="Aquarius",
         sign_2="Aries",
-        rating = ,
-        description= ,
+        rating = 5,
+        description= "Your signs are sextile. You appreciate each others styles in love. It’s easy to collaborate with one another.",
 
     )
     commit.append(aquarius_aries)
@@ -1137,8 +1132,8 @@ def seed_compatabilities():
     aquarius_taurus = Compatibility(
         sign_1="Aquarius",
         sign_2="Taurus",
-        rating = ,
-        description= ,
+        rating = 1,
+        description= "Your signs are square. It’s very challenging to understand each other‘s needs and love, and classes are frequent. Nevertheless, the attraction can be very strong",
 
     )
     commit.append(aquarius_taurus)
@@ -1146,8 +1141,8 @@ def seed_compatabilities():
     aquarius_gemini = Compatibility(
         sign_1="Aquarius",
         sign_2="Gemini",
-        rating = ,
-        description= ,
+        rating = 7,
+        description= "Your signs are trine. Your styles in love are similar enough to understand, and different enough to be exciting.",
 
     )
     commit.append(aquarius_gemini)
@@ -1155,8 +1150,8 @@ def seed_compatabilities():
     aquarius_cancer = Compatibility(
         sign_1="Aquarius",
         sign_2="Cancer",
-        rating = ,
-        description= ,
+        rating = 2,
+        description= "Your signs are inconjunct. If an attraction exists, it’s magnetic and binding, but it’s hard to find a reason for it, and plenty of adjustments are necessary.",
 
     )
     commit.append(aquarius_cancer)
@@ -1164,17 +1159,16 @@ def seed_compatabilities():
     aquarius_leo = Compatibility(
         sign_1="Aquarius",
         sign_2="Leo",
-        rating = ,
-        description= ,
-
+        rating = 4,
+        description= "Your signs are opposite. You find each other fascinating, frustrating, and intriguing – all at the same time!",
     )
     commit.append(aquarius_leo)
 
     aquarius_virgo = Compatibility(
         sign_1="Aquarius",
         sign_2="Virgo",
-        rating = ,
-        description= ,
+        rating = 2,
+        description= "Your signs are inconjunct. If an attraction exists, it’s magnetic and binding, but it’s hard to find a reason for it, and plenty of adjustments are necessary.",
 
     )
     commit.append(aquarius_virgo)
@@ -1182,8 +1176,8 @@ def seed_compatabilities():
     aquarius_libra = Compatibility(
         sign_1="Aquarius",
         sign_2="Libra",
-        rating = ,
-        description= ,
+        rating = 7,
+        description= "Your signs are trine. Your styles in love are similar enough to understand, and different enough to be exciting.",
 
     )
     commit.append(aquarius_libra)
@@ -1191,8 +1185,8 @@ def seed_compatabilities():
     aquarius_scorpio = Compatibility(
         sign_1="Aquarius",
         sign_2="Scorpio",
-        rating = ,
-        description= ,
+        rating = 1,
+        description= "Your signs are square. It’s very challenging to understand each other‘s needs and love, and classes are frequent. Nevertheless, the attraction can be very strong",
 
     )
     commit.append(aquarius_scorpio)
@@ -1200,8 +1194,8 @@ def seed_compatabilities():
     aquarius_sagittarius = Compatibility(
         sign_1="Aquarius",
         sign_2="Sagittarius",
-        rating = ,
-        description= ,
+        rating = 5,
+        description= "Your signs are sextile. You appreciate each others styles in love. It’s easy to collaborate with one another.",
 
     )
     commit.append(aquarius_sagittarius)
@@ -1209,8 +1203,8 @@ def seed_compatabilities():
     aquarius_capricorn = Compatibility(
         sign_1="Aquarius",
         sign_2="Capricorn",
-        rating = ,
-        description= ,
+        rating = 3,
+        description= "Your signs are semi-sextile. You don’t really understand each other’s style and love. Your relationship requires some adjustments. It would be wise to learn each other‘s love languages.",
 
     )
     commit.append(aquarius_capricorn)
@@ -1218,8 +1212,8 @@ def seed_compatabilities():
     aquarius_aquarius = Compatibility(
         sign_1="Aquarius",
         sign_2="Aquarius",
-        rating = ,
-        description= ,
+        rating= 6,
+        description="Your signs are conjunct. Your styles in love are so similar, it’s uncanny. Your relationship is very intense." ,
 
     )
     commit.append(aquarius_aquarius)
@@ -1228,8 +1222,8 @@ def seed_compatabilities():
     aquarius_pisces = Compatibility(
         sign_1="Aquarius",
         sign_2="Pisces",
-        rating = ,
-        description= ,
+        rating = 3,
+        description= "Your signs are semi-sextile. You don’t really understand each other’s style and love. Your relationship requires some adjustments. It would be wise to learn each other‘s love languages.",
     )
     commit.append(aquarius_pisces)
 
@@ -1240,8 +1234,8 @@ def seed_compatabilities():
     pisces_aries = Compatibility(
         sign_1="Pisces",
         sign_2="Aries",
-        rating = ,
-        description= ,
+        rating = 3,
+        description= "Your signs are semi-sextile. You don’t really understand each other’s style and love. Your relationship requires some adjustments. It would be wise to learn each other‘s love languages.",
 
     )
     commit.append(pisces_aries)
@@ -1249,8 +1243,8 @@ def seed_compatabilities():
     pisces_taurus = Compatibility(
         sign_1="Pisces",
         sign_2="Taurus",
-        rating = ,
-        description= ,
+        rating = 5,
+        description="Your signs are sextile. You appreciate each others styles in love. It’s easy to collaborate with one another." ,
 
     )
     commit.append(pisces_taurus)
@@ -1258,8 +1252,8 @@ def seed_compatabilities():
     pisces_gemini = Compatibility(
         sign_1="Pisces",
         sign_2="Gemini",
-        rating = ,
-        description= ,
+        rating = 1,
+        description= "Your signs are square. It’s very challenging to understand each other‘s needs and love, and classes are frequent. Nevertheless, the attraction can be very strong",
 
     )
     commit.append(pisces_gemini)
@@ -1267,8 +1261,8 @@ def seed_compatabilities():
     pisces_cancer = Compatibility(
         sign_1="Pisces",
         sign_2="Cancer",
-        rating = ,
-        description= ,
+        rating = 7,
+        description= "Your signs are trine. Your styles in love are similar enough to understand, and different enough to be exciting." ,
 
     )
     commit.append(pisces_cancer)
@@ -1276,8 +1270,8 @@ def seed_compatabilities():
     pisces_leo = Compatibility(
         sign_1="Pisces",
         sign_2="Leo",
-        rating = ,
-        description= ,
+        rating = 2,
+        description= "Your signs are inconjunct. If an attraction exists, it’s magnetic and binding, but it’s hard to find a reason for it, and plenty of adjustments are necessary.",
 
     )
     commit.append(pisces_leo)
@@ -1285,8 +1279,8 @@ def seed_compatabilities():
     pisces_virgo = Compatibility(
         sign_1="Pisces",
         sign_2="Virgo",
-        rating = ,
-        description= ,
+        rating = 4,
+        description= "Your signs are opposite. You find each other fascinating, frustrating, and intriguing – all at the same time!",
 
     )
     commit.append(pisces_virgo)
@@ -1294,8 +1288,8 @@ def seed_compatabilities():
     pisces_libra = Compatibility(
         sign_1="Pisces",
         sign_2="Libra",
-        rating = ,
-        description= ,
+        rating = 2,
+        description="Your signs are inconjunct. If an attraction exists, it’s magnetic and binding, but it’s hard to find a reason for it, and plenty of adjustments are necessary." ,
 
     )
     commit.append(pisces_libra)
@@ -1303,8 +1297,8 @@ def seed_compatabilities():
     pisces_scorpio = Compatibility(
         sign_1="Pisces",
         sign_2="Scorpio",
-        rating = ,
-        description= ,
+        rating = 7,
+        description= "Your signs are trine. Your styles in love are similar enough to understand, and different enough to be exciting.",
 
     )
     commit.append(pisces_scorpio)
@@ -1312,8 +1306,8 @@ def seed_compatabilities():
     pisces_sagittarius = Compatibility(
         sign_1="Pisces",
         sign_2="Sagittarius",
-        rating = ,
-        description= ,
+        rating = 1,
+        description= "Your signs are square. It’s very challenging to understand each other‘s needs and love, and classes are frequent. Nevertheless, the attraction can be very strong",
 
     )
     commit.append(pisces_sagittarius)
@@ -1321,8 +1315,8 @@ def seed_compatabilities():
     pisces_capricorn = Compatibility(
         sign_1="Pisces",
         sign_2="Capricorn",
-        rating = ,
-        description= ,
+        rating = 5,
+        description= "Your signs are sextile. You appreciate each others styles in love. It’s easy to collaborate with one another.",
 
     )
     commit.append(pisces_capricorn)
@@ -1330,8 +1324,8 @@ def seed_compatabilities():
     pisces_aquarius = Compatibility(
         sign_1="Pisces",
         sign_2="Aquarius",
-        rating = ,
-        description= ,
+        rating = 3,
+        description= "Your signs are semi-sextile. You don’t really understand each other’s style and love. Your relationship requires some adjustments. It would be wise to learn each other‘s love languages.",
 
     )
     commit.append(pisces_aquarius)
@@ -1340,11 +1334,15 @@ def seed_compatabilities():
     pisces_pisces = Compatibility(
         sign_1="Pisces",
         sign_2="Pisces",
-        rating = ,
-        description= ,
+        rating= 6,
+        description="Your signs are conjunct. Your styles in love are so similar, it’s uncanny. Your relationship is very intense." ,
     )
     commit.append(pisces_pisces)
 
     for comp in commit:
         db.session.add(comp)
+    db.session.commit()
+
+def undo_compatabilities():
+    db.session.execute('TRUNCATE compatabilities RESTART IDENTITY CASCADE;')
     db.session.commit()
