@@ -4,7 +4,7 @@ from app.models import db, SunSign
 # Adds a demo ZodiacList, you can add other ZodiacLists here if you want
 def seed_sun_signs():
     aries = SunSign(
-        sign = "Aries",
+        sign = 1,
         dates="March 21 - April 19",
         element="Fire" ,
         qualities="Cardinal",
