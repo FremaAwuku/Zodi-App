@@ -15,6 +15,7 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
     profile_picture = db.Column(db.String)
     sun_sign = db.Column(db.String)
+    cusp = db.Column(db.Boolean, default=False)
 
     """
     ZODIAC LIST RELATIONSHIPS
@@ -89,5 +90,6 @@ class User(db.Model, UserMixin):
             'username': self.username,
             'email': self.email,
             'profile_picture': self.profile_picture,
-            'sun_sign': self.sun_sign
+            'sun_sign': self.sun_sign,
+            'cusp':self.cusp
         }

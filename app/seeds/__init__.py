@@ -6,6 +6,7 @@ from .horoscope_posts import seed_horoscope_posts, undo_horoscope_posts
 from .comments import seed_comments, undo_comments
 from .likes import seed_likes, undo_likes
 from .zodiac_lists import seed_zodiac_lists, undo_zodiac_lists
+from .sun_signs import seed_sun_signs, undo_sun_signs
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
 seed_commands = AppGroup('seed')
