@@ -8,8 +8,9 @@ from flask_login import LoginManager
 from .models import db, User, ZodiacList, Friend, FriendRequest, HoroscopePost, Comment, Like
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
-
-
+from .api.zodiac_list_routes import zodiac_list_routes
+from .api.friend_request_routes import friend_request_routes
+from .api.comment_routes import comment_routes
 from .seeds import seed_commands
 
 from .config import Config
@@ -32,6 +33,9 @@ app.cli.add_command(seed_commands)
 app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
+app.register_blueprint(zodiac_list_routes,url_prefix='/api/zodiac_list' )
+app.register_blueprint(friend_request_routes,url_prefix='/api/friend_request' )
+app.register_blueprint(comment_routes, url_prefix='api/comments')
 db.init_app(app)
 Migrate(app, db)
 
