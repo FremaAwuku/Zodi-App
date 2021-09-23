@@ -1,3 +1,4 @@
+from operator import pos
 from flask import Blueprint, request
 from app.models import db, HoroscopePost, Comment, Like
 from flask_login import login_required
@@ -10,7 +11,7 @@ horoscope_posts_routes = Blueprint('horoscope_posts',__name__)
 GET ALL POSTS ON HOROSCOPE FEED
 """
 
-@horoscope_posts_routes.route('/')
+@horoscope_posts_routes.route('')
 def get_all_horoscope_posts(post_id):
 
     posts = HoroscopePost.query.all()
@@ -19,13 +20,22 @@ def get_all_horoscope_posts(post_id):
     return {
         "horoscope_posts":[post.to_dict() for post in posts]
     }
+"""
+GET ONE POST
+"""
+
+@horoscope_posts_routes.route('/<int: post_id>')
+def get_one_post(post_id):
+
+    post = HoroscopePost.query.get(post_id)
+    return post.to_dict()
 
 
 """
 POST HOROSCOPE POST
 """
 
-@horoscope_posts_routes.route('/',methods=['POST'])
+@horoscope_posts_routes.route('',methods=['POST'])
 @login_required
 def post_to_horoscope_feed():
     form = PostForm()

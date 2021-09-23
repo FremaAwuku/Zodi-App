@@ -14,21 +14,21 @@ def flask_form_errors(validation_errors):
             errors.append(f'{inputs} : {error}')
     return errors
 
-@user_routes.route('/')
-@login_required
+@user_routes.route('')
+# @login_required
 def users():
     users = User.query.all()
     return {'users': [user.to_dict() for user in users]}
 
 
 @user_routes.route('/<int:id>')
-@login_required
+# @login_required
 def user(id):
     user = User.query.get(id)
     return user.to_dict()
 
 @user_routes.route('/<int:id>/sun_sign',methods=['PUT'])
-@login_required
+# @login_required
 def user_sun_sign(id):
     form = GetSignForm()
     # form['csrf_token'].data = request.cookies['csrf_token']
@@ -156,7 +156,7 @@ def user_sun_sign(id):
 
 
     user = User.query.get(id)
-    user.sun_sign = user_sign
+    user.sun_sign_id= user_sign
     user.cusp = cusp
     db.session.add(user)
     db.session.commit()
@@ -171,37 +171,53 @@ USER ZODIAC LISTS ================================================
 
 # GET USERS ZODIAC LIST ROWS
 @user_routes.route('/<int:id>/zodiac_list')
-@login_required
+# @login_required
 def get_user_list(id):
     zodiac_list_rows = ZodiacList.query.filter(ZodiacList.user_id == id).all()
-    return zodiac_list_rows.to_dict()
+    return {"zodiac_list_rows":[rows.to_dict() for rows in zodiac_list_rows]}
 
 # CREATE NEW ROW IN ZODIAC LIST
 @user_routes.route('/<int:id>/zodiac_list', methods=['POST'])
-@login_required
+# @login_required
 def new_row_list(id):
     form = NewListRowForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-
+    row = {}
     if form.validate_on_submit():
-        first_name = request.form['first_name']
-        first_name_id = int(request.form['first_name_id'])
-        first_name_sign = int(request.form['first_name_sign'])
 
+        print(request.form,"<<<<<<<<<REQUEST FORM")
+
+        # if request.form['first_name_id']:
+        #     first_name = request.form['first_name']
+        #     first_name_id = int(request.form['first_name_id'])
+        #     first_name_sign = int(request.form['first_name_sign'])
+
+        #     new_row = ZodiacList(
+        #         user_id=id,
+        #         first_name = first_name,
+        #         first_name_id = first_name_id,
+        #         first_name_sign = first_name_sign
+        #     )
+        #     db.session.add(new_row)
+        #     row = new_row
+        # else:
+        first_name = request.form['first_name']
+        first_name_sign = int(request.form['first_name_sign'])
         new_row = ZodiacList(
             user_id=id,
             first_name = first_name,
-            first_name_id = first_name_id,
+
             first_name_sign = first_name_sign
         )
         db.session.add(new_row)
+
         db.session.commit()
         return new_row.to_dict()
     return {"flask-errors":flask_form_errors(form.errors)},401
 
 #ADD COMPATIBILITY TO ROW
 @user_routes.route('/<int:use_id>/zodiac_list/<int:list_id>', methods=['PUT'])
-@login_required
+# @login_required
 def add_row_compatibility(user_id,list_id):
     form = CompatibilityForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -245,14 +261,14 @@ USER FRIENDS==============================================================
 
 # GET USERS FRIENDS
 @user_routes.route('/<int:user_id>/friends')
-@login_required
+# @login_required
 def get_user_friends(user_id):
     user_friends = Friend.query.filter(Friend.user_id == user_id).all()
     return user.to_dict()
 
 #ADD FRIENDSHIP BOTHWAYS
 @user_routes.route('/<int:user_id>/friends/<int:friend_id>')
-@login_required
+# @login_required
 def add_friend_both_ways(user_id, friend_id):
     user_add = Friend(
        user_id=user_id,
@@ -273,7 +289,7 @@ def add_friend_both_ways(user_id, friend_id):
 
 # DELETE FRIENDSHIP BOTHWAYS
 @user_routes.route('/<int:user_id>/friends/<int:friend_id>')
-@login_required
+# @login_required
 def delete_friend_both_ways(user_id, friend_id):
     user_to_delete = Friend.query.filter(Friend.user_id == user_id and Friend.friend_id == friend_id).one()
     friend_to_delete = Friend.query.filter(Friend.user_id == friend_id and Friend.friend_id == user_id).one()
@@ -292,14 +308,14 @@ REQUEST/PENDING==========================================================
 
 #GET USERS INCOMING FRIEND REQUEST (FOR USER TO ACCEPT AS FRIEND)
 @user_routes.route('/<int:user_id>/incoming')
-@login_required
+# @login_required
 def get_incoming_request(user_id):
     incoming_request = FriendRequest.query.filter(FriendRequest.accepting_friend_id == user_id).all()
     return incoming_request.to_dict()
 
 #GET USERS PENDING FRIENDS REQUEST (WAITING FOR FRIEND APPROVAL)
 @user_routes.route('/<int:user_id>/pending')
-@login_required
+# @login_required
 def get_pending_request(user_id):
     pending_request = FriendRequest.query.filter(FriendRequest.requesting_user_id == user_id).all()
     return pending_request.to_dict()
@@ -307,7 +323,7 @@ def get_pending_request(user_id):
 
 # SEND FRIEND REQUEST (FROM USER TO POTENTIAL FRIEND)
 @user_routes.route('/<int:user_id>/request/<int:friend_id>', methods=['POST'])
-@login_required
+# @login_required
 def send_friend_request(user_id,friend_id):
     request = FriendRequest(
         requesting_user_id=user_id,
@@ -323,7 +339,7 @@ USER HOROSCOPE POSTS ===========================
 
 #GET ALL USERS HOROSCOPE POSTS
 @user_routes.route('/<int:user_id>/horoscope_posts')
-@login_required
+# @login_required
 def get_users_posts(user_id):
     users_posts = HoroscopePost.query.filter(HoroscopePost.user_id == user_id).all()
     return users_posts.to_dict()
@@ -336,5 +352,3 @@ def get_users_posts(user_id):
 # def edit_users_posts(user_id, post_id):
 #     users_post = HoroscopePost.query.get(post_id)
 #     return users_posts.to_dict()
-
-

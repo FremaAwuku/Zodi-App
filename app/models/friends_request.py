@@ -9,9 +9,9 @@ class FriendRequest(db.Model):
 
 
     # owner_of_list = db.relationship('User', foreign_keys=[first_name_id])
-    request= db.relationship('User', foreign_keys=[requesting_user_id])
-    pending= db.relationship('User', foreign_keys=[accepting_friend_id])
-    
+    request= db.relationship('User', foreign_keys=[requesting_user_id],cascade="all, delete")
+    pending= db.relationship('User', foreign_keys=[accepting_friend_id],cascade="all, delete")
+
     def to_dict(self):
         return{
             'id':self.id,

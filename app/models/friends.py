@@ -11,9 +11,9 @@ class Friend(db.Model):
     """
     USER RELATIONSHIPS
     """
-    user_in_choice=db.relationship('User', foreign_keys=[user_id], back_populates="current_user")
+    user_in_choice=db.relationship('User', foreign_keys=[user_id], back_populates="current_user",cascade="all, delete")
 
-    friend_to_user=db.relationship('User', foreign_keys=[friend_id], back_populates='friend_of_user')
+    friend_to_user=db.relationship('User', foreign_keys=[friend_id], back_populates='friend_of_user',cascade="all, delete")
 
     def to_dict(self):
         return{
