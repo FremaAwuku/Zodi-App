@@ -185,74 +185,97 @@ def new_row_list(id):
     row = {}
     if form.validate_on_submit():
 
-        print(request.form,"<<<<<<<<<REQUEST FORM")
 
-        # if request.form['first_name_id']:
-        #     first_name = request.form['first_name']
-        #     first_name_id = int(request.form['first_name_id'])
-        #     first_name_sign = int(request.form['first_name_sign'])
 
-        #     new_row = ZodiacList(
-        #         user_id=id,
-        #         first_name = first_name,
-        #         first_name_id = first_name_id,
-        #         first_name_sign = first_name_sign
-        #     )
-        #     db.session.add(new_row)
-        #     row = new_row
-        # else:
-        first_name = request.form['first_name']
-        first_name_sign = int(request.form['first_name_sign'])
-        new_row = ZodiacList(
-            user_id=id,
-            first_name = first_name,
+        if len(request.form) > 2:
+            first_name = request.form['first_name']
+            first_name_id = int(request.form['first_name_id'])
+            first_name_sign = int(request.form['first_name_sign'])
 
-            first_name_sign = first_name_sign
-        )
-        db.session.add(new_row)
+            new_row = ZodiacList(
+                user_id=id,
+                first_name = first_name,
+                first_name_id = first_name_id,
+                first_name_sign = first_name_sign
+            )
+            db.session.add(new_row)
+            row = new_row
+        else:
+            first_name = request.form['first_name']
+            first_name_sign = int(request.form['first_name_sign'])
+            new_row = ZodiacList(
+                user_id=id,
+                first_name = first_name,
+
+                first_name_sign = first_name_sign
+            )
+            db.session.add(new_row)
+            row = new_row
 
         db.session.commit()
-        return new_row.to_dict()
+        return row.to_dict()
     return {"flask-errors":flask_form_errors(form.errors)},401
 
 #ADD COMPATIBILITY TO ROW
-@user_routes.route('/<int:use_id>/zodiac_list/<int:list_id>', methods=['PUT'])
+@user_routes.route('/<int:user_id>/zodiac_list/<int:list_id>', methods=['PUT'])
 # @login_required
 def add_row_compatibility(user_id,list_id):
     form = CompatibilityForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-
+    updated_row = {}
     # if form.validate_on_submit():
-    # first_name = request.form['first_name']
-    # first_name_id = int(request.form['first_name_id'])
-    # first_name_sign = int(request.form['first_name_sign'])
-
-    #GET EXISTING ROW
-    zodiac_list_row = ZodiacList.query.get(list_id)
+    if len(request.form) > 2:
+        #GET EXISTING ROW
+        zodiac_list_row = ZodiacList.query.get(list_id)
 
 
-    #ASSIGN VARIABLE TO USE IN COMP FILTER
-    first_name_sign = zodiac_list_row.first_name_id_sign
+        #ASSIGN VARIABLE TO USE IN COMP FILTER
+        first_name_sign = zodiac_list_row.first_name_sign
 
-    #PULL DATA TO BE UPDATED FROM REQUEST
-    match_name = request.form['match_name']
-    match_name_id = int(request.form['match_name_id'])
-    match_name_sign = int(request.form['match_name_sign'])
+        #PULL DATA TO BE UPDATED FROM REQUEST
+        match_name = request.form['match_name']
+        match_name_id = int(request.form['match_name_id'])
+        match_name_sign = int(request.form['match_name_sign'])
 
-    # FIND COMP AND FILTER RATING
-    zodiac_comp= Compatibility.filter(Compatibility.sign_1 == first_name_sign and Compatibility.sign_2 == match_name_sign).one()
-    compatibility = zodiac_comp.rating
+        # FIND COMP AND FILTER RATING
+        zodiac_comp= Compatibility.query.filter(Compatibility.sign_1 == first_name_sign ).filter(Compatibility.sign_2 == match_name_sign).first()
+        compatibility = zodiac_comp.rating
 
-    # UPDATE EXISTING ROW
-    zodiac_list_row.match_name = match_name
-    zodiac_list_row.match_name_id = match_name_id
-    zodiac_list_row.match_name_sign = match_name_sign
-    zodiac_list_row.compatibility = compatibility
+        # UPDATE EXISTING ROW
+        zodiac_list_row.match_name = match_name
+        zodiac_list_row.match_name_id = match_name_id
+        zodiac_list_row.match_name_sign = match_name_sign
+        zodiac_list_row.compatibility = compatibility
 
-    # ADD UPDATED ROW TO SESSION
-    db.session.add(zodiac_list_row)
+        # ADD UPDATED ROW TO SESSION
+        db.session.add(zodiac_list_row)
+        updated_row = zodiac_list_row
+    else:
+        #GET EXISTING ROW
+        zodiac_list_row = ZodiacList.query.get(list_id)
+
+        #ASSIGN VARIABLE TO USE IN COMP FILTER
+        first_name_sign = zodiac_list_row.first_name_sign
+        print(first_name_sign,"<<<<<<<<<FIRST SIGN")
+
+        #PULL DATA TO BE UPDATED FROM REQUEST
+        match_name = request.form['match_name']
+        match_name_sign = int(request.form['match_name_sign'])
+        print(match_name_sign,"<<<<<<<<<MATCH SIGN")
+
+        # FIND COMP AND FILTER (where first sign and match sign match)THEN GET RATING
+        zodiac_comp= Compatibility.query.filter(Compatibility.sign_1 == first_name_sign ).filter(Compatibility.sign_2 == match_name_sign).first()
+        compatibility = zodiac_comp.rating
+
+        # UPDATE EXISTING ROW
+        zodiac_list_row.match_name = match_name
+        zodiac_list_row.match_name_sign = match_name_sign
+        zodiac_list_row.compatibility = compatibility
+        # ADD UPDATED ROW TO SESSION
+        db.session.add(zodiac_list_row)
+        updated_row=zodiac_list_row
     db.session.commit()
-    return zodiac_list_row.to_dict()
+    return updated_row.to_dict()
 # return {"flask-errors":flask_form_errors(form.errors)},401
 
 """
