@@ -18,6 +18,6 @@ class Friend(db.Model):
     def to_dict(self):
         return{
             'id':self.id,
-            'requesting_user_id':self.requesting_user_id,
-            'accepting_friend_id': self.accepting_friend_id
+            'user_id':self.user_id,
+            'friend_id': self.friend_id
         }

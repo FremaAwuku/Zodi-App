@@ -1,3 +1,4 @@
+from os import error
 from app.forms.get_sign_form import GetSignForm
 from flask import Blueprint, request
 from flask_login import login_required
@@ -249,6 +250,7 @@ def add_row_compatibility(user_id,list_id):
 
         # ADD UPDATED ROW TO SESSION
         db.session.add(zodiac_list_row)
+        db.session.commit()
         updated_row = zodiac_list_row
     else:
         #GET EXISTING ROW
@@ -256,12 +258,11 @@ def add_row_compatibility(user_id,list_id):
 
         #ASSIGN VARIABLE TO USE IN COMP FILTER
         first_name_sign = zodiac_list_row.first_name_sign
-        print(first_name_sign,"<<<<<<<<<FIRST SIGN")
+
 
         #PULL DATA TO BE UPDATED FROM REQUEST
         match_name = request.form['match_name']
         match_name_sign = int(request.form['match_name_sign'])
-        print(match_name_sign,"<<<<<<<<<MATCH SIGN")
 
         # FIND COMP AND FILTER (where first sign and match sign match)THEN GET RATING
         zodiac_comp= Compatibility.query.filter(Compatibility.sign_1 == first_name_sign ).filter(Compatibility.sign_2 == match_name_sign).first()
@@ -273,10 +274,29 @@ def add_row_compatibility(user_id,list_id):
         zodiac_list_row.compatibility = compatibility
         # ADD UPDATED ROW TO SESSION
         db.session.add(zodiac_list_row)
+        db.session.commit()
         updated_row=zodiac_list_row
-    db.session.commit()
+    # db.session.commit()
     return updated_row.to_dict()
 # return {"flask-errors":flask_form_errors(form.errors)},401
+
+
+# """"
+# DELETE ROW FROM ZODIAC LIST
+# """
+
+# @user_routes.route('/<int:user_id>/zodiac_list/<int:row_id>', methods=['DELETE'])
+# # @login_required
+# def delete_row(user_id,row_id):
+#     print("<<<<<<<<<<<<<<HERE")
+#     print(row_id,"<<<<<<<<<<<<<<ROW_ID")
+#     row_to_delete = ZodiacList.query.filter(ZodiacList.user_id == user_id).filter(ZodiacList.id == row_id).first()
+#     if row_to_delete:
+#         print(row_to_delete,"<<<<<ROW TO DELETE")
+#         db.session.delete(row_to_delete)
+
+#     db.session.commit()
+#     return {}
 
 """
 USER FRIENDS==============================================================
@@ -287,7 +307,8 @@ USER FRIENDS==============================================================
 # @login_required
 def get_user_friends(user_id):
     user_friends = Friend.query.filter(Friend.user_id == user_id).all()
-    return user.to_dict()
+    return {"user_friends":[friend.to_dict() for friend in user_friends]}
+
 
 #ADD FRIENDSHIP BOTHWAYS
 @user_routes.route('/<int:user_id>/friends/<int:friend_id>')
@@ -330,31 +351,51 @@ REQUEST/PENDING==========================================================
 """
 
 #GET USERS INCOMING FRIEND REQUEST (FOR USER TO ACCEPT AS FRIEND)
-@user_routes.route('/<int:user_id>/incoming')
+@user_routes.route('/<int:user_id>/incoming_requests')
 # @login_required
 def get_incoming_request(user_id):
     incoming_request = FriendRequest.query.filter(FriendRequest.accepting_friend_id == user_id).all()
-    return incoming_request.to_dict()
+    return {"incoming": [r.to_dict() for r in incoming_request]}
 
 #GET USERS PENDING FRIENDS REQUEST (WAITING FOR FRIEND APPROVAL)
-@user_routes.route('/<int:user_id>/pending')
+@user_routes.route('/<int:user_id>/pending_requests')
 # @login_required
 def get_pending_request(user_id):
     pending_request = FriendRequest.query.filter(FriendRequest.requesting_user_id == user_id).all()
-    return pending_request.to_dict()
+    return {"pending": [r.to_dict() for r in pending_request]}
 
 
 # SEND FRIEND REQUEST (FROM USER TO POTENTIAL FRIEND)
-@user_routes.route('/<int:user_id>/request/<int:friend_id>', methods=['POST'])
+@user_routes.route('/<int:user_id>/send_request/<int:friend_id>', methods=['POST'])
 # @login_required
 def send_friend_request(user_id,friend_id):
-    request = FriendRequest(
-        requesting_user_id=user_id,
-        accepting_friend_id=friend_id
-    )
-    return request.to_dict()
+    request = {}
+    users_current_friends = Friend.query.filter(Friend.user_id == user_id).all()
+    user_ids = [user.id for user in users_current_friends]
+    if friend_id in user_ids:
+        return {'friendship': "You are already friends with this user!"}, 401
+    else:
 
+        users_current_requests = FriendRequest.query.filter(FriendRequest.requesting_user_id == user_id).all()
+        request_user_ids = [user.accepting_friend_id for user in users_current_requests]
+        if friend_id not in request_user_ids:
+            r = FriendRequest(requesting_user_id=user_id,accepting_friend_id=friend_id)
 
+            db.session.add(r)
+            request = r
+            db.session.commit()
+            return request.to_dict()
+        else:
+            return {'request': "You've already requested to be this user's friend"}, 401
+
+@user_routes.route('/<int:user_id>/delete_request/<int:request_id>', methods=['DELETE'])
+# @login_required
+def delete_request(user_id,request_id):
+    request = FriendRequest.query.get(request_id)
+    print(request.to_dict(),'<<<<<<<<REQUEST')
+    db.session.delete(request)
+    db.session.commit()
+    return {"request_id":request_id}
 
 """
 USER HOROSCOPE POSTS ===========================
