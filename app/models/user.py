@@ -15,13 +15,13 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
     profile_picture = db.Column(db.String)
-    sun_sign_id =  db.Column(db.Integer, db.ForeignKey("sun_sign.id"))
+    sun_sign_id =  db.Column(db.Integer, db.ForeignKey("sun_signs.id"))
     cusp = db.Column(db.Boolean, default=False)
 
     """
     SUN SIGN RELATIONSHIPS
     """
-    sign_of_user = db.relationship("SunSign",backref="sign")
+    sign_of_user = db.relationship("SunSign",backref="_sign")
 
     """
     FRIENDS RELATIONSHIPS
@@ -86,6 +86,6 @@ class User(db.Model, UserMixin):
             'username': self.username,
             'email': self.email,
             'profile_picture': self.profile_picture,
-            'sun_sign': self.sun_sign,
+            'sun_sign_id': self.sun_sign,
             'cusp':self.cusp
         }
