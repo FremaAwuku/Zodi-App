@@ -7,11 +7,11 @@ class Comment(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     content = db.Column(db.Text, nullable=False)
 
-    user_details = db.relationship("User", back_populates="comment_details")
+    user_details = db.relationship("User", back_populates="comment_details",cascade="all, delete")
 
 
-    post_details = db.relationship("HoroscopePost", back_populates="comment_details")
-    
+    post_details = db.relationship("HoroscopePost", back_populates="comment_details",cascade="all, delete")
+
     def to_dict(self):
         return {
             'id': self.id,

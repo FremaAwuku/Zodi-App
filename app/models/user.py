@@ -21,28 +21,31 @@ class User(db.Model, UserMixin):
     """
     SUN SIGN RELATIONSHIPS
     """
-    sign_of_user = db.relationship("SunSign",backref="_sign")
+    sign_of_user = db.relationship("SunSign",backref="_sign",cascade="all, delete")
 
     """
     FRIENDS RELATIONSHIPS
     """
     current_user = db.relationship(
-        'Friend', back_populates="user_in_choice", primaryjoin=id == Friend.user_id
+        'Friend', back_populates="user_in_choice", primaryjoin=id == Friend.user_id,
+        cascade="all, delete"
     )
     friend_of_user = db.relationship(
-        'Friend', back_populates="friend_to_user", primaryjoin=id == Friend.friend_id
+        'Friend', back_populates="friend_to_user", primaryjoin=id == Friend.friend_id,
+        cascade="all, delete"
     )
 
     """
     FRIEND REQUEST RELATIONSHIPS
     """
     request_from = db.relationship(
-        'FriendRequest', back_populates="request", primaryjoin=id == FriendRequest.requesting_user_id
+        'FriendRequest', back_populates="request", primaryjoin=id == FriendRequest.requesting_user_id,
+        cascade="all, delete"
     )
 
     accept_by = db.relationship(
-        'FriendRequest', back_populates="pending", primaryjoin=id == FriendRequest.accepting_friend_id
-    )
+        'FriendRequest', back_populates="pending", primaryjoin=id == FriendRequest.accepting_friend_id,
+    cascade="all, delete")
 
     """
     HOROSCOPE POST RELATIONSHIPS
@@ -86,6 +89,6 @@ class User(db.Model, UserMixin):
             'username': self.username,
             'email': self.email,
             'profile_picture': self.profile_picture,
-            'sun_sign_id': self.sun_sign,
+            'sun_sign_id': self.sun_sign_id,
             'cusp':self.cusp
         }

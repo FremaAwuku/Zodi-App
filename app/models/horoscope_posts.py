@@ -10,7 +10,7 @@ class HoroscopePost(db.Model):
     content = db.Column(db.String(280), nullable=False)
     created = db.Column(db.DateTime, default=datetime.datetime.utcnow)
 
-    user_details= db.relationship("User", back_populates="post_details")
+    user_details= db.relationship("User", back_populates="post_details",cascade="all, delete")
 
     likes= db.relationship("Like", backref="horoscope_post,", cascade="all, delete")
 

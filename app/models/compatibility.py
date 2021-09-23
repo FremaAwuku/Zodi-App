@@ -9,9 +9,9 @@ class Compatibility(db.Model):
     rating = db.Column(db.Integer, nullable=False)
     description = db.Column(db.String, nullable=False)
 
-    match_1=db.relationship('SunSign', foreign_keys=[sign_1], backref="sign_of_match_1")
+    match_1=db.relationship('SunSign', foreign_keys=[sign_1], backref="sign_of_match_1",cascade="all, delete")
 
-    match_2=db.relationship('SunSign', foreign_keys=[sign_2], backref='sign_of_match_2')
+    match_2=db.relationship('SunSign', foreign_keys=[sign_2], backref='sign_of_match_2',cascade="all, delete")
 
     def to_dict(self):
         return{
