@@ -21,12 +21,12 @@ class SunSign(db.Model):
     COMPATABILITY RELATIONSHIP
     """
 
-    sign_of_match_1 = db.relationship(
-        'Compatability', back_populates="match_1", primaryjoin=id == Compatibility.sign_1
-    )
-    sign_of_match_2 = db.relationship(
-        'Compatability', back_populates="match_2", primaryjoin=id == Compatibility.sign_2
-    )
+    # sign_of_match_1 = db.relationship(
+    #     'Compatability', backref="match_1_", primaryjoin=id == Compatibility.sign_1
+    # )
+    # sign_of_match_2 = db.relationship(
+    #     'Compatibility', backref="match_2_", primaryjoin=id == Compatibility.sign_2
+    # )
 
 
     def to_dict(self):
