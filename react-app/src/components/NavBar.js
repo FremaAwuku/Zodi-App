@@ -9,7 +9,7 @@ const NavBar = () => {
       <ul>
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
-            Home
+            Replace with Logo
           </NavLink>
         </li>
         <li>
