@@ -3,7 +3,7 @@ from app.models import SunSign, Compatibility
 
 data_routes = Blueprint('data', __name__)
 
-@data_routes.route("/sun_sign")
+@data_routes.route("/sun_signs")
 def sun_sign():
     signs = SunSign.query.all()
     return {'sun_signs': [sign.to_dict() for sign in signs]}

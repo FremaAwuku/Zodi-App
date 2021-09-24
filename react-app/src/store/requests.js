@@ -35,18 +35,15 @@ export const getUserPendingRequests = (userId) => async dispatch =>{
     }
 }
 
-export const sendFriendRequests = (payload) => async dispatch =>{
-    const payload ={
-        userId,
-        friendId
-    }
+export const sendFriendRequests = ({userId,friendId}) => async dispatch =>{
+
     const response = await fetch(`/api/users/${userId}/send_request/${friendId}`,{
         method:'POST',
         body: JSON.stringify({})
     }
     );
     if(response.ok){
-        const request= await response.json().
+        const request= await response.json()
         dispatch(add(request))
     }
 }
@@ -62,6 +59,7 @@ export const deleteFriendRequests = (requestId) => async dispatch =>{
         dispatch(remove(requestId))
     }
 }
+const initialState = {}
 
 const requestReducer = (state= initialState, action) =>{
     let newState

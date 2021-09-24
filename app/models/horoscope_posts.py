@@ -23,4 +23,5 @@ class HoroscopePost(db.Model):
             'horoscope': self.horoscope,
             'content': self.content,
             'user_details': self.user_details.to_dict()
+            
         }
