@@ -29,11 +29,11 @@ def users():
     return {'users': [user.to_dict() for user in users]}
 
 #GET ONE USER
-@user_routes.route('/<int:id>')
-@login_required
-def user(id):
-    user = User.query.get(id)
-    return user.to_dict()
+# @user_routes.route('/<int:id>')
+# @login_required
+# def user(id):
+#     user = User.query.get(id)
+#     return user.to_dict()
 
 @user_routes.route('/<int:userId>/photo',methods=['PUT'])
 @login_required
@@ -406,14 +406,14 @@ def send_friend_request(user_id,friend_id):
         else:
             return {'request': "You've already requested to be this user's friend"}, 401
 
-@user_routes.route('/<int:user_id>/delete_request/<int:request_id>', methods=['DELETE'])
-@login_required
-def delete_request(user_id,request_id):
-    request = FriendRequest.query.get(request_id)
+# @user_routes.route('/<int:user_id>/delete_request/<int:request_id>', methods=['DELETE'])
+# @login_required
+# def delete_request(user_id,request_id):
+#     request = FriendRequest.query.get(request_id)
 
-    db.session.delete(request)
-    db.session.commit()
-    return {"request_id":request_id}
+#     db.session.delete(request)
+#     db.session.commit()
+#     return {"request_id":request_id}
 
 """
 USER HOROSCOPE POSTS ===========================

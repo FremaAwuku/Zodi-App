@@ -43,7 +43,15 @@ export const getOneHoroscopePost = (postId) => async dispatch =>{
         dispatch(loadOne(post))
     }
 }
+export const getUserHoroscopePosts = (userId) =>  async dispatch =>{
 
+    const response = await fetch(`/api/users/${userId}/horoscope_posts`);
+
+    if(response.ok){
+        const posts = await response.json().then(res=>res = res.users_posts)
+        dispatch(loadPosts(posts))
+    }
+}
 export const createHoroscopePost = (payload) => async dispatch =>{
 
     // const {
