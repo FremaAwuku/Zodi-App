@@ -9,7 +9,7 @@ comment_routes = Blueprint('comment',__name__)
 EDIT COMMENT
 """
 @comment_routes.route('/<int:comment_id>',methods=['PUT'])
-@login_required
+# @login_required
 def edit_comment(comment_id):
 
     comment = Comment.query.get(comment_id)
@@ -21,7 +21,7 @@ def edit_comment(comment_id):
 DELETE COMMENT
 """
 @comment_routes.route('/<int:comment_id>',methods=['DELETE'])
-@login_required
+# @login_required
 def delete_comment(comment_id):
     comment = Comment.query.get(comment_id)
     db.session.delete(comment)

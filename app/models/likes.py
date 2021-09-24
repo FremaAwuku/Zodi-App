@@ -6,7 +6,7 @@ class Like(db.Model):
     post_id = db.Column(db.Integer, db.ForeignKey("horoscope_posts.id"), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
-    user_details = db.relationship("User", back_populates="like_details", cascade="all, delete")
+    user_details = db.relationship("User", back_populates="like_details")
 
 
     def to_dict(self):

@@ -10,11 +10,11 @@ class HoroscopePost(db.Model):
     content = db.Column(db.String(280), nullable=False)
     created = db.Column(db.DateTime, default=datetime.datetime.utcnow)
 
-    user_details= db.relationship("User", back_populates="post_details",cascade="all, delete")
+    user_details= db.relationship("User", back_populates="post_details")
 
-    likes= db.relationship("Like", backref="horoscope_post,", cascade="all, delete")
+    likes= db.relationship("Like", backref="horoscope_post,")
 
-    comment_details = db.relationship("Comment", back_populates="post_details", cascade="all, delete")
+    comment_details = db.relationship("Comment", back_populates="post_details")
 
     def to_dict(self):
         return{

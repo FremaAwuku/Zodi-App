@@ -16,7 +16,7 @@ def flask_form_errors(validation_errors):
     return errors
 
 @user_routes.route('')
-# @login_required
+@login_required
 def users():
     users = User.query.all()
     return {'users': [user.to_dict() for user in users]}
@@ -29,7 +29,7 @@ def user(id):
     return user.to_dict()
 
 @user_routes.route('/<int:id>/sun_sign',methods=['PUT'])
-# @login_required
+@login_required
 def user_sun_sign(id):
     form = GetSignForm()
     # form['csrf_token'].data = request.cookies['csrf_token']
@@ -172,14 +172,14 @@ USER ZODIAC LISTS ================================================
 
 # GET USERS ZODIAC LIST ROWS
 @user_routes.route('/<int:id>/zodiac_list')
-# @login_required
+@login_required
 def get_user_list(id):
     zodiac_list_rows = ZodiacList.query.filter(ZodiacList.user_id == id).all()
     return {"zodiac_list_rows":[rows.to_dict() for rows in zodiac_list_rows]}
 
 # CREATE NEW ROW IN ZODIAC LIST
 @user_routes.route('/<int:id>/zodiac_list', methods=['POST'])
-# @login_required
+@login_required
 def new_row_list(id):
     form = NewListRowForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -219,7 +219,7 @@ def new_row_list(id):
 
 #ADD COMPATIBILITY TO ROW
 @user_routes.route('/<int:user_id>/zodiac_list/<int:list_id>', methods=['PUT'])
-# @login_required
+@login_required
 def add_row_compatibility(user_id,list_id):
     form = CompatibilityForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -280,24 +280,6 @@ def add_row_compatibility(user_id,list_id):
     return updated_row.to_dict()
 # return {"flask-errors":flask_form_errors(form.errors)},401
 
-
-# """"
-# DELETE ROW FROM ZODIAC LIST
-# """
-
-# @user_routes.route('/<int:user_id>/zodiac_list/<int:row_id>', methods=['DELETE'])
-# # @login_required
-# def delete_row(user_id,row_id):
-#     print("<<<<<<<<<<<<<<HERE")
-#     print(row_id,"<<<<<<<<<<<<<<ROW_ID")
-#     row_to_delete = ZodiacList.query.filter(ZodiacList.user_id == user_id).filter(ZodiacList.id == row_id).first()
-#     if row_to_delete:
-#         print(row_to_delete,"<<<<<ROW TO DELETE")
-#         db.session.delete(row_to_delete)
-
-#     db.session.commit()
-#     return {}
-
 """
 USER FRIENDS==============================================================
 """
@@ -312,10 +294,10 @@ def get_user_friends(user_id):
 
 #ADD FRIENDSHIP BOTHWAYS
 @user_routes.route('/<int:user_id>/add_friend/<int:friend_id>', methods=['POST'])
-# @login_required
+@login_required
 def add_friend_both_ways(user_id, friend_id):
     users_current_friends = Friend.query.filter(Friend.user_id == user_id).all()
-    # print([user.friend_id for user in users_current_friends],"<<<<<<<<USERS CURRENT FRIENDS")
+
 
     user_ids = [user.friend_id for user in users_current_friends]
     if friend_id in user_ids :
@@ -340,13 +322,12 @@ def add_friend_both_ways(user_id, friend_id):
 
 # DELETE FRIENDSHIP BOTHWAYS
 @user_routes.route('/<int:user_id>/delete_friend/<int:friend_id>', methods=['DELETE'])
-# @login_required
+@login_required
 def delete_friend_both_ways(user_id, friend_id):
     user_to_delete = Friend.query.filter(Friend.user_id == user_id).filter(Friend.friend_id == friend_id).first()
-    print(user_to_delete,'<<<<<<<<<<<<<<<<user_to_delete')
-    # user_to_delete = Friend.query.filter_by(user_id = user_id ).first()
+
     friend_to_delete = Friend.query.filter(Friend.user_id == friend_id).filter(Friend.friend_id == user_id).first()
-    print(friend_to_delete,'<<<<<<<<<<<<<<<<friend_to_delete')
+
 
     db.session.delete(user_to_delete)
     db.session.delete(friend_to_delete)
@@ -414,7 +395,7 @@ USER HOROSCOPE POSTS ===========================
 
 #GET ALL USERS HOROSCOPE POSTS
 @user_routes.route('/<int:user_id>/horoscope_posts')
-# @login_required
+@login_required
 def get_users_posts(user_id):
     users_posts = HoroscopePost.query.filter(HoroscopePost.user_id == user_id).all()
 
