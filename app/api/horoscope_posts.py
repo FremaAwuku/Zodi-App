@@ -12,19 +12,19 @@ GET ALL POSTS ON HOROSCOPE FEED
 """
 
 @horoscope_posts_routes.route('')
-def get_all_horoscope_posts(post_id):
+def get_all_horoscope_posts():
 
     posts = HoroscopePost.query.all()
 
 
     return {
-        "horoscope_posts":[post.to_dict() for post in posts]
+    #  "horoscope_posts":[post.to_dict() for post in posts]
     }
 """
 GET ONE POST
 """
 
-@horoscope_posts_routes.route('/<int: post_id>')
+@horoscope_posts_routes.route('/<int:post_id>')
 def get_one_post(post_id):
 
     post = HoroscopePost.query.get(post_id)
@@ -62,7 +62,7 @@ def post_to_horoscope_feed():
 EDIT HOROSCOPE POST
 """
 
-@horoscope_posts_routes.route('/<int: post_id>',methods=['PUT'])
+@horoscope_posts_routes.route('/<int:post_id>',methods=['PUT'])
 @login_required
 def edit_horoscope_post(post_id):
 
@@ -74,7 +74,7 @@ def edit_horoscope_post(post_id):
 """
 DELETE HOROSCOPE POST
 """
-@horoscope_posts_routes.route('/<int: post_id>',methods=['DELETE'])
+@horoscope_posts_routes.route('/<int:post_id>',methods=['DELETE'])
 @login_required
 def delete_horoscope_post(post_id):
     post = HoroscopePost.query.get(post_id)
@@ -129,13 +129,13 @@ def add_post_likes(post_id):
     )
     db.session.add(user_like)
     db.session.commit()
-    return user_like.to_dict()
+    return {"user_like":user_like.to_dict()}
 
 #DELETE LIKE POST
 
 @horoscope_posts_routes.route('/<int:post_id>/likes', methods=['DELETE'])
 @login_required
-def add_post_likes(post_id):
+def delete_post_likes(post_id):
     user_id = request.form['user_id']
     unlike = Like.filter(Like.user_id == user_id and Like.post_id == post_id)
     db.session.delete(unlike)

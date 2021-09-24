@@ -311,34 +311,45 @@ def get_user_friends(user_id):
 
 
 #ADD FRIENDSHIP BOTHWAYS
-@user_routes.route('/<int:user_id>/friends/<int:friend_id>')
+@user_routes.route('/<int:user_id>/add_friend/<int:friend_id>', methods=['POST'])
 # @login_required
 def add_friend_both_ways(user_id, friend_id):
-    user_add = Friend(
-       user_id=user_id,
-       friend_id=friend_id
-    )
-    friend_add =Friend(
-        user_id=friend_id,
-       friend_id=user_id
-    )
-    db.session.add(user_add)
-    db.session.add(friend_add)
-    db.session.commit()
+    users_current_friends = Friend.query.filter(Friend.user_id == user_id).all()
+    # print([user.friend_id for user in users_current_friends],"<<<<<<<<USERS CURRENT FRIENDS")
 
-    return{
-        'user_friendship':user_add.to_dict(),
-        'friend_to_user': friend_id.to_dict()
-    }
+    user_ids = [user.friend_id for user in users_current_friends]
+    if friend_id in user_ids :
+        return {'friendship': "You are already friends with this user!"}, 401
+    else:
+        user_add = Friend(
+        user_id=user_id,
+        friend_id=friend_id
+        )
+        friend_add =Friend(
+            user_id=friend_id,
+        friend_id=user_id
+        )
+        db.session.add(user_add)
+        db.session.add(friend_add)
+        db.session.commit()
+
+        return{
+            'user_friendship':user_add.to_dict(),
+            'friend_to_user': friend_add.to_dict()
+        }
 
 # DELETE FRIENDSHIP BOTHWAYS
-@user_routes.route('/<int:user_id>/friends/<int:friend_id>')
+@user_routes.route('/<int:user_id>/delete_friend/<int:friend_id>', methods=['DELETE'])
 # @login_required
 def delete_friend_both_ways(user_id, friend_id):
-    user_to_delete = Friend.query.filter(Friend.user_id == user_id and Friend.friend_id == friend_id).one()
-    friend_to_delete = Friend.query.filter(Friend.user_id == friend_id and Friend.friend_id == user_id).one()
-    db.session.add(user_to_delete)
-    db.session.add(friend_to_delete)
+    user_to_delete = Friend.query.filter(Friend.user_id == user_id).filter(Friend.friend_id == friend_id).first()
+    print(user_to_delete,'<<<<<<<<<<<<<<<<user_to_delete')
+    # user_to_delete = Friend.query.filter_by(user_id = user_id ).first()
+    friend_to_delete = Friend.query.filter(Friend.user_id == friend_id).filter(Friend.friend_id == user_id).first()
+    print(friend_to_delete,'<<<<<<<<<<<<<<<<friend_to_delete')
+
+    db.session.delete(user_to_delete)
+    db.session.delete(friend_to_delete)
     db.session.commit()
 
     return{
@@ -352,14 +363,14 @@ REQUEST/PENDING==========================================================
 
 #GET USERS INCOMING FRIEND REQUEST (FOR USER TO ACCEPT AS FRIEND)
 @user_routes.route('/<int:user_id>/incoming_requests')
-# @login_required
+@login_required
 def get_incoming_request(user_id):
     incoming_request = FriendRequest.query.filter(FriendRequest.accepting_friend_id == user_id).all()
     return {"incoming": [r.to_dict() for r in incoming_request]}
 
 #GET USERS PENDING FRIENDS REQUEST (WAITING FOR FRIEND APPROVAL)
 @user_routes.route('/<int:user_id>/pending_requests')
-# @login_required
+@login_required
 def get_pending_request(user_id):
     pending_request = FriendRequest.query.filter(FriendRequest.requesting_user_id == user_id).all()
     return {"pending": [r.to_dict() for r in pending_request]}
@@ -367,7 +378,7 @@ def get_pending_request(user_id):
 
 # SEND FRIEND REQUEST (FROM USER TO POTENTIAL FRIEND)
 @user_routes.route('/<int:user_id>/send_request/<int:friend_id>', methods=['POST'])
-# @login_required
+@login_required
 def send_friend_request(user_id,friend_id):
     request = {}
     users_current_friends = Friend.query.filter(Friend.user_id == user_id).all()
@@ -389,10 +400,10 @@ def send_friend_request(user_id,friend_id):
             return {'request': "You've already requested to be this user's friend"}, 401
 
 @user_routes.route('/<int:user_id>/delete_request/<int:request_id>', methods=['DELETE'])
-# @login_required
+@login_required
 def delete_request(user_id,request_id):
     request = FriendRequest.query.get(request_id)
-    print(request.to_dict(),'<<<<<<<<REQUEST')
+
     db.session.delete(request)
     db.session.commit()
     return {"request_id":request_id}
@@ -406,7 +417,8 @@ USER HOROSCOPE POSTS ===========================
 # @login_required
 def get_users_posts(user_id):
     users_posts = HoroscopePost.query.filter(HoroscopePost.user_id == user_id).all()
-    return users_posts.to_dict()
+
+    return {"users_posts":[posts.to_dict() for posts in users_posts]}
 
 
 
