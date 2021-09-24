@@ -1,7 +1,7 @@
-LOAD_USER_LIST= 'rows/LOAD_USER_LIST'
-ADD_LIST_ROW= 'row/ADD_LIST_ROW'
+const LOAD_USER_LIST= 'rows/LOAD_USER_LIST'
+const ADD_LIST_ROW= 'row/ADD_LIST_ROW'
 
-REMOVE_LIST_ROW= 'row/REMOVE_LIST_ROW'
+const REMOVE_LIST_ROW= 'row/REMOVE_LIST_ROW'
 
 const loadUserList = (rows) =>({
     type: LOAD_USER_LIST,
@@ -34,7 +34,7 @@ export const addZodiacListRow = (payload) =>  async dispatch =>{
             first_name_sign,
         }=payload
 
-        data= {
+        const data= {
             user_id:userId,
             first_name,
             first_name_id,
@@ -59,7 +59,7 @@ export const addListMatch = (payload) =>  async dispatch =>{
         match_name_sign,
     }=payload
 
-    data= {
+    const data= {
         user_id:userId,
         match_name,
         match_name_id,

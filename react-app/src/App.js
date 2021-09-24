@@ -8,13 +8,17 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
-
+import { getAllSunSigns} from './store/sunSigns'
+import { getAllCompatibilities} from './store/compatibilities'
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
     (async() => {
+
+      dispatch(getAllSunSigns())
+      dispatch(getAllCompatibilities())
       await dispatch(authenticate());
       setLoaded(true);
     })();

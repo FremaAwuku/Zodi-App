@@ -125,10 +125,10 @@ def horoscope_post_likes(post_id):
 def add_post_likes(post_id):
     user_id = request.form['user_id']
     post_likes = Like.query.filter(Like.post_id == post_id).all()
-    print(post_likes,"<<<<<<<POST USER LIKEssss")
-    print(int(user_id),"<<<<<<<USER ID")
+    # print(post_likes,"<<<<<<<POST USER LIKEssss")
+    # print(int(user_id),"<<<<<<<USER ID")
     post_like_user_ids = [post.user_id for post in post_likes]
-    print(post_like_user_ids,"<<<<<<<POST LIKE ids")
+    # print(post_like_user_ids,"<<<<<<<POST LIKE ids")
     if int(user_id) in post_like_user_ids:
         return {'error': "You've already liked this post(prevent in front end)"}, 401
     else:
@@ -136,7 +136,7 @@ def add_post_likes(post_id):
             user_id=user_id,
             post_id=post_id
         )
-        print(user_like,"<<<<<<<USER LIKE")
+        # print(user_like,"<<<<<<<USER LIKE")
         db.session.add(user_like)
         db.session.commit()
         return user_like.to_dict()

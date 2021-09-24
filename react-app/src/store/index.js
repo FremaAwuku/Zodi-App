@@ -1,14 +1,27 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import session from './session'
-import dataReducer from './data';
+import sunSigns from './sunSigns';
+import compatibilities from './compatibilities';
 import horoscopePostReducer from './horoscopePosts';
 import zodiacListReducer from './zodiacLists';
+import userReducer from './users';
+import friendReducer from './friends'
+import requestReducer from './requests';
+import commentsReducer from './comments';
+import likesReducer from './likes';
+
 const rootReducer = combineReducers({
   session,
-  data: dataReducer,
+  sunSigns,
+  compatibilities,
   horoscope_posts:horoscopePostReducer,
-  zodiac_lists:zodiacListReducer
+  zodiac_lists:zodiacListReducer,
+  users: userReducer,
+  friends: friendReducer,
+  requests: requestReducer,
+  comments: commentsReducer,
+  likes: likesReducer
 });
 
 

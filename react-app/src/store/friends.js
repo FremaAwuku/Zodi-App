@@ -26,11 +26,8 @@ export const getUserFriends = (userId) => async dispatch =>{
     }
 }
 
-export const addFriend = (payload) => async dispatch =>{
-    const payload ={
-        userId,
-        friendId
-    }
+export const addFriend = ({userId,friendId}) => async dispatch =>{
+
     const response = await fetch(`/api/users/${userId}/add_friend/${friendId}`,{
         method:'POST',
         body: JSON.stringify({})
@@ -45,7 +42,7 @@ export const addFriend = (payload) => async dispatch =>{
     }
 }
 
-export const deleteFriend = (friendId) => async dispatch =>{
+export const deleteFriend = ({userId,friendId}) => async dispatch =>{
 
     const response = await fetch(`/api/users/${userId}/delete_friend/${friendId}`,{
         method:'DELETE'
@@ -58,7 +55,7 @@ export const deleteFriend = (friendId) => async dispatch =>{
 
     }
 }
-
+const initialState = {}
 const friendReducer = (state= initialState, action) =>{
     let newState
 switch(action.type){

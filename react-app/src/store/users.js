@@ -33,14 +33,14 @@ export const getAllUsers = () => async dispatch =>{
 //   }
 
 
-export const updateSunSign = (payload) => async dispatch=>{
+export const updateSunSign = ({
+    userId,
+    birth_month,
+    birth_date
+}) => async dispatch=>{
 
-    const {
-        userId,
-        birth_month,
-        birth_date
-    }=payload
-    data={
+
+    const data={
         birth_month,
         birth_date
     }
@@ -56,12 +56,10 @@ export const updateSunSign = (payload) => async dispatch=>{
 
 
 // UPLOAD PHOTO THUNK
-export const updateProfilePic = (payload) => async () => {
+export const updateProfilePic = ({profilePicture,
+    userId}) => async () => {
 
-    const payload ={
-        profilePicture,
-        userId
-    }
+
     const data = new FormData()
     data.append("profile_picture", profilePicture)
 
@@ -77,6 +75,7 @@ export const updateProfilePic = (payload) => async () => {
     }
 }
 
+const initialState = {}
 const userReducer = (state= initialState, action) =>{
     let newState
     switch(action.type){
