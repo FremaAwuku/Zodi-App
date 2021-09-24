@@ -1,5 +1,7 @@
 from os import error
 from app.forms.get_sign_form import GetSignForm
+from app.forms import ProfilePictureForm
+from app.api.aws import upload_to_aws
 from flask import Blueprint, request
 from flask_login import login_required
 from app.models import db,User, ZodiacList, Compatibility, Friend, FriendRequest, HoroscopePost
@@ -8,26 +10,50 @@ from app.forms import GetSignForm , CompatibilityForm, NewListRowForm
 
 user_routes = Blueprint('users', __name__)
 
-def flask_form_errors(validation_errors):
-    errors = []
-    for inputs in validation_errors:
-        for error in validation_errors[inputs]:
-            errors.append(f'{inputs} : {error}')
-    return errors
+BUCKET_NAME='zodiappbucket'
 
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{field} : {error}')
+    return errorMessages
+#GET ALL USERS
 @user_routes.route('')
 @login_required
 def users():
     users = User.query.all()
     return {'users': [user.to_dict() for user in users]}
 
-
+#GET ONE USER
 @user_routes.route('/<int:id>')
 @login_required
 def user(id):
     user = User.query.get(id)
     return user.to_dict()
 
+@user_routes.route('/<int:userId>/photo',methods=['PUT'])
+@login_required
+def update_profile_pic(userId):
+    form = ProfilePictureForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+
+
+        image= request.files[0]
+        url= upload_to_aws(image, BUCKET_NAME)
+        user = User.query.get(userId)
+        user.profile_picture = url
+
+        db.session.commit()
+        return user.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+#UPDATE USER SUN SIGN
 @user_routes.route('/<int:id>/sun_sign',methods=['PUT'])
 @login_required
 def user_sun_sign(id):
