@@ -1,9 +1,14 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import session from './session'
-
+import dataReducer from './data';
+import horoscopePostReducer from './horoscopePosts';
+import zodiacListReducer from './zodiacLists';
 const rootReducer = combineReducers({
   session,
+  data: dataReducer,
+  horoscope_posts:horoscopePostReducer,
+  zodiac_lists:zodiacListReducer
 });
 
 
