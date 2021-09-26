@@ -19,10 +19,12 @@ friendId
 })
 
 export const getUserFriends = (userId) => async dispatch =>{
+    console.log("<<<<<<<<<<<<<<<IN THUNK")
     const response = await fetch(`/api/users/${userId}/friends`);
     if(response.ok){
-        const friend = await response.json().then(res=>res = res.user_friends);
-        dispatch(load(friend))
+        const friends = await response.json().then(res=>res = res.user_friends);
+        console.log(friends,"<<<<<<FRIENDS IN THUNK")
+        dispatch(load(friends))
     }
 }
 

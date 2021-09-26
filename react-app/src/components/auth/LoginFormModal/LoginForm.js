@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { login } from '../../store/session';
+import { login } from '../../../store/session';
+import SignUpFormModal from '../SignUpModal';
+import SignUpForm from '../SignUpModal/SignUpForm';
 
-const LoginForm = () => {
+  const LoginForm = ({showLogin, setShowLogin}) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -17,6 +19,10 @@ const LoginForm = () => {
       setErrors(data);
     }
   };
+  const demoLogin = (e) => {
+    e.preventDefault();
+    dispatch(login("demo@aa.io", "password"));
+  };
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -27,10 +33,11 @@ const LoginForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to='/user_dashboard' />;
   }
 
   return (
+    <>
     <form onSubmit={onLogin}>
       <div>
         {errors.map((error, ind) => (
@@ -59,6 +66,14 @@ const LoginForm = () => {
         <button type='submit'>Login</button>
       </div>
     </form>
+    <button className="secondary-button" onClick={demoLogin}>
+          Try Demo
+        </button>
+    <p>Not a user?
+      <SignUpFormModal />
+
+      </p>
+    </>
   );
 };
 
