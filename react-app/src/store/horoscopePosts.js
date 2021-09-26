@@ -30,7 +30,8 @@ export const getAllHoroscopePosts = () =>  async dispatch =>{
     const response = await fetch(`/api/horoscope_posts`);
 
     if(response.ok){
-        const posts = await response.json().then(res=>res = res.posts)
+        const posts = await response.json().then(res=>res = res.horoscope_posts)
+
         dispatch(loadPosts(posts))
     }
 }

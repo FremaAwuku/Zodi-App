@@ -20,8 +20,9 @@ const loadOneUser = (user) =>({
 
 export const getAllUsers = () => async dispatch =>{
 
-    const response = await fetch(`/api/users/`);
+    const response = await fetch(`/api/users`);
     const users = await response.json().then(res=>res = res.users);
+ 
       dispatch(loadAllUsers(users))
   }
 

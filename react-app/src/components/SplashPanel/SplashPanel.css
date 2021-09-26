@@ -1,0 +1,37 @@
+
+.splash-container{
+    border: 3px solid red;
+    max-height: 888px;
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    /* grid-template-rows:auto; */
+
+}
+.sign-container{
+    background-color: pink;
+    max-width: 800px;
+    height: 777px;
+    display: grid;
+    overflow-y: auto;
+    grid-column-start: 2;
+    /* grid-row-start: 1; */
+    }
+.sign-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+}
+.splash-login{
+        display: grid;
+        grid-column-start: 3;
+        border: 3px solid red;
+        /* grid-row-start: 1; */
+}
+.splash-feed{
+    display: grid;
+    grid-column-start: 1;
+    border: 3px solid red;
+    /* grid-row-start: 1; */
+
+}
