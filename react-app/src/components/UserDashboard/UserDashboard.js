@@ -1,13 +1,14 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Redirect, useHistory } from 'react-router-dom';
 import { getUserHoroscopePosts } from '../../store/horoscopePosts';
-import { updateProfilePic } from '../../store/users';
+
 
 import UserDetail from './UserDetail';
 const UserDashboard = () =>{
     const { userId } = useParams();
     const dispatch = useDispatch()
+    const history = useHistory()
     const user = useSelector(state => state?.session.user);
     const userPost =  useSelector(state => Object.values(state.horoscope_posts))
 
@@ -17,15 +18,31 @@ const UserDashboard = () =>{
 
 
     }, [dispatch])
+    const toZodiacList = ()=>{
+        <Redirect to='/zodiac_list'/>
+        history.push('/zodiac_list')
+    }
 
-    return(
-    <>
-    <div className="univ-user-deet-cont">
-    <UserDetail user={user}/>
-    </div>
+    if(user){
+        return(
+            <>
+            <div className="univ-user-deet-cont">
+            <UserDetail user={user}/>
+            </div>
+            <button
+            onClick={toZodiacList}
+            className="primary-button">
+                Zodiac List
 
-    </>
-    )
+            </button>
+            </>
+            )
+
+    }else{
+        history.push('/')
+    }
+
+
 
 }
 

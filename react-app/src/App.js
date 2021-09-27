@@ -14,6 +14,7 @@ import { getAllCompatibilities} from './store/compatibilities'
 import UserDashboard from './components/UserDashboard/UserDashboard';
 import HoroscopeFeed from './components/HoroscopeFeed/HoroscopeFeed';
 import LogoutButton from './components/auth/LogoutButton';
+import ZodiacList from './components/ZodiacList/ZodiacList';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -48,8 +49,14 @@ function App() {
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        {/* <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
+        </ProtectedRoute> */}
+        {/* <ProtectedRoute path='/users/:userId' exact={true} >
+          <User />
+        </ProtectedRoute> */}
+        <ProtectedRoute path='/zodiac_list' exact={true} >
+          <ZodiacList/>
         </ProtectedRoute>
         <Route path='/horoscope_feed' >
           <HoroscopeFeed/>
