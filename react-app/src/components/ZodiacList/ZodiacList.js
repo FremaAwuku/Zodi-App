@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
 import backIcon from '../../images/back-arrow.ico'
 import { getUserZodiacList } from '../../store/zodiacLists';
+import AddRowModal from './AddRowModal/index';
 import ListRow from './ListRow';
 const ZodiacList = () => {
     const history = useHistory()
@@ -56,7 +57,7 @@ const ZodiacList = () => {
                 </th>
 
             </tr>
-        {listRows.map((rows)=>{
+        {listRows && listRows?.map((rows)=>{
             if(listRows.length <= 20){
                 return(
             <tr className="univ-list-row">
@@ -68,7 +69,9 @@ const ZodiacList = () => {
             }
 })}
         </table>
+        <AddRowModal/>
         </div>
+
         </>
 
     )
