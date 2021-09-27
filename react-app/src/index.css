@@ -1,11 +1,11 @@
 /* TODO Add site wide styles */
-/* :root {
-    --wa-green: #98e8cf;
+:root {
+    --wa-purple:  #ac52d6;
     --wa-blue: #99b5f3;
     --wa-gold: #ffc400;
     --wa-charcoal: #4d4d4d;
     --wa-gray: #e6e6e6;
-} */
+}
 
 /* * {
     font-family: 'Nunito Sans', sans-serif;
@@ -16,7 +16,8 @@
     line-height: 30px;
     font-weight: 700;
     font-size: 12px;
-    background-color: pink;
+    background-color:var(--wa-purple);
+    color: white;
     text-transform: uppercase;
     padding: 3px 10px;
 }
@@ -30,5 +31,8 @@
 
 }
 .univ-horoscope-post-wrapper{
+
+}
+.univ-modal-wrapper{
     
 }

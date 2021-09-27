@@ -37,19 +37,22 @@ def users():
 @user_routes.route('/<int:userId>/photo',methods=['PUT'])
 @login_required
 def update_profile_pic(userId):
+    print("<<<<<<<<<<<<<<<<<<<<HEREREREE")
     form = ProfilePictureForm()
+
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    if form.validate_on_submit():
+    # if form.validate_on_submit():
 
 
-        image= request.files[0]
-        url= upload_to_aws(image, BUCKET_NAME)
-        user = User.query.get(userId)
-        user.profile_picture = url
+    image= request.files[0]
+    print(request.files[0], "<<<<<<req .files")
+    url= upload_to_aws(image, BUCKET_NAME)
+    user = User.query.get(userId)
+    user.profile_picture = url
 
-        db.session.commit()
-        return user.to_dict()
+    db.session.commit()
+    return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 #UPDATE USER SUN SIGN
@@ -57,22 +60,24 @@ def update_profile_pic(userId):
 @login_required
 def user_sun_sign(id):
     form = GetSignForm()
-    # form['csrf_token'].data = request.cookies['csrf_token']
+    form['csrf_token'].data = request.cookies['csrf_token']
     # birth_month = form.data['birth_month']
     # birth_date = form.data['birth_date']
     # print(isinstance(birth_month , str) ,"<<<<<<<BIRTH MONTH")
     # print(birth_month == "January" ,"<<<<<<<BIRTH MONTH")
     # print(birth_date ,"<<<<<<<BIRTH DATE")
+    # print(request.form ,"<<<<<<<BIRTH MONTH BACK")
 
-
-    birth_month = request.form['birth_month']
+    birth_month = int(request.form['birth_month'])
     birth_date = int(request.form['birth_date'])
+    print(birth_month  ,"<<<<<<<BIRTH MONTH")
+    print(birth_date ,"<<<<<<<BIRTH DATE BACK")
 
 
     user_sign = 0
     cusp = False
-    if  birth_month == "January":
-
+    if  birth_month == 1:
+        print("<<<<<<INSIDE IFFFFFF")
         if birth_date > 19:
             user_sign = 11
         elif birth_date == 19:
@@ -81,7 +86,7 @@ def user_sun_sign(id):
         else:
             user_sign=10
 
-    elif  birth_month == "February":
+    elif  birth_month == 2:
         if birth_date > 18:
             user_sign = 12
         elif birth_date == 18:
@@ -90,7 +95,7 @@ def user_sun_sign(id):
         else:
             user_sign=11
 
-    elif  birth_month == "March":
+    elif  birth_month == 3:
         if birth_date > 21:
             user_sign = 1
         elif birth_date == 21:
@@ -99,7 +104,7 @@ def user_sun_sign(id):
         else:
             user_sign=12
 
-    elif  birth_month == "April":
+    elif  birth_month == 4:
         if birth_date > 20:
             user_sign = 2
         elif birth_date == 20:
@@ -108,7 +113,7 @@ def user_sun_sign(id):
         else:
             user_sign=1
 
-    elif  birth_month == "May":
+    elif  birth_month == 5:
         if birth_date > 21:
             user_sign = 3
         elif birth_date == 21:
@@ -117,16 +122,16 @@ def user_sun_sign(id):
         else:
             user_sign=2
 
-    elif  birth_month == "June":
+    elif  birth_month == 6:
             if birth_date > 21:
                 user_sign = 4
             elif birth_date == 21:
-                user_sign = 4
+                user_sign = 3
                 cusp = True
             else:
                 user_sign=3
 
-    elif  birth_month == "July":
+    elif  birth_month == 7:
         if birth_date > 23:
             user_sign = 5
         elif birth_date == 23:
@@ -135,7 +140,7 @@ def user_sun_sign(id):
         else:
             user_sign=4
 
-    elif  birth_month == "August":
+    elif  birth_month == 8:
         if birth_date > 22:
             user_sign = 6
         elif birth_date == 22:
@@ -144,7 +149,7 @@ def user_sun_sign(id):
         else:
             user_sign=5
 
-    elif  birth_month == "September":
+    elif  birth_month ==9:
         if birth_date > 23:
             user_sign = 7
         elif birth_date == 23:
@@ -153,7 +158,7 @@ def user_sun_sign(id):
         else:
             user_sign=6
 
-    elif  birth_month == "October":
+    elif  birth_month == 10:
         if birth_date > 23:
             user_sign = 8
         elif birth_date == 23:
@@ -162,7 +167,7 @@ def user_sun_sign(id):
         else:
             user_sign=7
 
-    elif  birth_month == "November":
+    elif  birth_month == 11:
         if birth_date > 22:
             user_sign = 9
         elif birth_date == 22:
@@ -171,7 +176,7 @@ def user_sun_sign(id):
         else:
             user_sign=8
 
-    elif  birth_month == "December":
+    elif  birth_month == 12:
         if birth_date > 21:
             user_sign = 10
         elif birth_date == 21:

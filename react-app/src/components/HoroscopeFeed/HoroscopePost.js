@@ -2,25 +2,34 @@ import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import { getAllHoroscopePosts } from '../../store/horoscopePosts';
 import { getAllUsers } from '../../store/users';
+import { deleteFriendRequest, getUserPendingRequests,sendFriendRequest  } from '../../store/requests';
 import { getUserFriends } from '../../store/friends';
-import { sendFriendRequests } from "../../store/requests"
+
 const HoroscopePost = ({post}) =>{
 
     const dispatch = useDispatch()
-    const userFriends = useSelector(state => Object.values(state.friends))
+    const user = useSelector(state => state.session.user);
     const users = useSelector(state => state.users)
     const signs = useSelector(state =>state.sunSigns)
-    const user = useSelector(state => state.session.user);
-
     const userId = user?.id
     let postUser = users[post?.user_id]
+    const userFriends= useSelector(state => Object.values(state.friends)).map((friend)=> friend = friend.friend_id)
+    const pendingRequestIds = useSelector(state => Object.values(state.requests)).map((request)=> request = request.accepting_friend_id)
+    const requestId = useSelector(state => Object.values(state.requests))
+    .filter((request)=> request.accepting_friend_id === postUser.id)
+    .map((request)=> request= request.id)[0]
+
+
     // console.log(user, "<<<<<<<<<<<USER")
     // console.log(postUser,'<<<<<<<<<POST_USER')
     // console.log(userId, "<<<<<<<<<<<USER ID")
+    // console.log(requestId, "<<<<<<<<<<<REQUEST ID")
     // console.log(userFriends, "<<<<<<<<<<<USER FRIEND LIS")
+    // console.log(pendingRequestIds, "<<<<<<<<<<PENDING REQUEST >>>>>>>")
     useEffect(()=>{
         dispatch(getAllUsers())
         dispatch(getUserFriends(userId))
+        dispatch(getUserPendingRequests(userId))
     },[dispatch])
 
     let signEmoji
@@ -80,27 +89,56 @@ const HoroscopePost = ({post}) =>{
         e.preventDefault();
         let friendId = postUser?.id
 
-        await   dispatch(sendFriendRequests({userId,friendId}))
+        await   dispatch(sendFriendRequest({userId,friendId}))
     }
 
+    const handleDeleteRequest = async (e) =>{
+        e.preventDefault();
+        if(postUser.id){
+        await dispatch(deleteFriendRequest(requestId))
+        }
+        await dispatch(getUserPendingRequests(userId))
+    }
+    let pendingReqs
+    if(pendingRequestIds.includes(postUser?.id)  ){
+        pendingReqs=(
 
-
-    let showRequest
-    if(!userFriends.includes(postUser?.id)){
-        showRequest=(
             <>
-           <h2>request</h2>
-            <button onClick={SendRequest}>✨ 
+            <h2>Pending Friend Request</h2>
+            <button
+            className="primary-button"
+            onClick={handleDeleteRequest}>Delete Request?
+            ❌
             </button>
             </>
         )
-    }else{
+        }else{
+            <>
+            </>
+        }
+
+    let showRequest
+
+    if(
+        !userFriends.includes(postUser?.id)
+    && postUser?.id !== userId && !pendingRequestIds.includes(postUser?.id)){
+
         showRequest=(
+            <>
+            <button className="primary-button" onClick={SendRequest}>
+                ✨Add Friend
+            </button>
+            </>
+        )
+
+
+    }else{
             <>
 
             </>
-        )
-    }
+
+        }
+
 
     return(
         <>
@@ -108,6 +146,7 @@ const HoroscopePost = ({post}) =>{
         <span className="univ-post-user-pic">
             <img src={postUser?.profile_picture} style={{maxWidth:100 , height:"fit-content"}}/>
             {showRequest}
+            {pendingReqs}
         </span>
         <h3>
         {postUser?.username}

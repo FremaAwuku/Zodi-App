@@ -22,7 +22,7 @@ export const getAllUsers = () => async dispatch =>{
 
     const response = await fetch(`/api/users`);
     const users = await response.json().then(res=>res = res.users);
- 
+
       dispatch(loadAllUsers(users))
   }
 
@@ -34,20 +34,25 @@ export const getAllUsers = () => async dispatch =>{
 //   }
 
 
+
+
+
 export const updateSunSign = ({
     userId,
-    birth_month,
-    birth_date
+    birthMonth,
+    birthDate
 }) => async dispatch=>{
 
+const data = new FormData()
+    data.append("birth_month",birthMonth)
+    data.append("birth_date",birthDate)
 
-    const data={
-        birth_month,
-        birth_date
-    }
-    const response = await fetch(`/api/users/${userId}/photo`,{
+
+    console.log(birthMonth,"<<<<<<<<<THUNK MONTH")
+    console.log(birthDate,"<<<<<<<<<THUNK DAYYY")
+    const response = await fetch(`/api/users/${userId}/sun_sign`,{
         method: 'PUT',
-        body:JSON.stringify(data)
+        body:data
     });
     if (response.ok) {
         const updatedUser = await response.json()
@@ -56,14 +61,21 @@ export const updateSunSign = ({
 }
 
 
+
+
+
+
+
+
+
 // UPLOAD PHOTO THUNK
-export const updateProfilePic = ({profilePicture,
-    userId}) => async () => {
+export const updateProfilePic = ({profilePic,userId}) => async () => {
 
 
     const data = new FormData()
-    data.append("profile_picture", profilePicture)
-
+    // console.log(profilePic,"THUNK PROFILE")
+    data.append("profile_picture", profilePic)
+    // console.log(data,"<<<<<<<<DATA SENT TO BACK")
 
     const response = await fetch(`/api/users/${userId}/photo`, {
         method: 'PUT',

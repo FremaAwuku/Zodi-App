@@ -35,7 +35,7 @@ export const getUserPendingRequests = (userId) => async dispatch =>{
     }
 }
 
-export const sendFriendRequests = ({userId,friendId}) => async dispatch =>{
+export const sendFriendRequest = ({userId,friendId}) => async dispatch =>{
 
     const response = await fetch(`/api/users/${userId}/send_request/${friendId}`,{
         method:'POST',
@@ -48,14 +48,15 @@ export const sendFriendRequests = ({userId,friendId}) => async dispatch =>{
     }
 }
 
-export const deleteFriendRequests = (requestId) => async dispatch =>{
+export const deleteFriendRequest = (requestId) => async dispatch =>{
 
     const response = await fetch(`/api/friend_request/${requestId}`,{
         method:'DELETE'
     }
     );
     if(response.ok){
-        const requestId= await response.json().request_id
+        // const requestId= await response.json().request_id
+        // console.log()
         dispatch(remove(requestId))
     }
 }
