@@ -48,8 +48,8 @@ const UserDetail = ({user}) =>{
     if(user?.profile_pic){
         currentProfilePic=defaultPicture
     }else{
-          currentProfilePic=user?.profile_pic
-        // console.log(user,"<<<<<<<<CURRENT PIC")
+          currentProfilePic=user?.profile_picture
+        console.log(user.profile_picture,"<<<<<<<<CURRENT PIC")
     }
 
     let signSet
