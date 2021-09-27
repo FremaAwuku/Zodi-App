@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { getUserHoroscopePosts } from '../../store/horoscopePosts';
 import { getAllUsers, updateProfilePic } from '../../store/users';
 import defaultPicture from '../../images/default_profile.png'
-import { authenticate } from '../../store/session';
+import { authenticate, signUp } from '../../store/session';
 import UpdateSign from './UpdateSignModal/UpdateSign';
 import UpdateSignModal from './UpdateSignModal';
 
@@ -22,7 +22,7 @@ const UserDetail = ({user}) =>{
     const inputFile = useRef(null)
 
     const [showUpdate,setShowUpdate] = useState(false)
-    // console.log(userSign,"<<<<<<<<<<User Sign")
+    console.log(userSign,"<<<<<<<<<<User Sign")
     // console.log(userId,"<<<<<<<<<<USER IDE")
     useEffect(()=>{
         dispatch(getUserHoroscopePosts(user?.id))
@@ -51,6 +51,27 @@ const UserDetail = ({user}) =>{
           currentProfilePic=user?.profile_pic
         // console.log(user,"<<<<<<<<CURRENT PIC")
     }
+
+    let signSet
+    if(userSign){
+        signSet=(
+             <section>
+                    <h4>{user.username}</h4>
+                    <div className="user-sign-detail">
+                    <h4>{userSign?.sign}</h4>
+                    <p>Element: {userSign?.element}</p>
+                    <p>Qualities: {userSign?.qualities}</p>
+                    <p>Symbol: {userSign?.symbol}</p>
+                    <p>Ruling Planet: {userSign?.ruling_planet}</p>
+                    <p>Strengths : {userSign?.strengths}</p>
+                    <p>Weaknesses: {userSign?.weaknesses}</p>
+                    </div>
+                </section>
+        )
+
+    }else{
+        signSet=(<h3>Calculate your sun sign</h3>)
+    }
     return(
     <>
     <h1 >{user?.username}'s Profile Page</h1>
@@ -72,7 +93,7 @@ const UserDetail = ({user}) =>{
                             </div>
                     </div>
             <div className="user-controls">
-                <section>
+                {/* <section>
                     <h4>{user.username}</h4>
                     <div className="user-sign-detail">
                     <h4>{userSign?.sign}</h4>
@@ -83,7 +104,8 @@ const UserDetail = ({user}) =>{
                     <p>Strengths : {userSign?.strengths}</p>
                     <p>Weaknesses: {userSign?.weaknesses}</p>
                     </div>
-                </section>
+                </section> */}
+                {signSet}
               <UpdateSignModal userId={userId}/>
 
              </div>
