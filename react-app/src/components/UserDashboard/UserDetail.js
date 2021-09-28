@@ -22,7 +22,7 @@ const UserDetail = ({user}) =>{
     const inputFile = useRef(null)
 
     const [showUpdate,setShowUpdate] = useState(false)
-    console.log(userSign,"<<<<<<<<<<User Sign")
+    // console.log(userSign,"<<<<<<<<<<User Sign")
     // console.log(userId,"<<<<<<<<<<USER IDE")
     useEffect(()=>{
         dispatch(getUserHoroscopePosts(user?.id))
@@ -49,7 +49,7 @@ const UserDetail = ({user}) =>{
         currentProfilePic=defaultPicture
     }else{
           currentProfilePic=user?.profile_picture
-        console.log(user.profile_picture,"<<<<<<<<CURRENT PIC")
+        // console.log(user.profile_picture,"<<<<<<<<CURRENT PIC")
     }
 
     let signSet
