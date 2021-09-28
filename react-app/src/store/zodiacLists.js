@@ -54,23 +54,25 @@ export const addZodiacListRow = (payload) =>  async dispatch =>{
     }
 }
 export const addListMatch = (payload) =>  async dispatch =>{
+    console.log(payload, "<<<<<<<<THUNK PAYLOAD")
     const {
+        rowId,
         userId,
         match_name,
         match_name_id,
         match_name_sign,
     }=payload
 
-    const data= {
-        user_id:userId,
-        match_name,
-        match_name_id,
-        match_name_sign,
-    }
+    const data = new FormData()
+    data.append("user_id",userId)
+    data.append("match_name",match_name)
+    data.append("match_name_id",match_name_id)
+    data.append("match_name_sign",match_name_sign)
 
-const response = await fetch(`/api/users/${userId}/zodiac_list`,{
+    console.log(data, "<<<<<<<<THUNK FORM DATA")
+const response = await fetch(`/api/users/${userId}/zodiac_list/${rowId}`,{
     method:'PUT',
-    body: JSON.stringify(data)
+    body: data
 });
 
 if(response.ok){

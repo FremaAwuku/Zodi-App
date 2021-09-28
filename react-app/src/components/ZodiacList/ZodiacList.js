@@ -5,11 +5,12 @@ import backIcon from '../../images/back-arrow.ico'
 import { getUserZodiacList } from '../../store/zodiacLists';
 import AddRowModal from './AddRowModal/index';
 import ListRow from './ListRow';
+import ShowFriendsModal from './ShowFriendsModal';
 const ZodiacList = () => {
     const history = useHistory()
     const dispatch = useDispatch()
     const user = useSelector(state => state.session)
-    console.log(user.user.username, "<<<<<<<<<<<<USER")
+    // console.log(user.user.username, "<<<<<<<<<<<<USER")
     const listRows = useSelector(state => Object.values(state.zodiac_lists))
     const goBack = () =>{
         history.goBack()
@@ -70,6 +71,7 @@ const ZodiacList = () => {
 })}
         </table>
         <AddRowModal/>
+        {/* <ShowFriendsModal userId ={user.user.id}/> */}
         </div>
 
         </>

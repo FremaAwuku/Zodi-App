@@ -16,7 +16,7 @@ const AddRow =() =>{
     const [hideCalcBtn, setHideCalcBtn] = useState(false)
     const [firstName, setFirstName] = useState("")
     const [firstNameId, setFirstNameId] = useState(null)
-    const [firstNameSignId, setFirstNameSignId] = useState(null)
+    const [firstNameSign, setFirstNameSign] = useState("")
     const [validationErrors,setValidationErrors] = useState([])
     const dispatch = useDispatch()
     const user = useSelector(state=> state.session.user)
@@ -73,6 +73,7 @@ const AddRow =() =>{
         e.preventDefault()
         let payload
         if(friendChosen){
+            // console.log("<<<<<<<<<<FRIEND CHOSEN")
        payload={
             userId,
             first_name:firstName,
@@ -81,16 +82,17 @@ const AddRow =() =>{
 
         }
     }else{
+        // console.log("<<<<<<<<<<FRIEND NOT CHOSEN")
         payload ={
             userId,
             first_name:firstName,
             first_name_id:firstNameId,
-            first_name_sign:firstNameSignId
+            first_name_sign:firstNameSign
 
         }
     }
-        console.log(payload, "<<<<<<<<FRONT END PAYLOAD")
-        console.log(payload, "<<<<<<<<FRONT END PAYLOAD")
+        // console.log(payload, "<<<<<<<<FRONT END PAYLOAD")
+        // console.log(payload, "<<<<<<<<FRONT END PAYLOAD")
         await dispatch(addZodiacListRow(payload))
 
     }
@@ -105,8 +107,8 @@ const calculateSign = async (e) =>{
     const calcData = birthDay.split("-")
     const calcMonth = Number(calcData[1])
     const calcDate = Number(calcData[2])
-    console.log(calcMonth,"<<<<<FRONT END MONTH")
-    console.log(calcDate,"<<<<<<<<FRONT END MONTH")
+    // console.log(calcMonth,"<<<<<FRONT END MONTH")
+    // console.log(calcDate,"<<<<<<<<FRONT END MONTH")
     const signCalc = await dispatch(calculateSunSign({
         calcMonth,
         calcDate
@@ -115,7 +117,7 @@ const calculateSign = async (e) =>{
 
     setCalcSign(signCalc)
     setFetchSuccess(true)
-    setFirstNameSignId(signCalc?.id)
+    setFirstNameSign(signCalc?.id)
     }
 
 
@@ -147,18 +149,23 @@ const calculateSign = async (e) =>{
     //again to pre-poulate value sign of Sign placement SHEEEESH
     const firstInput = (e) => {
         setFirstName(e.target.value)
-        if(friendUsernames.includes(firstName)){
-            console.log("<<<<<<<<<<onchange")
-            setFriendChosen(true)
+        // if(friendUsernames.includes(firstName)){
 
-            setFirstNameId(chosenFriendId)
-            setFirstNameSignId(chosenFriendSignId)
+        //     setFriendChosen(true)
 
-        }
+        //     // setFirstNameId(chosenFriendId)
+        //     // setFirstNameSign(chosenFriendSignId)
+
+        // }
 
     }
     const secondInput = (e) => {
-    setFirstNameSignId(e.target.value)
+        if(friendChosen){
+            setFirstNameSign(chosenFriendSignId)
+        }else{
+            setFirstNameSign(e.target.value)
+        }
+
 
     }
 
@@ -169,7 +176,7 @@ const calculateSign = async (e) =>{
 
             // setFriendChosen(true)
             // setFirstNameId(chosenFriendId)
-            // setFirstNameSignId(chosenFriendSignId)
+            // setFirstNameSign(chosenFriendSignId)
         // if(friendChosen){
         chosenSigns=(
             <label
@@ -178,7 +185,7 @@ const calculateSign = async (e) =>{
                     Friend Sign
                     <input
                     // type="date"
-                    onChange={secondInput}
+                    // onChange={}
                     // placeholder={}
                     hidden={showCalc}
                     value={signObjs[chosenFriend?.friend_to_user?.sun_sign_id]?.sign}
@@ -222,7 +229,9 @@ const calculateSign = async (e) =>{
             />
             <datalist id="sun_signs">
                 {signs&& signs.map((sign)=>(
-                    <option value={sign.id} key={sign.id}>
+                    <option value={sign.sign}
+                    key={sign.id}
+                    onClick={(e)=> setFriendChosen(true)}>
                         {sign.sign}
 
                         </option>
@@ -252,11 +261,14 @@ const calculateSign = async (e) =>{
             onChange ={firstInput}
             />
                 <datalist id="user_friends">
-                {friends&& friends.map((friend)=>(
-                    <option value={friend.friend_to_user.username}>
-
+                {friends&& friends.map((friend)=>{
+                    let friendSunSign = signObjs[friend.friend_to_user.sun_sign_id].sign
+                    return(
+                    <option value={`${friend.friend_to_user.username}`}>
+                            {friendSunSign}
                         </option>
-                ))}
+                    )
+                    })}
                 </datalist>
 
             {/* <button

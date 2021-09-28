@@ -1,18 +1,21 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
+import EditRowModal from './EditRowModal/index';
 
 const ListRow = ({rows}) => {
 
 
     const signs = useSelector(state => Object.values( state.sunSigns))
     // const firstSignId = signs.filter((sign)=> sign.sign === rows?.first_name_sign)[0].id
-    const firstSignId = signs.filter((sign)=> sign.sign === rows?.first_name_sign)
-    const matchSignId = signs.filter((sign)=> sign.sign === rows?.match_name_sign)
-    console.log(rows,"<<<<<ROWS")
-    console.log(firstSignId, `<<<<<<<FIRST SIGN IS`)
-    console.log(matchSignId, `<<<<<<<Match SIGN IS`)
-    console.log(signs,"<<<<<<<SIGNS")
+
+    const firstSign = signs.filter((sign)=> sign.sign=== rows?.first_name_sign)[0]?.id
+    const firstSignId = Number(firstSign)
+    const matchSignId = signs.filter((sign)=> sign.sign === rows?.match_name_sign)[0]?.id
+    console.log(rows.match_name,"<<<<<ROWS")
+    // console.log(firstSignId, `<<<<<<<FIRST SIGN ID`)
+    // console.log(matchSignId, `<<<<<<<MATCH SIGN ID`)
+    // console.log(signs,"<<<<<<<SIGNS")
 
     let signEmoji_1
 
@@ -98,7 +101,7 @@ const ListRow = ({rows}) => {
 
     let signEmoji_2
     // MATCH SIGN EMOJI// MATCH SIGN EMOJI// MATCH SIGN EMOJI
-// if(matchSignId){
+if(matchSignId){
     if(matchSignId === 1 ){
 
         signEmoji_2=(
@@ -162,7 +165,7 @@ const ListRow = ({rows}) => {
             <h3>♓</h3>
         )
     }
-// }
+ }
     let heartEmoji
     if(rows.compatibility){
     if (rows.compatibility === 7){
@@ -206,6 +209,20 @@ const ListRow = ({rows}) => {
 
     }
 }
+let editButton
+if(!rows.match_name ){
+editButton=(
+<td>
+    <EditRowModal row={rows} firstName={rows.first_name} firstNameSign={rows.first_name_sign}/>
+</td>
+)
+    }else{
+        editButton=(
+            <></>
+        )
+    }
+
+
 
 if(rows ){
     return(
@@ -228,6 +245,12 @@ if(rows ){
 <br/>
 <td>
     {heartEmoji}
+</td>
+<br/>
+    {editButton}
+<br/>
+<td>
+    Delete Button
 </td>
 </>
     )
