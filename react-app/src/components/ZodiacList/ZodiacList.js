@@ -3,12 +3,14 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
 import backIcon from '../../images/back-arrow.ico'
 import { getUserZodiacList } from '../../store/zodiacLists';
+import AddRowModal from './AddRowModal/index';
 import ListRow from './ListRow';
+import ShowFriendsModal from './ShowFriendsModal';
 const ZodiacList = () => {
     const history = useHistory()
     const dispatch = useDispatch()
     const user = useSelector(state => state.session)
-    console.log(user.user.username, "<<<<<<<<<<<<USER")
+    // console.log(user.user.username, "<<<<<<<<<<<<USER")
     const listRows = useSelector(state => Object.values(state.zodiac_lists))
     const goBack = () =>{
         history.goBack()
@@ -56,7 +58,7 @@ const ZodiacList = () => {
                 </th>
 
             </tr>
-        {listRows.map((rows)=>{
+        {listRows && listRows?.map((rows)=>{
             if(listRows.length <= 20){
                 return(
             <tr className="univ-list-row">
@@ -68,7 +70,10 @@ const ZodiacList = () => {
             }
 })}
         </table>
+        <AddRowModal/>
+        {/* <ShowFriendsModal userId ={user.user.id}/> */}
         </div>
+
         </>
 
     )

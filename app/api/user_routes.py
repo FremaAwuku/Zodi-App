@@ -214,38 +214,45 @@ def new_row_list(id):
     form = NewListRowForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     row = {}
-    if form.validate_on_submit():
+
+    print(request.form,"<<<<<<<<<FORM REQUEST BACKEND")
 
 
+    if len(request.form) > 2:
+        first_name = request.form['first_name']
+        print(request.form,"<<<<<<<<<FORM REQUEST BACKEND")
+        first_name_id = "null"
+        if request.form['first_name_id'] == 'null':
 
-        if len(request.form) > 2:
-            first_name = request.form['first_name']
-            first_name_id = int(request.form['first_name_id'])
-            first_name_sign = int(request.form['first_name_sign'])
-
-            new_row = ZodiacList(
-                user_id=id,
-                first_name = first_name,
-                first_name_id = first_name_id,
-                first_name_sign = first_name_sign
-            )
-            db.session.add(new_row)
-            row = new_row
+            first_name_id = None
         else:
-            first_name = request.form['first_name']
-            first_name_sign = int(request.form['first_name_sign'])
-            new_row = ZodiacList(
-                user_id=id,
-                first_name = first_name,
+            first_name_id = int(request.form['first_name_id'])
 
-                first_name_sign = first_name_sign
-            )
-            db.session.add(new_row)
-            row = new_row
+        first_name_sign = request.form['first_name_sign']
 
-        db.session.commit()
-        return row.to_dict()
-    return {"flask-errors":flask_form_errors(form.errors)},401
+        new_row = ZodiacList(
+            user_id=id,
+            first_name = first_name,
+            first_name_id = first_name_id,
+            first_name_sign = first_name_sign
+        )
+        db.session.add(new_row)
+        row = new_row
+    else:
+        first_name = request.form['first_name']
+        first_name_sign = request.form['first_name_sign']
+        new_row = ZodiacList(
+            user_id=id,
+            first_name = first_name,
+
+            first_name_sign = first_name_sign
+        )
+        db.session.add(new_row)
+        row = new_row
+
+    db.session.commit()
+    return row.to_dict()
+
 
 #ADD COMPATIBILITY TO ROW
 @user_routes.route('/<int:user_id>/zodiac_list/<int:list_id>', methods=['PUT'])
@@ -253,6 +260,8 @@ def new_row_list(id):
 def add_row_compatibility(user_id,list_id):
     form = CompatibilityForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    print(">>>>>>>>>>>WE IN HERE!!!!")
+    print(request.form,"<<<<<<<REQUEST FORM")
     updated_row = {}
     # if form.validate_on_submit():
     if len(request.form) > 2:
@@ -262,14 +271,79 @@ def add_row_compatibility(user_id,list_id):
 
         #ASSIGN VARIABLE TO USE IN COMP FILTER
         first_name_sign = zodiac_list_row.first_name_sign
-
+        print
+        first_name_sign_id = 0
+        if first_name_sign == "Aries":
+            first_name_sign_id = 1
+        elif first_name_sign == "Taurus":
+            first_name_sign_id = 2
+        elif first_name_sign == "Gemini":
+            first_name_sign_id = 3
+        elif first_name_sign == "Cancer":
+            first_name_sign_id = 4
+        elif first_name_sign== "Leo":
+            first_name_sign_id = 5
+        elif first_name_sign== "Virgo":
+            first_name_sign_id = 6
+        elif first_name_sign == "Libra":
+            first_name_sign_id = 7
+        elif first_name_sign == "Scorpio":
+            first_name_sign_id = 8
+        elif first_name_sign == "Sagittarius":
+            first_name_sign_id = 9
+        elif first_name_sign == "Capricorn":
+            first_name_sign_id = 10
+        elif first_name_sign == "Aquarius":
+            first_name_sign_id = 11
+        elif first_name_sign == "Pisces":
+            first_name_sign_id = 12
+        print(request.form,"<<<<<<<REQUEST FORM IN IF")
+        print(request.form['match_name'],"<<<<<<<REQUEST FORM IN IF")
         #PULL DATA TO BE UPDATED FROM REQUEST
         match_name = request.form['match_name']
-        match_name_id = int(request.form['match_name_id'])
-        match_name_sign = int(request.form['match_name_sign'])
+        match_name_id_str = request.form['match_name_id']
+        match_name_id = None
+        if match_name_id_str  == "null":
+            match_name_id = None
+        else:
+            match_name_id = request.form['match_name_id']
+
+
+        match_name_sign = request.form['match_name_sign']
+        match_name_sign_id = 0
+        if match_name_sign == "Aries":
+            match_name_sign_id = 1
+        elif match_name_sign == "Taurus":
+            match_name_sign_id = 2
+        elif match_name_sign == "Gemini":
+            match_name_sign_id = 3
+        elif match_name_sign == "Cancer":
+            match_name_sign_id = 4
+        elif match_name_sign== "Leo":
+            match_name_sign_id = 5
+        elif match_name_sign== "Virgo":
+            match_name_sign_id = 6
+        elif match_name_sign == "Libra":
+            match_name_sign_id = 7
+        elif match_name_sign == "Scorpio":
+            match_name_sign_id = 8
+        elif match_name_sign == "Sagittarius":
+            match_name_sign_id = 9
+        elif match_name_sign == "Capricorn":
+            match_name_sign_id = 10
+        elif match_name_sign == "Aquarius":
+            match_name_sign_id = 11
+        elif match_name_sign == "Pisces":
+            match_name_sign_id = 12
+        else:
+            error("wrong input")
+
 
         # FIND COMP AND FILTER RATING
-        zodiac_comp= Compatibility.query.filter(Compatibility.sign_1 == first_name_sign ).filter(Compatibility.sign_2 == match_name_sign).first()
+        zodiac_comp= Compatibility.query.filter(Compatibility.sign_1 == first_name_sign_id ).filter(Compatibility.sign_2 == match_name_sign_id).first()
+        print(zodiac_comp,"<<<<<<<<ZODIAC COMP")
+
+        # if(zodiac_comp):
         compatibility = zodiac_comp.rating
 
         # UPDATE EXISTING ROW
@@ -292,7 +366,7 @@ def add_row_compatibility(user_id,list_id):
 
         #PULL DATA TO BE UPDATED FROM REQUEST
         match_name = request.form['match_name']
-        match_name_sign = int(request.form['match_name_sign'])
+        match_name_sign = request.form['match_name_sign']
 
         # FIND COMP AND FILTER (where first sign and match sign match)THEN GET RATING
         zodiac_comp= Compatibility.query.filter(Compatibility.sign_1 == first_name_sign ).filter(Compatibility.sign_2 == match_name_sign).first()

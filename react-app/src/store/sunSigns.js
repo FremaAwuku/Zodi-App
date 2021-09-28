@@ -15,6 +15,22 @@ export const getAllSunSigns = () =>  async dispatch =>{
         dispatch(loadSunSigns(sun_signs))
     }
 }
+export const calculateSunSign =({calcMonth, calcDate}) => async dispatch =>{
+        const data = new FormData()
+
+        data.append('birth_month', calcMonth)
+        data.append('birth_date', calcDate)
+        console.log(calcMonth,"<<<<<FRONT END MONTH")
+        console.log(calcDate,"<<<<<<<<FRONT END MONTH")
+        const response = await fetch('/api/data/sun_signs', {
+            method: 'POST',
+            body:data
+        })
+        if(response.ok){
+            const sun_sign = await response.json()
+            return sun_sign
+        }
+}
 
 const initialState = {}
 
