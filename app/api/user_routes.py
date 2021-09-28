@@ -34,10 +34,11 @@ def users():
 #     user = User.query.get(id)
 #     return user.to_dict()
 
+#
 @user_routes.route('/<int:userId>/photo',methods=['PUT'])
 @login_required
 def update_profile_pic(userId):
-    print("<<<<<<<<<<<<<<<<<<<<HEREREREE")
+    # print("<<<<<<<<<<<<<<<<<<<<HEREREREE")
     form = ProfilePictureForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -215,12 +216,12 @@ def new_row_list(id):
     form['csrf_token'].data = request.cookies['csrf_token']
     row = {}
 
-    print(request.form,"<<<<<<<<<FORM REQUEST BACKEND")
+    # print(request.form,"<<<<<<<<<FORM REQUEST BACKEND")
 
 
     if len(request.form) > 2:
         first_name = request.form['first_name']
-        print(request.form,"<<<<<<<<<FORM REQUEST BACKEND")
+        # print(request.form,"<<<<<<<<<FORM REQUEST BACKEND")
         first_name_id = "null"
         if request.form['first_name_id'] == 'null':
 
@@ -260,8 +261,8 @@ def new_row_list(id):
 def add_row_compatibility(user_id,list_id):
     form = CompatibilityForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print(">>>>>>>>>>>WE IN HERE!!!!")
-    print(request.form,"<<<<<<<REQUEST FORM")
+    # print(">>>>>>>>>>>WE IN HERE!!!!")
+    # print(request.form,"<<<<<<<REQUEST FORM")
     updated_row = {}
     # if form.validate_on_submit():
     if len(request.form) > 2:
@@ -390,9 +391,10 @@ USER FRIENDS==============================================================
 
 # GET USERS FRIENDS
 @user_routes.route('/<int:user_id>/friends')
-# @login_required
+@login_required
 def get_user_friends(user_id):
     user_friends = Friend.query.filter(Friend.user_id == user_id).all()
+    print(user_friends,"<<<<<<<USER")
     return {"user_friends":[friend.to_dict() for friend in user_friends]}
 
 
@@ -437,10 +439,8 @@ def delete_friend_both_ways(user_id, friend_id):
     db.session.delete(friend_to_delete)
     db.session.commit()
 
-    return{
-        "user_id":user_id,
-        "friend_id":friend_id
-    }
+    return user_to_delete.to_dict()
+
 
 """
 REQUEST/PENDING==========================================================

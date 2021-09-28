@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getUserFriends, addFriend } from '../../../store/friends';
+
 import { getUserFriendRequests ,deleteFriendRequest} from '../../../store/requests';
+import AddFriend from './AddFriend';
+import DeleteRequest from './DeleteRequest';
 
 
 const IncomingRequests = ({user}) =>{
@@ -9,7 +11,7 @@ const IncomingRequests = ({user}) =>{
     const requests = useSelector(state => Object.values(state.requests))
 
 
-    console.log(requests,"<<<<<<<<REQUESTS")
+    // console.log(requests,"<<<<<<<<REQUESTS")
     useEffect(()=>{
 
         dispatch(getUserFriendRequests(user?.id))
@@ -17,14 +19,7 @@ const IncomingRequests = ({user}) =>{
 
     }, [dispatch])
 
-    const handleDeleteRequest = async (requestId) =>{
 
-
-        // await dispatch(deleteFriendRequest(requestId))
-        await dispatch(getUserFriendRequests(user?.id))
-
-
-    }
     return(
 
         <div className='incoming-req-cont'>
@@ -34,15 +29,9 @@ const IncomingRequests = ({user}) =>{
 
                             <li key={request?.id}>
                                 <img src={request?.requesting_user.profile_picture} alt="pending requests" style={{maxWidth:100 , height:100}}></img>
-                                <h6>{request?.requesting_user.username}</h6>
-                                <button>
-                                ✨ Add Friend
-                                </button>
-                                <button
-                                className="primary-button"
-                                onClick={handleDeleteRequest(request.id)}>Delete Request?
-                                ❌
-                                </button>
+                                <h3>{request?.requesting_user.username}</h3>
+                                <AddFriend userId={user?.id} friendId={request?.requesting_user_id} requestId={request.id}/>
+                                <DeleteRequest requestId={request.id}/>
                             </li>
 
                     ))}

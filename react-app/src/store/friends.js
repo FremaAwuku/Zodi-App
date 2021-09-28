@@ -19,11 +19,11 @@ friendId
 })
 
 export const getUserFriends = (userId) => async dispatch =>{
-    console.log("<<<<<<<<<<<<<<<IN THUNK")
+    // console.log("<<<<<<<<<<<<<<<IN THUNK")
     const response = await fetch(`/api/users/${userId}/friends`);
     if(response.ok){
         const friends = await response.json().then(res=>res = res.user_friends);
-        console.log(friends,"<<<<<<FRIENDS IN THUNK")
+        // console.log(friends,"<<<<<<FRIENDS IN THUNK")
         dispatch(load(friends))
     }
 }
@@ -35,13 +35,13 @@ export const addFriend = ({userId,friendId}) => async dispatch =>{
         body: JSON.stringify({})
     }
     );
-    if(response.ok){
-        const user_friendship = await response.json().then(res=>res = res.user_friendship)
-        const friend_to_user = await response.json().then(res=>res = res.friend_to_user)
+    // if(response.ok){
+    //     const user_friendship = await response.json().then(res=>res = res.user_friendship)
+    //     const friend_to_user = await response.json().then(res=>res = res.friend_to_user)
 
-        dispatch(add(user_friendship))
-        dispatch(add(friend_to_user))
-    }
+    //     dispatch(add(user_friendship))
+    //     dispatch(add(friend_to_user))
+    // }
 }
 
 export const deleteFriend = ({userId,friendId}) => async dispatch =>{
@@ -50,10 +50,11 @@ export const deleteFriend = ({userId,friendId}) => async dispatch =>{
         method:'DELETE'
     });
     if(response.ok){
-        const friendId= await response.json().then(res=>res = res.friend_id)
-        const userId= await response.json().then(res=>res = res.user_id)
-        dispatch(remove(friendId))
-        dispatch(remove(userId))
+        const friend= await response.json()
+        console.log(friend,"++++++++<<<<<THUNK FRIENDDDDDD")
+        // const userId= await response.json().then(res=>res = res.user_id)
+        dispatch(remove(friend.id))
+        // dispatch(remove(userId))
 
     }
 }
