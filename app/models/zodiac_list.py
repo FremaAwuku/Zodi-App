@@ -17,9 +17,9 @@ class ZodiacList(db.Model):
 
     # zodi_list_owner= db.relationship('User',  back_populates="user_zodiac_list")
 
-    owner_of_list = db.relationship('User', foreign_keys=[user_id],backref="first_input",cascade="all, delete")
-    first_input= db.relationship("User", foreign_keys=[first_name_id], backref="first_match_input",cascade="all, delete")
-    match_input = db.relationship("User", foreign_keys=[match_name_id] ,backref="second_match_input",cascade="all, delete")
+    owner_of_list = db.relationship('User', foreign_keys=[user_id],backref="first_input")
+    first_input= db.relationship("User", foreign_keys=[first_name_id], backref="first_match_input")
+    match_input = db.relationship("User", foreign_keys=[match_name_id] ,backref="second_match_input")
 
     def to_dict(self):
         return {

@@ -54,7 +54,7 @@ export const addZodiacListRow = (payload) =>  async dispatch =>{
     }
 }
 export const addListMatch = (payload) =>  async dispatch =>{
-    console.log(payload, "<<<<<<<<THUNK PAYLOAD")
+    // console.log(payload, "<<<<<<<<THUNK PAYLOAD")
     const {
         rowId,
         userId,
@@ -69,7 +69,7 @@ export const addListMatch = (payload) =>  async dispatch =>{
     data.append("match_name_id",match_name_id)
     data.append("match_name_sign",match_name_sign)
 
-    console.log(data, "<<<<<<<<THUNK FORM DATA")
+    // console.log(data, "<<<<<<<<THUNK FORM DATA")
 const response = await fetch(`/api/users/${userId}/zodiac_list/${rowId}`,{
     method:'PUT',
     body: data

@@ -1,11 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
+import DeleteRowModal from './DeleteRowModal';
 import EditRowModal from './EditRowModal/index';
 
 const ListRow = ({rows}) => {
 
 
+    const [showDeleteModal, setShowDeleteModal] = useState(false)
     const signs = useSelector(state => Object.values( state.sunSigns))
     // const firstSignId = signs.filter((sign)=> sign.sign === rows?.first_name_sign)[0].id
 
@@ -222,7 +224,10 @@ editButton=(
         )
     }
 
+const handleDelete = async (e)=>{
+    setShowDeleteModal(true)
 
+}
 
 if(rows ){
     return(
@@ -250,7 +255,14 @@ if(rows ){
     {editButton}
 <br/>
 <td>
-    Delete Button
+<button
+// hidden={!showDeleteModal}
+className="primary-button"
+onClick={handleDelete}
+> Delete Row</button>
+
+{showDeleteModal && <DeleteRowModal rowId={rows.id} showDeleteModal={showDeleteModal}
+setShowDeleteModal={setShowDeleteModal}/>}
 </td>
 </>
     )

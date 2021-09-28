@@ -7,7 +7,7 @@ function EditRowModal({row, firstName, firstNameSign}) {
 
   return (
     <>
-      <button className="primary-button login-button" onClick={() => setShowModal(true)}>Edit Row</button>
+      <button className="primary-button login-button" onClick={() => setShowModal(true)}>Add Match</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <EditRow
