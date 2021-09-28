@@ -39,12 +39,12 @@ class User(db.Model, UserMixin):
     FRIEND REQUEST RELATIONSHIPS
     """
     request_from = db.relationship(
-        'FriendRequest', back_populates="request", primaryjoin=id == FriendRequest.requesting_user_id,
+        'FriendRequest', back_populates="requesting_user", primaryjoin=id == FriendRequest.requesting_user_id,
         cascade="all, delete"
     )
 
     accept_by = db.relationship(
-        'FriendRequest', back_populates="pending", primaryjoin=id == FriendRequest.accepting_friend_id,
+        'FriendRequest', back_populates="accepting_user", primaryjoin=id == FriendRequest.accepting_friend_id,
     cascade="all, delete")
 
     """

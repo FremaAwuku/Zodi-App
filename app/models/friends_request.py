@@ -9,14 +9,16 @@ class FriendRequest(db.Model):
 
 
     # owner_of_list = db.relationship('User', foreign_keys=[first_name_id])
-    request= db.relationship('User', foreign_keys=[requesting_user_id])
+    requesting_user= db.relationship('User', foreign_keys=[requesting_user_id])
     # ,cascade="all, delete")
-    pending= db.relationship('User', foreign_keys=[accepting_friend_id])
+    accepting_user= db.relationship('User', foreign_keys=[accepting_friend_id])
     # ,cascade="all, delete")
 
     def to_dict(self):
         return{
             'id':self.id,
             'requesting_user_id':self.requesting_user_id,
-            'accepting_friend_id': self.accepting_friend_id
+            'accepting_friend_id': self.accepting_friend_id,
+            'requesting_user': self.requesting_user.to_dict(),
+            'accepting_user': self.accepting_user.to_dict()
         }
