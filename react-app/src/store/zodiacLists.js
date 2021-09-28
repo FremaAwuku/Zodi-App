@@ -34,16 +34,18 @@ export const addZodiacListRow = (payload) =>  async dispatch =>{
             first_name_sign,
         }=payload
 
-        const data= {
-            user_id:userId,
-            first_name,
-            first_name_id,
-            first_name_sign,
-        }
 
+        console.log(payload ,"<<<<<<<<<<<PAYLOAD THUNK")
+        const data = new FormData()
+
+        data.append("user_id",userId)
+        data.append("first_name",first_name)
+        data.append("first_name_id",first_name_id)
+        data.append("first_name_sign",first_name_sign)
+        console.log(data ,"<<<<<<<<<<<DATA THUNK")
     const response = await fetch(`/api/users/${userId}/zodiac_list`,{
         method:'POST',
-        body: JSON.stringify(data)
+        body: data
     });
 
     if(response.ok){

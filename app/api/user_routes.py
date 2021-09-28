@@ -214,38 +214,45 @@ def new_row_list(id):
     form = NewListRowForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     row = {}
-    if form.validate_on_submit():
+
+    print(request.form,"<<<<<<<<<FORM REQUEST BACKEND")
 
 
+    if len(request.form) > 2:
+        first_name = request.form['first_name']
+        print(request.form,"<<<<<<<<<FORM REQUEST BACKEND")
+        first_name_id = "null"
+        if request.form['first_name_id'] == 'null':
 
-        if len(request.form) > 2:
-            first_name = request.form['first_name']
-            first_name_id = int(request.form['first_name_id'])
-            first_name_sign = int(request.form['first_name_sign'])
-
-            new_row = ZodiacList(
-                user_id=id,
-                first_name = first_name,
-                first_name_id = first_name_id,
-                first_name_sign = first_name_sign
-            )
-            db.session.add(new_row)
-            row = new_row
+            first_name_id = None
         else:
-            first_name = request.form['first_name']
-            first_name_sign = int(request.form['first_name_sign'])
-            new_row = ZodiacList(
-                user_id=id,
-                first_name = first_name,
+            first_name_id = int(request.form['first_name_id'])
 
-                first_name_sign = first_name_sign
-            )
-            db.session.add(new_row)
-            row = new_row
+        first_name_sign = int(request.form['first_name_sign'])
 
-        db.session.commit()
-        return row.to_dict()
-    return {"flask-errors":flask_form_errors(form.errors)},401
+        new_row = ZodiacList(
+            user_id=id,
+            first_name = first_name,
+            first_name_id = first_name_id,
+            first_name_sign = first_name_sign
+        )
+        db.session.add(new_row)
+        row = new_row
+    else:
+        first_name = request.form['first_name']
+        first_name_sign = int(request.form['first_name_sign'])
+        new_row = ZodiacList(
+            user_id=id,
+            first_name = first_name,
+
+            first_name_sign = first_name_sign
+        )
+        db.session.add(new_row)
+        row = new_row
+
+    db.session.commit()
+    return row.to_dict()
+
 
 #ADD COMPATIBILITY TO ROW
 @user_routes.route('/<int:user_id>/zodiac_list/<int:list_id>', methods=['PUT'])

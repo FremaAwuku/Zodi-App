@@ -6,11 +6,14 @@ const ListRow = ({rows}) => {
 
 
     const signs = useSelector(state => Object.values( state.sunSigns))
-    const firstSignId = signs.filter((sign)=> sign.sign === rows.first_name_sign)[0].id
-    const matchSignId = signs.filter((sign)=> sign.sign === rows.match_name_sign)[0].id
+    // const firstSignId = signs.filter((sign)=> sign.sign === rows?.first_name_sign)[0].id
+    const firstSignId = signs.filter((sign)=> sign.sign === rows?.first_name_sign)
+    const matchSignId = signs.filter((sign)=> sign.sign === rows?.match_name_sign)
+    console.log(rows,"<<<<<ROWS")
     console.log(firstSignId, `<<<<<<<FIRST SIGN IS`)
     console.log(matchSignId, `<<<<<<<Match SIGN IS`)
     console.log(signs,"<<<<<<<SIGNS")
+
     let signEmoji_1
 
     if(firstSignId === 1 ){
@@ -92,9 +95,10 @@ const ListRow = ({rows}) => {
     }
 
 
-    let signEmoji_2
 
+    let signEmoji_2
     // MATCH SIGN EMOJI// MATCH SIGN EMOJI// MATCH SIGN EMOJI
+// if(matchSignId){
     if(matchSignId === 1 ){
 
         signEmoji_2=(
@@ -157,18 +161,31 @@ const ListRow = ({rows}) => {
         signEmoji_2=(
             <h3>♓</h3>
         )
-
-
     }
+// }
     let heartEmoji
-    if (rows.compatibility === 1){
+    if(rows.compatibility){
+    if (rows.compatibility === 7){
         heartEmoji=(
-            <>💜</>
+            <>💜💜💜💜💜❤️‍🔥</>
         )
 
-    }else if(rows.compatibility === 2){
+
+    }else if(rows.compatibility === 6){
         heartEmoji=(
-            <>💜💜</>
+            <>💜💜💜💜💜💜</>
+        )
+
+
+    }else if(rows.compatibility === 5){
+        heartEmoji=(
+            <>💜💜💜💜💜</>
+        )
+
+
+    }else if(rows.compatibility === 4){
+        heartEmoji=(
+            <>💜💜💜💜</>
         )
 
     }else if(rows.compatibility === 3){
@@ -176,27 +193,19 @@ const ListRow = ({rows}) => {
             <>💜💜💜</>
         )
 
-    }else if(rows.compatibility === 4){
+    }else if(rows.compatibility === 2){
         heartEmoji=(
-            <>💜💜💜💜</>
+            <>💜💜</>
         )
 
-    }else if(rows.compatibility === 5){
-        heartEmoji=(
-            <>💜💜💜💜💜</>
-        )
 
-    }else if(rows.compatibility === 6){
+    }else {
         heartEmoji=(
-            <>💜💜💜💜💜💜</>
-        )
-
-    }else{
-        heartEmoji=(
-            <>💜💜💜💜💜❤️‍🔥</>
+            <>💜</>
         )
 
     }
+}
 
 if(rows ){
     return(

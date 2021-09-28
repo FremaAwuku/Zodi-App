@@ -3,15 +3,19 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getUserFriends } from '../../../store/friends';
 import { calculateSunSign } from '../../../store/sunSigns';
+import { addZodiacListRow } from '../../../store/zodiacLists';
 const AddRow =() =>{
     const [showCalc, setShowCalc] = useState(false)
     const [friendChosen, setFriendChosen] = useState(false)
     const [calcSign, setCalcSign] = useState({})
-    const [firstName, setFirstName] = useState("")
-    const [firstNameId, setFirstNameId] = useState(null)
+    const [fetchSuccess,setFetchSuccess] = useState(false)
+    // const [friendName, setFriendName] = useState("")
+    // const [friendNameId, setFriendNameId] = useState(null)
     const [birthMonth, setBirthMonth] = useState(null)
     const [birthDate, setBirthDate] = useState(null)
-    const [birthDay,setBirthDay] = useState("")
+    const [hideCalcBtn, setHideCalcBtn] = useState(false)
+    const [firstName, setFirstName] = useState("")
+    const [firstNameId, setFirstNameId] = useState(null)
     const [firstNameSignId, setFirstNameSignId] = useState(null)
     const [validationErrors,setValidationErrors] = useState([])
     const dispatch = useDispatch()
@@ -26,37 +30,39 @@ const AddRow =() =>{
     const signObjs = useSelector(state=>state.sunSigns)
     const filteredSigns =[]
 
-
+    const calculatedSign = calcSign?.sign
+    const calculatedSignId = calcSign?.id
 
     //use use state to save variable of friends name (first name )
     //filter through friend to get that specific friends details
 
     const chosenFriend = friends?.filter((friend)=>friend?.friend_to_user.username === firstName)[0]
-    .friend_to_user
-    const chosenFriendId = chosenFriend?.id
-    const chosenFriendSign = signObjs[chosenFriend?.sun_sign_id]
+    const chosenFriendId = chosenFriend?.friend_id
+    const chosenFriendSignId = signObjs[chosenFriend?.friend_to_user?.sun_sign_id]?.id
+    const [birthDay,setBirthDay] = useState(signObjs[chosenFriend?.friend_to_user?.sun_sign_id]?.sign)
     // friendSignIds.forEach((id)=>{
 
     //         filteredSigns.push(signObjs[id].sign)
     //     })
 
 
-    console.log(friends,"<<<<<<<Friends")
-    console.log(friendUsernames,"<<<<<<<Friend Usernames")
-    console.log(friendSignIds,"<<<<<<<Friend Sign Ids")
-    console.log(signObjs,"<<<<<<<ARRAY OF OBJ?")
-    console.log(filteredSigns,"<<<<<<<FILTERED SIGNS HOPEFULLY")
-    console.log(chosenFriend,"<<<<<<<<<<< CHOSEN FRIEND")
-    console.log(chosenFriendId,"<<<<<<<<<<< CHOSEN FRIEND ID")
-    console.log(chosenFriendSign,"<<<<<<<<<<< CHOSEN FRIEND Sign")
+    // console.log(friends,"<<<<<<<Friends")
+    // console.log(friendUsernames,"<<<<<<<Friend Usernames")
+    // console.log(friendSignIds,"<<<<<<<Friend Sign Ids")
+    // console.log(signObjs,"<<<<<<<ARRAY OF OBJ?")
+    // console.log(filteredSigns,"<<<<<<<FILTERED SIGNS HOPEFULLY")
+    // console.log(chosenFriend,"<<<<<<<<<<< CHOSEN FRIEND")
+    // console.log(chosenFriendId,"<<<<<<<<<<< CHOSEN FRIEND ID")
+    // console.log(chosenFriendSignId,"<<<<<<<<<<< CHOSEN FRIEND Sign")
+    console.log(calcSign,"<<<<<<<calc sign")
     useEffect(()=>{
 
 
-        const errors = []
+        // const errors = []
 
 
-        if(birthDay === "")errors.push("  Please Enter Birth Date")
-        setValidationErrors(errors)
+        // if(firstName === ""|| !chosenFriend )errors.push("  Please Enter Name or Friend")
+        // setValidationErrors(errors)
         // if(description.length === 0)errors.push("Description can not be Empty")
         // setValidationErrors(errors)
 
@@ -65,6 +71,28 @@ const AddRow =() =>{
 
     const handleSubmit = async (e)  =>{
         e.preventDefault()
+        let payload
+        if(friendChosen){
+       payload={
+            userId,
+            first_name:firstName,
+            first_name_id:chosenFriendId,
+            first_name_sign:chosenFriendSignId
+
+        }
+    }else{
+        payload ={
+            userId,
+            first_name:firstName,
+            first_name_id:firstNameId,
+            first_name_sign:firstNameSignId
+
+        }
+    }
+        console.log(payload, "<<<<<<<<FRONT END PAYLOAD")
+        console.log(payload, "<<<<<<<<FRONT END PAYLOAD")
+        await dispatch(addZodiacListRow(payload))
+
     }
     // const getSign
  //make a function that fetches CalcSign
@@ -77,11 +105,19 @@ const calculateSign = async (e) =>{
     const calcData = birthDay.split("-")
     const calcMonth = Number(calcData[1])
     const calcDate = Number(calcData[2])
+    console.log(calcMonth,"<<<<<FRONT END MONTH")
+    console.log(calcDate,"<<<<<<<<FRONT END MONTH")
     const signCalc = await dispatch(calculateSunSign({
         calcMonth,
         calcDate
     }))
+    if(signCalc){
+
     setCalcSign(signCalc)
+    setFetchSuccess(true)
+    setFirstNameSignId(signCalc?.id)
+    }
+
 
 }
     let friendInput
@@ -112,13 +148,89 @@ const calculateSign = async (e) =>{
     const firstInput = (e) => {
         setFirstName(e.target.value)
         if(friendUsernames.includes(firstName)){
+            console.log("<<<<<<<<<<onchange")
             setFriendChosen(true)
-            setFirstNameId()
-            setFirstNameSignId()
+
+            setFirstNameId(chosenFriendId)
+            setFirstNameSignId(chosenFriendSignId)
 
         }
+
+    }
+    const secondInput = (e) => {
+    setFirstNameSignId(e.target.value)
+
     }
 
+    //ATttempting to prepopluate dropdown
+    let chosenSigns
+
+        if(firstName&&friendUsernames.includes(firstName)){
+
+            // setFriendChosen(true)
+            // setFirstNameId(chosenFriendId)
+            // setFirstNameSignId(chosenFriendSignId)
+        // if(friendChosen){
+        chosenSigns=(
+            <label
+            hidden={showCalc}
+            >
+                    Friend Sign
+                    <input
+                    // type="date"
+                    onChange={secondInput}
+                    // placeholder={}
+                    hidden={showCalc}
+                    value={signObjs[chosenFriend?.friend_to_user?.sun_sign_id]?.sign}
+                    />
+
+                </label>
+                        )
+//   }
+
+  }else if(fetchSuccess ){
+
+    chosenSigns=(
+        <label>
+                Calculated Sign
+                <input
+                // type="date"
+                onChange ={secondInput}
+                // placeholder={}
+                value={signObjs[calculatedSignId]?.sign}
+                />
+
+
+            </label>
+                    )
+
+
+  }
+  else{
+
+    chosenSigns=(
+    <label
+        >
+            Enter Sign
+            <input
+            // type="date"
+            onChange ={secondInput}
+            // placeholder={}
+            // value={firstNameSignId}
+            hidden={showCalc}
+            list="sun_signs"
+            />
+            <datalist id="sun_signs">
+                {signs&& signs.map((sign)=>(
+                    <option value={sign.id} key={sign.id}>
+                        {sign.sign}
+
+                        </option>
+                ))}
+                </datalist>
+                </label>)
+
+    }
 
     return(
         <div className="univ-modal-wrapper">
@@ -153,14 +265,14 @@ const calculateSign = async (e) =>{
             </button> */}
 
         </label>
-        <label
+        {/* <label
         >
             Enter Sign
             <input
             // type="date"
             // onChange
             // placeholder={}
-            //value={}
+            // value={firstNameSignId}
             hidden={showCalc}
             list="sun_signs"
             />
@@ -171,31 +283,36 @@ const calculateSign = async (e) =>{
                         </option>
                 ))}
                 </datalist>
+                </label> */}
+                {chosenSigns}
                 <button
             onClick = {()=> setShowCalc(true)}
+            hidden={showCalc}
 
             >
                 Calculate Sign
             </button>
             <label
             hidden={!showCalc}>
-                Enter Sign
+                Enter Birth Day
             <input
             type="date"
-            // onChange
+            onChange ={(e)=>setBirthDay(e.target.value)}
             // placeholder={}
             //value={}
             hidden={!showCalc}
             />
-
-            </label>
-
-
-
+             <button
+            onClick={calculateSign}
+             >
+                    Calculate
+                    </button>
 
         </label>
         <button
+        disabled = {validationErrors.length > 0}
         type="submit"
+
         >
         Add Row
         </button>
