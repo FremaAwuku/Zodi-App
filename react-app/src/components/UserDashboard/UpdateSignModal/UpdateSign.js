@@ -53,11 +53,12 @@ function UpdateSign({userId, setShowModal}) {
     <form
     onSubmit={handleSubmit}
     className="univ-form-cont" >
-    <div className="form-errors">
+    <div className="univ-form-errors">
                 {validationErrors.map((error, int) => (<div key={int}>{error}</div>))}
         </div>
         <label>
             <input
+            
             type="date"
             onChange={((e)=>setBirthDay(e.target.value))}
             ></input>

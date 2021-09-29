@@ -38,16 +38,21 @@ POST HOROSCOPE POST
 @horoscope_posts_routes.route('',methods=['POST'])
 # @login_required
 def post_to_horoscope_feed():
+    print("<<<<<<<HEEEEERRRRREEE")
     form = PostForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']
 
-
+    print(request.form,"<<<<<<<REQUEST FORM")
     # if form.validate_on_submit():
     user_id = request.form['user_id']
     horoscope = request.form['horoscope']
     content = request.form['content']
 
+    print(request.form['user_id'],"<<<<<<<REQUEST FORM ID")
+    print(request.form['horoscope'],"<<<<<<<REQUEST FORM HORO")
+    print(request.form['content'],"<<<<<<<REQUEST FORM CONTENT")
+    
     new_post = HoroscopePost(
         user_id=user_id,
         horoscope=horoscope,

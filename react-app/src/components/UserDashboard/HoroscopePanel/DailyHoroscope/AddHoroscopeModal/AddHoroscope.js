@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
-import { createHoroscopePost } from '../../../../store/horoscopePosts';
+import { createHoroscopePost } from '../../../../../store/horoscopePosts';
 const AddHoroscope = ({horoscope, userId , setShowModal}) =>{
 
       const dispatch = useDispatch()
@@ -18,19 +18,21 @@ const AddHoroscope = ({horoscope, userId , setShowModal}) =>{
           horoscope,
           content
       }
+      console.log(payload,"<<<<<<<<<ADD POST PAYLOAD")
 
-       const newPost = await createHoroscopePost(payload)
-       if(newPost){
-       history.push('horoscope_feed')
+     await dispatch(createHoroscopePost(payload))
+
+       history.push('/horoscope_feed')
 
        setShowModal(false)
-       }
+
 
 
 
   }
 
   return(
+    <div className="univ-modal-wrapper">
       <form
       className="univ-form-wrapper"
       onSubmit={handleSubmit}
@@ -41,7 +43,7 @@ const AddHoroscope = ({horoscope, userId , setShowModal}) =>{
         <h4>{`Daily Horoscope:${horoscope}`}</h4>
         <label
         className="univ-form-label"
-        for='content'
+        htmlFor='content'
         >
            Share a few words about your Horoscope!
             <textarea
@@ -52,11 +54,13 @@ const AddHoroscope = ({horoscope, userId , setShowModal}) =>{
             />
         </label>
         <button
+        className="primary-button"
         type="submit">
             Post To Horoscope Feed
         </button>
 
       </form>
+      </div>
   )
 
 }

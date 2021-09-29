@@ -19,6 +19,7 @@ const UserDetail = ({user}) =>{
     const users = useSelector(state => state?.session.users);
     const profileOwner = users?.filter(user_ => user_.id === +user.id )[0]
     const userPosts =  useSelector(state => Object.values(state.horoscope_posts))
+
     const inputFile = useRef(null)
 
     const [showUpdate,setShowUpdate] = useState(false)
@@ -36,11 +37,12 @@ const UserDetail = ({user}) =>{
 
         const profilePic = e.target.files[0]
 
-        // console.log(profilePic,"<<<<<<<<<<PROFILE")
-        // console.log(userId,"<<<<<<<<<<USER IDE")
+        console.log(profilePic,"<<<<<<<<<<PROFILE")
+        console.log(userId,"<<<<<<<<<<USER IDE")
 
         await dispatch(updateProfilePic({profilePic,
             userId}))
+        await dispatch(authenticate())
 
         return
     }
@@ -92,18 +94,7 @@ const UserDetail = ({user}) =>{
                             </div>
                     </div>
             <div className="user-controls">
-                {/* <section>
-                    <h4>{user.username}</h4>
-                    <div className="user-sign-detail">
-                    <h4>{userSign?.sign}</h4>
-                    <p>Element: {userSign?.element}</p>
-                    <p>Qualities: {userSign?.qualities}</p>
-                    <p>Symbol: {userSign?.symbol}</p>
-                    <p>Ruling Planet: {userSign?.ruling_planet}</p>
-                    <p>Strengths : {userSign?.strengths}</p>
-                    <p>Weaknesses: {userSign?.weaknesses}</p>
-                    </div>
-                </section> */}
+            
                 {signSet}
               <UpdateSignModal userId={userId}/>
 

@@ -54,7 +54,7 @@ export const getUserHoroscopePosts = (userId) =>  async dispatch =>{
     }
 }
 export const createHoroscopePost = (payload) => async dispatch =>{
-
+    console.log(payload,"<<<<<<<<<ADD POST THUNK PAYLOAD")
     const {
        userId,
         horoscope,
@@ -62,10 +62,12 @@ export const createHoroscopePost = (payload) => async dispatch =>{
     } = payload
 
 
+
 const data = new FormData()
 data.append("user_id",userId)
 data.append("horoscope",horoscope)
 data.append("content",content)
+console.log(data,"<<<<<<<<<ADD POST THUNK DATA")
 const response = await fetch(`/api/horoscope_posts`,{
     method: 'POST',
     body: data

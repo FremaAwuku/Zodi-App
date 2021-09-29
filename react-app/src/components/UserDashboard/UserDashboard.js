@@ -1,25 +1,21 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, Redirect, useHistory } from 'react-router-dom';
-import { getUserHoroscopePosts } from '../../store/horoscopePosts';
-import DailyHoroscope from './DailyHoroscope/DailyHoroscope';
+
+
 import FriendsPanel from './FriendsPanel/FriendsPanel';
+import UserHoroscopes from './HoroscopePanel/DailyHoroscope/AddHoroscopeModal/UserHoroscopes';
 
 
 import UserDetail from './UserDetail';
 const UserDashboard = () =>{
 
-    const dispatch = useDispatch()
+
     const history = useHistory()
     const user = useSelector(state => state?.session.user);
-    const userPost =  useSelector(state => Object.values(state.horoscope_posts))
-
-    useEffect(()=>{
-        dispatch(getUserHoroscopePosts(user?.id))
 
 
 
-    }, [dispatch])
     const toZodiacList = ()=>{
         <Redirect to='/zodiac_list'/>
         history.push('/zodiac_list')
@@ -35,9 +31,7 @@ const UserDashboard = () =>{
             <UserDetail user={user}/>
             </div>
             <div className="univ-daily-horoscope-cont">
-            <DailyHoroscope
-            className="univ-daily-horoscope-component"
-             user={user} />
+            <UserHoroscopes user={user}/>
             </div>
             <div className="univ-user-friend-panel">
             <FriendsPanel user={user} className="univ-friend-panel-component"/>

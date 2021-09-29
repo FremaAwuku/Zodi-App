@@ -38,7 +38,7 @@ def users():
 @user_routes.route('/<int:userId>/photo',methods=['PUT'])
 @login_required
 def update_profile_pic(userId):
-    # print("<<<<<<<<<<<<<<<<<<<<HEREREREE")
+    print("<<<<<<<<<<<<<<<<<<<<HEREREREE")
     form = ProfilePictureForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -46,8 +46,8 @@ def update_profile_pic(userId):
     # if form.validate_on_submit():
 
 
-    image= request.files[0]
-    print(request.files[0], "<<<<<<req .files")
+    image= list(request.files.to_dict().values())[0]
+    # print(, "<<<<<<req .files")
     url= upload_to_aws(image, BUCKET_NAME)
     user = User.query.get(userId)
     user.profile_picture = url
@@ -394,7 +394,7 @@ USER FRIENDS==============================================================
 @login_required
 def get_user_friends(user_id):
     user_friends = Friend.query.filter(Friend.user_id == user_id).all()
-    print(user_friends,"<<<<<<<USER")
+    # print(user_friends,"<<<<<<<USER")
     return {"user_friends":[friend.to_dict() for friend in user_friends]}
 
 

@@ -9,9 +9,15 @@ const DailyHoroscope =({user}) =>{
 
     const [todaysHoro ,setTodaysHoro] =useState({})
     const signs = useSelector(state=>state.sunSigns)
-    const userSign = signs[user.sun_sign_id].sign
+    let userSign
+    let sign
+    if(user.sun_sign_id){
+        userSign = signs[user?.sun_sign_id].sign
+        sign = userSign.toLowerCase()
+    }
 
-    let sign = userSign.toLowerCase()
+
+
     let property = 'description'
 
     useEffect(()=>{
@@ -32,19 +38,33 @@ const DailyHoroscope =({user}) =>{
 
 
 
-
+if(user.sun_sign_id){
     return(
 <>
-<h1>
-    Daily Horoscope
-</h1>
 <h2>
-{`"${todaysHoro}"`}
+    Daily Horoscope
 </h2>
+<h4>
+{`"${todaysHoro}"`}
+</h4>
 <AddHoroscopeModal horoscope={todaysHoro} userId={user?.id}/>
 </>
 
     )
+}else{
+return(
+        <>
+    <h2>
+        Daily Horoscope
+    </h2>
+    <h4>
+    Calculate your SunSign to Get Daily Horoscope
+    </h4>
+    </>
+)
+
+}
+
 
 }
 export default DailyHoroscope

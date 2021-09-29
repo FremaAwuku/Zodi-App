@@ -32,17 +32,34 @@
 }
 .univ-horoscope-post-wrapper{
 
+
 }
 .univ-modal-wrapper{
+    min-width: 350px;
+    max-width: 350px;
+    border: 2px solid white;
+    border-radius: 15%;
+    background-color: var(--wa-purple); /* For browsers that do not support gradients */
+    background-image: linear-gradient(to bottom left, var(--wa-purple), white);
+    border-radius: 10px;
 
 }
 .univ-form-wrapper{
 
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 40px;
 }
 .univ-form-errors{
 
 }
 .univ-form-label{
+
+}
+.univ-form-input{
 
 }
 .univ-user-friend-panel{

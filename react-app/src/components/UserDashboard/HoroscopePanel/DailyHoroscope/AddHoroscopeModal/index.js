@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Modal } from '../../../../context/Modal';
+import { Modal } from '../../../../../context/Modal';
 
 import AddHoroscope from './AddHoroscope';
 
