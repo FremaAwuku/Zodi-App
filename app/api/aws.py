@@ -33,7 +33,7 @@ def upload_to_aws(image, bucket):
         )
 
         #CREATES USEABLE URL WITH UPLOADED FILE NAME
-        aws_url = str("https://whereaboutsbucket.s3.amazonaws.com/"+f"{img_name}")
+        aws_url = str("https://zodiappbucket.s3.amazonaws.com/"+f"{img_name}")
 
         #REMOVE FROM LOCAL(still unsure)?
         os.remove(img_name)

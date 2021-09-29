@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { getUserFriendRequests ,deleteFriendRequest} from '../../../store/requests';
+import { getUserFriendRequests } from '../../../store/requests';
 import AddFriend from './AddFriend';
 import DeleteRequest from './DeleteRequest';
 

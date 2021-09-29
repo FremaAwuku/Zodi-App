@@ -23,14 +23,14 @@ const AddRow =() =>{
     const userId = user.id
     const friends = useSelector(state=> Object.values(state.friends))
     const friendUsernames = useSelector(state=> Object.values(state.friends)).map((friend)=>friend = friend.friend_to_user.username)
-    const friendSignIds = friends
-    // .filter((friend)=> setFriendChosen&& friend.username === firstName)
-    .map((friend)=>friend = friend.friend_to_user.sun_sign_id)
+    // const friendSignIds = friends
+    // // .filter((friend)=> setFriendChosen&& friend.username === firstName)
+    // .map((friend)=>friend = friend.friend_to_user.sun_sign_id)
     const signs = useSelector(state=>Object.values(state.sunSigns))
     const signObjs = useSelector(state=>state.sunSigns)
-    const filteredSigns =[]
+    // const filteredSigns =[]
 
-    const calculatedSign = calcSign?.sign
+    // const calculatedSign = calcSign?.sign
     const calculatedSignId = calcSign?.id
 
     //use use state to save variable of friends name (first name )
@@ -54,7 +54,7 @@ const AddRow =() =>{
     // console.log(chosenFriend,"<<<<<<<<<<< CHOSEN FRIEND")
     // console.log(chosenFriendId,"<<<<<<<<<<< CHOSEN FRIEND ID")
     // console.log(chosenFriendSignId,"<<<<<<<<<<< CHOSEN FRIEND Sign")
-    console.log(calcSign,"<<<<<<<calc sign")
+    // console.log(calcSign,"<<<<<<<calc sign")
     useEffect(()=>{
 
 

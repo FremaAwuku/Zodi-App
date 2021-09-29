@@ -9,7 +9,7 @@ const history = useHistory()
 
 const handleDeleteRequest = async () =>{
 
-    console.log("DELETE WAS HIT!!!!!!!")
+
     await dispatch(deleteFriend({userId,friendId}))
     await dispatch(getUserFriends(userId))
     history.push('/user_dashboard')

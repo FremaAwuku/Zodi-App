@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { getAllHoroscopePosts } from '../../store/horoscopePosts';
 
 import HoroscopePost from './HoroscopePost';
@@ -26,7 +26,7 @@ const HoroscopeFeed = () =>{
        </button>
         <div className='univ-horoscope-post-container'>
         {posts && posts?.map((post)=>(
-            <div className='univ-horoscope-post-wrapper'>
+            <div className='univ-horoscope-post-wrapper' key={post.id}>
             <HoroscopePost post={post}/>
             </div>
         ))}

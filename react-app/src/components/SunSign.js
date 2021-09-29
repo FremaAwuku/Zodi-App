@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux"
-import  { useState, useEffect } from 'react'
+
 function SunSign({sign}){
-    const [showLogin, setShowLogin] = useState(false)
-    const [showSign, setShowSign]= useState(false)
-    const signs = useSelector(state => Object.values(state.sunSigns))
+    // const [showLogin, setShowLogin] = useState(false)
+    // const [showSign, setShowSign]= useState(false)
+    // const signs = useSelector(state => Object.values(state.sunSigns))
     const user = useSelector(state => state.session)
 
     let signDetail
