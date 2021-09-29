@@ -56,7 +56,6 @@ const UserDetail = ({user}) =>{
     if(userSign){
         signSet=(
              <section>
-                    <h4>{user.username}</h4>
                     <div className="user-sign-detail">
                     <h4>{userSign?.sign}</h4>
                     <p>Element: {userSign?.element}</p>
@@ -88,7 +87,7 @@ const UserDetail = ({user}) =>{
                                 type="file"
                             />
                             <div onClick={() => inputFile.current.click()}>
-                                <img style={{maxHeight:200 , maxWidth:200}}
+                                <img style={{maxHeight:200 , maxWidth:200 ,borderRadius:100}}
                                 className="user-profile-pic" src={currentProfilePic} alt="user profile"/>
                             </div>
                     </div>

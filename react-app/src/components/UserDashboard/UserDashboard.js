@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, Redirect, useHistory } from 'react-router-dom';
 import { getUserHoroscopePosts } from '../../store/horoscopePosts';
+import DailyHoroscope from './DailyHoroscope/DailyHoroscope';
 import FriendsPanel from './FriendsPanel/FriendsPanel';
 
 
@@ -32,6 +33,11 @@ const UserDashboard = () =>{
             <>
             <div className="univ-user-deet-cont">
             <UserDetail user={user}/>
+            </div>
+            <div className="univ-daily-horoscope-cont">
+            <DailyHoroscope
+            className="univ-daily-horoscope-component"
+             user={user} />
             </div>
             <div className="univ-user-friend-panel">
             <FriendsPanel user={user} className="univ-friend-panel-component"/>

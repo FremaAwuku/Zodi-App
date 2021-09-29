@@ -1,0 +1,29 @@
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Modal } from '../../../../context/Modal';
+
+import AddHoroscope from './AddHoroscope';
+
+function AddHoroscopeModal({horoscope, userId}) {
+  const [showModal, setShowModal] = useState(false);
+//   const dispatch = useDispatch()
+// //   useEffect(()=>{
+// //     dispatch(getAllUsers())
+// //   },[dispatch])
+
+  return (
+    <>
+      <button className="primary-button"
+      onClick={() => setShowModal(true)}>
+       Add Horoscope
+</button>
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          <AddHoroscope userId={userId} setShowModal={setShowModal} horoscope={horoscope}/>
+        </Modal>
+      )}
+    </>
+  );
+}
+
+export default AddHoroscopeModal;

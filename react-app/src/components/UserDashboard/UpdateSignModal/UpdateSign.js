@@ -42,6 +42,7 @@ function UpdateSign({userId, setShowModal}) {
         await dispatch(getAllUsers())
         setShowModal(false)
         history.push(`/user_dashboard`)
+        // <Redirect to='/user_dashboard'/>
 
     }
 
