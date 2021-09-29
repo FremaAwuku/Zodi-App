@@ -1,6 +1,6 @@
-import LoginForm from '../auth/LoginFormModal'
-import  { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
+
+import  { useState} from 'react';
+import { useSelector } from 'react-redux'
 import LoginFormModal from '../auth/LoginFormModal';
 import SunSign from '../SunSign';
 import './SplashPanel.css'
@@ -9,7 +9,7 @@ import { Redirect , useHistory} from 'react-router-dom';
 function SplashPanel(){
 const history = useHistory()
 const [showLogin, setShowLogin] = useState(false)
-const [showSign, setShowSign]= useState(false)
+// const [showSign, setShowSign]= useState(false)
 const signs = useSelector(state => Object.values(state.sunSigns))
 
     const toHoroscopeFeed = ()=>{

@@ -27,7 +27,7 @@ function EditRow({setShowModal, row, firstName, firstSignName}) {
         const friends = useSelector(state=> Object.values(state.friends))
         const filteredFriends = friends.filter((friend)=> friend.friend_to_user.username !== firstName )
 
-        console.log(row.first_name,"<<<<<<<<<ROW FIRST NAME")
+        // console.log(row.first_name,"<<<<<<<<<ROW FIRST NAME")
         const signs = useSelector(state=>Object.values(state.sunSigns))
         const signObjs = useSelector(state=>state.sunSigns)
 
@@ -57,7 +57,7 @@ function EditRow({setShowModal, row, firstName, firstSignName}) {
 
         }
 
-        console.log(payload, "<<<<<<<<EDIT MATCH PAYLOAD")
+        // console.log(payload, "<<<<<<<<EDIT MATCH PAYLOAD")
 
         await dispatch(addListMatch(payload))
 

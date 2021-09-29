@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, Redirect, useHistory } from 'react-router-dom';
-import { getUserFriends, addFriend } from '../../../store/friends';
-import { getUserFriendRequests, getUserPendingRequests } from '../../../store/requests';
+import { getUserFriends } from '../../../store/friends';
+
 import './FriendsPanel.css'
 import IncomingRequests from './IncomingRequests';
 import RemoveFriend from './RemoveFriend';
 const FriendsPanel = ({user}) =>{
     const dispatch = useDispatch()
-    const [showIncoming, setShowIncoming] = useState(false)
-    const [showPending, setPending] =useState(false)
+    // const [showIncoming, setShowIncoming] = useState(false)
+    // const [showPending, setPending] =useState(false)
     //dispatch session user friends
     //and turn friends into and array to be used later
 

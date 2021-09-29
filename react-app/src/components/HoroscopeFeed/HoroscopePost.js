@@ -1,9 +1,10 @@
 import { useSelector, useDispatch } from 'react-redux';
-import React, { useEffect, useState } from 'react';
-import { getAllHoroscopePosts } from '../../store/horoscopePosts';
+import React, { useEffect} from 'react';
+
 import { getAllUsers } from '../../store/users';
 import { deleteFriendRequest, getUserPendingRequests,sendFriendRequest  } from '../../store/requests';
 import { getUserFriends } from '../../store/friends';
+import EditHoroscopeModal from '../UserDashboard/HoroscopePanel/EditHoroscopeModal';
 
 const HoroscopePost = ({post}) =>{
 
@@ -20,17 +21,11 @@ const HoroscopePost = ({post}) =>{
     .map((request)=> request= request.id)[0]
 
 
-    // console.log(user, "<<<<<<<<<<<USER")
-    // console.log(postUser,'<<<<<<<<<POST_USER')
-    // console.log(userId, "<<<<<<<<<<<USER ID")
-    // console.log(requestId, "<<<<<<<<<<<REQUEST ID")
-    // console.log(userFriends, "<<<<<<<<<<<USER FRIEND LIS")
-    // console.log(pendingRequestIds, "<<<<<<<<<<PENDING REQUEST >>>>>>>")
     useEffect(()=>{
         dispatch(getAllUsers())
         dispatch(getUserFriends(userId))
         dispatch(getUserPendingRequests(userId))
-    },[dispatch])
+    },[dispatch,userId])
 
     let signEmoji
 
@@ -161,6 +156,7 @@ const HoroscopePost = ({post}) =>{
             <p
             className="univ-horoscope-content"
             >{post?.content}</p>
+            <EditHoroscopeModal postId={post?.id}/>
 
         </div>
         </>

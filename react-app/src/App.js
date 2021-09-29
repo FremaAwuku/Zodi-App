@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import SignUpForm from './components/auth/SignUpModal/SignUpForm';
-import NavBar from './components/NavBar';
+
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
-import User from './components/User';
+
 import SplashPanel from './components/SplashPanel/SplashPanel';
 import { authenticate } from './store/session';
 import { getAllSunSigns} from './store/sunSigns'

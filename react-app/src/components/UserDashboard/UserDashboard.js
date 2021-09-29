@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useParams, Redirect, useHistory } from 'react-router-dom';
+
+import { useSelector} from 'react-redux';
+import {Redirect, useHistory } from 'react-router-dom';
 
 
 import FriendsPanel from './FriendsPanel/FriendsPanel';
-import UserHoroscopes from './HoroscopePanel/DailyHoroscope/AddHoroscopeModal/UserHoroscopes';
+import UserHoroscopes from './HoroscopePanel/UserHoroscopes';
 
 
 import UserDetail from './UserDetail';

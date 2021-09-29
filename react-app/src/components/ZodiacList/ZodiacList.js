@@ -5,7 +5,7 @@ import backIcon from '../../images/back-arrow.ico'
 import { getUserZodiacList } from '../../store/zodiacLists';
 import AddRowModal from './AddRowModal/index';
 import ListRow from './ListRow';
-import ShowFriendsModal from './ShowFriendsModal';
+// import ShowFriendsModal from './ShowFriendsModal';
 const ZodiacList = () => {
     const history = useHistory()
     const dispatch = useDispatch()

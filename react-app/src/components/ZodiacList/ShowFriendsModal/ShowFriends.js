@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect} from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { getUserFriends } from '../../../store/friends';
-import { calculateSunSign } from '../../../store/sunSigns';
 
 
 function ShowFriends ({setShowModal, userId}){
@@ -20,7 +19,7 @@ function ShowFriends ({setShowModal, userId}){
                 <ul>
                   {friends && friends?.map((friend)=>{
                       let friendSunSign = signObjs[friend.friend_to_user.sun_sign_id].sign
-                      console.log(friendSunSign,"<<<<<<<<<FREIND SUN SIGN")
+                    //   console.log(friendSunSign,"<<<<<<<<<FREIND SUN SIGN")
                       return(
                           <>
                           <span key={friend.id}>

@@ -5,7 +5,6 @@ import { getUserHoroscopePosts } from '../../store/horoscopePosts';
 import { getAllUsers, updateProfilePic } from '../../store/users';
 import defaultPicture from '../../images/default_profile.png'
 import { authenticate, signUp } from '../../store/session';
-import UpdateSign from './UpdateSignModal/UpdateSign';
 import UpdateSignModal from './UpdateSignModal';
 
 
@@ -17,12 +16,12 @@ const UserDetail = ({user}) =>{
     const signs = useSelector(state => Object.values(state.sunSigns))
     const userSign = signs.filter((sign)=>sign.id === user.sun_sign_id)[0]
     const users = useSelector(state => state?.session.users);
-    const profileOwner = users?.filter(user_ => user_.id === +user.id )[0]
-    const userPosts =  useSelector(state => Object.values(state.horoscope_posts))
+    // const profileOwner = users?.filter(user_ => user_.id === +user.id )[0]
+    // const userPosts =  useSelector(state => Object.values(state.horoscope_posts))
 
     const inputFile = useRef(null)
 
-    const [showUpdate,setShowUpdate] = useState(false)
+    // const [showUpdate,setShowUpdate] = useState(false)
     // console.log(userSign,"<<<<<<<<<<User Sign")
     // console.log(userId,"<<<<<<<<<<USER IDE")
     useEffect(()=>{
@@ -37,8 +36,8 @@ const UserDetail = ({user}) =>{
 
         const profilePic = e.target.files[0]
 
-        console.log(profilePic,"<<<<<<<<<<PROFILE")
-        console.log(userId,"<<<<<<<<<<USER IDE")
+        // console.log(profilePic,"<<<<<<<<<<PROFILE")
+        // console.log(userId,"<<<<<<<<<<USER IDE")
 
         await dispatch(updateProfilePic({profilePic,
             userId}))
@@ -94,7 +93,7 @@ const UserDetail = ({user}) =>{
                             </div>
                     </div>
             <div className="user-controls">
-            
+
                 {signSet}
               <UpdateSignModal userId={userId}/>
 
