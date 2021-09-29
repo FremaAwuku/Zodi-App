@@ -1,7 +1,7 @@
 // Define Action Types as Constants
 const SET_COMMENTS = 'comments/setComments'
 const ADD_COMMENT = 'comments/addComment'
-const UPDATE_COMMENT = 'comments/updateComment'
+
 const REMOVE_COMMENT = 'comments/removeComment'
 
 // Define Action Creators
@@ -15,10 +15,10 @@ const addComment = (comment) => ({
     comment
 })
 
-const updateComment = (comment) => ({
-    type: UPDATE_COMMENT,
-    comment
-})
+// const updateComment = (comment) => ({
+//     type: UPDATE_COMMENT,
+//     comment
+// })
 
 const removeComment = (commentId) => ({
     type: REMOVE_COMMENT,
@@ -40,17 +40,16 @@ export const postComment = (payload) => async (dispatch) =>
         postId,
         userId
     } = payload
-    const data ={
-        content,
-        user_id:userId
 
-    }
+    const data = new FormData()
+    data.append("post_id",postId)
+    data.append("user_id",userId)
+    data.append('content',content)
 
+    console.log(data,"<<<<<THUNK DATA!!!")
     const res = await fetch(`/api/horoscope_posts/${postId}/comments`,{
         method: 'POST',
-        body: JSON.stringify({
-            data
-        })
+        body:data
     })
 
     if (res.ok) {
@@ -60,7 +59,7 @@ export const postComment = (payload) => async (dispatch) =>
     }
 }
 
-export const createUpdate = (payload) => async (dispatch) => {
+export const updateComment = (payload) => async (dispatch) => {
     const {
         content,
         commentId,
@@ -84,7 +83,7 @@ export const createUpdate = (payload) => async (dispatch) => {
 
     if (res.ok) {
         const updatedComment = await res.json();
-        dispatch(updateComment(updatedComment));
+        dispatch(addComment(updatedComment));
         return updatedComment
     }
 }
@@ -114,11 +113,6 @@ const commentsReducer = (state = initialState, action) => {
             return newState
         }
         case ADD_COMMENT: {
-            const newState = { ...state }
-            newState[action.comment.id] = action.comment
-            return newState
-        }
-        case UPDATE_COMMENT: {
             const newState = { ...state }
             newState[action.comment.id] = action.comment
             return newState

@@ -5,6 +5,7 @@ import { getAllUsers } from '../../store/users';
 import { deleteFriendRequest, getUserPendingRequests,sendFriendRequest  } from '../../store/requests';
 import { getUserFriends } from '../../store/friends';
 import EditHoroscopeModal from '../UserDashboard/HoroscopePanel/EditHoroscopeModal';
+import PostDetailModal from './PostDetailModal';
 
 const HoroscopePost = ({post}) =>{
 
@@ -134,6 +135,7 @@ const HoroscopePost = ({post}) =>{
 
         }
 
+     
 
     return(
         <>
@@ -157,6 +159,8 @@ const HoroscopePost = ({post}) =>{
             className="univ-horoscope-content"
             >{post?.content}</p>
             <EditHoroscopeModal postId={post?.id}/>
+            <PostDetailModal postId={post?.id}/>
+
 
         </div>
         </>
