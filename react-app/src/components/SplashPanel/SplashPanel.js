@@ -21,6 +21,12 @@ const signs = useSelector(state => Object.values(state.sunSigns))
     return(
         <div  className="splash-container">
     <div className="splash-wrapper">
+    <span
+    className="splash-bttns"
+    >
+    <button className="primary-button"
+     id="horoscope-feed"onClick={toHoroscopeFeed}>Horoscope Feed</button>
+     </span>
 
     <section className="sign-wrapper">
     {signs && signs?.map((sign)=>(
@@ -28,17 +34,13 @@ const signs = useSelector(state => Object.values(state.sunSigns))
              <SunSignEmojiModal sign={sign}/>
     ))}
      </section>
-
-
-     {/* </div> */}
-
-
-
-     <button className="primary-button
-     crystal-ball"onClick={toHoroscopeFeed}>Horoscope Feed</button>
+     <span
+    className="splash-bttns"
+    >
      <LoginFormModal showLogin={showLogin}
     setShowLogin={setShowLogin}
     />
+    </span>
      </div>
      </div>
     )

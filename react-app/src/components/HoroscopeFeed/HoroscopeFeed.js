@@ -1,9 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect } from 'react';
 import { getAllHoroscopePosts } from '../../store/horoscopePosts';
-
 import HoroscopePost from './HoroscopePost';
 import { useHistory } from 'react-router-dom';
+import './HoroscopeFeed.css'
 const HoroscopeFeed = () =>{
 
     const dispatch = useDispatch()
@@ -22,11 +22,11 @@ const HoroscopeFeed = () =>{
         <>
        <h1>Zodi-Feed</h1>
        <button onClick={toUserDashBoard}className="primary-button">
-       ✨ Add Post
+       ✨ User Dashboard
        </button>
-        <div className='univ-horoscope-post-container'>
+        <div className='horoscope-post-container'>
         {posts && posts?.map((post)=>(
-            <div className='univ-horoscope-post-wrapper' key={post.id}>
+            <div className='horoscope-post-wrapper' key={post.id}>
             <HoroscopePost post={post}/>
             </div>
         ))}
