@@ -13,6 +13,7 @@ from .api.friend_request_routes import friend_request_routes
 from .api.comment_routes import comment_routes
 from .api.horoscope_posts import horoscope_posts_routes
 from .api.data_routes import data_routes
+from .api.likes import likes_routes
 from .seeds import seed_commands
 
 
@@ -41,6 +42,7 @@ app.register_blueprint(friend_request_routes,url_prefix='/api/friend_request')
 app.register_blueprint(comment_routes, url_prefix='/api/comments')
 app.register_blueprint(horoscope_posts_routes, url_prefix='/api/horoscope_posts')
 app.register_blueprint(zodiac_list_routes,url_prefix='/api/zodiac_list')
+app.register_blueprint(likes_routes,url_prefix='/api/likes')
 db.init_app(app)
 Migrate(app, db)
 

@@ -25,7 +25,7 @@ function PostDetailModal({ postId, totalComments}) {
     <>
       <button className="primary-button"
       onClick={() => setShowModal(true)}>
-        {`Read Comments`}
+        {`Read Comments(${totalComments})`}
 </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>

@@ -4,6 +4,15 @@ from flask_login import login_required
 import datetime
 
 comment_routes = Blueprint('comment',__name__)
+"""
+GET COMMENTS
+"""
+
+@comment_routes.route("")
+def get_comments():
+    comments = Comment.query.all()
+
+    return {"comments":[comment.to_dict() for comment in comments]}
 
 """
 EDIT COMMENT

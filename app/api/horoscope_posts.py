@@ -38,21 +38,19 @@ POST HOROSCOPE POST
 @horoscope_posts_routes.route('',methods=['POST'])
 # @login_required
 def post_to_horoscope_feed():
-    print("<<<<<<<HEEEEERRRRREEE")
+
     form = PostForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    print(request.form,"<<<<<<<REQUEST FORM")
+
     # if form.validate_on_submit():
     user_id = request.form['user_id']
     horoscope = request.form['horoscope']
     content = request.form['content']
 
-    print(request.form['user_id'],"<<<<<<<REQUEST FORM ID")
-    print(request.form['horoscope'],"<<<<<<<REQUEST FORM HORO")
-    print(request.form['content'],"<<<<<<<REQUEST FORM CONTENT")
-    
+
+
     new_post = HoroscopePost(
         user_id=user_id,
         horoscope=horoscope,
@@ -117,40 +115,39 @@ def add_post_comments(post_id):
 LIKES
 """
 # GET ALL POSTS LIKES
-
 @horoscope_posts_routes.route('/<int:post_id>/likes')
-# @login_required
+@login_required
 def horoscope_post_likes(post_id):
     likes = Like.query.filter(Like.post_id == post_id).all()
     return {'likes' : [like.to_dict() for like in likes]}
 
 #ADD LIKE TO POST
 @horoscope_posts_routes.route('/<int:post_id>/likes', methods=['POST'])
-# @login_required
+@login_required
 def add_post_likes(post_id):
     user_id = request.form['user_id']
-    post_likes = Like.query.filter(Like.post_id == post_id).all()
+    # post_likes = Like.query.filter(Like.post_id == post_id).all()
     # print(post_likes,"<<<<<<<POST USER LIKEssss")
     # print(int(user_id),"<<<<<<<USER ID")
-    post_like_user_ids = [post.user_id for post in post_likes]
+    # post_like_user_ids = [post.user_id for post in post_likes]
     # print(post_like_user_ids,"<<<<<<<POST LIKE ids")
-    if int(user_id) in post_like_user_ids:
-        return {'error': "You've already liked this post(prevent in front end)"}, 401
-    else:
-        user_like = Like(
-            user_id=user_id,
-            post_id=post_id
-        )
-        # print(user_like,"<<<<<<<USER LIKE")
-        db.session.add(user_like)
-        db.session.commit()
-        return user_like.to_dict()
+    # if int(user_id) in post_like_user_ids:
+    #     return {'error': "You've already liked this post(prevent in front end)"}, 401
+    # else:
+    user_like = Like(
+        user_id=user_id,
+        post_id=post_id
+    )
+    # print(user_like,"<<<<<<<USER LIKE")
+    db.session.add(user_like)
+    db.session.commit()
+    return user_like.to_dict()
 
 
 #DELETE LIKE POST
 
 @horoscope_posts_routes.route('/<int:post_id>/likes/<int:like_id>', methods=['DELETE'])
-# @login_required
+@login_required
 def delete_post_likes(post_id,like_id):
 
     unlike = Like.query.get(like_id)
