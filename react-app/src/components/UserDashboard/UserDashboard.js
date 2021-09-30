@@ -1,13 +1,10 @@
 
 import { useSelector} from 'react-redux';
 import {Redirect, useHistory } from 'react-router-dom';
-
-
 import FriendsPanel from './FriendsPanel/FriendsPanel';
 import UserHoroscopes from './HoroscopePanel/UserHoroscopes';
-
-
 import UserDetail from './UserDetail';
+import './UserDashboard.css'
 const UserDashboard = () =>{
 
 
@@ -27,7 +24,7 @@ const UserDashboard = () =>{
     if(user){
         return(
             <>
-            <div className="univ-user-deet-cont">
+            <div className="user-deet-cont">
             <UserDetail user={user}/>
             </div>
             <div className="univ-daily-horoscope-cont">

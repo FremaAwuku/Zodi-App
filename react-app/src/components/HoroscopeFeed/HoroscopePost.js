@@ -9,10 +9,12 @@ import EditHoroscopeModal from '../UserDashboard/HoroscopePanel/EditHoroscopeMod
 import PostDetailModal from './PostDetailModal';
 import AddCommentModal from './PostDetailModal/Comments/AddCommentModal';
 import { getAllLikes,addPostLike,removePostLike } from '../../store/likes';
+import { useHistory } from 'react-router';
 
 const HoroscopePost = ({post}) =>{
 
     const dispatch = useDispatch()
+    const history = useHistory()
     const user = useSelector(state => state.session.user);
     const users = useSelector(state => state.users)
     const signs = useSelector(state =>state.sunSigns)
@@ -128,6 +130,7 @@ const HoroscopePost = ({post}) =>{
             <>
             </>
         }
+        // if(history.location === "/user_dashoard")
 
     let showRequest
 
@@ -203,13 +206,24 @@ const HoroscopePost = ({post}) =>{
     }
     }
 
+    let editOnDashboard
+    if(history.location='/user_dashboard'){
+        editOnDashboard=(
+            <EditHoroscopeModal post={post} />
+        )
+    }else{
+        editOnDashboard=(
+            <></>
+        )
+    }
+
     return(
         <>
         <div className="univ-post-user-cont">
         <span className="univ-post-user-pic">
             <img src={postUser?.profile_picture} style={{maxWidth:100 , height:"fit-content"}}/>
-            {showRequest}
-            {pendingReqs}
+            {/* {showRequest}
+            {pendingReqs} */}
         </span>
         <h3>
         {postUser?.username}
@@ -224,13 +238,14 @@ const HoroscopePost = ({post}) =>{
             <p
             className="univ-horoscope-content"
             >{post?.content}</p>
-            <EditHoroscopeModal postId={post?.id}/>
+            {editOnDashboard}
             {/* <PostDetailModal postId={post?.id} totalComments={commentsForPost?.length}/>
             <AddCommentModal postId={post?.id} /> */}
             {hasComments}
             <div
             className="univ-likes">
             {likeDisplay}
+
 
             </div>
 

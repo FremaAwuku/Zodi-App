@@ -1,32 +1,91 @@
 /* TODO Add site wide styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Capriola&display=swap');
 :root {
-    --wa-purple:  #ac52d6;
-    --wa-blue: #99b5f3;
+    --wa-emoji-purple:  #ac52d6;
+    --wa-deep-emoji-purple:  #9d1bda;
+    --wa-light-blue: #57d6ff ;
     --wa-gold: #ffc400;
+    --wa-yellow: #ffd557 ;
+    --wa-deep-purple: #8257ff;
+    --wa-baby-blue: #9be7ff ;
     --wa-charcoal: #4d4d4d;
+    --wa-light-purple: #b59bff ;
     --wa-gray: #e6e6e6;
+    --wa-dark-purple: #332074;
 }
 
 /* * {
     font-family: 'Nunito Sans', sans-serif;
 } */
 
-.primary-button, .secondary-button {
+.primary-button {
+    border-radius: 10px;
+    border: .5px solid black ;
+    line-height: 30px;
+    font-weight: 700;
+    font-size: 12px;
+    background-color:var(--wa-deep-emoji-purple);
+    color: white;
+    /* text-transform: uppercase; */
+    font-family: 'Capriola', sans-serif;
+    padding: 3px 3px 3px 3px;
+}
+h1,h2,h3{
+    font-family: 'Capriola', sans-serif;
+
+
+}
+
+.primary-button:hover{
+    background-color:var(--wa-gold);
+    color: var(--wa-charcoal);
+}
+
+
+
+.secondary-button {
     border-radius: 20px;
     line-height: 30px;
     font-weight: 700;
     font-size: 12px;
-    background-color:var(--wa-purple);
+    background-color:var(--wa-light-blue);
     color: white;
     text-transform: uppercase;
     padding: 3px 10px;
 }
-
+body{
+    /* background-color: var(--wa-deep-purple); */
+}
 *{
     box-sizing: border-box;
+    /* border: 1px solid red; */
+
+
+}
+/* NAV BAR */
+.univ-nav-bar , nav{
+    background-color: var(--wa-yellow);
+    line-height: 20px;
+    max-height: 100px;
+
+
+}
+.univ-nav-bar > ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+}
+.univ-nav-bar > li{
+  list-style: none;
 
 }
 
+.univ-nav-bar #logout-button{
+
+
+  }
 .univ-horoscope-post-container{
 
 }

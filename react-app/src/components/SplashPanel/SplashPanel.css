@@ -1,15 +1,26 @@
+*{
+    box-sizing: border-box;
+}
+
 .splash-container{
-background-color: royalblue;
-max-width: fit-content;
-max-height: fit-content;
+background-color: var(--wa-dark-purple);
+/* max-width: fit-content;
+max-height: fit-content; */
+display: flex;
+
+justify-content: center;
+
 }
 .splash-wrapper{
     background-color: white;
     max-height: 888px;
-
+display: flex;
+flex-direction: row;
+align-content: space-between;
+justify-content: space-between;
     /* grid-template-columns: 10% 80% 10%; */
-    position: absolute;
-    left: 35%;
+    /* position: absolute;
+    left: 35%; */
     /* grid-template-rows:auto; */
 
 }
@@ -33,21 +44,40 @@ max-height: fit-content;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
-    justify-content: center;
+    /* grid-template-columns: 20vh 20vh 10vh;
+    grid-template-rows: 18vh 1fr 1fr 1fr; */
+    grid-gap: 10px;
+    padding: 10px;
+    width: fit-content;
+
 }
-.splash-login{
-        display: flex;
-        max-height: fit-content;
-        /* grid-column-start: 3; */
-        /* grid-row-start: 2; */
-        border: 3px solid red;
-        line-height: 10px;
-        /* grid-row-start: 1; */
-}
+
 .splash-feed{
     display: grid;
     grid-column-start: 1;
     border: 3px solid red;
     /* grid-row-start: 1; */
 
+}
+#horoscope-feed{
+
+    max-block-size: 50px;
+    line-height: 50px;
+    /* justify-content: stretch; */
+    /* position: absolute;
+    bottom: 20%; */
+}
+.splash-login{
+    max-block-size: 30px;
+
+    /* position: absolute; */
+}
+.splash-bttns{
+    background-color: var(--wa-deep-purple);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sign-emoji{
+    width: fit-content;
 }

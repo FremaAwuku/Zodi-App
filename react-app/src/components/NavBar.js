@@ -5,29 +5,28 @@ import LogoutButton from './auth/LogoutButton';
 
 const NavBar = () => {
   return (
-    <nav>
-      <ul>
-        <li>
-          <NavLink to='/' exact={true} activeClassName='active'>
-            Replace with Logo
+    <nav
+    className="univ-nav-bar">
+      <ul
+      className="univ-nav-bar"
+      >
+        <li
+        className="univ-nav-bar"
+        >
+          <NavLink
+          className="univ-nav-bar"
+          to='/' exact={true} activeClassName='active'>
+          <img
+          style={{maxHeight:100}}
+    src="https://zodiappbucket.s3.us-east-2.amazonaws.com/supplemental/9240b7e0e53543c3b10f049bdb382597+(1).png"/>
           </NavLink>
         </li>
-        <li>
-          <NavLink to='/login' exact={true} activeClassName='active'>
-            Login
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/sign-up' exact={true} activeClassName='active'>
-            Sign Up
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/users' exact={true} activeClassName='active'>
-            Users
-          </NavLink>
-        </li>
-        <li>
+
+
+        <li
+        className="univ-nav-bar"
+        id="logout-button"
+        >
           <LogoutButton />
         </li>
       </ul>

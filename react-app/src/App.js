@@ -14,6 +14,7 @@ import UserDashboard from './components/UserDashboard/UserDashboard';
 import HoroscopeFeed from './components/HoroscopeFeed/HoroscopeFeed';
 import LogoutButton from './components/auth/LogoutButton';
 import ZodiacList from './components/ZodiacList/ZodiacList';
+import NavBar from './components/NavBar';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -33,16 +34,14 @@ function App() {
     return null;
   }
   const toSplash =()=>{
-    <Redirect to=''/>
-        history.push('')
+    <Redirect to='/'/>
+        history.push('/')
 
   }
 
   return (
     <BrowserRouter>
-    <img
-    src="https://zodiappbucket.s3.us-east-2.amazonaws.com/supplemental/9240b7e0e53543c3b10f049bdb382597+(1).png"/>
-      <LogoutButton/>
+    <NavBar/>
       <Switch>
       <Route path='/' exact={true} >
         <SplashPanel/>

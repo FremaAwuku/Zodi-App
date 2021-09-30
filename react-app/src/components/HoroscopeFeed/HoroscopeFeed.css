@@ -1,0 +1,10 @@
+.horoscope-post-container{
+
+    border: 5px solid red  ;
+}
+.horoscope-post-wrapper{
+    background-color: paleturquoise;
+    border: 5px solid black;
+    display: flex;
+    flex-direction: row;
+}
