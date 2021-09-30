@@ -3,7 +3,7 @@
 }
 
 .splash-container{
-background-color: var(--wa-dark-purple);
+/* background-color: var(--wa-dark-purple); */
 /* max-width: fit-content;
 max-height: fit-content; */
 display: flex;
@@ -80,4 +80,19 @@ justify-content: space-between;
 }
 .sign-emoji{
     width: fit-content;
+}
+.crystal-ball{
+
+
+
+}
+.crystal-ball > img{
+    width: 100%;
+    max-height: 150px;
+    /* box-shadow: ; */
+
+}
+.crystal-ball >img:hover{
+
+box-shadow: 10px 10px 10px 10px var(--wa-gold);
 }

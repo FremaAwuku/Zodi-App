@@ -1,3 +1,19 @@
-user-deet-cont{
-    background-color: blue;
+
+@import url('https://fonts.googleapis.com/css2?family=Capriola&display=swap');
+.user-sign-detail{
+    background-color: pink;
+
+}
+.user-sign-detail >p{
+    font-family: 'Capriola' Arial, Helvetica, sans-serif;
+}
+.user-sign-detail >h2{
+    font-family: 'Capriola', sans-serif;
+}
+.user-profile-cont{
+    display: flex;
+    flex-direction: row;
+
+    background-color: seagreen;
+
 }
