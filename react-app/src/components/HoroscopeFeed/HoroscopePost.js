@@ -8,6 +8,7 @@ import { fetchComments } from '../../store/comments';
 import EditHoroscopeModal from '../UserDashboard/HoroscopePanel/EditHoroscopeModal';
 import PostDetailModal from './PostDetailModal';
 import AddCommentModal from './PostDetailModal/Comments/AddCommentModal';
+import { getAllLikes,addPostLike,removePostLike } from '../../store/likes';
 
 const HoroscopePost = ({post}) =>{
 
@@ -22,15 +23,25 @@ const HoroscopePost = ({post}) =>{
     const requestId = useSelector(state => Object.values(state.requests))
     .filter((request)=> request.accepting_friend_id === postUser.id)
     .map((request)=> request= request.id)[0]
-    const comments = useSelector(state=> Object.values(state.comments))
-    const commentsForPost = comments?.filter((comment)=>comment?.post_id === post.id)
 
-    console.log(commentsForPost,"<<<<<<<<<COMMENTS")
+    const comments = useSelector(state=> Object.values(state.comments))
+    const commentsForPost = comments?.filter((comment)=>comment?.post_id === post?.id)
+
+    const likes = useSelector(state=>Object.values(state.likes))
+    const likesForPost = likes?.filter((like)=>like?.post_id === post?.id)
+    const totalLikes = likesForPost.length
+    const userLike =likesForPost.filter((like)=> like.user_id === user?.id)[0]
+
+    console.log(likesForPost,"<<<<<<<ALLL LIKE")
+    console.log(userLike?.id, "<<<<<<<USER LIKE")
+
     useEffect(()=>{
         dispatch(getAllUsers())
         dispatch(getUserFriends(userId))
         dispatch(getUserPendingRequests(userId))
         dispatch(fetchComments(post?.id))
+        dispatch(getAllLikes())
+
     },[dispatch,userId,post])
 
     let signEmoji
@@ -139,21 +150,58 @@ const HoroscopePost = ({post}) =>{
             </>
 
         }
-    // let hasComments
 
-    // if(comments){
-    //     hasComments=(
-    //         <>
-    //         <PostDetailModal postId={post?.id} totalComments={commentsForPost?.length}/>
-    //         <AddCommentModal postId={post?.id} />
-    //         </>
 
-    //     )
-    // }else{
-    //     hasComments=(
-    //     <AddCommentModal postId={post?.id} />)
-    // }
+        // COMMENTS
+    let hasComments
 
+    if(commentsForPost.length>0){
+        hasComments=(
+
+            <PostDetailModal postId={post?.id} totalComments={commentsForPost?.length}/>
+
+
+        )
+    }else{
+        hasComments=(
+        <AddCommentModal postId={post?.id} />)
+    }
+
+    // LIKES
+    const handleLikeClick = async () => {
+        await dispatch(addPostLike({ "user_id": user.id, "post_id": post.id }))
+
+        await dispatch(getAllLikes())
+
+        return
+    }
+
+    const handleUnlikeClick = async () => {
+        console.log(userLike,"<<<<<<<USER LIKE")
+        await dispatch(removePostLike(post?.id,userLike?.id))
+
+        await dispatch(getAllLikes())
+        return
+    }
+
+    let likeDisplay
+    if(post){
+    if (!userLike) {
+        likeDisplay = (
+            <>
+                <i onClick={handleLikeClick} className="far fa-heart"></i>
+                <p className="post-detail-like-count">{totalLikes} Likes</p>
+            </>
+        )
+    } else {
+        likeDisplay = (
+            <>
+                <i onClick={handleUnlikeClick} className="fas fa-heart"></i>
+                <p className="post-detail-like-count">{totalLikes} Likes</p>
+            </>
+        )
+    }
+    }
 
     return(
         <>
@@ -177,10 +225,14 @@ const HoroscopePost = ({post}) =>{
             className="univ-horoscope-content"
             >{post?.content}</p>
             <EditHoroscopeModal postId={post?.id}/>
-            <PostDetailModal postId={post?.id} totalComments={commentsForPost?.length}/>
-            <AddCommentModal postId={post?.id} />
+            {/* <PostDetailModal postId={post?.id} totalComments={commentsForPost?.length}/>
+            <AddCommentModal postId={post?.id} /> */}
+            {hasComments}
+            <div
+            className="univ-likes">
+            {likeDisplay}
 
-
+            </div>
 
         </div>
         </>
