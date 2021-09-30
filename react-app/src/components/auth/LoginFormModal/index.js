@@ -10,7 +10,7 @@ function LoginFormModal() {
 
   return (
     <>
-      <button className="primary-button splash-login" onClick={() => setShowLogin(true)}>Log In</button>
+      <button className="primary-button splash-login splash-bttns" onClick={() => setShowLogin(true)}>Log In</button>
       {showLogin && (
         <>
 

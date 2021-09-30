@@ -7,7 +7,9 @@ import defaultPicture from '../../images/default_profile.png'
 import { authenticate, signUp } from '../../store/session';
 import UpdateSignModal from './UpdateSignModal';
 
-
+import './UserDashboard.css'
+import ZodiacListModal from '../ZodiacList';
+import ZodiacList from '../ZodiacList/ZodiacList';
 
 const UserDetail = ({user}) =>{
     const userId= user.id;
@@ -21,7 +23,7 @@ const UserDetail = ({user}) =>{
 
     const inputFile = useRef(null)
 
-    // const [showUpdate,setShowUpdate] = useState(false)
+    const [showZodiacList,setShowZodiacList] = useState(false)
     // console.log(userSign,"<<<<<<<<<<User Sign")
     // console.log(userId,"<<<<<<<<<<USER IDE")
     useEffect(()=>{
@@ -58,12 +60,12 @@ const UserDetail = ({user}) =>{
         signSet=(
              <section>
                     <div className="user-sign-detail">
-                    <h4>{userSign?.sign}</h4>
+                    <h2>{userSign?.sign}</h2>
                     <p>Element: {userSign?.element}</p>
                     <p>Qualities: {userSign?.qualities}</p>
                     <p>Symbol: {userSign?.symbol}</p>
                     <p>Ruling Planet: {userSign?.ruling_planet}</p>
-                    <p>Strengths : {userSign?.strengths}</p>
+                    <p>Strengths: {userSign?.strengths}</p>
                     <p>Weaknesses: {userSign?.weaknesses}</p>
                     </div>
                 </section>
@@ -72,13 +74,27 @@ const UserDetail = ({user}) =>{
     }else{
         signSet=(<h3>Calculate your sun sign</h3>)
     }
+
+    const listButtonShow = (e) =>{
+        if(showZodiacList){
+            setShowZodiacList(false)
+        }else{
+            setShowZodiacList(true)
+        }
+
+    }
+    const listButtonHide =()=>{
+
+    }
     return(
     <>
-    <h1 >{user?.username}'s Profile Page</h1>
+    <h1 >What's Up {user?.username}</h1>
 
+                <div
+                className="user-profile-cont">
 
-
-                    <div className="user-profile-pic-div">
+                    <div
+                    className="user-profile-pic-div">
 
                             <input
                                 style={{ display: "none" }}
@@ -91,12 +107,27 @@ const UserDetail = ({user}) =>{
                                 <img style={{maxHeight:200 , maxWidth:200 ,borderRadius:100}}
                                 className="user-profile-pic" src={currentProfilePic} alt="user profile"/>
                             </div>
+                            {signSet}
+                    </div>
+                    <div
+                    className="user-zodiac-list"
+
+                    >
+                       {showZodiacList && <ZodiacList setShowZodiacList={setShowZodiacList}/>}
+
                     </div>
             <div className="user-controls">
 
-                {signSet}
-              <UpdateSignModal userId={userId}/>
 
+              <UpdateSignModal userId={userId}/>
+              <button
+              className="primary-button"
+              onClick={listButtonShow}>ZodiacList</button>
+
+
+
+
+             </div>
              </div>
     </>
     )

@@ -1,11 +1,13 @@
 import React, {  useState } from 'react';
 
-import { Modal } from '../../../context/Modal';
+import { Modal } from '../../context/Modal';
 
 
-import PostDetail from './PostDetail'
+import ZodiacList from './ZodiacList'
 
-function PostDetailModal({ postId, totalComments}) {
+function ZodiacListModal({
+    // showZodiacList,setShowZodiacList
+}) {
   const [showModal, setShowModal] = useState(false);
 
 
@@ -13,11 +15,11 @@ function PostDetailModal({ postId, totalComments}) {
     <>
       <button className="primary-button"
       onClick={() => setShowModal(true)}>
-        {`Read Comments(${totalComments})`}
+        Zodiac List
 </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <PostDetail postId={postId} setShowModal={setShowModal} />
+            <ZodiacList setShowModal={setShowModal}/>
         </Modal>
       )}
     </>
@@ -25,4 +27,4 @@ function PostDetailModal({ postId, totalComments}) {
 
 }
 
-export default PostDetailModal;
+export default ZodiacListModal;

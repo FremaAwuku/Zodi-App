@@ -6,16 +6,13 @@ import { getUserZodiacList } from '../../store/zodiacLists';
 import AddRowModal from './AddRowModal/index';
 import ListRow from './ListRow';
 // import ShowFriendsModal from './ShowFriendsModal';
-const ZodiacList = () => {
+const ZodiacList = ({setShowModal}) => {
     const history = useHistory()
     const dispatch = useDispatch()
     const user = useSelector(state => state.session)
     // console.log(user.user.username, "<<<<<<<<<<<<USER")
     const listRows = useSelector(state => Object.values(state.zodiac_lists))
-    const goBack = () =>{
-        history.goBack()
 
-    }
 
     useEffect(()=>{
         dispatch(getUserZodiacList(user.user.id))
@@ -23,16 +20,13 @@ const ZodiacList = () => {
 
 
     }, [dispatch])
+    const closeModal = (e) =>{
+
+        setShowModal(false)
+    }
     return(
         <>
-        <button
-        className="primary-button"
-        onClick={goBack}
-        >
-            <img src={backIcon}></img>
-
-            Go Back
-        </button>
+      
         <div className='univ-zodiac-list-wrapper'>
         <h1>{`${user.user.username}'s Zodiac List'`}</h1>
         <table className='univ-zodiac-list-table'>
