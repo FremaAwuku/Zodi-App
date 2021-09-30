@@ -4,8 +4,10 @@ import React, { useEffect} from 'react';
 import { getAllUsers } from '../../store/users';
 import { deleteFriendRequest, getUserPendingRequests,sendFriendRequest  } from '../../store/requests';
 import { getUserFriends } from '../../store/friends';
+import { fetchComments } from '../../store/comments';
 import EditHoroscopeModal from '../UserDashboard/HoroscopePanel/EditHoroscopeModal';
 import PostDetailModal from './PostDetailModal';
+import AddCommentModal from './PostDetailModal/Comments/AddCommentModal';
 
 const HoroscopePost = ({post}) =>{
 
@@ -20,13 +22,16 @@ const HoroscopePost = ({post}) =>{
     const requestId = useSelector(state => Object.values(state.requests))
     .filter((request)=> request.accepting_friend_id === postUser.id)
     .map((request)=> request= request.id)[0]
+    const comments = useSelector(state=> Object.values(state.comments))
+    const commentsForPost = comments?.filter((comment)=>comment?.post_id === post.id)
 
-
+    console.log(commentsForPost,"<<<<<<<<<COMMENTS")
     useEffect(()=>{
         dispatch(getAllUsers())
         dispatch(getUserFriends(userId))
         dispatch(getUserPendingRequests(userId))
-    },[dispatch,userId])
+        dispatch(fetchComments(post?.id))
+    },[dispatch,userId,post])
 
     let signEmoji
 
@@ -134,8 +139,21 @@ const HoroscopePost = ({post}) =>{
             </>
 
         }
+    // let hasComments
 
-     
+    // if(comments){
+    //     hasComments=(
+    //         <>
+    //         <PostDetailModal postId={post?.id} totalComments={commentsForPost?.length}/>
+    //         <AddCommentModal postId={post?.id} />
+    //         </>
+
+    //     )
+    // }else{
+    //     hasComments=(
+    //     <AddCommentModal postId={post?.id} />)
+    // }
+
 
     return(
         <>
@@ -159,7 +177,9 @@ const HoroscopePost = ({post}) =>{
             className="univ-horoscope-content"
             >{post?.content}</p>
             <EditHoroscopeModal postId={post?.id}/>
-            <PostDetailModal postId={post?.id}/>
+            <PostDetailModal postId={post?.id} totalComments={commentsForPost?.length}/>
+            <AddCommentModal postId={post?.id} />
+
 
 
         </div>

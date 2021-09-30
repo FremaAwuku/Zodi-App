@@ -59,26 +59,19 @@ export const postComment = (payload) => async (dispatch) =>
     }
 }
 
-export const updateComment = (payload) => async (dispatch) => {
+export const editComment = (payload) => async (dispatch) => {
     const {
         content,
         commentId,
 
     } = payload
-    const data ={
-        content,
-
-
-    }
+    const data = new FormData()
+    data.append('content',content)
 
     const res = await fetch(`/api/comments/${commentId}`, {
         method: 'PUT',
-        // headers: {
-        //     'Content-Type': 'application/json',
-        // },
-        body: JSON.stringify({
-            data
-        })
+
+        body:data
     })
 
     if (res.ok) {
