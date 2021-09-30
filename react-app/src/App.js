@@ -43,24 +43,13 @@ function App() {
     <BrowserRouter>
     <NavBar/>
       <Switch>
-      <Route path='/' exact={true} >
-        <SplashPanel/>
+        <Route path='/' exact={true} >
+          <SplashPanel/>
         </Route>
-        {/* <Route path='/sign-up' exact={true}>
-          <SignUpForm />
-        </Route> */}
         <ProtectedRoute path='/user_dashboard'>
           <UserDashboard/>
         </ProtectedRoute>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
-        </ProtectedRoute>
-        {/* <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute> */}
-        {/* <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute> */}
+
         <ProtectedRoute path='/zodiac_list' exact={true} >
           <ZodiacList/>
         </ProtectedRoute>
