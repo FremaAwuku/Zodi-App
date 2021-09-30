@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
 
-function SunSign({sign}){
+function SunSign({sign, setShowModal}){
     // const [showLogin, setShowLogin] = useState(false)
     // const [showSign, setShowSign]= useState(false)
     // const signs = useSelector(state => Object.values(state.sunSigns))
@@ -25,6 +25,10 @@ function SunSign({sign}){
         }{
             signDetail=(
                 <div className="sign-detail">
+                    <button
+                    className="primary-button"
+                    onClick={(e)=>setShowModal(false)}
+                    > Close</button>
 
                     <h3>{sign.sign}</h3>
 
@@ -38,6 +42,7 @@ function SunSign({sign}){
 
         return(
             <>
+
             {signDetail}
             </>
         )
