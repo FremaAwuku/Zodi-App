@@ -3,6 +3,8 @@ import React, { useEffect} from 'react';
 import { fetchComments } from '../../../../store/comments';
 import { getUserHoroscopePosts } from '../../../../store/horoscopePosts';
 import HoroscopePost from '../../HoroscopePost';
+import EditCommentModal from './EditCommentModal';
+import DeleteComment from './DeleteComment';
 
 
 
@@ -28,9 +30,27 @@ const CommentDetail = ({postId}) =>{
 
 
 
+
+
         return(
             <>
-                {comments&&comments?.map((comment)=>(
+                {comments&&comments?.map((comment)=>{
+                    let userActions
+                    if(user.id === comment.user_id){
+                        userActions=(
+                            <div
+                            className='univ-user-comments'>
+                            <EditCommentModal commentId={comment?.id}/>
+                            <DeleteComment commentId={comment.id} postId={postId}/>
+                            </div>
+                        )
+                    }else{
+                        userActions=(
+                            <></>
+                        )
+                    }
+
+                    return(
                     <div
                     className="univ-individual-comment-wrapper"
                     key={comment?.id}>
@@ -47,9 +67,10 @@ const CommentDetail = ({postId}) =>{
                         <p
                         className="univ-individual-comment-content"
                         >{comment.content}</p>
+                        {userActions}
 
-                    </div>
-                ))}
+                    </div>)
+                })}
             </>
 
         )

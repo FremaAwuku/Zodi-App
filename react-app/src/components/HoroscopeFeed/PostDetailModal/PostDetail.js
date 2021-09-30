@@ -30,9 +30,10 @@ const PostDetail = ({postId, setShowModal}) =>{
     },[dispatch,user?.id,postId])
 
     const closeModal = (e) =>{
+
         setShowModal(false)
     }
-    if(comments){
+
         return(
             <>
 
@@ -40,6 +41,9 @@ const PostDetail = ({postId, setShowModal}) =>{
             className="univ-post-detail-comments">
             <CommentDetail postId={postId}/>
             <AddComment postId={postId}/>
+            <div onClick={closeModal}>
+                ❌
+            </div>
             </div>
 
 
@@ -52,24 +56,7 @@ const PostDetail = ({postId, setShowModal}) =>{
             </>
 
         )
-    }else{
 
-    }
-    return(
-        <div
-        className="univ-post-detail-wrap">
-
-            <div
-            className="univ-post-detail-comments">
-
-            </div>
-
-
-
-
-            </div>
-
-    )
 
 }
 
