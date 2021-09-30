@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-
+import { Redirect , useHistory} from 'react-router-dom';
 
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
@@ -17,6 +17,7 @@ import ZodiacList from './components/ZodiacList/ZodiacList';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+  const history = useHistory()
 
   useEffect(() => {
     (async() => {
@@ -31,9 +32,16 @@ function App() {
   if (!loaded) {
     return null;
   }
+  const toSplash =()=>{
+    <Redirect to=''/>
+        history.push('')
+
+  }
 
   return (
     <BrowserRouter>
+    <img
+    src="https://zodiappbucket.s3.us-east-2.amazonaws.com/supplemental/9240b7e0e53543c3b10f049bdb382597+(1).png"/>
       <LogoutButton/>
       <Switch>
       <Route path='/' exact={true} >

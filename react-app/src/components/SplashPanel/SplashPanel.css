@@ -1,19 +1,32 @@
-
 .splash-container{
-    border: 3px solid red;
+background-color: royalblue;
+max-width: fit-content;
+max-height: fit-content;
+}
+.splash-wrapper{
+    background-color: white;
     max-height: 888px;
-    display: grid;
-    grid-template-columns: 10% 80% 10%;
+
+    /* grid-template-columns: 10% 80% 10%; */
+    position: absolute;
+    left: 35%;
     /* grid-template-rows:auto; */
 
 }
 .sign-container{
-    background-color: pink;
+    background-color: white;
     max-width: 800px;
     height: 777px;
-    display: grid;
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    /* display: grid; */
     overflow-y: auto;
-    grid-column-start: 2;
+    /* grid-column-start: 2; */
+    border-radius: 5%;
+    /* display: flex;
+    justify-content: center; */
+    /* position: absolute; */
     /* grid-row-start: 1; */
     }
 .sign-wrapper{
@@ -23,9 +36,12 @@
     justify-content: center;
 }
 .splash-login{
-        display: grid;
-        grid-column-start: 3;
+        display: flex;
+        max-height: fit-content;
+        /* grid-column-start: 3; */
+        /* grid-row-start: 2; */
         border: 3px solid red;
+        line-height: 10px;
         /* grid-row-start: 1; */
 }
 .splash-feed{
