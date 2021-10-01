@@ -9,7 +9,7 @@ const ListRow = ({rows}) => {
     const [showDeleteModal, setShowDeleteModal] = useState(false)
     const signs = useSelector(state => Object.values( state.sunSigns))
     // const firstSignId = signs.filter((sign)=> sign.sign === rows?.first_name_sign)[0].id
-
+    const user = useSelector(state=> state.session.user)
     const firstSign = signs.filter((sign)=> sign.sign=== rows?.first_name_sign)[0]?.id
     const firstSignId = Number(firstSign)
     const matchSignId = signs.filter((sign)=> sign.sign === rows?.match_name_sign)[0]?.id
@@ -213,9 +213,11 @@ if(matchSignId){
 let editButton
 if(!rows.match_name ){
 editButton=(
+<tr>
 <td>
     <EditRowModal row={rows} firstName={rows.first_name} firstNameSign={rows.first_name_sign}/>
 </td>
+</tr>
 )
     }else{
         editButton=(
@@ -260,7 +262,7 @@ className="primary-button"
 onClick={handleDelete}
 > Delete Row</button>
 
-{showDeleteModal && <DeleteRowModal rowId={rows.id} showDeleteModal={showDeleteModal}
+{showDeleteModal && <DeleteRowModal  userId={user?.id} rowId={rows.id} showDeleteModal={showDeleteModal}
 setShowDeleteModal={setShowDeleteModal}/>}
 </td>
 </>

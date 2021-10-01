@@ -1,4 +1,5 @@
 import { useState,useEffect } from "react"
+import {Redirect, useHistory } from 'react-router-dom';
 import { useSelector } from "react-redux"
 import AddHoroscopeModal from "./AddHoroscopeModal"
 
@@ -9,6 +10,7 @@ const DailyHoroscope =({user}) =>{
 
     const [todaysHoro ,setTodaysHoro] =useState({})
     const signs = useSelector(state=>state.sunSigns)
+    const history = useHistory()
     let userSign
     let sign
     if(user.sun_sign_id){
@@ -37,7 +39,10 @@ const DailyHoroscope =({user}) =>{
     }
 
 
-
+    const toHoroscopeFeed = ()=>{
+        <Redirect to='/horoscope_feed'/>
+        history.push('/horoscope_feed')
+    }
 if(user.sun_sign_id){
     return(
 <>
@@ -47,7 +52,10 @@ if(user.sun_sign_id){
 <h4>
 {`"${todaysHoro}"`}
 </h4>
+<div className="horoscope-buttons">
+<button className="primary-button splash-feed"onClick={toHoroscopeFeed}>Horoscope Feed</button>
 <AddHoroscopeModal horoscope={todaysHoro} userId={user?.id}/>
+</div>
 </>
 
     )

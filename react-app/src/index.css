@@ -42,11 +42,7 @@ h1,h2,h3{
     color: var(--wa-charcoal);
 }
 
-img{
-    border-radius: 100%;
-    box-shadow: 10px 10px 20px -3px rgba(205, 53, 219, 0.2);
 
-}
 
 .secondary-button {
     border-radius: 20px;

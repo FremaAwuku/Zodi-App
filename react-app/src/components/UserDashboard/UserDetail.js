@@ -83,9 +83,7 @@ const UserDetail = ({user}) =>{
         }
 
     }
-    const listButtonHide =()=>{
 
-    }
     return(
     <>
     <h1 >What's Up {user?.username}</h1>

@@ -49,10 +49,6 @@ function App() {
         <ProtectedRoute path='/user_dashboard'>
           <UserDashboard/>
         </ProtectedRoute>
-
-        <ProtectedRoute path='/zodiac_list' exact={true} >
-          <ZodiacList/>
-        </ProtectedRoute>
         <Route path='/horoscope_feed' >
           <HoroscopeFeed/>
         </Route>
