@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { login } from '../../../store/session';
 import SignUpFormModal from '../SignUpModal';
 import SignUpForm from '../SignUpModal/SignUpForm';
-
+import '../auth.css'
   const LoginForm = ({showLogin, setShowLogin}) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
@@ -13,6 +13,7 @@ import SignUpForm from '../SignUpModal/SignUpForm';
   const dispatch = useDispatch();
 
   const onLogin = async (e) => {
+      e.stopPropagation()
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
@@ -20,6 +21,7 @@ import SignUpForm from '../SignUpModal/SignUpForm';
     }
   };
   const demoLogin = (e) => {
+    e.stopPropagation()
     e.preventDefault();
     dispatch(login("demo@aa.io", "password"));
   };
@@ -38,41 +40,56 @@ import SignUpForm from '../SignUpModal/SignUpForm';
 
   return (
     <>
-    <form onSubmit={onLogin}>
+    <form
+    className="login-form-wrap"
+    onSubmit={onLogin}>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
-      <div>
-        <label htmlFor='email'>Email</label>
+
+        <label
+        htmlFor='email'
+        className="univ-form-label"
+        >Email</label>
         <input
+        className='univ-form-input'
           name='email'
           type='text'
           placeholder='Email'
           value={email}
           onChange={updateEmail}
         />
-      </div>
-      <div>
-        <label htmlFor='password'>Password</label>
+
+
+        <label
+        htmlFor='password'
+        className="univ-form-label"
+        >Password</label>
         <input
+        className='univ-form-input'
           name='password'
           type='password'
           placeholder='Password'
           value={password}
           onChange={updatePassword}
         />
-        <button type='submit'>Login</button>
-      </div>
-    </form>
+        <button
+        className="primary-button"
+        type='submit'>Login</button>
+ </form>
+<div
+className="login-other-options">
     <button className="secondary-button" onClick={demoLogin}>
           Try Demo
         </button>
-    <p>Not a user?
-      <SignUpFormModal />
+    <p>Not a user?</p>
+    
+    <SignUpFormModal setShowLogin={setShowLogin} />
 
-      </p>
+      </div>
+
     </>
   );
 };

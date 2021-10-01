@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getUserHoroscopePosts } from '../../store/horoscopePosts';
 import { getAllUsers, updateProfilePic } from '../../store/users';
-import defaultPicture from '../../images/default_profile.png'
+
 import { authenticate, signUp } from '../../store/session';
 import UpdateSignModal from './UpdateSignModal';
 
@@ -13,7 +13,7 @@ import ZodiacList from '../ZodiacList/ZodiacList';
 
 const UserDetail = ({user}) =>{
     const userId= user.id;
-
+const defaultPicture = 'https://zodiappbucket.s3.us-east-2.amazonaws.com/default_profile.png'
     const dispatch = useDispatch()
     const signs = useSelector(state => Object.values(state.sunSigns))
     const userSign = signs.filter((sign)=>sign.id === user.sun_sign_id)[0]

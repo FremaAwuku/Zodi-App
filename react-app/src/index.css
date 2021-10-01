@@ -108,18 +108,25 @@ body{
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
     margin: 20px 40px;
 }
 .univ-form-errors{
+    margin: 5px 0 15px;
+    font-weight: 700;
+    font-size: 18px;
 
 }
 .univ-form-label{
-
+float: left;
+padding-top: 5px;
 }
 .univ-form-input{
-
+    box-sizing: border-box;
+    width: 75%;
+    margin: 10px;
+    padding: 5px 10px 5px 10px;
 }
 .univ-user-friend-panel{
 
