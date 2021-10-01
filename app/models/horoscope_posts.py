@@ -12,9 +12,9 @@ class HoroscopePost(db.Model):
 
     user_details= db.relationship("User", back_populates="post_details")
 
-    likes= db.relationship("Like", backref="horoscope_post,")
+    likes= db.relationship("Like", backref="horoscope_post",cascade="all, delete")
 
-    comment_details = db.relationship("Comment", back_populates="post_details")
+    comment_details = db.relationship("Comment", back_populates="post_details",cascade="all, delete")
 
     def to_dict(self):
         return{
@@ -23,5 +23,5 @@ class HoroscopePost(db.Model):
             'horoscope': self.horoscope,
             'content': self.content,
             'user_details': self.user_details.to_dict()
-            
+
         }

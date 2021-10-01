@@ -71,14 +71,14 @@ def user_sun_sign(id):
 
     birth_month = int(request.form['birth_month'])
     birth_date = int(request.form['birth_date'])
-    print(birth_month  ,"<<<<<<<BIRTH MONTH")
-    print(birth_date ,"<<<<<<<BIRTH DATE BACK")
+    # print(birth_month  ,"<<<<<<<BIRTH MONTH")
+    # print(birth_date ,"<<<<<<<BIRTH DATE BACK")
 
 
     user_sign = 0
     cusp = False
     if  birth_month == 1:
-        print("<<<<<<INSIDE IFFFFFF")
+        # print("<<<<<<INSIDE IFFFFFF")
         if birth_date > 19:
             user_sign = 11
         elif birth_date == 19:

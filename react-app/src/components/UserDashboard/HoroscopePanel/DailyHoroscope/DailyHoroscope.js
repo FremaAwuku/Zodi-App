@@ -28,7 +28,7 @@ const DailyHoroscope =({user}) =>{
         }, property)
 
 
-    },[])
+    },[userSign])
 
     // const getYesterday
 

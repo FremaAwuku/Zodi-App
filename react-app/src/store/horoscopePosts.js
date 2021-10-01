@@ -103,7 +103,7 @@ export const editHoroscopePost = (payload) => async dispatch =>{
 
 export const deleteHoroscopePost = (payload) => async dispatch =>{
     const post_id = Number(payload)
-    const response = await fetch(`/api/posts/${post_id}`,{
+    const response = await fetch(`/api/horoscope_posts/${post_id}`,{
         method: 'DELETE'
 
     });

@@ -4,12 +4,14 @@ import React, { useEffect} from 'react';
 import { getAllUsers } from '../../store/users';
 import { deleteFriendRequest, getUserPendingRequests,sendFriendRequest  } from '../../store/requests';
 import { getUserFriends } from '../../store/friends';
-import { fetchComments } from '../../store/comments';
+import { deleteComment, fetchComments } from '../../store/comments';
 import EditHoroscopeModal from '../UserDashboard/HoroscopePanel/EditHoroscopeModal';
 import PostDetailModal from './PostDetailModal';
 import AddCommentModal from './PostDetailModal/Comments/AddCommentModal';
 import { getAllLikes,addPostLike,removePostLike } from '../../store/likes';
 import { useHistory } from 'react-router';
+import { getAllHoroscopePosts,deleteHoroscopePost } from '../../store/horoscopePosts';
+import { getAllHoroscope } from 'aztro-js';
 
 const HoroscopePost = ({post}) =>{
 
@@ -216,6 +218,28 @@ const HoroscopePost = ({post}) =>{
             <></>
         )
     }
+    const handleDeletePost =async()=>{
+        await dispatch(deleteHoroscopePost(post?.id))
+        // await dispatch(getAllHoroscopePosts())
+
+    }
+let deletePost
+if(post.user_id === userId){
+
+    deletePost=(
+        <button
+        className="primary-button"
+        onClick={handleDeletePost}> ❌ </button>
+
+    )
+}else{
+    deletePost=(
+        <></>
+
+    )
+
+}
+
 
     return(
         <>
@@ -242,6 +266,7 @@ const HoroscopePost = ({post}) =>{
             {/* <PostDetailModal postId={post?.id} totalComments={commentsForPost?.length}/>
             <AddCommentModal postId={post?.id} /> */}
             {hasComments}
+            {deletePost}
             <div
             className="univ-likes">
             {likeDisplay}
