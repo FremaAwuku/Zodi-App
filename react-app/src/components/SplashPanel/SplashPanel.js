@@ -19,6 +19,7 @@ const signs = useSelector(state => Object.values(state.sunSigns))
 
     return(
         <>
+        {/* <div>
         <h1>
            ARIES
         </h1>
@@ -55,10 +56,11 @@ const signs = useSelector(state => Object.values(state.sunSigns))
         <h1>
             PISCES
         </h1>
-
+        </div> */}
 
 
         <div  className="splash-container">
+
 
         <h2
         id="click-header"
@@ -84,6 +86,7 @@ const signs = useSelector(state => Object.values(state.sunSigns))
      <div
      className="login-sect"
      >
+
      <LoginForm/>
      </div>
 

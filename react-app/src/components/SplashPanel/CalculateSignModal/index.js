@@ -13,7 +13,7 @@ const preventProp = (e) =>{
   return (
     <>
       <h2
-      id="sign-up"
+      
       id='click-calculate' onClick={preventProp}>Calculate Your Sign</h2>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
