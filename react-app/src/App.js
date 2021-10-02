@@ -49,9 +49,9 @@ function App() {
         <ProtectedRoute path='/user_dashboard'>
           <UserDashboard/>
         </ProtectedRoute>
-        <Route path='/horoscope_feed' >
+        <ProtectedRoute path='/horoscope_feed' >
           <HoroscopeFeed/>
-        </Route>
+        </ProtectedRoute>
 
       </Switch>
 

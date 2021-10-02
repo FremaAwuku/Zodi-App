@@ -45,42 +45,70 @@ const SignUpForm = ({setShowModal}) => {
   return (
 
     <>
-    <form id="move-to-left-for-now" onSubmit={onSignUp}>
+    <div className="signup-form-wrapper">
+    <form id="sign-up-form" onSubmit={onSignUp}>
       <div>
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div
+          className="univ-form-errors"
+          key={ind}>{error}</div>
         ))}
       </div>
-      <div>
-        <label>User Name</label>
+      <div
+      className='sign-up-row'
+      >
+        <label
+        id="sign-up-label"
+        className="univ-form-label"
+        >User Name</label>
+
         <input
+        className='univ-form-input'
           type='text'
           name='username'
           onChange={updateUsername}
           value={username}
         ></input>
       </div>
-      <div>
-        <label>Email</label>
+      <div
+      className='sign-up-row'
+      >
+        <label
+        id="sign-up-label"
+        className="univ-form-label"
+        >Email</label>
         <input
+        className='univ-form-input'
           type='text'
           name='email'
           onChange={updateEmail}
           value={email}
         ></input>
       </div>
-      <div>
-        <label>Password</label>
+      <div
+      className='sign-up-row'
+      >
+        <label
+        id="sign-up-label"
+        className="univ-form-label"
+        >Password</label>
         <input
+        className='univ-form-input'
           type='password'
           name='password'
           onChange={updatePassword}
           value={password}
         ></input>
       </div>
-      <div>
-        <label>Repeat Password</label>
+      <div
+      className='sign-up-row'
+      >
+        <label
+        className="univ-form-label"
+        id="sign-up-label"
+        >Repeat Password</label>
         <input
+        className='univ-form-input'
           type='password'
           name='repeat_password'
           onChange={updateRepeatPassword}
@@ -88,17 +116,22 @@ const SignUpForm = ({setShowModal}) => {
           required={true}
         ></input>
       </div>
-<div>
+<div
+ className="sign-up-action"
+>
       <button
-      className
+      className="secondary-button"
+
       type='submit'>Sign Up</button>
-      <button onClick={() => setShowModal(false)}>
+      <button
+      className="secondary-button"
+      onClick={() => setShowModal(false)}>
     Cancel
     </button>
 </div>
       </form>
 
-
+      </div>
     </>
 
   );

@@ -35,19 +35,22 @@ import '../auth.css'
   };
 
   if (user) {
-    return <Redirect to='/user_dashboard' />;
+    return <Redirect to='/' />;
   }
 
   return (
     <>
     <div
-    className="login-form-wrap">
+    className="login-form-cont">
+      <h2>WELCOME TO Zodi-App </h2>
     <form
     className="login-form-wrap"
     onSubmit={onLogin}>
       <div>
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div
+          className="univ-form-errors"
+          key={ind}>{error}</div>
         ))}
       </div>
 
