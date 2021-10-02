@@ -11,6 +11,7 @@ const EditHoroscope = ({postId, setShowModal}) =>{
       const post =posts[postId]
       console.log(post.content ,"<<<<<<POST ??????")
       const [content,setContent]= useState(post?.content)
+      const user = useSelector(state=>state.session.user)
   useEffect(()=>{
 
     // dispatch(getOneHoroscopePost(postId))
@@ -23,14 +24,14 @@ const EditHoroscope = ({postId, setShowModal}) =>{
           content,
           post_id:postId
       }
-      console.log(payload,"<<<<<<<<<Edit POST PAYLOAD")
+
 
      await dispatch(editHoroscopePost(payload))
 
-       history.push('/user_dashboard')
+     history.push(`/user_dashboard/${user.id}`)
 
        setShowModal(false)
-    
+
 
 
 

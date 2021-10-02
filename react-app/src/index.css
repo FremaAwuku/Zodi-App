@@ -61,9 +61,7 @@ margin-top: 10px;
     text-transform: uppercase;
     padding: 3px 10px;
 }
-body{
-    /* background-color: var(--wa-deep-purple); */
-}
+
 *{
     box-sizing: border-box;
     /* border: 1px solid red; */
@@ -85,7 +83,7 @@ body{
 .univ-nav-bar > ul{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: flex-end;
 
 }
 .univ-nav-bar > li{
@@ -176,6 +174,16 @@ body{
     font-weight: 100;
     font-size: 16px;
     color: var(--wa-baby-blue);
+
+}
+.univ-form-errors{
+    margin: 5px 0 15px;
+    font-weight: 100;
+    font-size: 16px;
+    color: var(--wa-yellow);
+    padding-left: 10px ;
+    padding-top: 2px;
+    padding-bottom: 0px;
 
 }
 .univ-form-label{

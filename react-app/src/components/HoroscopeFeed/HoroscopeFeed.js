@@ -9,12 +9,13 @@ const HoroscopeFeed = () =>{
     const dispatch = useDispatch()
     const history = useHistory()
    const posts =  useSelector(state => Object.values(state.horoscope_posts))
+   const user = useSelector(state=>state.session.user)
     useEffect(()=>{
         dispatch(getAllHoroscopePosts())
     },[dispatch])
 
     const toUserDashBoard = () =>{
-        history.push('/user_dashboard')
+        history.push(`/user_dashboard/${user.id}`)
 
     }
 

@@ -152,7 +152,7 @@ body::-webkit-scrollbar {
     top: 0%;
     text-align: right;
     display: flex;
-    align-self: flex-end;
+    align-self: flex-start;
     background-color: var(--wa-light-blue);
     border-radius: 5%;
 }

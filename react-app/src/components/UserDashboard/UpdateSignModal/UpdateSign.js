@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { getAllUsers, updateSunSign } from '../../../store/users';
 
-import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useDispatch , useSelector} from 'react-redux';
+import { Redirect,useHistory } from 'react-router-dom';
 import { authenticate } from '../../../store/session';
 
 function UpdateSign({userId, setShowModal}) {
@@ -11,7 +11,7 @@ function UpdateSign({userId, setShowModal}) {
 
     const [birthDay,setBirthDay] = useState("")
     const [validationErrors,setValidationErrors] = useState([])
-
+    const user = useSelector(state=>state.session.user)
     useEffect(()=>{
 
         const errors = []
@@ -37,12 +37,13 @@ function UpdateSign({userId, setShowModal}) {
             userId,
             birthMonth,
             birthDate
-        }))
+        }));
         await dispatch(authenticate())
         await dispatch(getAllUsers())
         setShowModal(false)
-        history.push(`/user_dashboard`)
-        // <Redirect to='/user_dashboard'/>
+        history.push(`/user_dashboard/${user.id}`);
+
+        <Redirect to={`/user_dashboard/${user.id}`}/>
 
     }
 
@@ -58,7 +59,7 @@ function UpdateSign({userId, setShowModal}) {
         </div>
         <label>
             <input
-            
+
             type="date"
             onChange={((e)=>setBirthDay(e.target.value))}
             ></input>

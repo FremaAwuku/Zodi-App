@@ -122,3 +122,16 @@ border-radius: 2%;
 
 
 }
+#close-modal#sign-up{
+
+    padding: 5px 5px 2px 5px;
+    margin: 0px;
+    color: cornsilk;
+    position: sticky;
+    top: 0%;
+    text-align: right;
+    display: flex;
+    align-self: flex-end;
+    background-color: var(--wa-light-blue);
+    border-radius: 5%;
+}

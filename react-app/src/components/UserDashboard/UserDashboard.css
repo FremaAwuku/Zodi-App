@@ -12,8 +12,11 @@
 }
 .user-profile-cont{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 
     background-color: seagreen;
 
+}
+.user-deet-cont>*{
+border: 2px solid red;
 }
