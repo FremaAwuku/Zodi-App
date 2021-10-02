@@ -14,6 +14,7 @@
     "aztro-js": "^0.1.5",
     "email-regex": "^5.0.0",
     "http-proxy-middleware": "^1.0.5",
+    "moment": "^2.29.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.4",
