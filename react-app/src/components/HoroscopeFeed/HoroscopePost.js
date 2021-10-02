@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect} from 'react';
-
+import moment from "moment"
 import { getAllUsers } from '../../store/users';
 import { deleteFriendRequest, getUserPendingRequests,sendFriendRequest  } from '../../store/requests';
 import { getUserFriends } from '../../store/friends';
@@ -135,7 +135,7 @@ const HoroscopePost = ({post}) =>{
         // if(history.location === "/user_dashoard")
 
     let showRequest
-
+//request login needs to be refactored 
     if(
         !userFriends.includes(postUser?.id)
     && postUser?.id !== userId && !pendingRequestIds.includes(postUser?.id)){
@@ -239,15 +239,16 @@ if(post.user_id === userId){
     )
 
 }
-
+const dateCreated = post.created
+const formattedDate = moment(dateCreated).format("MMMM Do YYYY")
 
     return(
         <>
         <div className="univ-post-user-cont">
         <span className="univ-post-user-pic">
             <img src={postUser?.profile_picture} style={{maxWidth:100 , height:"fit-content"}}/>
-            {/* {showRequest}
-            {pendingReqs} */}
+            {showRequest}
+            {pendingReqs}
         </span>
         <h3>
         {postUser?.username}
@@ -261,7 +262,13 @@ if(post.user_id === userId){
             <h2 className="univ-horoscope" >{`"${post?.horoscope}"`}</h2>
             <p
             className="univ-horoscope-content"
-            >{post?.content}</p>
+            >{post?.content}
+
+            </p>
+            <p>
+            {formattedDate}
+            </p>
+
             {editOnDashboard}
             {/* <PostDetailModal postId={post?.id} totalComments={commentsForPost?.length}/>
             <AddCommentModal postId={post?.id} /> */}
