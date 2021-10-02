@@ -14,6 +14,7 @@
     --wa-light-purple: #b59bff ;
     --wa-gray: #e6e6e6;
     --wa-dark-purple: #332074;
+    --wa-blue: #0003c2;
 }
 
 /* * {
@@ -45,6 +46,9 @@
     color: var(--wa-charcoal);
 }
 
+.primary-button.calc{
+margin-top: 10px;
+}
 
 
 .secondary-button {
@@ -65,6 +69,10 @@ body{
     /* border: 1px solid red; */
 
 
+}
+.celestial-detail{
+    z-index: inherit;
+    max-height: 600px;
 }
 /* NAV BAR */
 .univ-nav-bar , nav{
@@ -120,7 +128,36 @@ body{
     margin: 20px;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    
+
+    position: absolute;
+    top: -150px;
+
+}
+.univ-modal-wrapper.calc{
+    /* min-width: 350px;
+    max-width: 350px;
+    border: 2px solid white;
+    border-radius: 15%;
+    background-color: var(--wa-purple);
+    background-image: linear-gradient(to bottom left, var(--wa-purple), white);
+    border-radius: 10px; */
+
+
+    border-radius: 10px;
+    height: max-content;
+    min-width: 350px;
+    max-width: 850px;
+    background-color: var(--wa-deep-emoji-purple); /* For browsers that do not support gradients */
+    background-image: linear-gradient(to bottom left, var(--wa-light-blue), var(--wa-emoji-purple), var(--wa-blue));
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+
     position: absolute;
     top: -150px;
 
@@ -145,6 +182,10 @@ body{
 float: left;
 padding-top: 5px;
 text-transform: uppercase;
+}
+.univ-form-label.calc{
+    text-align: center;
+
 }
 .univ-form-input{
     box-sizing: border-box;

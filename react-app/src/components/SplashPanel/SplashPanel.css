@@ -3,9 +3,14 @@ body{
     background-color: rgb(11, 0, 32);
     background-image: url(https://zodiappbucket.s3.us-east-2.amazonaws.com/wp2742972.jpeg);
     background-repeat: no-repeat;
-    background-size:1000px;
+     background-size:1000px;
+    max-height: 777px;
 
 }
+
+/* @media screen and(max-width: 1200px) {
+
+} */
 
 .splash-container{
 /* background-color: var(--wa-dark-purple); */
@@ -108,7 +113,7 @@ justify-content: space-between;
 }
 
 .sign-detail-full,.sign-detail{
-    background-image: linear-gradient(to bottom left, var(--wa-deep-purple), var(--wa-emoji-purple));
+    background-image: linear-gradient(to bottom left, var(--wa-light-blue), var(--wa-emoji-purple), var(--wa-blue));
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -119,8 +124,8 @@ justify-content: space-between;
     width: 400px;
     overflow-y: scroll;
     position: absolute;
-    top: -200px;
-    right:300px;
+    top:-25vh;
+    right: 45vh;
     border-radius: 5%;
 }
 body::-webkit-scrollbar {
@@ -151,8 +156,29 @@ body::-webkit-scrollbar {
     background-color: var(--wa-light-blue);
     border-radius: 5%;
 }
+#close-calc{
+
+    padding: 5px 5px 2px 5px;
+    margin: 0px;
+    color: cornsilk;
+    position: sticky;
+    top: 0%;
+    text-align: right;
+    display: flex;
+    align-self: flex-end;
+    background-color: var(--wa-emoji-purple);
+    border-radius: 5%;
+}
+#close-calc:hover{
+
+    text-decoration: underline;
+    background-color: var(--wa-yellow);
+    color: var(--wa-charcoal);
+}
 #close-modal:hover{
    text-decoration: underline;
+   background-color: var(--wa-yellow);
+   color: var(--wa-charcoal);
 }
 #sign-header{
     color: cornsilk;
@@ -289,3 +315,26 @@ width: fit-content;
     margin: 0px;
     height: fit-content;
 }
+#click-calculate:hover{
+    color:var(--wa-yellow);
+
+}
+/* @media screen and(max-width: 1200px) {
+    .splash-container{
+
+
+        }
+        .splash-wrapper{
+
+
+        }
+        .sign-container{
+
+            }
+        .sign-wrapper{
+
+
+
+        }
+
+} */
