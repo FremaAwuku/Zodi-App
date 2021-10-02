@@ -46,7 +46,7 @@ function App() {
         <Route path='/' exact={true} >
           <SplashPanel/>
         </Route>
-        <ProtectedRoute path='/user_dashboard'>
+        <ProtectedRoute path='/user_dashboard/:userId'>
           <UserDashboard/>
         </ProtectedRoute>
         <ProtectedRoute path='/horoscope_feed' >

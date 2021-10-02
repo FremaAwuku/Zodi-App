@@ -12,8 +12,8 @@ import ZodiacListModal from '../ZodiacList';
 import ZodiacList from '../ZodiacList/ZodiacList';
 
 const UserDetail = ({user}) =>{
-    const userId= user.id;
-const defaultPicture = 'https://zodiappbucket.s3.us-east-2.amazonaws.com/default_profile.png'
+    const {userId}= useParams();
+const defaultPicture = 'https://zodiappbucket.s3.amazonaws.com/supplemental/default_pic_zodi_app.png'
     const dispatch = useDispatch()
     const signs = useSelector(state => Object.values(state.sunSigns))
     const userSign = signs.filter((sign)=>sign.id === user.sun_sign_id)[0]
@@ -24,12 +24,12 @@ const defaultPicture = 'https://zodiappbucket.s3.us-east-2.amazonaws.com/default
     const inputFile = useRef(null)
 
     const [showZodiacList,setShowZodiacList] = useState(false)
-    // console.log(userSign,"<<<<<<<<<<User Sign")
-    // console.log(userId,"<<<<<<<<<<USER IDE")
+
     useEffect(()=>{
         dispatch(getUserHoroscopePosts(user?.id))
         dispatch(getAllUsers())
 
+        console.log(user?.profile_picture)
 
 
     }, [dispatch])
@@ -38,21 +38,20 @@ const defaultPicture = 'https://zodiappbucket.s3.us-east-2.amazonaws.com/default
 
         const profilePic = e.target.files[0]
 
-        // console.log(profilePic,"<<<<<<<<<<PROFILE")
-        // console.log(userId,"<<<<<<<<<<USER IDE")
-
         await dispatch(updateProfilePic({profilePic,
             userId}))
         await dispatch(authenticate())
 
         return
     }
+
     let currentProfilePic
-    if(user?.profile_pic){
-        currentProfilePic=defaultPicture
+    if(user?.profile_picture ){
+        currentProfilePic=user?.profile_picture
+
     }else{
-          currentProfilePic=user?.profile_picture
-        // console.log(user.profile_picture,"<<<<<<<<CURRENT PIC")
+        currentProfilePic=defaultPicture
+
     }
 
     let signSet

@@ -14,8 +14,51 @@ const [showLogin, setShowLogin] = useState(false)
 const [birthDay,setBirthDay] = useState('')
 // const [showSign, setShowSign]= useState(false)
 const signs = useSelector(state => Object.values(state.sunSigns))
+const user = useSelector(state=>state.session.user)
 
 
+const toDashboard = () =>{
+
+    <Redirect to={`/user_dashboard/${user.id}`}/>
+    history.push(`/user_dashboard/${user.id}`)
+}
+const toHoroscopeFeed = () =>{
+    <Redirect to="horoscope_feed"/>
+    history.push('/horoscope_feed')
+}
+let userActions
+if(!user){
+userActions=(
+    <>
+     <div
+     className="login-sect"
+     >
+
+     <LoginForm/>
+     </div>
+     </>
+)
+}else{
+
+  userActions=(
+  <div
+  className="user-actions"
+  >
+    <button
+    onClick={toDashboard}
+    className='primary-button user-actions'
+    >
+        User Dashboard
+    </button>
+    <button
+    onClick={toHoroscopeFeed}
+    className='primary-button user-actions'
+    >
+        Horoscope Feed
+    </button>
+    </div>
+    )
+}
 
     return(
         <>
@@ -83,12 +126,7 @@ const signs = useSelector(state => Object.values(state.sunSigns))
 
      </div>
 
-     <div
-     className="login-sect"
-     >
-
-     <LoginForm/>
-     </div>
+    {userActions}
 
        </>
     )
