@@ -49,11 +49,11 @@ return(
             onChange ={(e)=>setBirthDay(e.target.value)}
             // placeholder={}
             //value={}
-            hidden={!showCalc}
+            // hidden={!showCalc}
             />
 </label>
              <button
-            onClick={calculateSign}
+            // onClick={calculateSign}
              >
                     Calculate
                     </button>
