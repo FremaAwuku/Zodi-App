@@ -12,7 +12,9 @@ const preventProp = (e) =>{
 }
   return (
     <>
-      <button className="secondary-button" onClick={preventProp}>Sign Up</button>
+      <button
+      id="sign-up"
+      className="secondary-button sign-up" onClick={preventProp}>Sign Up</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <SignUpForm setShowModal={setShowModal}/>

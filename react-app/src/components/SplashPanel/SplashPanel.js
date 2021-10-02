@@ -21,13 +21,7 @@ const signs = useSelector(state => Object.values(state.sunSigns))
     return(
         <div  className="splash-container">
 
-<div className="crystal-ball">
-    <h2>Horoscope Feed</h2>
-             <img
 
-onClick={toHoroscopeFeed}
-         src={"https://zodiappbucket.s3.amazonaws.com/supplemental/crystal-ball-emoji.png"} />
-</div>
     <div className="splash-wrapper">
 
 

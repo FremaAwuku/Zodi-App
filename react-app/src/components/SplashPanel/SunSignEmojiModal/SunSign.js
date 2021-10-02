@@ -1,39 +1,153 @@
 import { useSelector } from "react-redux"
-
+import LoginFormModal from "../../auth/LoginFormModal"
+import '../SplashPanel.css'
 function SunSign({sign, setShowModal}){
     // const [showLogin, setShowLogin] = useState(false)
     // const [showSign, setShowSign]= useState(false)
     // const signs = useSelector(state => Object.values(state.sunSigns))
-    const user = useSelector(state => state.session)
+    const user = useSelector(state => state.session.user)
 
+    // console.log(user,"<<<<<<<SPLASH PAGE USER")
+    const long = sign.long_description.split(">")
+    long.shift()
+    // console.log(long,"LONG DESCRIPTION")
+
+    const closeModal = () =>{
+        setShowModal(false)
+    }
+    const noSunModal= () =>{
+        setShowModal(false)
+    }
     let signDetail
         if(user){
             signDetail=(
                 <div className="sign-detail-full">
-                    <h3>{sign.sign}</h3>
-                    {sign.dates}
-                    {sign.qualities}
-                    {sign.element}
-                    {sign.ruling_planet}
-                    {sign.symbol}
-                    {sign.strengths}
-                    {sign.weaknesses}
-                    {sign.short_description}
-                    {sign.long_description}
-                </div>
+                    <h5
+                    id="close-modal"
+                    onClick={closeModal}>CLOSE</h5>
+                    <h3
+                    id="sign-header"
+                    >{sign.sign}</h3>
+
+                     <div id='sign-sect'>
+                    <h6
+                    className="sign-label"
+                    id="top-row">Dates:
+                    </h6>
+                    <h3
+                    id="top-row"
+                    className="sign-content">{sign.dates}</h3>
+                    </div>
+
+                    <div id='sign-sect'>
+                    <h6 className="sign-label">Qualities:
+                    </h6>
+                    <h3
+                    id="top-row"
+                    className="sign-content"
+                    >{sign.qualities}</h3>
+                    </div>
+
+                    <div id='sign-sect'>
+                    <h6
+
+                    className="sign-label">Element:
+                    </h6>
+                    <h3
+                    className="sign-content"
+                    >{sign.element}</h3>
+                    </div>
+
+                    <div id='sign-sect'>
+                    <h6 className="sign-label">Ruling Planet:
+                    </h6>
+                    <h3
+                     id="top-row"
+                    className="sign-content"
+                    >{sign.ruling_planet}</h3>
+                    </div>
+
+                    <div id='sign-sect'>
+                    <h6 className="sign-label">Symbol:
+                    </h6>
+                    <h3
+                     id="top-row"
+                    className="sign-content"
+                    >{sign.symbol}</h3>
+                    </div>
+
+                    <div id='sign-sect strengths'
+
+                    >
+                    <h6 className="sign-label strengths">Strengths:
+                    </h6>
+                    <h3
+                    className="sign-content  strengths"
+                    > {sign.strengths}</h3>
+                    </div>
+
+                    <div id='sign-sect weaknesses'>
+                    <h6 className="sign-label weaknesses">Weaknesses:
+                    </h6>
+                    <h3
+                    className="sign-content weaknesses"
+                    >{sign.weaknesses}</h3>
+                    </div>
+
+                    <div id='sign-sect short-desc'>
+                    <h6 className="sign-label">Short Description:
+                    </h6>
+                    <h3
+                    className="sign-content short-desc"
+                    >{sign.short_description}</h3>
+                    </div>
+
+                    <div id='sign-sect'>
+                    <div
+                    className="long-desc">
+                    <h6 className="sign-label">Long Description:
+                    </h6>
+
+                    {long.map((desc,i)=>(
+
+                            <span id="space-break" >
+                            <h3 key={`desc_${i}`} className="sign-content" id="long_description">{desc}</h3>
+                            </span>
+                    ))}
+                    </div>
+                    </div>
+                    </div>
+
+
             )
-        }{
+        }else{
             signDetail=(
                 <div className="sign-detail">
-                    <button
-                    className="primary-button"
-                    onClick={(e)=>setShowModal(false)}
-                    > Close</button>
+                    <h5
+                    id="close-modal"
+                    onClick={closeModal}>X CLOSE</h5>
 
-                    <h3>{sign.sign}</h3>
-
-                    <h5>{sign.dates}</h5>
-                    {sign.short_description}
+                  <h3
+                    id="sign-header"
+                    >{sign.sign}</h3>
+                    <div id='sign-sect'>
+                    <h2 className="sign-label">Dates:</h2>
+                    <h3 className="sign-content">{sign.dates}</h3>
+                    </div>
+                    <div id='sign-sect short-desc'>
+                    <h6 className="sign-label">Short Description:
+                    </h6>
+                    <h3
+                    className="sign-content short-desc"
+                    >{sign.short_description}</h3>
+                    </div>
+                    <div
+                    className="login-more"
+                    >
+                    <h2> Login to See More
+   
+                    </h2>
+                    </div>
 
                 </div>
             )

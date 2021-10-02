@@ -22,8 +22,14 @@
 
 .login-other-options{
     display: flex;
+    padding-bottom: 10px;
 }
 #move-to-left-for-now{
-    margin-top: 500px;
-    background-color:red ;
+    margin-top: 475px;
+
+    background-color:var(--wa-light-blue) ;
 };
+.secondary-button.sign-up{
+    margin-bottom: 10px;
+    padding: 10px;
+}
