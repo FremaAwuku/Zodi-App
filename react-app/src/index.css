@@ -21,16 +21,18 @@
 } */
 
 .primary-button {
-    border-radius: 10px;
+    border-radius: 20px;
     border: .5px solid black ;
-    line-height: 30px;
+    height: fit-content;
     font-weight: 700;
     font-size: 12px;
-    background-color:var(--wa-deep-emoji-purple);
+    background-color:var(--wa-light-blue);
     color: white;
+
     /* text-transform: uppercase; */
     font-family: 'Capriola', sans-serif;
-    padding: 3px 3px 3px 3px;
+    padding: 3px 10px;
+    text-transform: uppercase;
 }
 *{
     font-family: 'Timmana', sans-serif;
@@ -50,8 +52,8 @@
     height: fit-content;
     font-weight: 700;
     font-size: 12px;
-    background-color:var(--wa-light-blue);
-    color: white;
+    background-color:var(--wa-yellow);
+    color: black;
     text-transform: uppercase;
     padding: 3px 10px;
 }
@@ -95,13 +97,32 @@ body{
 
 }
 .univ-modal-wrapper{
-    min-width: 350px;
+    /* min-width: 350px;
     max-width: 350px;
     border: 2px solid white;
     border-radius: 15%;
-    background-color: var(--wa-purple); /* For browsers that do not support gradients */
+    background-color: var(--wa-purple); 
     background-image: linear-gradient(to bottom left, var(--wa-purple), white);
+    border-radius: 10px; */
+
+
     border-radius: 10px;
+    height: max-content;
+    min-width: 350px;
+    max-width: 850px;
+    background-color: var(--wa-deep-emoji-purple); /* For browsers that do not support gradients */
+    background-image: linear-gradient(to bottom left, var(--wa-deep-purple), var(--wa-emoji-purple));
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 600px;
+    position: absolute;
+    top: -150px;
 
 }
 .univ-form-wrapper{
@@ -115,13 +136,15 @@ body{
 }
 .univ-form-errors{
     margin: 5px 0 15px;
-    font-weight: 700;
-    font-size: 18px;
+    font-weight: 100;
+    font-size: 16px;
+    color: var(--wa-baby-blue);
 
 }
 .univ-form-label{
 float: left;
 padding-top: 5px;
+text-transform: uppercase;
 }
 .univ-form-input{
     box-sizing: border-box;

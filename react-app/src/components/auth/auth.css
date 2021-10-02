@@ -3,11 +3,49 @@
     border: 2px solid white;
 
 
+
 }
 .login-form-wrap{
     border-radius: 10px;
+    height: max-content;
     min-width: 350px;
     max-width: 350px;
+
+
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.login-other-options{
+    display: flex;
+    padding-bottom: 10px;
+}
+#sign-up-form{
+
+position: absolute;
+top: 200px;
+right: 300px;
+width:400px;
+border-radius: 2%;
+
+    background-color:var(--wa-light-blue) ;
+};
+.secondary-button.sign-up{
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.login-form-cont{
+    border-radius: 10px;
+    height: max-content;
+    min-width: 350px;
+    max-width: 850px;
     background-color: var(--wa-deep-emoji-purple); /* For browsers that do not support gradients */
     background-image: linear-gradient(to bottom left, var(--wa-deep-purple), var(--wa-emoji-purple));
     box-sizing: border-box;
@@ -18,18 +56,69 @@
     margin: 20px;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
+    height: 600px;
+    position: absolute;
+    top: -150px;
+}
+.signup-form-wrapper{
+    border-radius: 10px;
+    height: max-content;
+    min-width: 350px;
+    /* max-width: 350px; */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    color: white;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    height: 600px;
+    position: absolute;
+    top:-50vh;
+    right: 3vh;
+}
+
+
+.login-sect{
+    position: absolute;
+    top:200px;
+    left:1000px;
+
+}
+.login-other-options>p{
+    padding: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
 }
 
 .login-other-options{
     display: flex;
-    padding-bottom: 10px;
-}
-#move-to-left-for-now{
-    margin-top: 475px;
+    flex-direction: column;
+    padding: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
 
-    background-color:var(--wa-light-blue) ;
-};
-.secondary-button.sign-up{
-    margin-bottom: 10px;
-    padding: 10px;
+}
+.sign-up-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* justify-self: center; */
+
+}
+
+#sign-up-label{
+    padding-top: 20px;
+    float: left;
+    padding-left: 10px;
+}
+.sign-up-action{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-around;
+    padding-bottom: 10px;
+
+
 }

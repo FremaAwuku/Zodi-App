@@ -297,30 +297,8 @@ const calculateSign = async (e) =>{
                 </datalist>
                 </label> */}
                 {chosenSigns}
-                <button
-            onClick = {()=> setShowCalc(true)}
-            hidden={showCalc}
 
-            >
-                Calculate Sign
-            </button>
-            <label
-            hidden={!showCalc}>
-                Enter Birth Day
-            <input
-            type="date"
-            onChange ={(e)=>setBirthDay(e.target.value)}
-            // placeholder={}
-            //value={}
-            hidden={!showCalc}
-            />
-             <button
-            onClick={calculateSign}
-             >
-                    Calculate
-                    </button>
 
-        </label>
         <button
         disabled = {validationErrors.length > 0}
         type="submit"
