@@ -1,6 +1,7 @@
 /* TODO Add site wide styles */
-
+@import url('https://fonts.googleapis.com/css2?family=Timmana&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Capriola&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Timmana&display=swap');
 :root {
     --wa-emoji-purple:  #ac52d6;
     --wa-deep-emoji-purple:  #9d1bda;
@@ -31,8 +32,8 @@
     font-family: 'Capriola', sans-serif;
     padding: 3px 3px 3px 3px;
 }
-h1,h2,h3{
-    font-family: 'Capriola', sans-serif;
+*{
+    font-family: 'Timmana', sans-serif;
 
 
 }
@@ -46,7 +47,7 @@ h1,h2,h3{
 
 .secondary-button {
     border-radius: 20px;
-    line-height: 30px;
+    height: fit-content;
     font-weight: 700;
     font-size: 12px;
     background-color:var(--wa-light-blue);
@@ -65,9 +66,9 @@ body{
 }
 /* NAV BAR */
 .univ-nav-bar , nav{
-    background-color: var(--wa-yellow);
+
     line-height: 20px;
-    max-height: 100px;
+    max-height: 50px;
 
 
 }

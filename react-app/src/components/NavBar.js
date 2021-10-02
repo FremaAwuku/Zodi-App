@@ -16,9 +16,7 @@ const NavBar = () => {
           <NavLink
           className="univ-nav-bar"
           to='/' exact={true} activeClassName='active'>
-          <img
-          style={{maxHeight:100}}
-    src="https://zodiappbucket.s3.us-east-2.amazonaws.com/supplemental/9240b7e0e53543c3b10f049bdb382597+(1).png"/>
+  
           </NavLink>
         </li>
 

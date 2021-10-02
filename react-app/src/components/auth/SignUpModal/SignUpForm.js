@@ -88,11 +88,16 @@ const SignUpForm = ({setShowModal}) => {
           required={true}
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
-      </form>
-    <button onClick={() => setShowModal(false)}>
+<div>
+      <button
+      className
+      type='submit'>Sign Up</button>
+      <button onClick={() => setShowModal(false)}>
     Cancel
     </button>
+</div>
+      </form>
+
 
     </>
 

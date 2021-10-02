@@ -3,7 +3,7 @@ import React, {  useState, useEffect } from 'react';
 
 import { Modal } from '../../../context/Modal';
 import SunSign from './SunSign';
-
+import '../SplashPanel.css'
 
 function SunSignEmojiModal({ sign}) {
   const [showModal, setShowModal] = useState(false);
@@ -23,7 +23,7 @@ const piscesEmoji ="https://zodiappbucket.s3.amazonaws.com/sign_png/pisces.png"
 
 
 let emojiPic
-console.log(piscesEmoji,"<<<<<<<SIGN")
+
 if(sign.sign === 'Aries'){
     emojiPic=(
         <div

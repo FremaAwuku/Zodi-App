@@ -40,6 +40,8 @@ import '../auth.css'
 
   return (
     <>
+    <div
+    className="login-form-wrap">
     <form
     className="login-form-wrap"
     onSubmit={onLogin}>
@@ -85,11 +87,11 @@ className="login-other-options">
           Try Demo
         </button>
     <p>Not a user?</p>
-    
+
     <SignUpFormModal setShowLogin={setShowLogin} />
 
       </div>
-
+      </div>
     </>
   );
 };

@@ -1,5 +1,6 @@
-*{
-    box-sizing: border-box;
+
+body{
+    background-color: black;
 }
 
 .splash-container{
@@ -12,7 +13,6 @@ justify-content: center;
 
 }
 .splash-wrapper{
-    background-color: white;
     max-height: 888px;
 display: flex;
 flex-direction: row;
@@ -55,7 +55,7 @@ justify-content: space-between;
 .splash-feed{
     display: grid;
     grid-column-start: 1;
-    border: 3px solid red;
+
     /* grid-row-start: 1; */
 
 }
@@ -78,8 +78,20 @@ justify-content: space-between;
     justify-content: center;
     align-items: center;
 }
-.sign-emoji{
+/* .sign-emoji{
     width: fit-content;
+    z-index: 0;
+    border-radius: 22%;
+} */
+.sign-emoji > img{
+    width: 100px;
+    height: fit-content;
+    border-radius: 22%;
+}
+.sign-emoji>img:hover{
+    width: 110px;
+    box-shadow: 3px 3px 3px 1px rgb(255, 168, 255);
+   z-index: 2;
 }
 .crystal-ball{
 
@@ -95,4 +107,168 @@ justify-content: space-between;
 .crystal-ball >img:hover{
 
 box-shadow: 10px 10px 10px 10px var(--wa-gold);
+}
+.sign-detail-full,.sign-detail{
+    background-image: linear-gradient(to bottom left, var(--wa-deep-purple), var(--wa-emoji-purple));
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    padding: 0px;
+    margin: 0px;
+    color:black;
+    height: 400px;
+    width: 400px;
+    overflow-y: scroll;
+    position: absolute;
+    top: -200px;
+    right:-200px;
+    border-radius: 5%;
+}
+#close-modal{
+
+    padding: 5px 5px 2px 5px;
+    margin: 0px;
+    color: cornsilk;
+    position: sticky;
+    top: 0%;
+    text-align: right;
+    display: flex;
+    align-self: flex-end;
+    background-color: var(--wa-light-blue);
+    border-radius: 5%;
+}
+#close-modal:hover{
+   text-decoration: underline;
+}
+#sign-header{
+    color: cornsilk;
+    text-transform: uppercase;
+    font-size: 45px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 0px;
+    margin: 0px;
+    font-family: 'Timmana', sans-serif;
+    line-height: 50px;
+    text-align: center;
+}
+
+
+#long_description{
+
+    font-size: 13pt;
+    font-weight: 200;
+    line-height: 18px;
+    word-break: normal;
+    padding:3px 3px 1px 35px;
+    /* line-break: strict; */
+    width: 85%;
+
+}
+#space-break{
+padding: 5.5px;
+}
+*{
+    box-sizing: border-box;
+}
+.sign-label{
+    padding-bottom: 0px;
+    padding-left: 10px;
+    margin: 0px;
+    text-transform: uppercase;
+    color: cornsilk;
+    font-size: 24px;
+
+width: fit-content;
+}
+.sign-label.strengths{
+    padding-bottom:0px;
+    margin: 0px;
+    line-height: 25px;
+    width: fit-content;
+
+}
+.sign-label.weaknesses{
+    padding-bottom:0px;
+    margin: 0px;
+    line-height: 25px;
+    width: fit-content;
+
+}
+.sign-content{
+    padding-left: 10px;
+    margin: 0px;
+    /* color: rgb(241, 204, 235); */
+
+    width: fit-content;
+}
+.sign-content .strengths{
+
+    /* color: rgb(241, 204, 235); */
+
+    width: 65%;
+    font-size: 20px;
+    font-weight: 400;
+}
+.sign-content .weaknesses{
+
+    /* color: rgb(241, 204, 235); */
+
+    width: 65%;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 2px;
+}
+/* .sign-content.short-desc{
+
+    /* color: rgb(241, 204, 235); */
+
+    /* width: 65%;
+    font-size: 18px;
+    line-height: 10px;
+    font-weight: 200; */
+
+#sign-sect{
+    display: flex;
+    flex-direction: row;
+    line-height: 30px;
+
+}
+#sign-sect#short-desc{
+    display: flex;
+    flex-direction: row;
+    font-weight: 100;
+    font-size: 20pt;
+    line-height: 15px;
+    word-break: normal;
+
+}
+#sign-sect#toprow{
+   text-align: center;
+
+
+}
+#strengths #weaknesses{
+    padding: 10px;
+}
+.login-more{
+    text-align: center;
+    color: var(--wa-light-blue);
+}
+#move-right{
+    position: absolute;
+    right: 300px;
+}
+.login-other-options{
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+
+}
+.login-other-options>p{
+    padding: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
 }
