@@ -49,6 +49,13 @@ const signs = useSelector(state => Object.values(state.sunSigns))
         <h1>
             CAPRICORN
         </h1>
+        <h1>
+            AQUARIUS
+        </h1>
+        <h1>
+            PISCES
+        </h1>
+
 
 
         <div  className="splash-container">

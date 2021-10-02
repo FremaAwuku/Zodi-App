@@ -101,7 +101,7 @@ body{
     max-width: 350px;
     border: 2px solid white;
     border-radius: 15%;
-    background-color: var(--wa-purple); 
+    background-color: var(--wa-purple);
     background-image: linear-gradient(to bottom left, var(--wa-purple), white);
     border-radius: 10px; */
 
@@ -120,7 +120,7 @@ body{
     margin: 20px;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    height: 600px;
+    
     position: absolute;
     top: -150px;
 
