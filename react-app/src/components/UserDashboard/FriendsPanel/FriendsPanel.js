@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getUserFriends } from '../../../store/friends';
 
-import './FriendsPanel.css'
+import '../UserDashboard.css'
 import IncomingRequests from './IncomingRequests';
 import RemoveFriend from './RemoveFriend';
 const FriendsPanel = ({user}) =>{

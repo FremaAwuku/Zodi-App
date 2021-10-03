@@ -17,7 +17,7 @@ function UpdateSign({userId, setShowModal}) {
         const errors = []
 
 
-        if(birthDay === "")errors.push(" You had one job... Please Enter Birth Date")
+        if(birthDay === "")errors.push(" Please Enter Your Birth Date")
         setValidationErrors(errors)
     },[ birthDay])
 
@@ -27,10 +27,7 @@ function UpdateSign({userId, setShowModal}) {
         const birthData = birthDay.split("-")
         const birthMonth = Number(birthData[1])
         const birthDate = Number(birthData[2])
-        // console.log(birthDay,"<<<<<<<<<<<<<<<<<<<<birthDay")
-        // console.log(birthData,"<<<<<<<<<<<<<<<<<<<<birthData")
-        // console.log(birthDate,"<<<<<<<<<<<<<<<<<<<<birthDate")
-        // console.log(birthMonth,"<<<<<<<<<<<<<<<<<<<<birthMonth")
+
         await dispatch(updateSunSign({
 
 
@@ -50,7 +47,7 @@ function UpdateSign({userId, setShowModal}) {
 
   return (
     <>
-    <div className="univ-modal-wrapper">
+    <div className="univ-modal-wrapper update">
     <form
     onSubmit={handleSubmit}
     className="univ-form-cont" >

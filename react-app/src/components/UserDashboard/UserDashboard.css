@@ -1,22 +1,76 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Capriola&display=swap');
+*{
+    box-sizing: border-box;
+}
+.main-dashboard-container{
+    background-image: linear-gradient(to bottom left,var(--wa-deep-emoji-purple), var(--wa-deep-purple),var(--wa-dark-purple), var(--wa-deep-purple),var(--wa-deep-emoji-purple));
+    max-width: 1000px;
+    max-height: 800px;
+    padding: 30px;
+    border: 5px inset var(--wa-emoji-purple);
+    border-style: solid inset solid solid;
+    border-radius: 30px;
+    position: absolute;
+    left: 35vh;
+    /* display: ; */
+}
 .user-sign-detail{
-    background-color: pink;
+
+   max-height: fit-content;
+   display: flex;
+   flex-direction: column;
+   padding: 10px;
+
+
+
 
 }
-.user-sign-detail >p{
-    font-family: 'Capriola' Arial, Helvetica, sans-serif;
+.user-sign-detail>p,h3{
+padding: 0px;
+margin: 0px;
+color: black
 }
-.user-sign-detail >h2{
-    font-family: 'Capriola', sans-serif;
+#sign-detail-header{
+    color:var(--wa-light-blue);
+    text-transform: uppercase;
+    font-size: 55px;
+    padding-top: 20px;
+    padding-bottom: 0px;
+    margin: 0px;
+    font-family: 'Timmana', sans-serif;
+    line-height: 50px;
+    text-align: center;
 }
+.user-sign-detail {
+
+} */
 .user-profile-cont{
+    /* display: flex;
+    flex-direction: row;
+
+    background-color: seagreen; */
+
+}
+.user-profile-pic-div{
     display: flex;
-    flex-direction: column;
+    flex-wrap: row wrap;
+    width: fit-content;
+    padding: 10px;
 
-    background-color: seagreen;
+    /* justify-content: space-between; */
 
+
+}
+.user-sign-section{
+    border: 3px inset whitesmoke;
+    background-color: white;
+    margin-left: 40px;
+    padding: 10px;
+    border-radius: 20px;
 }
 .user-deet-cont>*{
 border: 2px solid red;
+}
+*{
+    border: 2px solid red; ;
 }

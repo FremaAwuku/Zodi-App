@@ -23,7 +23,7 @@
 
 .primary-button {
     border-radius: 20px;
-    border: .5px solid black ;
+    border: 1px solid black ;
     height: fit-content;
     font-weight: 700;
     font-size: 12px;
@@ -31,9 +31,9 @@
     color: white;
 
     /* text-transform: uppercase; */
-    font-family: 'Capriola', sans-serif;
-    padding: 3px 10px;
-    text-transform: uppercase;
+    font-family: 'Timmana', sans-serif;
+    padding: 3px 10px .5px ;
+    /* text-transform: uppercase; */
 }
 *{
     font-family: 'Timmana', sans-serif;
@@ -43,14 +43,29 @@
 
 .primary-button:hover{
     background-color:var(--wa-gold);
-    color: var(--wa-charcoal);
+    color: black;
 }
 
 .primary-button.calc{
 margin-top: 10px;
 }
-
-
+.primary-button.user-actions{
+    padding: 20px ;
+    border-radius: 10px;
+    font-size: 18px;
+    margin: 0px;
+    text-transform: uppercase;
+    position: relative;
+    top: 30vh;
+    /* right: ; */
+    left: 25vh;
+    margin: 10px;
+    width: 65%;
+    }
+    .primary-button.user-actions:hover{
+        font-size: 25px;
+        left: 30vh;
+    }
 .secondary-button {
     border-radius: 20px;
     height: fit-content;
@@ -132,13 +147,7 @@ margin-top: 10px;
 
 }
 .univ-modal-wrapper.calc{
-    /* min-width: 350px;
-    max-width: 350px;
-    border: 2px solid white;
-    border-radius: 15%;
-    background-color: var(--wa-purple);
-    background-image: linear-gradient(to bottom left, var(--wa-purple), white);
-    border-radius: 10px; */
+
 
 
     border-radius: 10px;
@@ -157,8 +166,12 @@ margin-top: 10px;
     font-family: Arial, Helvetica, sans-serif;
 
     position: absolute;
-    top: -150px;
+    top:-25vh;
+    right: 35vh;
 
+}
+.univ-modal-wrapper.update{
+    padding: 20px;
 }
 .univ-form-wrapper{
 

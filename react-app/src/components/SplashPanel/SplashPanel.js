@@ -44,91 +44,57 @@ userActions=(
   <div
   className="user-actions"
   >
+      <div
+      id="user-bttn-container">
     <button
     onClick={toDashboard}
     className='primary-button user-actions'
     >
-        User Dashboard
+       💖User Dashboard 💖
     </button>
     <button
     onClick={toHoroscopeFeed}
     className='primary-button user-actions'
     >
-        Horoscope Feed
+       🔮 Horoscope Feed 🔮
     </button>
+    </div>
     </div>
     )
 }
 
     return(
-        <>
-        {/* <div>
-        <h1>
-           ARIES
-        </h1>
-        <h1>
-            TAURUS
-        </h1>
-        <h1>
-           GEMINI
-        </h1>
-        <h1>
-            CANCER
-        </h1>
-        <h1>
-            LEO
-        </h1>
-        <h1>
-            VIRGO
-        </h1>
-        <h1>
-           LIBRA
-        </h1>
-        <h1>
-            SCORPIO
-        </h1>
-        <h1>
-            SAGITTARIUS
-        </h1>
-        <h1>
-            CAPRICORN
-        </h1>
-        <h1>
-            AQUARIUS
-        </h1>
-        <h1>
-            PISCES
-        </h1>
-        </div> */}
 
+<div
+        className="main-splash-cont">
 
         <div  className="splash-container">
 
 
-        <h2
-        id="click-header"
+        <h2 id="click-header">
+        Click On Your Sign </h2>
 
-        > Click On Your Sign </h2>
-    <div className="splash-wrapper">
+        <div className="splash-wrapper">
 
 
-    <section className="sign-wrapper">
+                <section className="sign-wrapper">
 
-    {signs && signs?.map((sign)=>(
+                {signs && signs?.map((sign)=>(
 
-             <SunSignEmojiModal sign={sign}/>
-    ))}
-     </section>
+                        <SunSignEmojiModal sign={sign}/>
+                ))}
+                </section>
 
-     </div>
+        </div>
 
-     <CalculateSignModal/>
+        <CalculateSignModal/>
+</div>
 
-     </div>
 
-    {userActions}
+            {userActions}
+    </div>
 
-       </>
+
     )
 }
 

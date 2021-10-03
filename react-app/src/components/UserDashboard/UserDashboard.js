@@ -21,7 +21,8 @@ useEffect(()=>{
 
     if (Number(userId) === Number(user.id)) {
         return(
-            <>
+            <div
+            className="main-dashboard-container">
             <div className="user-deet-cont">
             <UserDetail user={user}/>
             </div>
@@ -32,9 +33,7 @@ useEffect(()=>{
             <div className="univ-user-friend-panel">
             <FriendsPanel user={user} className="univ-friend-panel-component"/>
             </div>
-
-
-            </>
+            </div>
             )
 
     }else{

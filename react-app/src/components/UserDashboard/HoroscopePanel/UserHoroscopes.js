@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import DailyHoroscope from './DailyHoroscope/DailyHoroscope';
 import HoroscopePost from '../../HoroscopeFeed/HoroscopePost';
 import { getUserHoroscopePosts } from '../../../store/horoscopePosts';
+import '../UserDashboard.css'
 const UserHoroscopes =({user}) =>{
     const dispatch = useDispatch()
     const userPost =  useSelector(state => Object.values(state.horoscope_posts))

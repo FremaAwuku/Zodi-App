@@ -4,19 +4,32 @@ body{
     background-image: url(https://zodiappbucket.s3.us-east-2.amazonaws.com/wp2742972.jpeg);
     background-repeat: no-repeat;
      background-size:1000px;
-    max-height: 777px;
+    /* max-height: 777px; */
 
 }
 
-/* @media screen and(max-width: 1200px) {
-
-} */
-
+.main-splash-cont{
+    display: grid;
+    grid-column: 50% 50%;
+ /* background-image: url(https://zodiappbucket.s3.us-east-2.amazonaws.com/wp2742972.jpeg);
+ background-repeat: no-repeat; */
+   height: 777px;
+   position: relative;
+    /* height: fit-content; */
+}
+.user-actions{
+    /* display: flex; */
+    display: grid;
+grid-column-start: 2;
+position: relative;
+}
 .splash-container{
 /* background-color: var(--wa-dark-purple); */
 /* max-width: fit-content;
 max-height: fit-content; */
-display: flex;
+position: relative;
+display: grid;
+grid-column-start: 1;
 flex-direction: column;
 box-sizing: border-box;
 align-items: center;
@@ -24,9 +37,8 @@ justify-content: center;
 width: fit-content;
 margin: 0px;
 padding: 0;
-position: absolute;
-top: 100px;
-left: 500px;
+top: 0px;
+left: 475px;
 
 }
 .splash-wrapper{
@@ -109,7 +121,7 @@ justify-content: space-between;
 .sign-emoji>img:hover{
     width: 110px;
     box-shadow: 3px 3px 3px 1px rgb(255, 168, 255);
-   z-index: 2;
+   /* z-index: 2; */
 }
 
 .sign-detail-full,.sign-detail{
@@ -125,7 +137,7 @@ justify-content: space-between;
     overflow-y: scroll;
     position: absolute;
     top:-25vh;
-    right: 45vh;
+    right: 35vh;
     border-radius: 5%;
 }
 body::-webkit-scrollbar {
@@ -274,13 +286,21 @@ width: fit-content;
     line-height: 30px;
 
 }
-#sign-sect#short-desc{
+.sign-content.short-desc{
     display: flex;
     flex-direction: row;
     font-weight: 100;
     font-size: 20pt;
     line-height: 15px;
     word-break: normal;
+    font-size: 13pt;
+    font-weight: 200;
+    line-height: 18px;
+    word-break: normal;
+    padding:3px 3px 1px 35px;
+    /* line-break: strict; */
+    width: 85%;
+
 
 }
 #sign-sect#toprow{
@@ -316,9 +336,16 @@ width: fit-content;
     height: fit-content;
 }
 #click-calculate:hover{
-    color:var(--wa-yellow);
+    color:var(--wa-gold);
+    font-size: 42px;
+    text-decoration: underline;
+
 
 }
+
+/* *{
+    border: 1px solid red;
+} */
 /* @media screen and(max-width: 1200px) {
     .splash-container{
 
