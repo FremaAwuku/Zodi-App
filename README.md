@@ -82,4 +82,54 @@ bash pipenv install --dev -r dev-requirements.txt && pipenv install -r requireme
 ```npm start```
 
 
+## Features
+
+
+### User Actions
+
+Logged Out-The only actions avaible to non-logged in users
+  * Users can read a short description on[GET] **Sun Sign**
+  * User can enter their birthdays and calculate [POST]**Sun Sign**
+  
+Logged In
+  * Users can change profile picture [PUT]
+  * Users can update personal **Sun Sign** to user profile[PUT]
+
+
+### Zodiac List [GET] - rendering of rows in a list
+  * Users can add [POST]names and signs to their zodiac list as well as 
+  * Users can edit[PUT] matches to rows on their zodiac list to calculate 
+  * Users can delete[DELETE] rows from their zodiac list 
+
+
+### Compabatibilty[GET/POST]
+ * Users when users add 2 names to their zodiac list a compability rating is calculated and rendered on list for user to read rating details
+
+### Friend Requests 
+  * Users can [GET] users can see friend requests recieved from other users.
+  *  Users can [GET] users can see friend requests they've sent to other users through horoscope feed.
+  *  Users can [POST] send friend requests 
+  *  Users can [DELETE] delete friend requests 
+
+### Friends 
+  * Users can [GET] see all friends.
+  *  Users can [POST] add friend through friend requests 
+  *  Users can [DELETE] delete friend requests 
+
+### Daily Horoscope 
+  * [GET/POST] Once users update their sun signs , users get an daily horoscope provided by an outside API
+
+### Horoscope Feed [GET]-rendering of all posts on feed
+  * Users can [POST] Daily Horoscope to Horoscope Feed 
+  * User can [PUT] Edit their posts on user dashboard 
+  * Users can [DELETE] their horoscope posts 
+
+### Post Comment [GET]-rendering of all comments on post detail
+  * Users can [POST] post comments on a specific horoscope Post 
+  * User can [PUT] Edit comments on a specific horoscope Post 
+  * Users can [DELETE] their comments on a specific horoscope Post 
+
+### Post Comment [GET]-rendering of all likes on post detail
+  * Users can [POST] like a specific horoscope Post 
+  * Users can [DELETE] unlike a specific horoscope Post 
 
