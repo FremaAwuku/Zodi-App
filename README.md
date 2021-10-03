@@ -133,3 +133,17 @@ Logged In
   * Users can [POST] like a specific horoscope Post 
   * Users can [DELETE] unlike a specific horoscope Post 
 
+## Database 
+![](https://github.com/FremaAwuku/Zodi-App/blob/master/db_schema.png)
+
+## Conclusion 
+
+## Special Thanks to 
+
+* My team of fellow developers who helped me with bugs and moral support throughout this process.
+  * [Jacky Hao](https://github.com/JackyxCS)
+  * [Walker Williams](https://github.com/walkerwilliamsx)
+  * [Jordan Bohmbach](https://github.com/jordan-bohmbach) 
+  * [Amanda Hinton](https://github.com/amandahinton)
+* [Jay Kendrick Jr.](https://www.jaykendrickjr.com/) for logo and design ideas 
+* And [Sameer Kumar](https://github.com/sameerkumar18) for creating an excellent api aztrosJS that allowed to make the fetches needed for the ineractivity of my horoscope feed
