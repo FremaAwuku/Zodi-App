@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router';
 import { getUserFriends } from '../../../store/friends';
 import {addListMatch} from '../../../store/zodiacLists'
 function EditRow({setShowModal, row, firstName, firstSignName}) {
@@ -23,7 +24,7 @@ function EditRow({setShowModal, row, firstName, firstSignName}) {
         const dispatch = useDispatch()
 
         const user = useSelector(state=> state.session.user)
-        const userId = user.id
+        const {userId} = useParams()
         const friends = useSelector(state=> Object.values(state.friends))
         const filteredFriends = friends.filter((friend)=> friend.friend_to_user.username !== firstName )
 
@@ -73,17 +74,35 @@ function EditRow({setShowModal, row, firstName, firstSignName}) {
         className="univ-form-wrapper">
                <div className="univ-form-errors">
                 {validationErrors.map((error, int) => (<div key={int}>{error}</div>))}
+
+        </div>
+        <div
+        className="first-match">
+        <p>
+          1st Match Name:
+          <span>
+          {row.first_name}
+          </span>
+
+        </p>
+        <p>
+        Sign:
+        <span>
+         {row.first_name_sign}
+         </span>
+        </p>
         </div>
         <label
         className="univ-form-label"
         for='match_name'
         >
-            Enter Match Name
+            Enter 2nd Match Name
             <input
             name='match_name'
             type="text"
             list="user_friends"
             onChange ={firstInput}
+            className="univ-form-input"
             />
                 <datalist id="user_friends">
                 {filteredFriends&& filteredFriends.map((friend)=>{
@@ -99,9 +118,11 @@ function EditRow({setShowModal, row, firstName, firstSignName}) {
 
         </label>
         <label
+        className="univ-form-label"
         >
             Enter Sign
             <input
+            className="univ-form-input"
             // type="date"
             onChange={secondInput}
             // placeholder={}
@@ -119,6 +140,7 @@ function EditRow({setShowModal, row, firstName, firstSignName}) {
 
 
         <button
+        className="secondary-button"
         disabled = {validationErrors.length > 0}
         type="submit"
 

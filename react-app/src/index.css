@@ -71,11 +71,14 @@ margin-top: 10px;
     height: fit-content;
     font-weight: 700;
     font-size: 12px;
+    border: 1px solid black;
     background-color:var(--wa-yellow);
     color: black;
     text-transform: uppercase;
-    padding: 3px 10px;
+    font-family: 'Timmana', sans-serif;
+    padding: 3px 10px .5px ;
 }
+
 
 *{
     box-sizing: border-box;
@@ -172,6 +175,10 @@ margin-top: 10px;
 }
 .univ-modal-wrapper.update{
     padding: 20px;
+}
+.univ-modal-wrapper.comp{
+    background-color: var(--wa-gold);
+
 }
 .univ-form-wrapper{
 

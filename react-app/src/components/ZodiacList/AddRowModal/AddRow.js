@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router';
 import { getUserFriends } from '../../../store/friends';
 import { calculateSunSign } from '../../../store/sunSigns';
 import { addZodiacListRow } from '../../../store/zodiacLists';
@@ -20,7 +21,7 @@ const AddRow =() =>{
     const [validationErrors,setValidationErrors] = useState([])
     const dispatch = useDispatch()
     const user = useSelector(state=> state.session.user)
-    const userId = user.id
+    const {userId} = useParams()
     const friends = useSelector(state=> Object.values(state.friends))
     const friendUsernames = useSelector(state=> Object.values(state.friends)).map((friend)=>friend = friend.friend_to_user.username)
     // const friendSignIds = friends
@@ -46,25 +47,17 @@ const AddRow =() =>{
     //     })
 
 
-    // console.log(friends,"<<<<<<<Friends")
-    // console.log(friendUsernames,"<<<<<<<Friend Usernames")
-    // console.log(friendSignIds,"<<<<<<<Friend Sign Ids")
-    // console.log(signObjs,"<<<<<<<ARRAY OF OBJ?")
-    // console.log(filteredSigns,"<<<<<<<FILTERED SIGNS HOPEFULLY")
-    // console.log(chosenFriend,"<<<<<<<<<<< CHOSEN FRIEND")
-    // console.log(chosenFriendId,"<<<<<<<<<<< CHOSEN FRIEND ID")
-    // console.log(chosenFriendSignId,"<<<<<<<<<<< CHOSEN FRIEND Sign")
-    // console.log(calcSign,"<<<<<<<calc sign")
+
     useEffect(()=>{
 
 
-        // const errors = []
+        const errors = []
 
 
-        // if(firstName === ""|| !chosenFriend )errors.push("  Please Enter Name or Friend")
-        // setValidationErrors(errors)
-        // if(description.length === 0)errors.push("Description can not be Empty")
-        // setValidationErrors(errors)
+        if(firstName === "" )errors.push("Please Enter Name or Friend")
+        setValidationErrors(errors)
+        if(firstNameSign === "")errors.push("Sign can not be Empty")
+        setValidationErrors(errors)
 
         dispatch(getUserFriends(userId))
     },[dispatch])
@@ -246,7 +239,7 @@ const calculateSign = async (e) =>{
         <form
         onSubmit={handleSubmit}
         className="univ-form-wrapper">
-               <div className="univ-form-errors">
+               <div className="univ-form-errors add-row">
                 {validationErrors.map((error, int) => (<div key={int}>{error}</div>))}
         </div>
         <label
