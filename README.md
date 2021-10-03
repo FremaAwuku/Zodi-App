@@ -135,9 +135,15 @@ Logged In
 
 ## Database 
 ![](https://github.com/FremaAwuku/Zodi-App/blob/master/db_schema.png)
+## Visual Aids
+To come
 
-## Conclusion 
+ 
 
+## Conclusion /Future Plans
+I really enjoy all thing esoteric and spritual so this was a really fun project for me.  I had initially wanted to go more in depth as far as astrological calculations of moon signs and birth charts. However, I realized the API's availble for those calculations were pricey, and rightfuly so! The amount of work and data it takes to render the location, time and date of birth and corellate it to the snapshot of the astrononmical sky you were born under is A LOT of work, and I'm only here to build websites😅... for now. I would also like to add a daily tarot card api that I would build as a table and host on AWS. Each card would be picked at random and refreshed every 24 hours. 
+
+I learned so much about my work process and how much I can do in a small amount of time. I was able to figure out my "strong suits" as well as pinpoint my weakness. With this information I have the ability to continuing building out fully functional applictations for my passions and the things I love!
 ## Special Thanks to 
 
 * My team of fellow developers who helped me with bugs and moral support throughout this process.
