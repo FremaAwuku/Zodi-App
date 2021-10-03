@@ -6,6 +6,16 @@ from flask_login import login_required
 zodiac_list_routes = Blueprint('zodiac_list', __name__)
 
 
+@zodiac_list_routes.route('/')
+@login_required
+def get_all_rows():
+
+    rows= ZodiacList.query.all()
+
+    return {
+     "rows":[row.to_dict() for row in rows]
+    }
+
 """"
 DELETE ROW FROM ZODIAC LIST
 """

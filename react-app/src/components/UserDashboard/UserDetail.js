@@ -54,6 +54,24 @@ const defaultPicture = 'https://zodiappbucket.s3.amazonaws.com/supplemental/defa
         }
 
     }
+    let actionBtnZL
+    if(showZodiacList){
+        actionBtnZL=(
+            <button
+            className="secondary-button"
+            style={{textTransform:"none"}}
+            onClick={listButtonShow}>Zodiac List </button>
+
+        )
+    }else{
+        actionBtnZL=(
+            <button
+            className="primary-button"
+            onClick={listButtonShow}>Zodiac List</button>
+
+        )
+
+    }
     const toSplash = () =>{
         history.push('/')
     }
@@ -68,7 +86,9 @@ const defaultPicture = 'https://zodiappbucket.s3.amazonaws.com/supplemental/defa
 
     }
     let userInfo
+
     if(!showZodiacList){
+
 
     userInfo =(
         <>
@@ -91,7 +111,7 @@ const defaultPicture = 'https://zodiappbucket.s3.amazonaws.com/supplemental/defa
              <div
     className="user-zodiac-list"
     >
-       {showZodiacList && <ZodiacList setShowZodiacList={setShowZodiacList}/>}
+       {showZodiacList && <ZodiacList />}
 
     </div>
             </>
@@ -104,6 +124,26 @@ const defaultPicture = 'https://zodiappbucket.s3.amazonaws.com/supplemental/defa
              <section
             className="user-sign-section"
              >
+                    {userInfo}
+                    <div className="user-controls">
+                    <button
+                    className="primary-button"
+                    onClick={toSplash}
+                    >
+                    ← Sun Signs
+                    </button>
+                    <UpdateSignModal userId={userId}/>
+                   {actionBtnZL}
+
+</div>
+                </section>
+        )
+
+    }else{
+        signSet=(
+            <section
+            className="user-sign-section no-sign"
+             >
                  {userInfo}
                     <div className="user-controls">
                     <button
@@ -113,20 +153,14 @@ onClick={toSplash}
 ← Sun Signs
 </button>
 <UpdateSignModal userId={userId}/>
-<button
-className="primary-button"
-onClick={listButtonShow}>ZodiacList</button>
+<h3
+// style={{maxWidth:"30%"}}
+>
+   Update Sign To Use the Rest of the Features
+</h3>
 
 </div>
-                </section>
-        )
-
-    }else{
-        signSet=(
-        <section className="user-sign-detail-container">
-
-        <h3 className="to-update-sign">Calculate your sun sign</h3>
-        </section>)
+                </section>)
     }
 let dashboardControls
 
@@ -167,7 +201,10 @@ if(userSign){
                             <div onClick={() => inputFile.current.click()}>
                                 <img style={{maxHeight:200 , maxWidth:200 ,borderRadius:100}}
                                 className="user-profile-pic" src={currentProfilePic} alt="user profile"/>
-                                             <h1 >What's Up {user?.username}</h1>
+                                             <h1
+                                             className="user-header"
+                                              >What
+                                                 's Up {user?.username} !</h1>
                             </div>
                             <section
             className="user-sign-section"
@@ -181,9 +218,7 @@ onClick={toSplash}
 ← Sun Signs
 </button>
 <UpdateSignModal userId={userId}/>
-<button
-className="primary-button"
-onClick={listButtonShow}>ZodiacList</button>
+{actionBtnZL}
 
 </div>
                 </section>
@@ -211,12 +246,14 @@ onClick={listButtonShow}>ZodiacList</button>
                         <div onClick={() => inputFile.current.click()}>
                             <img style={{maxHeight:200 , maxWidth:200 ,borderRadius:100}}
                             className="user-profile-pic" src={currentProfilePic} alt="user profile"/>
-                                         <h1 >What's Up {user?.username}</h1>
+                                         <h1
+                                         className="user-header"
+                                         >What's Up {user?.username} !</h1>
                         </div>
                         {dashboardControls}
                 </div>
             <section className="user-sign-detail-container">
-
+            <UpdateSignModal userId={userId}/>
             <h3 className="to-update-sign">Please Calculate your Sun Sign</h3>
         </section>
          </div>

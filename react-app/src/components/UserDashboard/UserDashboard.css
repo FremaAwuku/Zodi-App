@@ -2,6 +2,7 @@
 *{
     box-sizing: border-box;
 }
+/* MAIN  */
 .main-dashboard-container{
     background-image: linear-gradient(to bottom left,var(--wa-deep-emoji-purple), var(--wa-deep-purple),var(--wa-dark-purple), var(--wa-deep-purple),var(--wa-deep-emoji-purple));
     max-width: 1000px;
@@ -13,6 +14,9 @@
     position: absolute;
     left: 35vh;
     /* display: ; */
+}
+.user-header{
+    color: white;
 }
 .user-sign-detail{
 
@@ -61,16 +65,94 @@ color: black
 
 
 }
+.user-controls{
+    padding: 7px;
+    display: flex;
+    justify-content: space-between;
+}
 .user-sign-section{
     border: 3px inset whitesmoke;
     background-color: white;
     margin-left: 40px;
     padding: 10px;
     border-radius: 20px;
+    min-width: 300px;
+    max-width: 600px;
+
+}
+.user-sign-section.no-sign{
+    border: 3px inset whitesmoke;
+    background-color: white;
+    margin-left: 40px;
+    padding: 10px;
+    border-radius: 20px;
+    min-width: 300px;
+    max-width: 300;
 }
 .user-deet-cont>*{
-border: 2px solid red;
+border: .5px solid red;
 }
-*{
+/* *{
     border: 2px solid red; ;
+} */
+/* ZODIAC LIST */
+.univ-zodiac-table-container{
+    overflow-y: scroll;
+    max-height: 300px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+
+
+  table {
+    white-space: nowrap;
+    background-color: var(--wa-yellow);
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  table#first-match-input{
+      background-color: white;
+  }
+
+/* EDIT MODAL */
+.first-match{
+    display: flex;
+    flex-direction: column;
+    justify-content: center ;
+    align-content: center;
+}
+.first-match>p{
+    display: flex;
+    flex-direction: row;
+}
+.first-match>p>span{
+    margin-left: 20px;
+}
+#comp-modal{
+    padding: 10px;
+
+}
+#comp-modal-hearts{
+    margin-left: 15px;
+}
+#comp-modal-hearts:hover{
+    /* border: 3px inset blueviolet; */
+    /* width: 100%;
+    padding: 10px ; */
+    box-shadow: 3px 3px 3px 1px rgb(255, 168, 255);
+}
+
+th#comp-table{
+    width: 30%;
+}
+/* td#comp-table:hover{
+    border: 3px inset blueviolet;
+    width: 33%;
+
+} */
+.add-row-container{
+    display: flex;
+    justify-content: center;
 }

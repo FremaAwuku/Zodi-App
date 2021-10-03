@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {  useSelector } from "react-redux"
+import CompatibilityModal from './CompatibilityModal';
 import DeleteRowModal from './DeleteRowModal';
 import EditRowModal from './EditRowModal/index';
 
@@ -8,15 +9,13 @@ const ListRow = ({rows}) => {
 
     const [showDeleteModal, setShowDeleteModal] = useState(false)
     const signs = useSelector(state => Object.values( state.sunSigns))
-    // const firstSignId = signs.filter((sign)=> sign.sign === rows?.first_name_sign)[0].id
+
     const user = useSelector(state=> state.session.user)
     const firstSign = signs.filter((sign)=> sign.sign=== rows?.first_name_sign)[0]?.id
     const firstSignId = Number(firstSign)
     const matchSignId = signs.filter((sign)=> sign.sign === rows?.match_name_sign)[0]?.id
     console.log(rows.match_name,"<<<<<ROWS")
-    // console.log(firstSignId, `<<<<<<<FIRST SIGN ID`)
-    // console.log(matchSignId, `<<<<<<<MATCH SIGN ID`)
-    // console.log(signs,"<<<<<<<SIGNS")
+
 
     let signEmoji_1
 
@@ -249,8 +248,10 @@ if(rows ){
     {signEmoji_2}
 </td>
 <br/>
-<td>
-    {heartEmoji}
+<td
+id="comp-table"
+>
+   <CompatibilityModal rowId={rows.id}/>
 </td>
 <br/>
     {editButton}

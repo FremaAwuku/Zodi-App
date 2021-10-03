@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux"
-import { useHistory } from "react-router-dom"
+import { useHistory, useParams } from "react-router-dom"
 import backIcon from '../../images/back-arrow.ico'
 import { getUserZodiacList } from '../../store/zodiacLists';
 import AddRowModal from './AddRowModal/index';
 import ListRow from './ListRow';
 import { addZodiacListRow } from '../../store/zodiacLists';
 import { getUserFriends } from '../../store/friends';
+
 // import ShowFriendsModal from './ShowFriendsModal';
-const ZodiacList = ({setShowModal}) => {
+const ZodiacList = () => {
     const history = useHistory()
     const dispatch = useDispatch()
     const user = useSelector(state => state.session)
-    const userId = user?.user?.id
+    const{userId}= useParams()
     const friends = useSelector(state=> Object.values(state.friends))
     const signs = useSelector(state=>Object.values(state.sunSigns))
     const signObjs = useSelector(state=>state.sunSigns)
@@ -27,8 +28,17 @@ const ZodiacList = ({setShowModal}) => {
     useEffect(()=>{
         dispatch(getUserZodiacList(user.user.id))
         dispatch(getUserFriends(userId))
+        const errors =[]
+        if(firstNameSign===''){
+            errors.push("Please Enter Zodiac Sign ")
+        }
+        if(firstName===''){
+            errors.push("Please Input First Name")
+        }
 
-    }, [dispatch])
+        setValidationErrors(errors)
+
+    }, [dispatch,firstNameSign,firstName])
 
 // ADD ROW LOGIC
 
@@ -75,7 +85,10 @@ const secondInput = (e) => {
         <>
 
         <div className='univ-zodiac-list-wrapper'>
-        <h1>{`${user.user.username}'s Zodiac List'`}</h1>
+        <div className='univ-zodiac-table-container'>
+        <h1
+        id="sign-detail-header"
+        >{`Zodiac List`}</h1>
         <table className='univ-zodiac-list-table'>
             <tr>
                 <th>
@@ -94,11 +107,14 @@ const secondInput = (e) => {
                 Sign
                 </th>
                 <br/>
-                <th>
+                <th
+                id="comp-table"
+                >
                    Compatibility
                 </th>
 
             </tr>
+            <tbody>
         {listRows && listRows?.map((rows)=>{
             // if(listRows.length <= 20){
             // if{showAddRow}
@@ -112,23 +128,37 @@ const secondInput = (e) => {
             // }else{
             //     <>too many rows</>
             // }
+
 })}
+</tbody>
         </table>
+        </div>
+        <div
+        >
         {showAddRow&&
          <form
+         className="add-row-container"
         onSubmit={handleSubmit}>
             <div className="univ-form-errors">
                 {validationErrors.map((error, int) => (<div key={int}>{error}</div>))}
             </div>
-        <table>
+        <table
+        id="first-match-input"
+        >
             <tr>
+
                 <td>
+                <label>
+                    1st Name
+
                 <input
                 name='first_name'
                 type="text"
                 list="user_friends"
                 onChange ={firstInput}
             />
+            </label>
+
                 <datalist id="user_friends">
                     {friends&& friends.map((friend)=>{
                         let friendSunSign = signObjs[friend.friend_to_user.sun_sign_id].sign
@@ -142,6 +172,10 @@ const secondInput = (e) => {
 
                 </td>
             <td>
+            <label
+            className="zodi-list-label"
+            >
+                Sign
             <input
             // type="date"
             onChange ={secondInput}
@@ -156,14 +190,18 @@ const secondInput = (e) => {
                         </option>
                 ))}
                 </datalist>
+                </label>
             </td>
+
             </tr>
         </table>
         </form>}
+        </div>
         <button
+
         type="submit"
 
-              className="primary-button"
+              className="secondary-button"
               onClick={addRowShow}>Add New Row</button>
 
         {/* <ShowFriendsModal userId ={user.user.id}/> */}
