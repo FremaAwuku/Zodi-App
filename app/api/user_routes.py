@@ -298,8 +298,7 @@ def add_row_compatibility(user_id,list_id):
             first_name_sign_id = 11
         elif first_name_sign == "Pisces":
             first_name_sign_id = 12
-        print(request.form,"<<<<<<<REQUEST FORM IN IF")
-        print(request.form['match_name'],"<<<<<<<REQUEST FORM IN IF")
+
         #PULL DATA TO BE UPDATED FROM REQUEST
         match_name = request.form['match_name']
         match_name_id_str = request.form['match_name_id']
@@ -342,7 +341,7 @@ def add_row_compatibility(user_id,list_id):
 
         # FIND COMP AND FILTER RATING
         zodiac_comp= Compatibility.query.filter(Compatibility.sign_1 == first_name_sign_id ).filter(Compatibility.sign_2 == match_name_sign_id).first()
-        print(zodiac_comp,"<<<<<<<<ZODIAC COMP")
+
 
         # if(zodiac_comp):
         compatibility = zodiac_comp.rating
@@ -394,7 +393,7 @@ USER FRIENDS==============================================================
 @login_required
 def get_user_friends(user_id):
     user_friends = Friend.query.filter(Friend.user_id == user_id).all()
-    # print(user_friends,"<<<<<<<USER")
+
     return {"user_friends":[friend.to_dict() for friend in user_friends]}
 
 
@@ -439,7 +438,7 @@ def delete_friend_both_ways(user_id, friend_id):
     db.session.delete(friend_to_delete)
     db.session.commit()
 
-    return user_to_delete.to_dict()
+    return {'friend_id':user_to_delete.id}
 
 
 """

@@ -13,8 +13,12 @@ class Friend(db.Model):
     """
     user_in_choice=db.relationship('User', foreign_keys=[user_id], back_populates="current_user")
 
-    friend_to_user=db.relationship('User', foreign_keys=[friend_id], back_populates='friend_of_user')
+    friend_to_user=db.relationship('User', foreign_keys=[friend_id], back_populates='friend_of_user', )
 
+    # if not friend_to_user:
+    #     friend_to_user = None
+    # else:
+    #     friend_to_user=db.relationship('User', foreign_keys=[friend_id], back_populates='friend_of_user')
     def to_dict(self):
         return{
             'id':self.id,

@@ -5,14 +5,17 @@ import {  fetchUserFriendRequests, fetchUserPendingRequests } from '../../../sto
 import { getUserFriends } from '../../../store/friends';
 import '../UserDashboard.css'
 import IncomingRequests from './IncomingRequests';
-import RemoveFriend from './RemoveFriend';
+
 import PendingRequests from './PendingRequests';
+import RemoveFriendModal from './RemoveFriendModal';
 const FriendsPanel = ({user}) =>{
     const dispatch = useDispatch()
     const [showIncoming, setShowIncoming] = useState(false)
     const [showPending, setShowPending] =useState(false)
     const [showFriends, setShowFriends] =useState(true)
+    const [showDeleteModal, setShowDeleteModal] = useState(false)
     const {userId}=useParams()
+
     //dispatch session user friends
     //and turn friends into and array to be used later
     const [incTotal, setIncTotal] = useState(0)
@@ -20,15 +23,12 @@ const FriendsPanel = ({user}) =>{
     const friends = useSelector(state => Object.values(state.friends))
     // .filter((friend)=>friend?.user_id!== userId)
 
-    // const pending =
-    console.log(friends,"<<<<<<<FRIENDS")
-    // console.log(user,"<<<<<<<USER")
 
     useEffect(()=>{
         dispatch(getUserFriends(userId))
         getIncomingTotal()
         getPendingTotal()
-    }, [dispatch,userId])
+    }, [dispatch,userId,incTotal,pendTotal, friends.length])
 
     const getIncomingTotal = async () =>{
 
@@ -85,6 +85,9 @@ const FriendsPanel = ({user}) =>{
             setShowIncoming(true)
 
         }
+    }
+    const showDelete = () =>{
+        setShowDeleteModal(true)
     }
 
     return(
@@ -187,7 +190,12 @@ const FriendsPanel = ({user}) =>{
                                 <h6
                                 id="emoji-symbol"
                                 >{`@${friend?.friend_to_user.username}`}{signEmoji}</h6>
-                                <RemoveFriend userId={userId} friendId={friend?.friend_id}/>
+                                <button
+                                className="primary-button"
+                                onClick={showDelete}
+                            > Delete Friend?</button>
+
+                                <RemoveFriendModal userId={userId} friendId={friend?.friend_id} showDeleteModal={showDeleteModal} setShowDeleteModal={setShowDeleteModal}/>
                                 </span>
 
                             </li>
