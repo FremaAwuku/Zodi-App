@@ -137,7 +137,7 @@ justify-content: space-between;
     overflow-y: scroll;
     position: absolute;
     top:-25vh;
-    right: 35vh;
+    right: 45vh;
     border-radius: 5%;
 }
 body::-webkit-scrollbar {
@@ -326,6 +326,7 @@ width: fit-content;
     padding:0px;
     margin: 0px;
     height: fit-content;
+    
 }
 #click-calculate{
     color: white;
@@ -346,22 +347,26 @@ width: fit-content;
 /* *{
     border: 1px solid red;
 } */
-/* @media screen and(max-width: 1200px) {
+@media screen and(max-width: 1000px) {
     .splash-container{
 
-
+        display: grid;
+        grid-column: 1fr 1fr;
+        position: relative;
         }
         .splash-wrapper{
-
+display: grid;
+grid-column-start: 1;
+position: relative;
 
         }
         .sign-container{
-
+            position: relative;
             }
         .sign-wrapper{
-
+            position: relative;
 
 
         }
 
-} */
+}

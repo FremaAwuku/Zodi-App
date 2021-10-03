@@ -36,8 +36,8 @@ const HoroscopePost = ({post}) =>{
     const totalLikes = likesForPost.length
     const userLike =likesForPost.filter((like)=> like.user_id === user?.id)[0]
 
-    console.log(likesForPost,"<<<<<<<ALLL LIKE")
-    console.log(userLike?.id, "<<<<<<<USER LIKE")
+    // console.log(likesForPost,"<<<<<<<ALLL LIKE")
+    // console.log(userLike?.id, "<<<<<<<USER LIKE")
 
     useEffect(()=>{
         dispatch(getAllUsers())
@@ -135,7 +135,7 @@ const HoroscopePost = ({post}) =>{
         // if(history.location === "/user_dashoard")
 
     let showRequest
-//request login needs to be refactored 
+//request login needs to be refactored
     if(
         !userFriends.includes(postUser?.id)
     && postUser?.id !== userId && !pendingRequestIds.includes(postUser?.id)){
@@ -247,8 +247,8 @@ const formattedDate = moment(dateCreated).format("MMMM Do YYYY")
         <div className="univ-post-user-cont">
         <span className="univ-post-user-pic">
             <img src={postUser?.profile_picture} style={{maxWidth:100 , height:"fit-content"}}/>
-            {showRequest}
-            {pendingReqs}
+             {showRequest}
+            {/* {pendingReqs} */}
         </span>
         <h3>
         {postUser?.username}
@@ -269,7 +269,7 @@ const formattedDate = moment(dateCreated).format("MMMM Do YYYY")
             {formattedDate}
             </p>
 
-            {editOnDashboard}
+            {/* {editOnDashboard} */}
             {/* <PostDetailModal postId={post?.id} totalComments={commentsForPost?.length}/>
             <AddCommentModal postId={post?.id} /> */}
             {hasComments}

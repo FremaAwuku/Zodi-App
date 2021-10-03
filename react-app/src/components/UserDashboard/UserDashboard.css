@@ -5,8 +5,8 @@
 /* MAIN  */
 .main-dashboard-container{
     background-image: linear-gradient(to bottom left,var(--wa-deep-emoji-purple), var(--wa-deep-purple),var(--wa-dark-purple), var(--wa-deep-purple),var(--wa-deep-emoji-purple));
-    max-width: 1000px;
-    max-height: 800px;
+    max-width: 1100px;
+    max-height: 900px;
     padding: 30px;
     border: 5px inset var(--wa-emoji-purple);
     border-style: solid inset solid solid;
@@ -15,8 +15,13 @@
     left: 35vh;
     /* display: ; */
 }
+
+/* USER DETAIL ------------------------USER DETAIL */
 .user-header{
     color: white;
+    text-transform: uppercase;
+
+    text-align: center;
 }
 .user-sign-detail{
 
@@ -77,7 +82,7 @@ color: black
     padding: 10px;
     border-radius: 20px;
     min-width: 300px;
-    max-width: 600px;
+    max-width: 500px;
 
 }
 .user-sign-section.no-sign{
@@ -90,12 +95,13 @@ color: black
     max-width: 300;
 }
 .user-deet-cont>*{
-border: .5px solid red;
+border: 1px solid var(--wa-emoji-purple);
+border-radius: 20px;
 }
 /* *{
     border: 2px solid red; ;
 } */
-/* ZODIAC LIST */
+/* ZODIAC LIST----------------------ZODIAC LIST */
 .univ-zodiac-table-container{
     overflow-y: scroll;
     max-height: 300px;
@@ -155,4 +161,148 @@ th#comp-table{
 .add-row-container{
     display: flex;
     justify-content: center;
+}
+
+
+
+
+/* FRIENDS PANEL--------------------FRIENDS PANEL */
+.bottom-panel-sect{
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+
+}
+
+
+
+.univ-user-friend-panel{
+/* min-width: 300px;
+max-height: 350px;
+    overflow: scroll; */
+}
+.friend-panel-cont{
+    border: 3px inset var(--wa-yellow);
+    border-style: solid inset solid solid;
+    background-color: white;
+    padding: 8px;
+    border-radius: 20px;
+
+}
+.friend-panel-img{
+    border-radius: 100%;
+    border: 1px solid black;
+}
+ul{
+    padding-left: 3px;
+}
+li.friend-panel{
+    list-style: none;
+    display: flex;
+   justify-content: space-around;
+   align-content: center;
+   margin-top: 5px;
+   padding: 8px;
+   background-color:var(--wa-deep-purple);
+   border-radius: 60px;
+   border: 1px solid black;
+}
+.friend-panel>span{
+    display: flex;
+    flex-direction: column-reverse;
+    /* justify-content: space-evenly; */
+    }
+.request-section,.friend-section{
+    min-width: 300px;
+    max-height: 400px;
+        overflow: scroll;
+}
+
+li.incoming-req{
+    list-style: none;
+    display: flex;
+   justify-content: space-around;
+   align-content: center;
+   margin-top: 5px;
+   padding: 8px;
+   background-color:var(--wa-deep-purple);
+   border-radius: 60px;
+   border: 1px solid black;
+}
+
+.incoming-req>span{
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+}
+li.incoming-req>img{
+    border-radius: 100%;
+    border: 1px solid black;
+
+
+}
+li.pending-req{
+    list-style: none;
+    display: flex;
+   justify-content: space-around;
+   align-content: center;
+   margin-top: 5px;
+   padding: 8px;
+   background-color:var(--wa-deep-purple);
+   border-radius: 60px;
+   border: 1px solid black;
+}
+.pending-req>span{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    }
+li.pending-req>img{
+        border-radius: 100%;
+        border: 1px solid black;
+    }
+#delete-req{
+    margin:0px;
+    height: fit-content;
+
+}
+#friends-header{
+    text-align: center;
+    color: var(--wa-yellow);
+    text-transform: uppercase;
+}
+.incoming-req-cont{
+    min-width: 300px;
+    max-width: 300px;
+    max-height: 325px;
+    padding: 5px;
+        overflow: scroll;
+}
+.pending-req-cont{
+    min-width: 300px;
+    max-width: 300px;
+    max-height: 325px;
+    padding: 5px;
+        overflow: scroll;
+}
+.user-actions{
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: ; */
+    justify-content: space-between;
+    align-content: space-around;
+    gap: 5px;
+
+}
+#emoji-symbol{
+    font-size: 15pt;
+    margin: 0px;
+    line-height: inherit;
+    color: white;
+}
+
+.incoming-req>h3{}
+.pending-req>h3{
+    margin-left: 20px;
 }
