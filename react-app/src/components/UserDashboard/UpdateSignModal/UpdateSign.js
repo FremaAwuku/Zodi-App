@@ -12,6 +12,9 @@ function UpdateSign({userId, setShowModal}) {
     const [birthDay,setBirthDay] = useState("")
     const [validationErrors,setValidationErrors] = useState([])
     const user = useSelector(state=>state.session.user)
+    const closeModal = () =>{
+        setShowModal(false)
+    }
     useEffect(()=>{
 
         const errors = []
@@ -48,9 +51,13 @@ function UpdateSign({userId, setShowModal}) {
   return (
     <>
     <div className="univ-modal-wrapper update">
+    <h5
+                    id="close-modal"
+                    onClick={closeModal}>CLOSE</h5>
     <form
     onSubmit={handleSubmit}
     className="univ-form-cont" >
+
     <div className="univ-form-errors">
                 {validationErrors.map((error, int) => (<div key={int}>{error}</div>))}
         </div>

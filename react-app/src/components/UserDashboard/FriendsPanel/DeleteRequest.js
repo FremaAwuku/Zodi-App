@@ -15,11 +15,11 @@ const handleDeleteRequest = async () =>{
     history.push(`/user_dashboard/${user.id}`)
 }
 return(
-    <button
-    className="primary-button"
+    <p
+    style={{fontSize:10}}
     onClick={handleDeleteRequest}>
-    ❌
-    </button>
+    ❌ Delete Request
+    </p>
 )
 
 }

@@ -2,21 +2,22 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 
-import { getUserFriendRequests } from '../../../store/requests';
+import { getUserPendingRequests } from '../../../store/requests';
 import AddFriend from './AddFriend';
 import DeleteRequest from './DeleteRequest';
 
 
-const IncomingRequests = ({}) =>{
+const PendingRequests = ({}) =>{
     const dispatch = useDispatch()
 
     const {userId} = useParams()
     const requests = useSelector(state => Object.values(state.requests))
-    .filter((req)=> req.accepting_friend_id == userId)
-    console.log(requests,"<<<<<<<<REQUESTS")
+    .filter((req)=> req.requesting_user_id == userId)
+
+
     useEffect(()=>{
 
-        dispatch(getUserFriendRequests(userId))
+        dispatch(getUserPendingRequests(userId))
 
 
     }, [dispatch, userId])
@@ -24,22 +25,21 @@ const IncomingRequests = ({}) =>{
 
     return(
 
-        <div className='incoming-req-cont'>
+        <div className='pending-req-cont'>
             <h2
             id="friends-header"
-            > Friend Requests </h2>
+            > Pending Requests </h2>
                 <ul>
                     {requests&& requests?.map((request)=>(
 
                             <li
-                            className='incoming-req'
+                            className='pending-req'
                             key={request?.id}>
-                                <img src={request?.requesting_user.profile_picture} alt="incoming requests" style={{maxWidth:100 , height:100}}></img>
+                                <img src={request?.accepting_user.profile_picture} alt="pending requests" style={{maxWidth:100 , height:100}}></img>
                                 <span>
                                 <h3
                                 id="emoji-symbol"
-                                >{`@${request?.requesting_user.username}`}</h3>
-                                <AddFriend userId={userId} friendId={request?.requesting_user_id} requestId={request.id}/>
+                                >{`@${request?.accepting_user.username}`}</h3>
                                 <DeleteRequest id="delete-req"
                                 requestId={request.id}/>
                                 </span>
@@ -52,4 +52,4 @@ const IncomingRequests = ({}) =>{
     )
 
 }
-export default IncomingRequests
+export default PendingRequests

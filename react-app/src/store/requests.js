@@ -17,7 +17,13 @@ type:REMOVE_REQUEST,
 requestId
 })
 
-
+export const fetchUserFriendRequests = (userId) => async dispatch =>{
+    const response = await fetch(`/api/users/${userId}/incoming_requests`);
+    if(response.ok){
+        const requests = await response.json().then(res=>res = res.incoming);
+        return requests
+    }
+}
 
 export const getUserFriendRequests = (userId) => async dispatch =>{
     const response = await fetch(`/api/users/${userId}/incoming_requests`);
@@ -27,6 +33,13 @@ export const getUserFriendRequests = (userId) => async dispatch =>{
     }
 }
 
+export const fetchUserPendingRequests = (userId) => async dispatch =>{
+    const response = await fetch(`/api/users/${userId}/pending_requests`);
+    if(response.ok){
+        const requests = await response.json().then(res=>res = res.pending);
+       return requests
+    }
+}
 export const getUserPendingRequests = (userId) => async dispatch =>{
     const response = await fetch(`/api/users/${userId}/pending_requests`);
     if(response.ok){

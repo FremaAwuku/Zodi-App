@@ -26,13 +26,16 @@ useEffect(()=>{
             <div className="user-deet-cont">
             <UserDetail user={user}/>
             </div>
-            <div className="univ-daily-horoscope-cont">
+            <section
+            className="bottom-panel-sect">
 
-            <UserHoroscopes user={user}/>
-            </div>
             <div className="univ-user-friend-panel">
             <FriendsPanel user={user} className="univ-friend-panel-component"/>
             </div>
+            <div className="univ-daily-horoscope-cont">
+            <UserHoroscopes user={user}/>
+            </div>
+            </section>
             </div>
             )
 
