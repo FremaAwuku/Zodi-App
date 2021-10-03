@@ -1,20 +1,43 @@
-# Flask React Project
+# Zodi-App✨
 
-This is the starter for the Flask React project.
+✨Live Link
+https://zodi-app.herokuapp.com/
 
-## Getting started
+## So? What is Zodi-App?
 
-1. Clone this repository (only this branch)
+Glad you asked! This isn't your run of the mill astrology app. Zodi-App allows users the ability to enter their birthdays calculate their sun signs and with that information get daily horoscopes that they can post and share with a community of other Zodi-App users, that you can potentially add as friends! Zodi-App allows users to keep track of past calculations as well as calculate compatibilities through a zodiac list!
 
-   ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
-   ```
 
-2. Install dependencies
+## Application Structure
 
-      ```bash
-      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
-      ```
+### Back End 
+
+Restful API's were used as to organize routes 
+
+* Python
+   * boto3 (AWS Uploads)
+* Flask
+   * flask forms for backend validation 
+* SQLAlchemy
+   * self referncing model associations used to structure RDBMS
+* PostgreSQL database
+
+
+### Front End 
+
+* JavaScript
+   * aztroJS Wrapper for fetch sign based of Horoscopes(https://github.com/sameerkumar18/aztro/blob/master/docs/source/index.rst)
+
+* React
+   * Controlled inputs allowed user information to be recieved and kept in state improving performance. 
+   * Components and a heavy use of Modals allowed for modulatrity seen throughout the app 
+
+* Redux
+  * The store consistently keeps user information uptodate allowing user to change their sign and have respective information change with it( ex. Daily Horoscope) 
+
+* CSS
+   * The idea behind the styling of this websit was to make it as "app" based as possible. With a switch of media consumption taking place on the phone. I wanted the user experience to simulate a "Zodi-Dex" where most useability was found on the users dashboard. 
+
 
 3. Create a **.env** file based on the example with proper settings for your
    development environment
