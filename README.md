@@ -50,12 +50,12 @@ bash pipenv install --dev -r dev-requirements.txt && pipenv install -r requireme
 3. Create a **.env** file based on the example with proper settings for your
    development environment
    
- ***TO USE AWS YOU WILL NEED TO SET UP S3 SERVICES, CREATE YOUR OWN BUCKET, AND ADD REGION, AWS_SECRET_KEY, AWS_ACCESS_ID to .env*** 
+  * ***TO USE AWS YOU WILL NEED TO SET UP S3 SERVICES, CREATE YOUR OWN BUCKET, AND ADD REGION, AWS_SECRET_KEY, AWS_ACCESS_ID to .env*** 
  
  
- ***YOU WOULD ALSO NEED TO CHANGE 1) BUCKET NAME IN USER ROUTES https://github.com/FremaAwuku/Zodi-App/blob/master/app/api/user_routes.py***
+  * ***YOU WOULD ALSO NEED TO 1) CHANGE  BUCKET NAME IN USER ROUTES https://github.com/FremaAwuku/Zodi-App/blob/master/app/api/user_routes.py***
  
- ***2) AWS URL USED IN AWS HELPER FUNCTION https://github.com/FremaAwuku/Zodi-App/blob/master/app/api/aws.py***
+  * ***2) AWS URL USED IN AWS HELPER FUNCTION https://github.com/FremaAwuku/Zodi-App/blob/master/app/api/aws.py***
  
 4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
 
