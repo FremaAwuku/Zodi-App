@@ -28,11 +28,11 @@ class User(db.Model, UserMixin):
     """
     current_user = db.relationship(
         'Friend', back_populates="user_in_choice", primaryjoin=id == Friend.user_id,
-        cascade="all, delete"
+        # cascade="all, delete"
     )
     friend_of_user = db.relationship(
         'Friend', back_populates="friend_to_user", primaryjoin=id == Friend.friend_id,
-        cascade="all, delete"
+        # cascade="all, delete"
     )
 
     """

@@ -171,31 +171,28 @@ th#comp-table{
     display: flex;
     flex-direction: row;
     margin-top: 15px;
+    max-height: 400px;
 
 }
 
 
 
 .univ-user-friend-panel{
-/* min-width: 300px;
-max-height: 350px;
-    overflow: scroll; */
-}
-.friend-panel-cont{
-    border: 3px inset var(--wa-yellow);
-    border-style: solid inset solid solid;
-    background-color: white;
-    padding: 8px;
-    border-radius: 20px;
 
+max-height:375px
 }
+
 .friend-panel-img{
     border-radius: 100%;
     border: 1px solid black;
 }
 ul{
     padding-left: 3px;
+   ;
+   max-height: 275px;
+
 }
+
 li.friend-panel{
     list-style: none;
     display: flex;
@@ -206,6 +203,10 @@ li.friend-panel{
    background-color:var(--wa-deep-purple);
    border-radius: 60px;
    border: 1px solid black;
+   max-height: 350px;
+   max-height: 275px;
+   overflow: scroll;
+
 }
 .friend-panel>span{
     display: flex;
@@ -214,7 +215,7 @@ li.friend-panel{
     }
 .request-section,.friend-section{
     min-width: 300px;
-    max-height: 400px;
+    max-height: 350px;
         overflow: scroll;
 }
 
@@ -270,19 +271,39 @@ li.pending-req>img{
     text-align: center;
     color: var(--wa-yellow);
     text-transform: uppercase;
+    font-size: 24pt;
+    margin: 0px;
+    padding: 0px;
+}
+/* MAIN PANEL CONT */
+.friend-panel-cont{
+    border: 3px inset var(--wa-yellow);
+    border-style: solid inset solid solid;
+    background-color: white;
+    padding: 8px;
+    border-radius: 20px;
+    max-height:400px;
+    margin:10px
+
+
+}
+.friend-section{
+    max-height: 250px;
+    padding: 10px;
+        overflow: scroll;
 }
 .incoming-req-cont{
     min-width: 300px;
     max-width: 300px;
-    max-height: 325px;
-    padding: 5px;
+    max-height: 250px;
+    padding: 10px;
         overflow: scroll;
 }
 .pending-req-cont{
     min-width: 300px;
     max-width: 300px;
-    max-height: 325px;
-    padding: 5px;
+    max-height: 250px;
+    padding: 10px;
         overflow: scroll;
 }
 .user-actions{
@@ -300,7 +321,10 @@ li.pending-req>img{
     margin: 0px;
     line-height: inherit;
     color: white;
+    text-transform: lowercase;
+
 }
+
 
 .incoming-req>h3{}
 .pending-req>h3{

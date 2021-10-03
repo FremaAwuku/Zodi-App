@@ -50,10 +50,10 @@ export const deleteFriend = ({userId,friendId}) => async dispatch =>{
         method:'DELETE'
     });
     if(response.ok){
-        const friend= await response.json()
-        console.log(friend,"++++++++<<<<<THUNK FRIENDDDDDD")
-        // const userId= await response.json().then(res=>res = res.user_id)
-        dispatch(remove(friend.id))
+  
+
+        const friend= await response.json().then(res=>res = res.friend_id)
+        dispatch(remove(friend))
         // dispatch(remove(userId))
 
     }

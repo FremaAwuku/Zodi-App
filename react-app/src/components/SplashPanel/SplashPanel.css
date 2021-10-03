@@ -135,9 +135,9 @@ justify-content: space-between;
     height: 400px;
     width: 400px;
     overflow-y: scroll;
-    position: absolute;
-    top:-25vh;
-    right: 45vh;
+    /* position: relative;
+    top:25vh;
+    right: 135vh; */
     border-radius: 5%;
 }
 body::-webkit-scrollbar {
@@ -326,7 +326,7 @@ width: fit-content;
     padding:0px;
     margin: 0px;
     height: fit-content;
-    
+
 }
 #click-calculate{
     color: white;
@@ -344,10 +344,11 @@ width: fit-content;
 
 }
 
-/* *{
+
+*{
     border: 1px solid red;
-} */
-@media screen and(max-width: 1000px) {
+}
+/* @media screen and(max-width: 1000px) {
     .splash-container{
 
         display: grid;
@@ -369,4 +370,4 @@ position: relative;
 
         }
 
-}
+} */
