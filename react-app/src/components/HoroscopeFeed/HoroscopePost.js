@@ -9,7 +9,7 @@ import EditHoroscopeModal from '../UserDashboard/HoroscopePanel/EditHoroscopeMod
 import PostDetailModal from './PostDetailModal';
 import AddCommentModal from './PostDetailModal/Comments/AddCommentModal';
 import { getAllLikes,addPostLike,removePostLike } from '../../store/likes';
-import { useHistory } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import { getAllHoroscopePosts,deleteHoroscopePost } from '../../store/horoscopePosts';
 import { getAllHoroscope } from 'aztro-js';
 
@@ -20,7 +20,7 @@ const HoroscopePost = ({post}) =>{
     const user = useSelector(state => state.session.user);
     const users = useSelector(state => state.users)
     const signs = useSelector(state =>state.sunSigns)
-    const userId = user?.id
+    const {userId} = useParams()
     let postUser = users[post?.user_id]
     const userFriends= useSelector(state => Object.values(state.friends)).map((friend)=> friend = friend.friend_id)
     const pendingRequestIds = useSelector(state => Object.values(state.requests)).map((request)=> request = request.accepting_friend_id)
@@ -119,14 +119,10 @@ const HoroscopePost = ({post}) =>{
     if(pendingRequestIds.includes(postUser?.id)  ){
         pendingReqs=(
 
-            <>
-            <h2>Pending Friend Request</h2>
-            <button
-            className="primary-button"
-            onClick={handleDeleteRequest}>Delete Request?
-            ❌
-            </button>
-            </>
+
+            <h6>Friend Request Pending ✨</h6>
+
+
         )
         }else{
             <>
@@ -200,10 +196,10 @@ const HoroscopePost = ({post}) =>{
         )
     } else {
         likeDisplay = (
-            <>
+            <div className="like-sect">
                 <i onClick={handleUnlikeClick} className="fas fa-heart"></i>
                 <p className="post-detail-like-count">{totalLikes} Likes</p>
-            </>
+            </div>
         )
     }
     }
@@ -243,46 +239,42 @@ const dateCreated = post.created
 const formattedDate = moment(dateCreated).format("MMMM Do YYYY")
 
     return(
-        <>
-        <div className="univ-post-user-cont">
-        <span className="univ-post-user-pic">
+        <div className="horo-post-wrapper">
+        <div className="horo-post-user-detail">
+        <div className="horo-post-user-pic">
             <img src={postUser?.profile_picture} style={{maxWidth:100 , height:"fit-content"}}/>
              {showRequest}
-            {/* {pendingReqs} */}
-        </span>
-        <h3>
-        {postUser?.username}
-        {signEmoji}
-        </h3>
-        <h5>
-        {signs[postUser?.sun_sign_id]?.sign}
-        </h5>
+            {pendingReqs}
         </div>
-        <div className="univ-post-detail-cont">
-            <h2 className="univ-horoscope" >{`"${post?.horoscope}"`}</h2>
-            <p
-            className="univ-horoscope-content"
-            >{post?.content}
+        <div className="horo-post-sign-detail">
+        <h3>
+        {`@${postUser?.username}`}
+          <p> {signEmoji}</p>
+        {signs[postUser?.sun_sign_id]?.sign}
+        </h3>
 
-            </p>
-            <p>
-            {formattedDate}
-            </p>
+        </div>
+        {likeDisplay}
+        </div>
 
-            {/* {editOnDashboard} */}
-            {/* <PostDetailModal postId={post?.id} totalComments={commentsForPost?.length}/>
-            <AddCommentModal postId={post?.id} /> */}
+        <div className="horo-post-detail">
+        {formattedDate}
+            <h2 className="horoscope" >
+            {`"${post?.horoscope}"`}</h2>
+            <p className="horoscope-content">
+            {post?.content}</p>
+            <div className="horo-action">
+         
+
             {hasComments}
-            {deletePost}
-            <div
-            className="univ-likes">
-            {likeDisplay}
-
 
             </div>
+            </div>
+
+
+
 
         </div>
-        </>
     )
 
 }

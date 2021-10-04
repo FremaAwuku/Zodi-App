@@ -8,6 +8,7 @@ import IncomingRequests from './IncomingRequests';
 
 import PendingRequests from './PendingRequests';
 import RemoveFriendModal from './RemoveFriendModal';
+import { authenticate } from '../../../store/session';
 const FriendsPanel = ({user}) =>{
     const dispatch = useDispatch()
     const [showIncoming, setShowIncoming] = useState(false)
@@ -25,6 +26,7 @@ const FriendsPanel = ({user}) =>{
 
 
     useEffect(()=>{
+        authenticate()
         dispatch(getUserFriends(userId))
         getIncomingTotal()
         getPendingTotal()

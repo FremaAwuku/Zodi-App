@@ -25,9 +25,9 @@ const HoroscopeFeed = () =>{
        <button onClick={toUserDashBoard}className="primary-button">
        ✨ User Dashboard
        </button>
-        <div className='horoscope-post-container'>
+        <div className='horoscope-feed-container'>
         {posts && posts?.map((post)=>(
-            <div className='horoscope-post-wrapper' key={post.id}>
+            <div className='horoscope-feed-wrapper' key={post.id}>
             <HoroscopePost post={post}/>
             </div>
         ))}
