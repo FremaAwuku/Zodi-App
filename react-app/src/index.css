@@ -123,25 +123,8 @@ margin-top: 10px;
 
 }
 
-.univ-nav-bar #logout-button{
 
-
-  }
-.univ-horoscope-post-container{
-
-}
-.univ-horoscope-post-wrapper{
-
-
-}
 .univ-modal-wrapper{
-    /* min-width: 350px;
-    max-width: 350px;
-    border: 2px solid white;
-    border-radius: 15%;
-    background-color: var(--wa-purple);
-    background-image: linear-gradient(to bottom left, var(--wa-purple), white);
-    border-radius: 10px; */
 
 
     border-radius: 10px;
@@ -159,8 +142,7 @@ margin-top: 10px;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
 
-    /* position: absolute;
-    top: -150px; */
+
 
 }
 .univ-modal-wrapper.calc{
@@ -235,43 +217,50 @@ text-transform: uppercase;
     margin: 10px;
     padding: 5px 10px 5px 10px;
 }
-.univ-user-friend-panel{
-
-}
-.univ-friend-panel-component{
-
-}
-.univ-daily-horoscope-cont{
-
-}
-.univ-daily-horoscope-component{
-
-}
-
-.univ-post-detail-wrap{
 
 
-}
-.univ-post-detail-post{
-
-}
-.univ-post-detail-comments{
-
-}
 .univ-individual-comment-wrapper{
 
-    background-color: #ac52d6;
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 15px;
+    min-height: 250px;
+    max-height: fit-content;
+    border-radius: 120px;
 }
 .univ-individual-comment-pic{
     border-radius: 100%;
 
 }
-.univ-individual-comment-name{
+#name-card-comments{
+    display: flex;
+    justify-content: space-evenly;
+}
+#name-card-comments>h3{
+    font-size: 30pt;
+    padding-top: 20px;
+    color: var(--wa-deep-emoji-purple);
+}
+
+.comments-controls{
+    display: flex;
+    justify-content: space-evenly;
 
 }
-.univ-individual-comment-content{
-
+.main-comment-cont{
+    height: 400px;
+    padding: 15px;
+    overflow-y: scroll;
+    border: 1px solid var(--wa-emoji-purple);
+    border-radius: 20px;
 }
-.unv-likes{
 
+
+.comment-detail-main-cont{
+    border: 1px solid var(--wa-emoji-purple);
+    padding: 10px;
+    border-radius: 20px;
+    position: fixed;
+    top:15%;
+    right: 10%;
 }

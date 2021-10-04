@@ -1,18 +1,17 @@
 
-import  { useState} from 'react';
+import React, { useState} from 'react';
 import { useSelector } from 'react-redux'
 import LoginForm from '../auth/LoginFormModal/LoginForm';
-import SunSign from './SunSignEmojiModal/SunSign';
+
 import './SplashPanel.css'
 import { Redirect , useHistory} from 'react-router-dom';
 import SunSignEmojiModal from './SunSignEmojiModal';
-import {crystalBall} from '../../images/crystal-ball-emoji-png-emoji-crystal-ball-png.png'
+
 import CalculateSignModal from './CalculateSignModal';
+// import AboutMe from '../AboutMe';
 function SplashPanel(){
 const history = useHistory()
-const [showLogin, setShowLogin] = useState(false)
-const [birthDay,setBirthDay] = useState('')
-// const [showSign, setShowSign]= useState(false)
+
 const signs = useSelector(state => Object.values(state.sunSigns))
 const user = useSelector(state=>state.session.user)
 
@@ -35,6 +34,7 @@ userActions=(
      >
 
      <LoginForm/>
+
      </div>
      </>
 )

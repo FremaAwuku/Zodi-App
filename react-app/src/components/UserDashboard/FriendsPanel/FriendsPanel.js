@@ -15,10 +15,10 @@ const FriendsPanel = ({user}) =>{
     const [showPending, setShowPending] =useState(false)
     const [showFriends, setShowFriends] =useState(true)
     const [showDeleteModal, setShowDeleteModal] = useState(false)
+
     const {userId}=useParams()
 
-    //dispatch session user friends
-    //and turn friends into and array to be used later
+  
     const [incTotal, setIncTotal] = useState(0)
     const [pendTotal, setPendTotal] = useState(0)
     const friends = useSelector(state => Object.values(state.friends))
@@ -37,8 +37,9 @@ const FriendsPanel = ({user}) =>{
 
         const requests = await dispatch(fetchUserFriendRequests(userId))
         requests.filter((req)=> req.accepting_user_id == userId)
-        // console.log(requests,"<<<<<<<<REQUESTS")
+
         setIncTotal(requests.length)
+
 
 
     }

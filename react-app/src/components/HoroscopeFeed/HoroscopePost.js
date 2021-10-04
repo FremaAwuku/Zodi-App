@@ -4,14 +4,14 @@ import moment from "moment"
 import { getAllUsers } from '../../store/users';
 import { deleteFriendRequest, getUserPendingRequests,sendFriendRequest  } from '../../store/requests';
 import { getUserFriends } from '../../store/friends';
-import { deleteComment, fetchComments } from '../../store/comments';
+import {  fetchComments } from '../../store/comments';
 import EditHoroscopeModal from '../UserDashboard/HoroscopePanel/EditHoroscopeModal';
 import PostDetailModal from './PostDetailModal';
 import AddCommentModal from './PostDetailModal/Comments/AddCommentModal';
 import { getAllLikes,addPostLike,removePostLike } from '../../store/likes';
-import { useHistory, useParams } from 'react-router';
-import { getAllHoroscopePosts,deleteHoroscopePost } from '../../store/horoscopePosts';
-import { getAllHoroscope } from 'aztro-js';
+import { useHistory} from 'react-router';
+import { deleteHoroscopePost } from '../../store/horoscopePosts';
+
 
 const HoroscopePost = ({post}) =>{
 
@@ -20,7 +20,7 @@ const HoroscopePost = ({post}) =>{
     const user = useSelector(state => state.session.user);
     const users = useSelector(state => state.users)
     const signs = useSelector(state =>state.sunSigns)
-    const {userId} = useParams()
+    const userId = user?.id
     let postUser = users[post?.user_id]
     const userFriends= useSelector(state => Object.values(state.friends)).map((friend)=> friend = friend.friend_id)
     const pendingRequestIds = useSelector(state => Object.values(state.requests)).map((request)=> request = request.accepting_friend_id)
@@ -106,6 +106,7 @@ const HoroscopePost = ({post}) =>{
         let friendId = postUser?.id
 
         await   dispatch(sendFriendRequest({userId,friendId}))
+
     }
 
     const handleDeleteRequest = async (e) =>{
@@ -264,7 +265,7 @@ const formattedDate = moment(dateCreated).format("MMMM Do YYYY")
             <p className="horoscope-content">
             {post?.content}</p>
             <div className="horo-action">
-         
+
 
             {hasComments}
 

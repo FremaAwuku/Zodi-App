@@ -1,14 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom'
+
 import { fetchComments, deleteComment } from '../../../../store/comments';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 
 function DeleteComment({ commentId, postId }) {
 
-    const history = useHistory()
+
     const dispatch = useDispatch()
 
 
@@ -24,11 +22,12 @@ function DeleteComment({ commentId, postId }) {
 
 
         <>
-        <h3
+        <button
+        className="secondary-button"
         onClick={handleClick}
         >
-        ❌ Delete Comment
-        </h3>
+         Delete Comment 🗑️
+        </button>
 
         </>
 

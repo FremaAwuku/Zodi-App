@@ -109,3 +109,17 @@ margin-left: 13px;
     border-radius: 20px;
     text-align: center;
 }
+#zodi-feed-header{
+    color: white;
+    font-size: 185px;
+    text-transform: uppercase;
+    /* line-height: 90px; */
+    margin: 0px;
+    /* text-align: center; */
+    transform: rotate(270deg);
+    position: fixed;
+    right:53%;
+    height: 1000px;
+
+}
+

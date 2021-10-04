@@ -8,10 +8,17 @@ const AddComment = ({postId , setShowModal}) =>{
       const dispatch = useDispatch()
       const history = useHistory()
       const [content,setContent]= useState('')
+      const [validationErrors,setValidationErrors] = useState([])
       const user= useSelector(state=>state.session.user)
-  useEffect(()=>{
+      useEffect(()=>{
+        const errors = []
+        if(content === ''){
 
-  },[dispatch])
+          errors.push("Comment can not be empty")
+        }
+
+        setValidationErrors(errors)
+      },[dispatch,content])
 
   const handleSubmit = async (e) =>{
       e.preventDefault()
@@ -21,13 +28,11 @@ const AddComment = ({postId , setShowModal}) =>{
           postId,
           content
       }
-      console.log(payload,"<<<<<<<<<ADD COMMENT PAYLOAD")
+
 
      await dispatch(postComment(payload))
 
     await dispatch(fetchComments(postId))
-
-    //    setShowModal(false)
 
   }
 
@@ -37,13 +42,20 @@ const AddComment = ({postId , setShowModal}) =>{
       className="univ-form-wrapper"
       onSubmit={handleSubmit}
       >
-
+      <div
+      style={{textAlign:'center'}}
+      className="univ-form-errors">
+        {validationErrors.map((error, int) => (<div key={int}>{error}</div>))}
+        </div>
         <label
+        style={{textAlign:'center'}}
         className="univ-form-label"
         htmlFor='content'
         >
            Comment on this post:
             <textarea
+            className="univ-form-input"
+            placeholder={content}
             name='content'
            maxLength="280"
             list="user_friends"
@@ -51,6 +63,7 @@ const AddComment = ({postId , setShowModal}) =>{
             />
         </label>
         <button
+        disabled={setValidationErrors.length>0}
         className="primary-button"
         type="submit">
             Post Comment

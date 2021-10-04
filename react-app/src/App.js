@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect , useHistory} from 'react-router-dom';
+
 
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
+
 
 import SplashPanel from './components/SplashPanel/SplashPanel';
 import { authenticate } from './store/session';
@@ -12,13 +12,13 @@ import { getAllSunSigns} from './store/sunSigns'
 import { getAllCompatibilities} from './store/compatibilities'
 import UserDashboard from './components/UserDashboard/UserDashboard';
 import HoroscopeFeed from './components/HoroscopeFeed/HoroscopeFeed';
-import LogoutButton from './components/auth/LogoutButton';
-import ZodiacList from './components/ZodiacList/ZodiacList';
+
+
 import NavBar from './components/NavBar';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
-  const history = useHistory()
+
   const user = useSelector(state=>state.session.user)
 
   useEffect(() => {
@@ -34,11 +34,7 @@ function App() {
   if (!loaded) {
     return null;
   }
-  const toSplash =()=>{
-    <Redirect to='/'/>
-        history.push('/')
 
-  }
   let showNav
   if(user){
     showNav=(

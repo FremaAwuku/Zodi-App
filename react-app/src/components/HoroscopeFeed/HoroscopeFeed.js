@@ -14,17 +14,15 @@ const HoroscopeFeed = () =>{
         dispatch(getAllHoroscopePosts())
     },[dispatch])
 
-    const toUserDashBoard = () =>{
-        history.push(`/user_dashboard/${user.id}`)
-
-    }
-
+  
     return(
         <>
-       <h1>Zodi-Feed</h1>
-       <button onClick={toUserDashBoard}className="primary-button">
-       ✨ User Dashboard
-       </button>
+        <div className="feed-actions">
+       <h1
+       id="zodi-feed-header"
+       >Zodi-Feed</h1>
+
+       </div>
         <div className='horoscope-feed-container'>
         {posts && posts?.map((post)=>(
             <div className='horoscope-feed-wrapper' key={post.id}>
