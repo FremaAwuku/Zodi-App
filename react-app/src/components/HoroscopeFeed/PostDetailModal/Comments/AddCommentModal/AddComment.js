@@ -38,6 +38,9 @@ const AddComment = ({postId , setShowModal}) =>{
 
   return(
     <div className="univ-modal-wrapper">
+       <h5
+        id="close-modal"
+        onClick={closeModal}>CLOSE</h5>
       <form
       className="univ-form-wrapper"
       onSubmit={handleSubmit}
