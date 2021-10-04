@@ -67,7 +67,7 @@ const EditComment = ({commentId, setShowModal}) =>{
             />
         </label>
         <button
-        disabled={setValidationErrors.length>0}
+        disabled={validationErrors.length>0}
         className="primary-button"
         type="submit">
             Save Edit
