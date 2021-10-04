@@ -7,7 +7,7 @@ const EditComment = ({commentId, setShowModal}) =>{
 
       const dispatch = useDispatch()
 
-      const comments = useSelector(state=>state.horoscope_posts)
+      const comments = useSelector(state=>state.comments)
     const comment = comments[commentId]
       const [content,setContent]= useState(comment?.content)
       const [validationErrors,setValidationErrors] = useState([])
@@ -60,7 +60,7 @@ const EditComment = ({commentId, setShowModal}) =>{
            Edit Comment
             <textarea
             className="univ-form-input"
-            placeholder={content}
+            value={content}
             name='content'
            maxLength="280"
             onChange ={(e)=>setContent(e.target.value)}

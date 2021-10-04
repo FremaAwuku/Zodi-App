@@ -61,7 +61,7 @@ const EditHoroscope = ({postId, setShowModal}) =>{
             name='content'
            maxLength="280"
             list="user_friends"
-            placeholders={post?.content}
+            value={content}
             onChange ={(e)=>setContent(e.target.value)}
             />
 
