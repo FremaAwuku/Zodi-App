@@ -53,7 +53,7 @@ class User(db.Model, UserMixin):
     """
     post_details = db.relationship(
         "HoroscopePost", back_populates="user_details",
-        cascade="all, delete"
+        # cascade="all, delete"
         )
 
     """
