@@ -25,6 +25,11 @@ useEffect(()=>{
     errorArr.push("Username must be greater than 3 characters")
 
   }
+  if(username.length > 20){
+
+    errorArr.push("Username must less than 20 characters")
+
+  }
   if(!emailRegex({exact:true}).test(email)){
     errorArr.push("Please Enter Valid Email")
   }
@@ -119,6 +124,8 @@ useEffect(()=>{
           name='username'
           onChange={updateUsername}
           value={username}
+          maxLength="20"
+          minLength="3"
         ></input>
       </div>
       <div
