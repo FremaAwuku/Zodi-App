@@ -29,12 +29,15 @@ const AddComment = ({postId , setShowModal}) =>{
           content
       }
 
-      console.log(payload,"<<<<<<PAYLOAD")
+     
      await dispatch(postComment(payload))
 
     await dispatch(fetchComments(postId))
 
   }
+  const closeModal = () =>{
+    setShowModal(false)
+}
 
   return(
     <div className="univ-modal-wrapper">
