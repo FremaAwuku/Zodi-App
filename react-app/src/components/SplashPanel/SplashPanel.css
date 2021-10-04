@@ -387,3 +387,21 @@ position: relative;
         }
 
 } */
+.about-me-div{
+    background-color: var(--wa-light-blue);
+    position: fixed;
+    bottom: 0%;
+    width: 100%;
+left:0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 40%;
+    padding-right: 40%;
+}
+.about-me-div>p{
+    text-align: center;
+    color: white;
+    margin: 0px;
+
+}

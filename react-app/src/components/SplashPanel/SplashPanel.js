@@ -8,6 +8,7 @@ import { Redirect , useHistory} from 'react-router-dom';
 import SunSignEmojiModal from './SunSignEmojiModal';
 
 import CalculateSignModal from './CalculateSignModal';
+import AboutMe from '../AboutMe';
 // import AboutMe from '../AboutMe';
 function SplashPanel(){
 const history = useHistory()
@@ -93,6 +94,7 @@ userActions=(
 
 
             {userActions}
+            <AboutMe/>
     </div>
 
 

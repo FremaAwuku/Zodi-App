@@ -1,17 +1,17 @@
-// import React from 'react';
+import React from 'react';
 
 
-// function AboutMe() {
-//   return (
-//     <div className="about-me-div">
-//       <p className="about-me-links">
-//         Zodi-App ✨ was created by:&ensp;
-//         <a className="about-me-link" href={"https://github.com/FremaAwuku"} target={"_blank"} rel={"noreferrer"}>Frema Awuku</a>
-//         &ensp;|&ensp;
-//       </p>
-//       <p className="about-me-copyright">Copyright ©2021 All Rights Reserved.</p>
-//     </div>
-//   );
-// };
+function AboutMe() {
+  return (
+    <div className="about-me-div">
+      <p className="about-me-links">
+        Zodi-App ✨ was created by:&ensp;
+        <a className="about-me-link" href={"https://github.com/FremaAwuku"} target={"_blank"} rel={"noreferrer"}>Frema Awuku</a>
+        
+      </p>
+      <p className="about-me-copyright">Copyright ©2021 All Rights Reserved.</p>
+    </div>
+  );
+};
 
-// export default AboutMe;
+export default AboutMe;
