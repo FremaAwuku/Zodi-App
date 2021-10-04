@@ -1,7 +1,6 @@
 # Zodi-App✨
 
-✨Live Link
-https://zodi-app.herokuapp.com/
+[✨Live Link](https://zodi-app.herokuapp.com)
 
 ## So? What is Zodi-App?
 
