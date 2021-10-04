@@ -29,7 +29,7 @@ const AddComment = ({postId , setShowModal}) =>{
           content
       }
 
-
+      console.log(payload,"<<<<<<PAYLOAD")
      await dispatch(postComment(payload))
 
     await dispatch(fetchComments(postId))
@@ -63,7 +63,7 @@ const AddComment = ({postId , setShowModal}) =>{
             />
         </label>
         <button
-        disabled={setValidationErrors.length>0}
+        disabled={validationErrors.length>0}
         className="primary-button"
         type="submit">
             Post Comment
