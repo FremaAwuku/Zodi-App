@@ -7,9 +7,17 @@ const AddHoroscope = ({horoscope, userId , setShowModal}) =>{
       const dispatch = useDispatch()
       const history = useHistory()
       const [content,setContent]= useState('')
-//   useEffect(()=>{
+      const [validationErrors,setValidationErrors] = useState([])
+  useEffect(()=>{
+    const errors = []
+    if(content === ''){
 
-//   },[dispatch])
+      errors.push("Post can not be empty")
+    }
+
+    setValidationErrors(errors)
+
+  },[dispatch,content])
   const handleSubmit = async (e) =>{
       e.preventDefault()
 
@@ -18,11 +26,11 @@ const AddHoroscope = ({horoscope, userId , setShowModal}) =>{
           horoscope,
           content
       }
-      console.log(payload,"<<<<<<<<<ADD POST PAYLOAD")
+
 
      await dispatch(createHoroscopePost(payload))
 
-       history.push('/horoscope_feed')
+      //  history.push('/horoscope_feed')
 
        setShowModal(false)
 
@@ -37,16 +45,20 @@ const AddHoroscope = ({horoscope, userId , setShowModal}) =>{
       className="univ-form-wrapper"
       onSubmit={handleSubmit}
       >
-    {/* <div className="univ-form-errors">
-        {validationErrors.map((error, int) => (<div key={int}>{error}</div>))}
-        </div> */}
-        <h4>{`Daily Horoscope:${horoscope}`}</h4>
+        <h4>{`"${horoscope}""`}</h4>
+        <div className="univ-form-errors add-row">
+                {validationErrors.map((error, int) => (<div
+                style={{textAlign:"center"}}
+                key={int}>{error}</div>))}
+        </div>
         <label
+        style={{textAlign:"center"}}
         className="univ-form-label"
         htmlFor='content'
         >
            Share a few words about your Horoscope!
             <textarea
+            className="univ-form-input"
             name='content'
            maxLength="280"
             list="user_friends"
@@ -54,6 +66,7 @@ const AddHoroscope = ({horoscope, userId , setShowModal}) =>{
             />
         </label>
         <button
+        disabled={validationErrors?.length >0}
         className="primary-button"
         type="submit">
             Post To Horoscope Feed

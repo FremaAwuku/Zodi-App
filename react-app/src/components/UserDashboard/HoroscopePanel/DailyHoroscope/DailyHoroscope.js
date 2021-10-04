@@ -1,5 +1,5 @@
 import { useState,useEffect } from "react"
-import {Redirect, useHistory } from 'react-router-dom';
+
 import { useSelector } from "react-redux"
 import AddHoroscopeModal from "./AddHoroscopeModal"
 
@@ -9,14 +9,25 @@ const aztroJs = require("aztro-js")
 const DailyHoroscope =({user}) =>{
 
     const [todaysHoro ,setTodaysHoro] =useState({})
+
+    const [yesterday,setYesterday]=useState({})
+    const [tomorrow,setTomorrow]=useState({})
+
+    const [showToday,setShowToday]=useState(true)
+    const [showYest,setShowYest]=useState(false)
+    const [showTom,setShowTom]=useState(false)
+
     const signs = useSelector(state=>state.sunSigns)
-    const history = useHistory()
+
     let userSign
     let sign
     if(user.sun_sign_id){
         userSign = signs[user?.sun_sign_id].sign
         sign = userSign.toLowerCase()
     }
+
+
+
 
 
 
@@ -27,48 +38,151 @@ const DailyHoroscope =({user}) =>{
             setTodaysHoro(res)
         }, property)
 
+        aztroJs.getTomorrowsHoroscope(sign, function(res) {
+            setTomorrow(res)
+        }, property)
 
-    },[userSign])
+        aztroJs.getYesterdaysHoroscope(sign, function(res) {
+            setYesterday(res)
+        }, property)
 
-    // const getYesterday
 
-    const getToday = async () =>{
+    },[userSign,aztroJs])
 
-        //Get today's horoscope
+    const hideToday = ()=>{
+        if(!showToday){
+            setShowTom(false)
+            setShowYest(false)
+            setShowToday(true)
+        }else{
+            setShowToday(false)
+        }
+    }
+    const hideTom =()=>{
+        if(showTom){
+            setShowTom(false)
+        }else{
+            setShowToday(false)
+            setShowYest(false)
+            setShowTom(true)
+        }
+    }
 
+    const hideYest =()=>{
+        if(showYest){
+            setShowYest(false)
+        }else{
+            setShowToday(false)
+            setShowTom(false)
+            setShowYest(true)
+
+        }
     }
 
 
-    const toHoroscopeFeed = ()=>{
-        <Redirect to='/horoscope_feed'/>
-        history.push('/horoscope_feed')
-    }
+
+
+
 if(user.sun_sign_id){
     return(
-<>
+        <>
+{showToday&&<div
+className='horo-cont'
+>
+
+<div
+id="today"
+>
 <h2>
-    Daily Horoscope
+    Today's Horoscope
 </h2>
+
+
 <h4>
 {`"${todaysHoro}"`}
 </h4>
-<div className="horoscope-buttons">
-<button className="primary-button splash-feed"onClick={toHoroscopeFeed}>Horoscope Feed</button>
+
+
 <AddHoroscopeModal horoscope={todaysHoro} userId={user?.id}/>
+
+</div>
+</div>}
+
+{showTom&&<div
+className='horo-cont'
+>
+
+<div
+id="tom"
+>
+<h2>
+    Tomorrow's Horoscope
+</h2>
+
+
+<h4>
+{`"${tomorrow}"`}
+</h4>
+
+
+</div>
+</div>}
+
+{showYest&&<div
+className='horo-cont'
+>
+
+<div
+id="yest"
+>
+<h2>
+    Yesterdays's Horoscope
+</h2>
+
+
+<h4>
+{`"${yesterday}"`}
+</h4>
+
+
+</div>
+</div>}
+
+<div
+className="user-controls">
+    <button
+    onClick={hideToday}
+    className="horo-button"
+    >
+        Today
+    </button>
+    <button
+    onClick={hideTom}
+     className="horo-button"
+    >
+        Tomorrow
+    </button>
+    <button
+    onClick={hideYest}
+     className="horo-button"
+    >
+        Yesterday
+    </button>
 </div>
 </>
-
     )
 }else{
 return(
-        <>
+        <div
+        className='horo-cont'
+        >
     <h2>
         Daily Horoscope
     </h2>
     <h4>
     Calculate your SunSign to Get Daily Horoscope
     </h4>
-    </>
+    </div>
 )
 
 }

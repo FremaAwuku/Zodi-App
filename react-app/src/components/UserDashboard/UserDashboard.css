@@ -8,6 +8,8 @@
     max-width: 1100px;
     max-height: 900px;
     padding: 30px;
+     margin:30px;
+    /*margin-bottom: 80px; */
     border: 5px inset var(--wa-emoji-purple);
     border-style: solid inset solid solid;
     border-radius: 30px;
@@ -15,6 +17,21 @@
     left: 35vh;
     /* display: ; */
 }
+/* BOTTOM HALF CONTAINER HOLDING FRIENDS AND HOROSCOPE COMPONENT */
+.bottom-panel-sect{
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+    max-height: 400px;
+    padding: 15px;
+
+}
+/* MAIN FRIEND CONTINER */
+.univ-user-friend-panel{
+
+    max-height:400px
+    }
+
 
 /* USER DETAIL ------------------------USER DETAIL */
 .user-header{
@@ -52,7 +69,7 @@ color: black
 }
 .user-sign-detail {
 
-} */
+}
 .user-profile-cont{
     /* display: flex;
     flex-direction: row;
@@ -167,20 +184,9 @@ th#comp-table{
 
 
 /* FRIENDS PANEL--------------------FRIENDS PANEL */
-.bottom-panel-sect{
-    display: flex;
-    flex-direction: row;
-    margin-top: 15px;
-    max-height: 400px;
-
-}
 
 
 
-.univ-user-friend-panel{
-
-max-height:375px
-}
 
 .friend-panel-img{
     border-radius: 100%;
@@ -282,6 +288,7 @@ li.pending-req>img{
     background-color: white;
     padding: 8px;
     border-radius: 20px;
+
     max-height:400px;
     margin:10px
 
@@ -326,7 +333,72 @@ li.pending-req>img{
 }
 
 
-.incoming-req>h3{}
+
 .pending-req>h3{
     margin-left: 20px;
 }
+
+/* HOROSCOPE PANEL */
+
+.main-horoscope-cont{
+    padding: 20px;
+    background-color: whitesmoke;
+    max-height: 400px;
+    height: 400px;
+    margin-bottom: 30px;
+    max-width: 600px;
+    border-radius: 20px;
+    border: 5px inset var(--wa-emoji-purple);
+    border-style: solid inset solid solid;
+
+}
+
+.main-horoscope-wrapper{
+
+    max-height: 400px;
+
+    padding: 10px;
+}
+#horoscope-header{
+    text-transform: uppercase;
+    color: var( --wa-deep-emoji-purple);
+    font-size: 35pt;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    line-height: 40pt;
+
+}
+.horo-cont{
+    background-color: var(--wa-deep-emoji-purple);
+    margin-top: 10px;
+    border-radius: 20px;
+    max-height:200px ;
+    min-height:215px ;
+    padding: 15px;
+}
+.horo-cont>div>h2{
+    text-transform: uppercase;
+    color:white;
+    font-size: 20pt;
+    margin: 0px;
+    padding: 5px;
+    text-align: center;
+    line-height: 30pt;
+
+}
+.horo-cont>div>h4{
+
+background-color: white;
+border-radius: 20px;
+min-height: 70px;
+max-height: 100px;
+text-align: center;
+padding: 7px;
+}
+#text-back{
+
+}
+/* *{
+    border: 1px solid red;
+} */

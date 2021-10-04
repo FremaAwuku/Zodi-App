@@ -41,10 +41,6 @@ const AddRow =() =>{
     const chosenFriendId = chosenFriend?.friend_id
     const chosenFriendSignId = signObjs[chosenFriend?.friend_to_user?.sun_sign_id]?.id
     const [birthDay,setBirthDay] = useState(signObjs[chosenFriend?.friend_to_user?.sun_sign_id]?.sign)
-    // friendSignIds.forEach((id)=>{
-
-    //         filteredSigns.push(signObjs[id].sign)
-    //     })
 
 
 
@@ -66,7 +62,7 @@ const AddRow =() =>{
         e.preventDefault()
         let payload
         if(friendChosen){
-            // console.log("<<<<<<<<<<FRIEND CHOSEN")
+
        payload={
             userId,
             first_name:firstName,
@@ -75,7 +71,7 @@ const AddRow =() =>{
 
         }
     }else{
-        // console.log("<<<<<<<<<<FRIEND NOT CHOSEN")
+
         payload ={
             userId,
             first_name:firstName,
@@ -84,12 +80,11 @@ const AddRow =() =>{
 
         }
     }
-        // console.log(payload, "<<<<<<<<FRONT END PAYLOAD")
-        // console.log(payload, "<<<<<<<<FRONT END PAYLOAD")
+
         await dispatch(addZodiacListRow(payload))
 
     }
-    // const getSign
+
  //make a function that fetches CalcSign
 //and returns a sign that will be the placeholder of the sign input
 //Or user can choose from a drop down menu of pre populated signs
@@ -115,21 +110,7 @@ const calculateSign = async (e) =>{
 
 
 }
-    let friendInput
-    // const showFriends = () =>{
-    //     setShowFirstName(true)
-    //     friendInput=(
-    //         <select name="first_name">
-    //             {friends&& friends?.map((friend)=>(
-    //                 <option value={friend.friend_id}>
-    //                     {friend.username}
-    //                 </option>
-    //             )
-    //             )}
-    //         </select>
-    //     )
 
-    // }
 
     // ENTER SIGN LOGIC
     //if a user inserts their friend as a value ,
@@ -142,14 +123,6 @@ const calculateSign = async (e) =>{
     //again to pre-poulate value sign of Sign placement SHEEEESH
     const firstInput = (e) => {
         setFirstName(e.target.value)
-        // if(friendUsernames.includes(firstName)){
-
-        //     setFriendChosen(true)
-
-        //     // setFirstNameId(chosenFriendId)
-        //     // setFirstNameSign(chosenFriendSignId)
-
-        // }
 
     }
     const secondInput = (e) => {
