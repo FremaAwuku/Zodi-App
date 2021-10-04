@@ -12,7 +12,7 @@ import AddComment from './Comments/AddCommentModal/AddComment';
 const PostDetail = ({postId, setShowModal}) =>{
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user);
-    
+
 
     const posts = useSelector(state => state.horoscope_posts)
 
@@ -33,8 +33,11 @@ const PostDetail = ({postId, setShowModal}) =>{
     }
 
         return(
-            <>
-             <div onClick={closeModal}>
+            <div
+            className="comment-detail-main-cont">
+             <div
+             style={{color:'white'}}
+             onClick={closeModal}>
                 ❌ Close
             </div>
 
@@ -52,7 +55,7 @@ const PostDetail = ({postId, setShowModal}) =>{
 
 
 
-            </>
+            </div>
 
         )
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { editHoroscopePost } from '../../../../store/horoscopePosts';
-import { getOneHoroscopePost, getUserHoroscopePosts } from '../../../../store/horoscopePosts';
+
 const EditHoroscope = ({postId, setShowModal}) =>{
 
       const dispatch = useDispatch()

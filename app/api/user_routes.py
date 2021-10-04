@@ -464,24 +464,24 @@ def get_pending_request(user_id):
 @user_routes.route('/<int:user_id>/send_request/<int:friend_id>', methods=['POST'])
 @login_required
 def send_friend_request(user_id,friend_id):
-    request = {}
-    users_current_friends = Friend.query.filter(Friend.user_id == user_id).all()
-    user_ids = [user.id for user in users_current_friends]
-    if friend_id in user_ids:
-        return {'friendship': "You are already friends with this user!"}, 401
-    else:
+    # request = {}
+    # users_current_friends = Friend.query.filter(Friend.user_id == user_id).all()
+    # user_ids = [user.id for user in users_current_friends]
+    # if friend_id in user_ids:
+    #     return {'friendship': "You are already friends with this user!"}, 401
+    # else:
 
-        users_current_requests = FriendRequest.query.filter(FriendRequest.requesting_user_id == user_id).all()
-        request_user_ids = [user.accepting_friend_id for user in users_current_requests]
-        if friend_id not in request_user_ids:
-            r = FriendRequest(requesting_user_id=user_id,accepting_friend_id=friend_id)
+    #     users_current_requests = FriendRequest.query.filter(FriendRequest.requesting_user_id == user_id).all()
+    #     request_user_ids = [user.accepting_friend_id for user in users_current_requests]
+    #     if friend_id not in request_user_ids:
+        r = FriendRequest(requesting_user_id=user_id,accepting_friend_id=friend_id)
 
-            db.session.add(r)
-            request = r
-            db.session.commit()
-            return request.to_dict()
-        else:
-            return {'request': "You've already requested to be this user's friend"}, 401
+        db.session.add(r)
+
+        db.session.commit()
+        return r.to_dict()
+        # else:
+        #     return {'request': "You've already requested to be this user's friend"}, 401
 
 # @user_routes.route('/<int:user_id>/delete_request/<int:request_id>', methods=['DELETE'])
 # @login_required

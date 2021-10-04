@@ -33,13 +33,13 @@ const CommentDetail = ({postId}) =>{
 
 
         return(
-            <>
+            <div className="main-comment-cont">
                 {comments&&comments?.map((comment)=>{
                     let userActions
                     if(user.id === comment.user_id){
                         userActions=(
                             <div
-                            className='univ-user-comments'>
+                            className='comments-controls'>
                             <EditCommentModal commentId={comment?.id}/>
                             <DeleteComment commentId={comment.id} postId={postId}/>
                             </div>
@@ -51,6 +51,7 @@ const CommentDetail = ({postId}) =>{
                     }
 
                     return(
+
                     <div
                     className="univ-individual-comment-wrapper"
                     key={comment?.id}>
@@ -71,7 +72,7 @@ const CommentDetail = ({postId}) =>{
 
                     </div>)
                 })}
-            </>
+            </div>
 
         )
 

@@ -1,15 +1,125 @@
-.horoscope-post-container{
 
-    border: 5px solid red  ;
+.horoscope-feed-container{
+    max-height: 800px;
+    max-width: 1000px;
+    margin: 100px;
+    overflow-y: scroll;
+    position: fixed;
+    top: 5%;
+    left: 15%;
+
 }
-.horoscope-post-wrapper{
-    background-color: paleturquoise;
-    border: 5px solid black;
+@media all and (max-width: 1000px) {
+
+    .horoscope-feed-container{
+        max-height: 600px;
+        min-width: 600px;
+        max-width: 800px;
+        margin: 50px;
+        overflow-y: scroll;
+        position: fixed;
+        top: -5%;
+        left: 5%;
+
+    }
+}
+.horoscope-feed-wrapper{
+    background-color: var(--wa-yellow);
+    border: 5px inset black;
+
+    border-radius: 280px;
     display: flex;
     flex-direction: row;
+    padding: 70px;
+    margin: 20px;
+
 }
 /* img{
     border-radius: 100%;
     box-shadow: 10px 10px 20px -3px rgba(205, 53, 219, 0.2);
 
 } */
+.horo-post-wrapper{
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+}
+.horo-post-user-detail{
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+}
+.horo-post-user-pic{
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+   margin:10px;
+}
+.horo-post-user-pic>img{
+    max-width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 100%;
+    border: 1px solid black;
+    margin: 5px;
+}
+h3>p{
+   margin: 15px;
+}
+.horo-post-sign-detail{
+    display: flex;
+    flex-direction: row;
+   align-items: center;
+   /* height: 55%; */
+}
+
+.horo-post-sign-detail>h3{
+    line-height: 20px;
+}
+
+.horo-post-detail{
+    padding: 10px;
+    background-color: white;
+    width: 500px;
+    border-radius: 20px;
+    border: 3px inset whitesmoke;
+    min-height: fit-content;
+}
+/* LIKE  */
+.far.fa-heart{
+
+color: var(--wa-light-blue);
+
+}
+/* UNLIKE */
+.fas.fa-heart{
+
+color: var(--wa-light-blue);
+margin-left: 13px;
+}
+/* .horo-action{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+} */
+.horoscope{
+    padding: 5px;
+    border: 1px solid var(--wa-yellow);
+    color: var(--wa-light-blue);
+    border-radius: 20px;
+    text-align: center;
+}
+#zodi-feed-header{
+    color: white;
+    font-size: 185px;
+    text-transform: uppercase;
+    /* line-height: 90px; */
+    margin: 0px;
+    /* text-align: center; */
+    transform: rotate(270deg);
+    position: fixed;
+    right:53%;
+    height: 1000px;
+
+}
+

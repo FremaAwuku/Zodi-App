@@ -1,24 +1,28 @@
 import {  useDispatch, useSelector } from 'react-redux';
-import {  useHistory } from 'react-router-dom';
-import {deleteFriendRequest} from '../../../store/requests';
+import {  Redirect, useHistory, useParams } from 'react-router-dom';
+import {deleteFriendRequest, getUserFriendRequests} from '../../../store/requests';
+import { authenticate } from '../../../store/session';
 const DeleteRequest = ({requestId}) =>{
 
 const dispatch = useDispatch()
 const history = useHistory()
-const user = useSelector(state=>state.session.user)
-console.log(requestId,"<<<<<<<<<REQUEST ID")
+
+
+const {userId }= useParams()
 const handleDeleteRequest = async () =>{
 
 
     await dispatch(deleteFriendRequest(requestId))
-    // await dispatch(getUserFriendRequests(user?.id))
-    history.push(`/user_dashboard/${user.id}`)
+    await dispatch(getUserFriendRequests(userId))
+    await authenticate
+    history.push(`/user_dashboard/${userId}`);
+//     <Redirect to='/user_dashboard/:userId'>
 }
 return(
     <p
     style={{fontSize:10}}
     onClick={handleDeleteRequest}>
-    ❌ Delete Request
+     Delete Request ?
     </p>
 )
 

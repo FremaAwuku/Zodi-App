@@ -2,22 +2,18 @@ import { useSelector } from "react-redux"
 import LoginFormModal from "../../auth/LoginFormModal"
 import '../SplashPanel.css'
 function SunSign({sign, setShowModal}){
-    // const [showLogin, setShowLogin] = useState(false)
-    // const [showSign, setShowSign]= useState(false)
-    // const signs = useSelector(state => Object.values(state.sunSigns))
+
     const user = useSelector(state => state.session.user)
 
-    // console.log(user,"<<<<<<<SPLASH PAGE USER")
+
     const long = sign.long_description.split(">")
     long.shift()
-    // console.log(long,"LONG DESCRIPTION")
+
 
     const closeModal = () =>{
         setShowModal(false)
     }
-    const noSunModal= () =>{
-        setShowModal(false)
-    }
+ 
     let signDetail
         if(user){
             signDetail=(
@@ -145,7 +141,7 @@ function SunSign({sign, setShowModal}){
                     className="login-more"
                     >
                     <h2> Login to See More
-   
+
                     </h2>
                     </div>
 
