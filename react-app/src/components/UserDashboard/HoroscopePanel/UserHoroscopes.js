@@ -1,21 +1,24 @@
 
 import React, { useEffect, useState } from 'react';
-import {Redirect, useHistory } from 'react-router-dom';
+import {Redirect, useHistory, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import DailyHoroscope from './DailyHoroscope/DailyHoroscope';
-import HoroscopePost from '../../HoroscopeFeed/HoroscopePost';
-import { getUserHoroscopePosts } from '../../../store/horoscopePosts';
+import UserHoroscopePost from '../HoroscopePanel/UserHoroscopePost';
+import { getAllHoroscopePosts } from '../../../store/horoscopePosts';
 import '../UserDashboard.css'
 const UserHoroscopes =({user}) =>{
+    const {userId} = useParams()
     const dispatch = useDispatch()
     const history = useHistory()
     const userPost =  useSelector(state => Object.values(state.horoscope_posts))
+    .filter((post)=>post.user_id == userId)
 
     const [showDaily, setShowDaily] = useState(true)
     const [showPosts, setShowPosts] = useState(false)
 
+
     useEffect(()=>{
-        dispatch(getUserHoroscopePosts(user?.id))
+        dispatch(getAllHoroscopePosts())
 
 
 
@@ -98,10 +101,12 @@ let activeButton
 
                 {showPosts&&<div
                 className="past-horoscope-cont">
-                <h2>Past Horoscope Posts</h2>
+                <h2
+                className="past-horo-head"
+                >Past Horoscope Posts</h2>
                 {userPost&& userPost.map((post)=>
                 <div className='univ-horoscope-post-wrapper'>
-                <HoroscopePost post={post}/>
+                <UserHoroscopePost post={post}/>
                 </div>)}
                 </div>}
 

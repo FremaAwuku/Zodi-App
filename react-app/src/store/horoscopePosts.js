@@ -109,11 +109,9 @@ export const deleteHoroscopePost = (payload) => async dispatch =>{
     });
 
     if(response.ok){
-        const postRes = await response.json()
-        const post_id = postRes.post_id
 
         dispatch(remove(post_id))
-        return postRes
+       
     }
 
 

@@ -13,7 +13,7 @@ function AddHoroscopeModal({horoscope, userId}) {
 
   return (
     <>
-      <button className="primary-button"
+      <button style={{marginTop:10}}className="primary-button"
       onClick={() => setShowModal(true)}>
        Add Horoscope
 </button>

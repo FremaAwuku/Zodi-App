@@ -94,7 +94,7 @@ className='horo-cont'
 id="today"
 >
 <h2>
-    Today's Horoscope
+    {`Today's Horoscope for ${userSign}`}
 </h2>
 
 
@@ -116,7 +116,8 @@ className='horo-cont'
 id="tom"
 >
 <h2>
-    Tomorrow's Horoscope
+{` Tomorrow's Horoscope for ${userSign}`}
+
 </h2>
 
 
@@ -136,7 +137,8 @@ className='horo-cont'
 id="yest"
 >
 <h2>
-    Yesterdays's Horoscope
+{` Yesterdays's Horoscope for ${userSign}`}
+
 </h2>
 
 
@@ -176,9 +178,6 @@ return(
         <div
         className='horo-cont'
         >
-    <h2>
-        Daily Horoscope
-    </h2>
     <h4>
     Calculate your SunSign to Get Daily Horoscope
     </h4>

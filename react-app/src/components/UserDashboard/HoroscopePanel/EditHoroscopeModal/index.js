@@ -22,7 +22,7 @@ if(userOfPost === user?.id ){
     <>
       <button className="primary-button"
       onClick={() => setShowModal(true)}>
-        Edit
+        Edit Horoscope
 </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
