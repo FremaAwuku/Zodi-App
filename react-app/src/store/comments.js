@@ -29,7 +29,7 @@ const removeComment = (commentId) => ({
 export const fetchComments = (postId) => async (dispatch) => {
     const res = await fetch(`/api/comments`);
     const comments = await res.json()
-    console.log(comments,"<<<<<<<COMMENTS IN FETCH THUNK")
+  
     dispatch(setComments(comments.comments))
 }
 

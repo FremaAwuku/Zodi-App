@@ -9,13 +9,19 @@ const EditHoroscope = ({postId, setShowModal}) =>{
       const history = useHistory()
       const posts = useSelector(state=>state.horoscope_posts)
       const post =posts[postId]
-      console.log(post.content ,"<<<<<<POST ??????")
+      const [validationErrors,setValidationErrors] = useState([])
       const [content,setContent]= useState(post?.content)
       const user = useSelector(state=>state.session.user)
   useEffect(()=>{
+    const errors = []
+    if(content === ''){
 
-    // dispatch(getOneHoroscopePost(postId))
-  },[dispatch])
+      errors.push("Post can not be empty")
+    }
+
+    setValidationErrors(errors)
+  },[dispatch,content])
+
   const handleSubmit = async (e) =>{
       e.preventDefault()
 
@@ -44,23 +50,23 @@ const EditHoroscope = ({postId, setShowModal}) =>{
       className="univ-form-wrapper"
       onSubmit={handleSubmit}
       >
-    {/* <div className="univ-form-errors">
+    <div className="univ-form-errors">
         {validationErrors.map((error, int) => (<div key={int}>{error}</div>))}
-        </div> */}
-        <h4>{`Daily Horoscope:${post.horoscope}`}</h4>
-        <label
-        className="univ-form-label"
-        htmlFor='content'
-        >
-           Share a few words about your Horoscope!
+        </div>
+        <h4>{`"${post.horoscope}"`}</h4>
+
+
             <textarea
+            style={{margin:15}}
             name='content'
            maxLength="280"
             list="user_friends"
+            placeholders={post?.content}
             onChange ={(e)=>setContent(e.target.value)}
             />
-        </label>
+
         <button
+            disabled={validationErrors?.length >0}
         className="primary-button"
         type="submit">
             Save Edit
