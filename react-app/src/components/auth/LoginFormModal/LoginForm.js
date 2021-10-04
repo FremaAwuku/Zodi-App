@@ -42,7 +42,7 @@ import '../auth.css'
     <>
     <div
     className="login-form-cont">
-      <h2>WELCOME TO Zodi-App </h2>
+      <h2>Welcome To Zodi-App✨ </h2>
     <form
     className="login-form-wrap"
     onSubmit={onLogin}>

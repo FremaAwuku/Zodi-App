@@ -67,6 +67,7 @@ userActions=(
 
 <div
         className="main-splash-cont">
+            <h1 id="zodi-app-header">Zodi-App ✨</h1>
 
         <div  className="splash-container">
 
