@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
-import { getUserFriends } from '../../../store/friends';
+import { getAllFriends } from '../../../store/friends';
 import { calculateSunSign } from '../../../store/sunSigns';
 import { addZodiacListRow } from '../../../store/zodiacLists';
 const AddRow =() =>{
@@ -23,6 +23,7 @@ const AddRow =() =>{
     const user = useSelector(state=> state.session.user)
     const {userId} = useParams()
     const friends = useSelector(state=> Object.values(state.friends))
+    .filter((friend)=>friend?.user_id === Number(userId))
     const friendUsernames = useSelector(state=> Object.values(state.friends)).map((friend)=>friend = friend.friend_to_user.username)
     // const friendSignIds = friends
     // // .filter((friend)=> setFriendChosen&& friend.username === firstName)
@@ -55,7 +56,7 @@ const AddRow =() =>{
         if(firstNameSign === "")errors.push("Sign can not be Empty")
         setValidationErrors(errors)
 
-        dispatch(getUserFriends(userId))
+        dispatch(getAllFriends())
     },[dispatch])
 
     const handleSubmit = async (e)  =>{

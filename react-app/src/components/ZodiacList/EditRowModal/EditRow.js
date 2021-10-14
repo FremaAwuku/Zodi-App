@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
-import { getUserFriends } from '../../../store/friends';
+import { getAllFriends } from '../../../store/friends';
 import {addListMatch} from '../../../store/zodiacLists'
 function EditRow({setShowModal, row, firstName, firstSignName}) {
 
@@ -26,6 +26,7 @@ function EditRow({setShowModal, row, firstName, firstSignName}) {
         const user = useSelector(state=> state.session.user)
         const {userId} = useParams()
         const friends = useSelector(state=> Object.values(state.friends))
+        .filter((friend)=>friend?.user_id === Number(userId))
         const filteredFriends = friends.filter((friend)=> friend.friend_to_user.username !== firstName )
 
         // console.log(row.first_name,"<<<<<<<<<ROW FIRST NAME")
@@ -35,7 +36,7 @@ function EditRow({setShowModal, row, firstName, firstSignName}) {
         useEffect(()=>{
 
 
-            dispatch(getUserFriends(userId))
+            dispatch(getAllFriends())
         },[dispatch])
 
 

@@ -38,7 +38,7 @@ def users():
 @user_routes.route('/<int:userId>/photo',methods=['PUT'])
 @login_required
 def update_profile_pic(userId):
-    print("<<<<<<<<<<<<<<<<<<<<HEREREREE")
+
     form = ProfilePictureForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -216,7 +216,7 @@ def new_row_list(id):
     form['csrf_token'].data = request.cookies['csrf_token']
     row = {}
 
-    # print(request.form,"<<<<<<<<<FORM REQUEST BACKEND")
+
 
 
     if len(request.form) > 2:
@@ -393,6 +393,7 @@ USER FRIENDS==============================================================
 @login_required
 def get_user_friends(user_id):
     user_friends = Friend.query.filter(Friend.user_id == user_id).all()
+    
 
     return {"user_friends":[friend.to_dict() for friend in user_friends]}
 

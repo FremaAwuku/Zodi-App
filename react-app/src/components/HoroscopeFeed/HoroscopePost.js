@@ -3,7 +3,7 @@ import React, { useEffect} from 'react';
 import moment from "moment"
 import { getAllUsers } from '../../store/users';
 import { deleteFriendRequest, getUserPendingRequests,sendFriendRequest  } from '../../store/requests';
-import { getUserFriends } from '../../store/friends';
+import { getAllFriends } from '../../store/friends';
 import {  fetchComments } from '../../store/comments';
 import EditHoroscopeModal from '../UserDashboard/HoroscopePanel/EditHoroscopeModal';
 import PostDetailModal from './PostDetailModal';
@@ -22,7 +22,10 @@ const HoroscopePost = ({post}) =>{
     const signs = useSelector(state =>state.sunSigns)
     const userId = user?.id
     let postUser = users[post?.user_id]
-    const userFriends= useSelector(state => Object.values(state.friends)).map((friend)=> friend = friend.friend_id)
+    const userFriends= useSelector(state => Object.values(state.friends))
+    .filter((friend)=>friend?.user_id === Number(userId))
+    .map((friend)=> friend = friend.friend_id)
+    console.log(userFriends, "<<<<<<<<<<<<FRiend IDs")
     const pendingRequestIds = useSelector(state => Object.values(state.requests)).map((request)=> request = request.accepting_friend_id)
     const requestId = useSelector(state => Object.values(state.requests))
     .filter((request)=> request.accepting_friend_id === postUser.id)
@@ -36,12 +39,10 @@ const HoroscopePost = ({post}) =>{
     const totalLikes = likesForPost.length
     const userLike =likesForPost.filter((like)=> like.user_id === user?.id)[0]
 
-    // console.log(likesForPost,"<<<<<<<ALLL LIKE")
-    // console.log(userLike?.id, "<<<<<<<USER LIKE")
 
     useEffect(()=>{
         dispatch(getAllUsers())
-        dispatch(getUserFriends(userId))
+        dispatch(getAllFriends())
         dispatch(getUserPendingRequests(userId))
         dispatch(fetchComments(post?.id))
         dispatch(getAllLikes())
@@ -117,11 +118,13 @@ const HoroscopePost = ({post}) =>{
         await dispatch(getUserPendingRequests(userId))
     }
     let pendingReqs
-    if(pendingRequestIds.includes(postUser?.id)  ){
+
+    if(pendingRequestIds.includes(postUser?.id) && !userFriends.includes(postUser?.id) ){
+
         pendingReqs=(
 
 
-            <h6>Friend Request Pending ✨</h6>
+            <h6>Friend Request Pending</h6>
 
 
         )
@@ -129,10 +132,10 @@ const HoroscopePost = ({post}) =>{
             <>
             </>
         }
-        // if(history.location === "/user_dashoard")
+
 
     let showRequest
-//request login needs to be refactored
+
     if(
         !userFriends.includes(postUser?.id)
     && postUser?.id !== userId && !pendingRequestIds.includes(postUser?.id)){

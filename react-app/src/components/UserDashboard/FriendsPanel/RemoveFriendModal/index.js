@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 
 import { Modal } from '../../../../context/Modal';
-import { deleteFriend, getUserFriends } from '../../../../store/friends';
+import { deleteFriend, getAllFriends } from '../../../../store/friends';
 import { authenticate } from '../../../../store/session';
 
 function RemoveFriendModal({ userId, friendId, showDeleteModal, setShowDeleteModal }) {
@@ -17,7 +17,7 @@ function RemoveFriendModal({ userId, friendId, showDeleteModal, setShowDeleteMod
 
 
         await dispatch(deleteFriend({userId,friendId}))
-        await dispatch(getUserFriends(userId))
+        await dispatch(getAllFriends())
         await authenticate()
         setShowDeleteModal(false)
         history.push(`/user_dashboard/${userId}`)
