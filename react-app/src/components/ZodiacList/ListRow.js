@@ -14,7 +14,7 @@ const ListRow = ({rows}) => {
     const firstSign = signs.filter((sign)=> sign.sign=== rows?.first_name_sign)[0]?.id
     const firstSignId = Number(firstSign)
     const matchSignId = signs.filter((sign)=> sign.sign === rows?.match_name_sign)[0]?.id
-    console.log(rows.match_name,"<<<<<ROWS")
+
 
 
     let signEmoji_1
@@ -210,7 +210,7 @@ if(matchSignId){
     }
 }
 let editButton
-if(!rows.match_name ){
+if(!rows.match_name && !rows.match_name_sign ){
 editButton=(
 <tr>
 <td>
@@ -220,7 +220,9 @@ editButton=(
 )
     }else{
         editButton=(
-            <></>
+            <h6>
+                click on 💜s to see more
+            </h6>
         )
     }
 

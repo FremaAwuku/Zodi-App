@@ -17,9 +17,7 @@
     --wa-blue: #0003c2;
 }
 
-/* * {
-    font-family: 'Nunito Sans', sans-serif;
-} */
+
 
 .primary-button {
     border-radius: 20px;
@@ -37,8 +35,8 @@
 }
 *{
     font-family: 'Timmana', sans-serif;
-
-
+    box-sizing: border-box;
+/* border: .5px solid red; */
 }
 
 .primary-button:hover{
@@ -94,12 +92,7 @@ margin-top: 10px;
     background-color:var(--wa-emoji-purple);
     text-decoration: underline;
 }
-*{
-    box-sizing: border-box;
-    /* border: 1px solid red; */
 
-
-}
 .celestial-detail{
     z-index: inherit;
     max-height: 600px;
@@ -202,6 +195,20 @@ margin-top: 10px;
     padding-bottom: 0px;
 
 }
+.zodi-form-errors{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 100;
+    font-size: 16px;
+    color: var(--wa-baby-blue);
+
+}
+#zodi-list-detail{
+    text-align: center;
+    margin: 0px;
+}
 .univ-form-label{
 float: left;
 padding-top: 5px;
@@ -209,6 +216,9 @@ text-transform: uppercase;
 }
 .univ-form-label.calc{
     text-align: center;
+
+}
+.zodi-list-label{
 
 }
 .univ-form-input{

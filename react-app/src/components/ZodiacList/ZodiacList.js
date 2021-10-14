@@ -7,8 +7,8 @@ import AddRowModal from './AddRowModal/index';
 import ListRow from './ListRow';
 import { addZodiacListRow } from '../../store/zodiacLists';
 import { getAllFriends } from '../../store/friends';
+import CalculateSignModal from '../SplashPanel/CalculateSignModal';
 
-// import ShowFriendsModal from './ShowFriendsModal';
 const ZodiacList = () => {
     const history = useHistory()
     const dispatch = useDispatch()
@@ -31,16 +31,20 @@ const ZodiacList = () => {
         dispatch(getAllFriends())
         const errors =[]
         if(showAddRow){
-        if(firstNameSign===''){
+            if(showAddRow &&firstName === ""){
+                errors.push("Please Input First Name")
+            }
+            if(firstName.length < 3){
+                errors.push("First name must longer than 3 characters")
+            }
+        if(firstNameSign==='' ){
             errors.push("Please Enter Zodiac Sign ")
         }
-        if(firstName===''){
-            errors.push("Please Input First Name")
-        }
+
         }
         setValidationErrors(errors)
 
-    }, [dispatch,firstNameSign,firstName])
+    }, [dispatch,firstNameSign,firstName,showAddRow])
 
 // ADD ROW LOGIC
 
@@ -83,6 +87,9 @@ const secondInput = (e) => {
 
         }
     }
+    const hideAddRow = () =>{
+        setShowAddRow(false)
+    }
     return(
         <>
 
@@ -90,7 +97,9 @@ const secondInput = (e) => {
         <div className='univ-zodiac-table-container'>
         <h1
         id="sign-detail-header"
-        >{`Zodiac List`}</h1>
+        >Zodiac List</h1>
+        <h6 id="zodi-list-detail"
+        >Keep a track of past calculated signs and add matches to see compatibility! </h6>
         <table className='univ-zodiac-list-table'>
             <tr>
                 <th>
@@ -137,23 +146,32 @@ const secondInput = (e) => {
         </div>
         <div
         >
+
         {showAddRow&&
          <form
          className="add-row-container"
         onSubmit={handleSubmit}>
-            <div className="univ-form-errors">
+               <p
+               onClick={hideAddRow}
+            style={{textAlign:"right",padding:0,margin:0}}>❌</p>
+            <div className="zodi-form-errors ">
                 {validationErrors.map((error, int) => (<div key={int}>{error}</div>))}
             </div>
         <table
         id="first-match-input"
         >
-            <tr>
+            <tr
+            >
 
-                <td>
-                <label>
+                <td
+                style={{display:"flex",flexDirection:"row", justifyContent:"space-around"}}>
+                <label
+
+                >
                     1st Name
 
                 <input
+                className="zodi-list-input"
                 name='first_name'
                 type="text"
                 list="user_friends"
@@ -161,7 +179,8 @@ const secondInput = (e) => {
             />
             </label>
 
-                <datalist id="user_friends">
+                <datalist id="user_friends"
+                >
                     {friends&& friends.map((friend)=>{
                         let friendSunSign = signObjs[friend.friend_to_user.sun_sign_id].sign
                         return(
@@ -175,29 +194,33 @@ const secondInput = (e) => {
                 </td>
             <td>
             <label
+
             className="zodi-list-label"
             >
                 Sign
-            <input
-            // type="date"
-            onChange ={secondInput}
+            <select
 
+            onChange ={secondInput}
+            className="zodi-list-input"
             list="sun_signs"
-            />
-            <datalist id="sun_signs">
+            >
+                <option placeholder=""></option>
                 {signs&& signs.map((sign)=>(
                     <option value={sign.sign}
                     key={sign.id}>
-
+                        {sign.sign}
                         </option>
                 ))}
-                </datalist>
+                </select>
                 </label>
             </td>
 
             </tr>
         </table>
-        </form>}
+        <CalculateSignModal/>
+
+        </form>
+       }
         </div>
         <button
 

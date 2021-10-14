@@ -12,7 +12,7 @@ function CompatibilityModal({rowId}){
     const userRows = useSelector(state=>state.zodiac_lists)
     const row = userRows[rowId]
     const rating = row?.compatibility
-    console.log(row,"<<<<<<<RATING IN MODAL")
+
     useEffect(()=>{
 
        getUserZodiacList(userId)

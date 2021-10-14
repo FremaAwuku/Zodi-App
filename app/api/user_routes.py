@@ -62,23 +62,15 @@ def update_profile_pic(userId):
 def user_sun_sign(id):
     form = GetSignForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    # birth_month = form.data['birth_month']
-    # birth_date = form.data['birth_date']
-    # print(isinstance(birth_month , str) ,"<<<<<<<BIRTH MONTH")
-    # print(birth_month == "January" ,"<<<<<<<BIRTH MONTH")
-    # print(birth_date ,"<<<<<<<BIRTH DATE")
-    # print(request.form ,"<<<<<<<BIRTH MONTH BACK")
+
 
     birth_month = int(request.form['birth_month'])
     birth_date = int(request.form['birth_date'])
-    # print(birth_month  ,"<<<<<<<BIRTH MONTH")
-    # print(birth_date ,"<<<<<<<BIRTH DATE BACK")
 
 
     user_sign = 0
     cusp = False
     if  birth_month == 1:
-        # print("<<<<<<INSIDE IFFFFFF")
         if birth_date > 19:
             user_sign = 11
         elif birth_date == 19:
@@ -221,7 +213,7 @@ def new_row_list(id):
 
     if len(request.form) > 2:
         first_name = request.form['first_name']
-        # print(request.form,"<<<<<<<<<FORM REQUEST BACKEND")
+
         first_name_id = "null"
         if request.form['first_name_id'] == 'null':
 
@@ -393,7 +385,7 @@ USER FRIENDS==============================================================
 @login_required
 def get_user_friends(user_id):
     user_friends = Friend.query.filter(Friend.user_id == user_id).all()
-    
+
 
     return {"user_friends":[friend.to_dict() for friend in user_friends]}
 

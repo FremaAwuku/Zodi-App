@@ -98,8 +98,8 @@ color: black
     margin-left: 40px;
     padding: 10px;
     border-radius: 20px;
-    min-width: 300px;
-    max-width: 500px;
+    min-width: 650px;
+    max-width: 650px;
 
 }
 .user-sign-section.no-sign{
@@ -124,8 +124,17 @@ border-radius: 20px;
     max-height: 300px;
     padding: 15px;
     margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+   /* justify-content: center; */
+   align-content: center;
+
 }
 
+.univ-zodiac-list-wrapper{
+    min-width:400px ;
+
+}
 
 
   table {
@@ -137,6 +146,19 @@ border-radius: 20px;
 
   table#first-match-input{
       background-color: white;
+  }
+
+  #calc{
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+
+  }
+  #calc:hover{
+      text-decoration: underline;
+      cursor: pointer;
+      font-size: 110%;
+      color: var(--wa-yellow);
   }
 
 /* EDIT MODAL */
@@ -177,6 +199,7 @@ th#comp-table{
 } */
 .add-row-container{
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
