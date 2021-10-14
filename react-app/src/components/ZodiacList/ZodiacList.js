@@ -6,7 +6,7 @@ import { getUserZodiacList } from '../../store/zodiacLists';
 import AddRowModal from './AddRowModal/index';
 import ListRow from './ListRow';
 import { addZodiacListRow } from '../../store/zodiacLists';
-import { getUserFriends } from '../../store/friends';
+import { getAllFriends } from '../../store/friends';
 
 // import ShowFriendsModal from './ShowFriendsModal';
 const ZodiacList = () => {
@@ -15,19 +15,20 @@ const ZodiacList = () => {
     const user = useSelector(state => state.session)
     const{userId}= useParams()
     const friends = useSelector(state=> Object.values(state.friends))
+    .filter((friend)=>friend?.user_id === Number(userId))
     const signs = useSelector(state=>Object.values(state.sunSigns))
     const signObjs = useSelector(state=>state.sunSigns)
     const [firstName, setFirstName] = useState("")
     const [firstNameId, setFirstNameId] = useState(null)
     const [firstNameSign, setFirstNameSign] = useState("")
     const [validationErrors,setValidationErrors] = useState([])
-    // console.log(user.user.username, "<<<<<<<<<<<<USER")
+
     const listRows = useSelector(state => Object.values(state.zodiac_lists))
 
     const [showAddRow,setShowAddRow] = useState(false)
     useEffect(()=>{
         dispatch(getUserZodiacList(user.user.id))
-        dispatch(getUserFriends(userId))
+        dispatch(getAllFriends())
         const errors =[]
         if(firstNameSign===''){
             errors.push("Please Enter Zodiac Sign ")

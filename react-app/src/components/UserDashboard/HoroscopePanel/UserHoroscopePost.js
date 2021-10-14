@@ -3,15 +3,15 @@ import React, { useEffect} from 'react';
 import moment from "moment"
 import { getAllUsers } from '../../../store/users';
 import { deleteFriendRequest, getUserPendingRequests,sendFriendRequest  } from '../../../store/requests';
-import { getUserFriends } from '../../../store/friends';
-import { deleteComment, fetchComments } from '../../../store/comments';
+import { getAllFriends } from '../../../store/friends';
+import {  fetchComments } from '../../../store/comments';
 import EditHoroscopeModal from '../HoroscopePanel/EditHoroscopeModal';
 import PostDetailModal from '../../HoroscopeFeed/PostDetailModal';
 import AddCommentModal from '../../HoroscopeFeed/PostDetailModal/Comments/AddCommentModal/AddComment';
 import { getAllLikes,addPostLike,removePostLike } from '../../../store/likes';
-import { useHistory } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import { getAllHoroscopePosts,deleteHoroscopePost } from '../../../store/horoscopePosts';
-import { getAllHoroscope } from 'aztro-js';
+
 
 const UserHoroscopePost = ({post}) =>{
 
@@ -20,9 +20,11 @@ const UserHoroscopePost = ({post}) =>{
     const user = useSelector(state => state.session.user);
     const users = useSelector(state => state.users)
     const signs = useSelector(state =>state.sunSigns)
-    const userId = user?.id
+    const {userId} = useParams()
     let postUser = users[post?.user_id]
-    const userFriends= useSelector(state => Object.values(state.friends)).map((friend)=> friend = friend.friend_id)
+    const userFriends= useSelector(state => Object.values(state.friends))
+    .filter((friend)=>friend?.user_id === Number(userId))
+    .map((friend)=> friend = friend.friend_id)
     const pendingRequestIds = useSelector(state => Object.values(state.requests)).map((request)=> request = request.accepting_friend_id)
     const requestId = useSelector(state => Object.values(state.requests))
     .filter((request)=> request.accepting_friend_id === postUser.id)
@@ -36,70 +38,18 @@ const UserHoroscopePost = ({post}) =>{
     const totalLikes = likesForPost.length
     const userLike =likesForPost.filter((like)=> like.user_id === user?.id)[0]
 
-    // console.log(likesForPost,"<<<<<<<ALLL LIKE")
-    // console.log(userLike?.id, "<<<<<<<USER LIKE")
+
 
     useEffect(()=>{
         dispatch(getAllUsers())
-        dispatch(getUserFriends(userId))
+        dispatch(getAllFriends())
         dispatch(getUserPendingRequests(userId))
         dispatch(fetchComments(post?.id))
         dispatch(getAllLikes())
 
     },[dispatch,userId,post])
 
-    let signEmoji
-
-    if(postUser?.sun_sign_id === 1){
-        signEmoji=(
-            <h3>♈</h3>
-        )
-    }else if(postUser?.sun_sign_id === 2){
-        signEmoji=(
-            <h3>♉</h3>
-        )
-    }else if(postUser?.sun_sign_id === 3){
-        signEmoji=(
-            <h3>♊</h3>
-        )
-    }else if(postUser?.sun_sign_id === 4){
-        signEmoji=(
-            <h3>♋</h3>
-        )
-    }else if(postUser?.sun_sign_id === 5){
-        signEmoji=(
-            <h3>♌</h3>
-        )
-    }else if(postUser?.sun_sign_id === 6){
-        signEmoji=(
-            <h3>♍</h3>
-        )
-    }else if(postUser?.sun_sign_id === 7){
-        signEmoji=(
-            <h3>♎</h3>
-        )
-    }else if(postUser?.sun_sign_id === 8){
-        signEmoji=(
-            <h3>♏</h3>
-        )
-    }else if(postUser?.sun_sign_id === 9){
-        signEmoji=(
-            <h3>♐</h3>
-        )
-    }else if(postUser?.sun_sign_id === 10){
-        signEmoji=(
-            <h3>♑</h3>
-        )
-    }else if(postUser?.sun_sign_id === 11){
-        signEmoji=(
-            <h3>♒</h3>
-        )
-    }else{
-        signEmoji=(
-            <h3>♓</h3>
-        )
-
-    }
+  
 
     const SendRequest = async (e) =>{
         e.preventDefault();

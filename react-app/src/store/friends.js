@@ -18,12 +18,13 @@ type:REMOVE_FRIEND,
 friendId
 })
 
-export const getUserFriends = (userId) => async dispatch =>{
-    // console.log("<<<<<<<<<<<<<<<IN THUNK")
-    const response = await fetch(`/api/users/${userId}/friends`);
+export const getAllFriends = () => async dispatch =>{
+
+    const response = await fetch(`/api/friends`);
     if(response.ok){
-        const friends = await response.json().then(res=>res = res.user_friends);
-        // console.log(friends,"<<<<<<FRIENDS IN THUNK")
+        const friends = await response.json().then(res=>res = res.friends);
+
+       
         dispatch(load(friends))
     }
 }
@@ -50,7 +51,7 @@ export const deleteFriend = ({userId,friendId}) => async dispatch =>{
         method:'DELETE'
     });
     if(response.ok){
-  
+
 
         const friend= await response.json().then(res=>res = res.friend_id)
         dispatch(remove(friend))

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 import {  fetchUserFriendRequests, fetchUserPendingRequests } from '../../../store/requests';
-import { getUserFriends } from '../../../store/friends';
+import { getAllFriends } from '../../../store/friends';
 import '../UserDashboard.css'
 import IncomingRequests from './IncomingRequests';
 
@@ -18,16 +18,17 @@ const FriendsPanel = ({user}) =>{
 
     const {userId}=useParams()
 
-  
+
     const [incTotal, setIncTotal] = useState(0)
     const [pendTotal, setPendTotal] = useState(0)
     const friends = useSelector(state => Object.values(state.friends))
-    // .filter((friend)=>friend?.user_id!== userId)
+    .filter((friend)=>friend?.user_id === Number(userId))
+
 
 
     useEffect(()=>{
         authenticate()
-        dispatch(getUserFriends(userId))
+        dispatch(getAllFriends())
         getIncomingTotal()
         getPendingTotal()
     }, [dispatch,userId,incTotal,pendTotal, friends.length])
