@@ -30,13 +30,14 @@ const ZodiacList = () => {
         dispatch(getUserZodiacList(user.user.id))
         dispatch(getAllFriends())
         const errors =[]
+        if(showAddRow){
         if(firstNameSign===''){
             errors.push("Please Enter Zodiac Sign ")
         }
         if(firstName===''){
             errors.push("Please Input First Name")
         }
-
+        }
         setValidationErrors(errors)
 
     }, [dispatch,firstNameSign,firstName])
@@ -201,7 +202,7 @@ const secondInput = (e) => {
         <button
 
         type="submit"
-
+            disabled={validationErrors.length > 0}
               className="secondary-button"
               onClick={addRowShow}>Add New Row</button>
 
