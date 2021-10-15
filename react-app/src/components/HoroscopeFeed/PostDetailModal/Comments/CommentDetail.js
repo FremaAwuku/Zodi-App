@@ -12,7 +12,7 @@ const CommentDetail = ({postId}) =>{
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user);
     const users = useSelector(state => state.users)
-    const comments = useSelector(state => Object.values(state.comments)).filter((comment)=>comment.post_id === postId)
+    const comments = useSelector(state => Object.values(state.comments)).filter((comment)=>comment.post_id === postId).reverse()
     const posts = useSelector(state => state.horoscope_posts)
     const post = posts[postId]
     const userPosts =

@@ -15,7 +15,7 @@ function AddHoroscopeModal({horoscope, userId}) {
     <>
       <button style={{marginTop:10}}className="primary-button"
       onClick={() => setShowModal(true)}>
-       Add Horoscope
+       Post To Horoscope Feed
 </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>

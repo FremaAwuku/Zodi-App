@@ -14,8 +14,9 @@ const handleDeleteRequest = async () =>{
 
     await dispatch(deleteFriendRequest(requestId))
     await dispatch(getUserFriendRequests(userId))
-    await authenticate
+    await authenticate()
     history.push(`/user_dashboard/${userId}`);
+
 //     <Redirect to='/user_dashboard/:userId'>
 }
 return(

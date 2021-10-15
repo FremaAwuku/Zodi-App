@@ -87,6 +87,11 @@ color: black
 
 
 }
+.user-profile-pic:hover{
+    box-shadow: 0px 0px 5px 5px  rgb(233, 125, 233);
+
+
+}
 .user-controls{
     padding: 7px;
     display: flex;
