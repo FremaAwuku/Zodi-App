@@ -35,9 +35,18 @@ function EditRow({setShowModal, row, firstName, firstSignName}) {
 
         useEffect(()=>{
 
+        const errors = []
+
+
+        if(matchName === "" )errors.push("Please Enter Name or Friend")
+        setValidationErrors(errors)
+        if(matchName.length < 3 )errors.push("Name must longer than 3 characters")
+        setValidationErrors(errors)
+        if(matchSign === "")errors.push("Sign can not be Empty")
+        setValidationErrors(errors)
 
             dispatch(getAllFriends())
-        },[dispatch])
+        },[dispatch,matchName, matchSign])
 
 
         const firstInput = (e) => {
