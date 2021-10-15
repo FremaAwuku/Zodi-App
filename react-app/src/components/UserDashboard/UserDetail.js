@@ -8,7 +8,7 @@ import { authenticate, signUp } from '../../store/session';
 import UpdateSignModal from './UpdateSignModal';
 
 import './UserDashboard.css'
-import ZodiacListModal from '../ZodiacList';
+
 import ZodiacList from '../ZodiacList/ZodiacList';
 
 const UserDetail = ({user}) =>{
@@ -30,7 +30,7 @@ const defaultPicture = 'https://zodiappbucket.s3.amazonaws.com/supplemental/defa
         dispatch(getUserHoroscopePosts(user?.id))
         dispatch(getAllUsers())
 
-        // console.log(user?.profile_picture)
+
 
 
     }, [dispatch])
@@ -253,8 +253,8 @@ onClick={toSplash}
                         {dashboardControls}
                 </div>
             <section className="user-sign-detail-container">
-            <UpdateSignModal userId={userId}/>
-            <h3 className="to-update-sign">Please Calculate your Sun Sign</h3>
+            {/* <UpdateSignModal userId={userId}/>
+            <h3 className="to-update-sign">Please Calculate your Sun Sign</h3> */}
         </section>
          </div>
         )

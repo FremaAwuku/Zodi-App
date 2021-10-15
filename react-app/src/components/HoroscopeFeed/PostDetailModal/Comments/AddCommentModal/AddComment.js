@@ -29,10 +29,11 @@ const AddComment = ({postId , setShowModal}) =>{
           content
       }
 
-     
+
      await dispatch(postComment(payload))
 
     await dispatch(fetchComments(postId))
+    setContent("")
 
   }
   const closeModal = () =>{

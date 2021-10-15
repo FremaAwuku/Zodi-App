@@ -98,8 +98,8 @@ const secondInput = (e) => {
         <h1
         id="sign-detail-header"
         >Zodiac List</h1>
-        <h6 id="zodi-list-detail"
-        >Keep a track of past calculated signs and add matches to see compatibility! </h6>
+        <h4 id="zodi-list-detail"
+        >Keep a track of past calculated signs and add matches to see compatibility! </h4>
         <table className='univ-zodiac-list-table'>
             <tr>
                 <th>
@@ -154,6 +154,7 @@ const secondInput = (e) => {
                <p
                onClick={hideAddRow}
             style={{textAlign:"right",padding:0,margin:0}}>❌</p>
+             <CalculateSignModal/>
             <div className="zodi-form-errors ">
                 {validationErrors.map((error, int) => (<div key={int}>{error}</div>))}
             </div>
@@ -217,7 +218,7 @@ const secondInput = (e) => {
 
             </tr>
         </table>
-        <CalculateSignModal/>
+
 
         </form>
        }

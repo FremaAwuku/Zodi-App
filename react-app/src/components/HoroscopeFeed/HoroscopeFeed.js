@@ -8,13 +8,13 @@ const HoroscopeFeed = () =>{
 
     const dispatch = useDispatch()
     const history = useHistory()
-   const posts =  useSelector(state => Object.values(state.horoscope_posts))
+   const posts =  useSelector(state => Object.values(state.horoscope_posts)).reverse()
    const user = useSelector(state=>state.session.user)
     useEffect(()=>{
         dispatch(getAllHoroscopePosts())
     },[dispatch])
 
-  
+
     return(
         <>
         <div className="feed-actions">
