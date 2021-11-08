@@ -25,7 +25,7 @@ const HoroscopePost = ({post}) =>{
     const userFriends= useSelector(state => Object.values(state.friends))
     .filter((friend)=>friend?.user_id === Number(userId))
     .map((friend)=> friend = friend.friend_id)
-    console.log(userFriends, "<<<<<<<<<<<<FRiend IDs")
+ 
     const pendingRequestIds = useSelector(state => Object.values(state.requests)).map((request)=> request = request.accepting_friend_id)
     const requestId = useSelector(state => Object.values(state.requests))
     .filter((request)=> request.accepting_friend_id === postUser.id)
