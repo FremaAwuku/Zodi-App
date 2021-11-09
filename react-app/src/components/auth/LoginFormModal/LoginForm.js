@@ -5,6 +5,7 @@ import { login } from '../../../store/session';
 import SignUpFormModal from '../SignUpModal';
 import SignUpForm from '../SignUpModal/SignUpForm';
 import '../auth.css'
+import '../../SplashPanel/SplashPanel.css'
   const LoginForm = ({showLogin, setShowLogin}) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
@@ -39,7 +40,7 @@ import '../auth.css'
   }
 
   return (
-    <>
+    <div className="login-splash">
     <div
     className="login-form-cont">
       <h2>Welcome To Zodi-App✨ </h2>
@@ -95,7 +96,7 @@ className="login-other-options">
 
       </div>
       </div>
-    </>
+    </div>
   );
 };
 

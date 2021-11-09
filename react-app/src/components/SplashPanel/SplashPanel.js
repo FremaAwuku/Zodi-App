@@ -29,15 +29,10 @@ const toHoroscopeFeed = () =>{
 let userActions
 if(!user){
 userActions=(
-    <>
-     <div
-     className="login-sect"
-     >
 
-     <LoginForm/>
+     <LoginForm className="login-splash"/>
+  
 
-     </div>
-     </>
 )
 }else{
 
@@ -69,8 +64,9 @@ userActions=(
 <div
         className="main-splash-cont">
 
-            <header>
-            <h1 id="zodi-app-header">Zodi-App ✨</h1>
+            <header id="zodi-app-header">
+            <h1 >Zodi-App ✨</h1>
+            {/* <img id="logo" src="https://zodiappbucket.s3.us-east-2.amazonaws.com/Frame+8.png" alt="Zodi-App Logo"></img> */}
             </header>
         <div  className="splash-container">
 
@@ -92,10 +88,12 @@ userActions=(
         </div>
 
         <CalculateSignModal/>
-</div>
+        </div>
 
+            <div className="user-actions-splash">
 
             {userActions}
+            </div>
             <AboutMe/>
     </div>
 

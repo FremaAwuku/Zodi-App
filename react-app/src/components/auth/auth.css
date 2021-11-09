@@ -57,8 +57,8 @@ border-radius: 2%;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     height: 600px;
-    position: absolute;
-    top: -150px;
+    /* position: absolute;
+    top: -150px; */
 }
 .signup-form-wrapper{
     border-radius: 10px;
