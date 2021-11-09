@@ -13,7 +13,7 @@ const NavBar = () => {
       history.push(`/user_dashboard/${user.id}`)
 
   }
-  
+
 
     if(location.pathname === '/horoscope_feed'){
       return (

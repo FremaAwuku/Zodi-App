@@ -16,21 +16,20 @@ const HoroscopeFeed = () =>{
 
 
     return(
-        <>
-        <div className="feed-actions">
-       <h1
-       id="zodi-feed-header"
-       >Zodi-Feed</h1>
+        <div className="feed-container">
 
-       </div>
-        <div className='horoscope-feed-container'>
+       <header
+       id="zodi-feed-header"
+       >Zodi-Feed✨</header>
+
+        <main className='horoscope-feed-container'>
         {posts && posts?.map((post)=>(
             <div className='horoscope-feed-wrapper' key={post.id}>
             <HoroscopePost post={post}/>
             </div>
         ))}
+        </main>
         </div>
-        </>
     )
 
 }

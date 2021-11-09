@@ -1,27 +1,54 @@
-
-.horoscope-feed-container{
+.feed-container{
+    display: grid;
+    grid-column:1fr 1fr;
+     /* max-width: fit-content;
     max-height: 800px;
-    max-width: 1000px;
-    margin: 100px;
+    margin-left:10vw; */
+
+    max-height: fit-content;
+
+}
+.horoscope-feed-container{
+    max-height: 950px;
+    min-width: 800px;
+    max-width: fit-content;
+    margin-left: 100px;
+    margin-right: 100px;
     overflow-y: scroll;
-    position: fixed;
-    top: 5%;
-    left: 15%;
+    display: grid;
+    grid-column-start: 2;
+    /* position: relative; */
+    /* top: 5%;
+    left: 15%; */
+
 
 }
 @media all and (max-width: 1000px) {
+    .feed-container{
+        display: grid;
+        grid-row:1fr 1fr;
+         /* max-width: fit-content;
+        max-height: 800px;
+        margin-left:10vw; */
 
-    .horoscope-feed-container{
-        max-height: 600px;
-        min-width: 600px;
-        max-width: 800px;
-        margin: 50px;
-        overflow-y: scroll;
-        position: fixed;
-        top: -5%;
-        left: 5%;
 
     }
+
+    .horoscope-feed-container{
+
+
+        margin-left: 100px;
+        margin-right: 100px;
+        display: grid;
+        grid-row-start: 2;
+        max-height: min-content;
+        /* overflow-y: scroll;
+        position: fixed;
+        top: -5%;
+        left: 5%; */
+
+    }
+
 }
 .horoscope-feed-wrapper{
     background-color: var(--wa-yellow);
@@ -33,6 +60,11 @@
     padding: 70px;
     margin: 20px;
 
+}
+@media screen and (max-width:1000px) {
+    .horoscope-feed-wrapper{
+        max-width: 700px;
+    }
 }
 /* img{
     border-radius: 100%;
@@ -110,16 +142,38 @@ margin-left: 13px;
     text-align: center;
 }
 #zodi-feed-header{
+    display: grid;
+    grid-column-start: 1;
     color: white;
-    font-size: 185px;
+    font-size: 95px;
     text-transform: uppercase;
-    /* line-height: 90px; */
-    margin: 0px;
+    line-height: 90px;
+    margin: 0%;
+    margin-right: 30px;
     /* text-align: center; */
     transform: rotate(270deg);
-    position: fixed;
-    right:53%;
-    height: 1000px;
+    /* position: relative; */
+    height: fit-content;
+    width:400px;
+    text-align: center;
+    position: relative;
+    top:300px;
+
+
 
 }
+@media all and (max-width: 1000px) {
 
+    #zodi-feed-header{
+        position: unset;
+
+        transform: none;
+        width: 100%;
+    font-size: 85px;
+    text-align: center;
+    display: grid;
+    grid-row-start: 1;
+    grid-column-start: 2;
+
+    }
+}
