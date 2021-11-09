@@ -16,8 +16,19 @@
     --wa-dark-purple: #332074;
     --wa-blue: #0003c2;
 }
-
-
+body{
+    margin: 0%;
+    background-image: url(https://zodiappbucket.s3.us-east-2.amazonaws.com/wp2742972.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgb(11, 0, 32);
+}
+#root{
+    /* background-image: url(https://zodiappbucket.s3.us-east-2.amazonaws.com/wp2742972.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgb(11, 0, 32); */
+}
 
 .primary-button {
     border-radius: 20px;
@@ -102,18 +113,36 @@ margin-top: 10px;
 
     line-height: 20px;
     max-height: 50px;
+    position: sticky;
+    top: 0;
+    right: 0;
+     padding-right: 20px;
 
+
+}
+@media screen and (max-width: 1000px) {
+    .univ-nav-bar , nav{
+
+
+        width: fit-content;
+
+
+    }
 
 }
 .univ-nav-bar > ul{
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
 
 }
 .univ-nav-bar > li{
   list-style: none;
 
+}
+#logout-button{
+    padding-left:10px;
+    padding-right: 10px;
 }
 
 
