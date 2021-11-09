@@ -11,10 +11,10 @@
     margin-right: 100px;
 }
 .horoscope-feed-container{
-    max-height: min-content;
-    min-height: min-content;
+    max-height: max-content;
+    min-height: max-content;
     min-width: 1000px;
-    max-width: 1000px;
+
     max-width: 1000px;
     margin-left: 100px;
     margin-right: 100px;
@@ -28,13 +28,12 @@
 
 
 }
-@media all and (max-width: 1000px) {
+@media all and (max-width: 900px) {
     .feed-container{
         display: grid;
         grid-row:1fr 1fr;
-         /* max-width: fit-content;
-        max-height: 800px;
-        margin-left:10vw; */
+        max-height: max-content;
+
 
 
     }
@@ -47,11 +46,8 @@
         padding: 30px;
         display: grid;
         grid-row-start: 2;
-        max-height: min-content;
-        /* overflow-y: scroll;
-        position: fixed;
-        top: -5%;
-        left: 5%; */
+      
+
 
     }
 
