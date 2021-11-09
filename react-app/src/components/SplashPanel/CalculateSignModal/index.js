@@ -16,7 +16,7 @@ if(location.pathname === '/'){
     <>
       <h2
 
-      id='click-calculate' onClick={preventProp}>Calculate Your Sign</h2>
+      id='click-calculate' onClick={preventProp}>OR Calculate Your Sign</h2>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <CalculateSign setShowModal={setShowModal}/>
@@ -27,7 +27,7 @@ if(location.pathname === '/'){
       }else{
         return (
           <div
-          
+
           >
             <h4
             id='calc'

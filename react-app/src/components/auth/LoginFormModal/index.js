@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Modal } from '../../../context/Modal';
-import LoginForm from './LoginForm';
+
 import '../auth.css'
+import LoginForm2 from './LoginForm2';
 
 function LoginFormModal() {
   const [showLogin, setShowLogin] = useState(
@@ -11,13 +12,13 @@ function LoginFormModal() {
 
   return (
     <>
-      <button className="primary-button splash-login splash-bttns" onClick={() => setShowLogin(true)}>Log In</button>
+      <button className="primary-button mobile-login" onClick={() => setShowLogin(true)}>Login</button>
       {showLogin && (
         <>
       <div className="login-modal-wrapper">
       <Modal
       onClose={() => setShowLogin(false)}>
-      <LoginForm setShowLogin={setShowLogin}/>
+      <LoginForm2 setShowLogin={setShowLogin}/>
     </Modal>
 </div>
 
