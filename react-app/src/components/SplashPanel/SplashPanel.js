@@ -9,6 +9,7 @@ import SunSignEmojiModal from './SunSignEmojiModal';
 
 import CalculateSignModal from './CalculateSignModal';
 import AboutMe from '../AboutMe';
+import LoginFormModal from '../auth/LoginFormModal';
 // import AboutMe from '../AboutMe';
 function SplashPanel(){
 const history = useHistory()
@@ -31,7 +32,8 @@ if(!user){
 userActions=(
 
      <LoginForm className="login-splash"/>
-  
+
+
 
 )
 }else{
@@ -67,12 +69,13 @@ userActions=(
             <header id="zodi-app-header">
             <h1 >Zodi-App ✨</h1>
             {/* <img id="logo" src="https://zodiappbucket.s3.us-east-2.amazonaws.com/Frame+8.png" alt="Zodi-App Logo"></img> */}
+            <LoginFormModal />
             </header>
         <div  className="splash-container">
 
 
         <h2 id="click-header">
-        Click On Your Sign </h2>
+        Choose Your Sign </h2>
 
         <div className="splash-wrapper">
 
@@ -90,10 +93,10 @@ userActions=(
         <CalculateSignModal/>
         </div>
 
-            <div className="user-actions-splash">
+
 
             {userActions}
-            </div>
+
             <AboutMe/>
     </div>
 

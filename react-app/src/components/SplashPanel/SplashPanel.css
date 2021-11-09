@@ -34,7 +34,7 @@ margin-right: 5%;
     grid-column-start: 1;
     color: white;
     font-size: 30px;
-    text-transform: uppercase;
+
 
   */
 
@@ -43,7 +43,7 @@ margin-right: 5%;
   ;
     height: 100%;
     color: white;
-    font-size: 30px;
+
     width: 100%;
 
     text-align: center;
@@ -54,7 +54,8 @@ margin-right: 5%;
 }
 #zodi-app-header>h1{
     color: white;
-    font-size: 90px;
+    font-size: 100px;
+    text-transform: uppercase;
     margin: 0px;
     transform: rotate(270deg);
     width:max-content;
@@ -69,18 +70,18 @@ margin-right: 5%;
 
 }
 .about-me-div{
-   grid-area: Footer;
-}
-@media all and (max-width: 1000px)  {
-
-    
 
 }
+
 .login-splash{
     display: grid;
 grid-area:login-splash ;
 
 
+
+}
+.mobile-login{
+    visibility: hidden;
 
 }
 /* .user-actions{
@@ -107,6 +108,27 @@ margin: 0px;
 padding: 0;
 /* top: 0px;
 left: 475px; */
+
+}
+.about-me-div{
+    background-color: var(--wa-light-blue);
+    position: fixed;
+    bottom: 0%;
+    width: 100%;
+left:0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 40%;
+    padding-right: 40%;
+    max-height: 25%;
+    font-size: 1rem;
+}
+.about-me-div>p{
+    text-align: center;
+    color: white;
+    margin: 0px;
+    width: max-content;
 
 }
 .splash-wrapper{
@@ -147,6 +169,119 @@ justify-content: space-between;
     padding: 10px;
     width: fit-content;
 
+
+}
+#click-header{
+    color: white;
+    text-transform: uppercase;
+    font-size: 40px;
+    padding:0px;
+    margin: 0px;
+    height: fit-content;
+
+}
+#click-calculate{
+    color: white;
+    text-transform: uppercase;
+    font-size: 40px;
+    padding:0px;
+    margin: 0px;
+    height: fit-content;
+    text-align: center;
+}
+#click-calculate:hover{
+    color:var(--wa-gold);
+    font-size: 42px;
+    text-decoration: underline;
+
+
+}
+.sign-detail-full,.sign-detail{
+    background-image: linear-gradient(to bottom left, var(--wa-light-blue), var(--wa-emoji-purple), var(--wa-blue));
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    padding: 0px;
+    margin: 0px;
+    color:black;
+    height: 400px;
+    width: 400px;
+    overflow-y: scroll;
+    /* position: relative;
+    top:25vh;
+    right: 135vh; */
+    border-radius: 5%;
+}
+
+@media all and (max-width: 900px)  {
+
+    .main-splash-cont{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.3fr 1.9fr 0.2fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "zodi-app-header"
+    "splash-container"
+    "about-me";
+    }
+
+    #zodi-app-header{
+        display: grid;
+        grid-template-columns: 1.8fr 0.2fr;
+        grid-template-rows: 1fr;
+        gap: 0px 0px;
+        grid-template-areas:
+          ". mobile-login";
+        grid-area: zodi-app-header;
+        margin-left:5%;
+        margin-right:15%;
+    }
+    #zodi-app-header>h1{
+        transform: none;
+        font-size: 3.5rem;
+        text-align: center;
+
+    }
+
+    .mobile-login{
+        margin-top: 3.5vh;
+        margin-right: 2vh;
+        visibility: visible;
+        grid-area: mobile-login;
+    }
+    .login-splash{
+        display: none;
+
+    }
+
+    .splash-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        gap: 0px 0px;
+        grid-template-areas:
+          ".";
+        grid-area: splash-container;
+        margin-left: 3%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    .about-me-div{
+           grid-area: about-me;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    }
+    .splash-container{
+
+    }
+    .sign-detail-full,.sign-detail{
+        max-width: 21rem;
+    }
 
 }
 
@@ -192,22 +327,7 @@ justify-content: space-between;
    /* z-index: 2; */
 }
 
-.sign-detail-full,.sign-detail{
-    background-image: linear-gradient(to bottom left, var(--wa-light-blue), var(--wa-emoji-purple), var(--wa-blue));
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    padding: 0px;
-    margin: 0px;
-    color:black;
-    height: 400px;
-    width: 400px;
-    overflow-y: scroll;
-    /* position: relative;
-    top:25vh;
-    right: 135vh; */
-    border-radius: 5%;
-}
+
 body::-webkit-scrollbar {
     width: .5em;
     border-radius: 12%;
@@ -236,6 +356,7 @@ body::-webkit-scrollbar {
     background-color: var(--wa-light-blue);
     border-radius: 5%;
 }
+
 #close-calc{
 
     padding: 5px 5px 2px 5px;
@@ -387,30 +508,7 @@ width: fit-content;
     position: absolute;
     right: 300px;
 } */
-#click-header{
-    color: white;
-    text-transform: uppercase;
-    font-size: 40px;
-    padding:0px;
-    margin: 0px;
-    height: fit-content;
 
-}
-#click-calculate{
-    color: white;
-    text-transform: uppercase;
-    font-size: 40px;
-    padding:0px;
-    margin: 0px;
-    height: fit-content;
-}
-#click-calculate:hover{
-    color:var(--wa-gold);
-    font-size: 42px;
-    text-decoration: underline;
-
-
-}
 
 
 /* @media screen and(max-width: 1000px) {
@@ -436,21 +534,3 @@ position: relative;
         }
 
 } */
-.about-me-div{
-    background-color: var(--wa-light-blue);
-    position: fixed;
-    bottom: 0%;
-    width: 100%;
-left:0%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-left: 40%;
-    padding-right: 40%;
-}
-.about-me-div>p{
-    text-align: center;
-    color: white;
-    margin: 0px;
-
-}
