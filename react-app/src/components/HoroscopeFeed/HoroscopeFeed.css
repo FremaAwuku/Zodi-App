@@ -28,7 +28,7 @@
 
 
 }
-@media all and (max-width: 900px) {
+/* @media all and (max-width: 900px) {
     .feed-container{
         display: grid;
         grid-row:1fr 1fr;
@@ -46,12 +46,12 @@
         padding: 30px;
         display: grid;
         grid-row-start: 2;
-      
+
 
 
     }
 
-}
+} */
 .horoscope-feed-wrapper{
     background-color: var(--wa-yellow);
     border: 5px inset black;
