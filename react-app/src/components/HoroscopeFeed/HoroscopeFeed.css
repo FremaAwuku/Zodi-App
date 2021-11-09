@@ -12,6 +12,7 @@
 }
 .horoscope-feed-container{
     max-height: min-content;
+    min-height: min-content;
     min-width: 1000px;
     max-width: 1000px;
     max-width: 1000px;
