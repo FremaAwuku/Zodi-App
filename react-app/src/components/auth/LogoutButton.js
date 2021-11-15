@@ -10,7 +10,7 @@ const LogoutButton = () => {
   };
   if(user){
     return <button
-    className="primary-button"
+    className="primary-button logout"
     onClick={onLogout}>Logout</button>;
   }else{
     return(<></>)

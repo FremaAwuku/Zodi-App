@@ -16,6 +16,11 @@
     --wa-dark-purple: #332074;
     --wa-blue: #0003c2;
 }
+*{
+    font-family: 'Timmana', sans-serif;
+    box-sizing: border-box;
+/* border: .5px solid red; */
+}
 body{
     margin: 0%;
     background-image: url(https://zodiappbucket.s3.us-east-2.amazonaws.com/wp2742972.jpeg);
@@ -45,11 +50,7 @@ body{
     padding: 3px 10px .5px ;
     /* text-transform: uppercase; */
 }
-*{
-    font-family: 'Timmana', sans-serif;
-    box-sizing: border-box;
-/* border: .5px solid red; */
-}
+
 
 .primary-button:hover{
     background-color:var(--wa-gold);
@@ -71,7 +72,7 @@ margin-top: 10px;
 
     margin: 10px;
     width: max-content;
-  
+
     }
     .primary-button.user-actions:hover{
         font-size: 25px;
@@ -113,12 +114,16 @@ margin-top: 10px;
 /* NAV BAR */
 .univ-nav-bar , nav{
 
-    line-height: 20px;
-    max-height: 50px;
+    line-height: 35px;
+    max-height: 45px;
     position: sticky;
     top: 0;
     right: 0;
-     padding-right: 20px;
+    margin-top: 5px;
+
+
+
+
 
 
 }
@@ -136,6 +141,7 @@ margin-top: 10px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    margin: 0px;
 
 }
 .univ-nav-bar > li{
@@ -143,6 +149,7 @@ margin-top: 10px;
 
 }
 #logout-button{
+    padding: 10px;
     padding-left:10px;
     padding-right: 10px;
 }
