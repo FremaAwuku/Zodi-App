@@ -22,7 +22,7 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     background-color: rgb(11, 0, 32);
-  
+
 }
 #root{
     /* background-image: url(https://zodiappbucket.s3.us-east-2.amazonaws.com/wp2742972.jpeg);
@@ -65,12 +65,13 @@ margin-top: 10px;
     font-size: 18px;
     margin: 0px;
     text-transform: uppercase;
-    position: relative;
+    /* position: relative;
     top: 30vh;
     /* right: ; */
-    left: 25vh;
+
     margin: 10px;
-    width: 65%;
+    width: max-content;
+  
     }
     .primary-button.user-actions:hover{
         font-size: 25px;
