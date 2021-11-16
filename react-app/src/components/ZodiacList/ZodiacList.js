@@ -95,13 +95,16 @@ const secondInput = (e) => {
 
         <div className='univ-zodiac-list-wrapper'>
         <div className='univ-zodiac-table-container'>
+        <header
+        className="zodi-list-header">
         <h1
         id="sign-detail-header"
         >Zodiac List</h1>
         <h4 id="zodi-list-detail"
         >Keep a track of past calculated signs and add matches to see compatibility! </h4>
+        </header>
         <table className='univ-zodiac-list-table'>
-            <tr>
+            <thead className="zodiac-list-header">
                 <th>
                    1st Name
                 </th>
@@ -124,7 +127,7 @@ const secondInput = (e) => {
                    Compatibility
                 </th>
 
-            </tr>
+            </thead>
             <tbody>
         {listRows && listRows?.map((rows)=>{
             // if(listRows.length <= 20){
@@ -149,11 +152,15 @@ const secondInput = (e) => {
 
         {showAddRow&&
          <form
+
          className="add-row-container"
         onSubmit={handleSubmit}>
+
                <p
                onClick={hideAddRow}
             style={{textAlign:"right",padding:0,margin:0}}>❌</p>
+            <p
+            style={{textAlign:"center",padding:0,margin:0}}> Type Name or Choose From Friends to Add to List!</p>
              <CalculateSignModal/>
             <div className="zodi-form-errors ">
                 {validationErrors.map((error, int) => (<div key={int}>{error}</div>))}

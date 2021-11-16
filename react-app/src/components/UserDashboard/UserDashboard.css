@@ -71,6 +71,13 @@ padding: 0px;
 margin: 0px;
 color: black
 }
+.zodi-list-header{
+    position: sticky;
+    top: -8%;
+    right: 0;
+    background-color: white;
+    height: max-content;
+}
 #sign-detail-header{
     color:var(--wa-light-blue);
     text-transform: uppercase;
@@ -81,6 +88,7 @@ color: black
     font-family: 'Timmana', sans-serif;
     line-height: 50px;
     text-align: center;
+
 }
 .user-sign-detail {
 
@@ -160,12 +168,44 @@ border-radius: 20px;
   table {
     white-space: nowrap;
     background-color: var(--wa-yellow);
+    border: .5px solid var(--wa-yellow);
+
     padding: 10px;
     border-radius: 10px;
+    text-align: center;
+    border-collapse: collapse;
   }
 
-  table#first-match-input{
+  /* table#first-match-input{
       background-color: white;
+  } */
+  thead>th{
+      letter-spacing: .5px;
+
+      padding: .5px;
+
+  }
+  /* thead th:nth-child(1) {
+    width: 30%;
+  }
+
+  thead th:nth-child(2) {
+    width: 15%;
+  }
+
+  thead th:nth-child(3) {
+    width:5%;
+  } */
+
+
+  tbody tr:nth-child(even) {
+    background-color: white;
+    white-space: nowrap;
+  }
+  tbody tr{
+    max-height: min-content;
+    height: min-content;
+    line-height: 1rem;
   }
 
   #calc{
@@ -201,6 +241,7 @@ border-radius: 20px;
 }
 #comp-modal-hearts{
     margin-left: 15px;
+    text-align: center;
 }
 #comp-modal-hearts:hover{
     /* border: 3px inset blueviolet; */
@@ -351,7 +392,7 @@ li.pending-req>img{
         overflow: scroll;
 }
 .pending-req-cont{
-  
+
     height: 85%;
     max-height:85%;
     padding: 10px;
