@@ -1,26 +1,35 @@
 .feed-container{
     display: grid;
-    grid-column:1fr 1fr;
-     /* max-width: fit-content;
+    grid-template-columns:20vw 1.5fr;
+    grid-template-areas:"header feed";
+
+      max-width: max-content;
+      /*
     max-height: 800px;
     margin-left:10vw; */
     min-height: max-content;
     max-height: fit-content;
-    width: 900px;
-    max-width: fit-content;
-    margin-right: 100px;
+    /* width: 900px; */
+    /* max-width: fit-content; */
+    margin: 20px;
+    padding: 75px;
+    
 }
 .horoscope-feed-container{
     max-height: max-content;
     min-height: max-content;
-    min-width: 800px;
-
-    max-width: 800px;
-    margin-left: 100px;
-    margin-right: 100px;
+    min-width:fit-content;
+    padding: 30PX;
+    max-width: fit-content;
+    /* margin-left: 100px;
+    margin-right: 100px; */
     overflow-y: scroll;
-    display: grid;
-    grid-column-start: 2;
+
+    grid-area: feed;
+    display: flex;
+    flex-direction: column;
+
+    align-self: center;
     align-content: center;
     /* position: relative; */
     /* top: 5%;
@@ -32,10 +41,12 @@
     background-color: var(--wa-yellow);
     border: 5px inset black;
     min-height: max-content;
+    max-height: max-content;
+    min-width: fit-content;
     max-width: fit-content;
     border-radius: 280px;
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: row; */
     padding: 70px;
     margin: 20px;
 
@@ -146,19 +157,20 @@ margin-left: 13px;
     text-align: center;
 }
 #zodi-feed-header{
-    display: grid;
-    grid-column-start: 1;
+
+    grid-area: header;
     color: white;
     font-size: 95px;
     text-transform: uppercase;
     line-height: 90px;
     margin: 0%;
-    margin-right: 30px;
+
     /* text-align: center; */
     transform: rotate(270deg);
     /* position: relative; */
-    height: fit-content;
-    width:500px;
+    height: max-content;
+   white-space: nowrap;
+    width:min-content;
     text-align: center;
     position: sticky;
     top:300px;
