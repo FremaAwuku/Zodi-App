@@ -95,11 +95,14 @@ const secondInput = (e) => {
 
         <div className='univ-zodiac-list-wrapper'>
         <div className='univ-zodiac-table-container'>
+        <header
+        className="zodi-list-header">
         <h1
         id="sign-detail-header"
         >Zodiac List</h1>
         <h4 id="zodi-list-detail"
         >Keep a track of past calculated signs and add matches to see compatibility! </h4>
+        </header>
         <table className='univ-zodiac-list-table'>
             <thead className="zodiac-list-header">
                 <th>

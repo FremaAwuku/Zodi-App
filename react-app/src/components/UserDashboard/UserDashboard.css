@@ -71,6 +71,13 @@ padding: 0px;
 margin: 0px;
 color: black
 }
+.zodi-list-header{
+    position: sticky;
+    top: -8%;
+    right: 0;
+    background-color: white;
+    height: max-content;
+}
 #sign-detail-header{
     color:var(--wa-light-blue);
     text-transform: uppercase;
@@ -81,6 +88,7 @@ color: black
     font-family: 'Timmana', sans-serif;
     line-height: 50px;
     text-align: center;
+
 }
 .user-sign-detail {
 
