@@ -13,7 +13,7 @@ const IncomingRequests = ({}) =>{
     const {userId} = useParams()
     const requests = useSelector(state => Object.values(state.requests))
     .filter((req)=> req.accepting_friend_id == userId)
-    console.log(requests,"<<<<<<<<REQUESTS")
+    
     useEffect(()=>{
 
         dispatch(getUserFriendRequests(userId))

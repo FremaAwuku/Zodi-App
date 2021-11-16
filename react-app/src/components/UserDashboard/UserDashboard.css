@@ -279,7 +279,8 @@ th#comp-table{
 ul{
     padding-left: 3px;
    ;
-   max-height: 275px;
+   height: 45%;
+   max-height: 225px;
 
 }
 
@@ -379,22 +380,19 @@ li.pending-req>img{
 
 }
 .friend-section{
-    height: 85%;
-    max-height:85%;
+
     padding: 10px;
         overflow: scroll;
 }
 .incoming-req-cont{
 
-    height: 85%;
-    max-height:85%;
+
     padding: 10px;
         overflow: scroll;
 }
 .pending-req-cont{
 
-    height: 85%;
-    max-height:85%;
+
     padding: 10px;
         overflow: scroll;
 }
