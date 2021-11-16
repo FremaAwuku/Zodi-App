@@ -200,6 +200,9 @@ margin-top: 10px;
     right: 35vh; */
 
 }
+.univ-modal-wrapper.edit-list{
+    text-align:center ;
+}
 .univ-modal-wrapper.update{
     padding: 20px;
 }

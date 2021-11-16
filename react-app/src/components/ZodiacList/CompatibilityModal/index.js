@@ -23,8 +23,9 @@ function CompatibilityModal({rowId}){
 
     const [showModal, setShowModal] = useState(false);
     let heartEmoji
-    if(rating)
-{    if (rating === 7){
+if(rating){
+
+    if (rating === 7){
             heartEmoji=(
                 <>
         <div
@@ -40,7 +41,7 @@ function CompatibilityModal({rowId}){
             )
 
 
-        }else if(rating === 6){
+    }else if(rating === 6){
             heartEmoji=(
                 <>
         <div
@@ -56,7 +57,7 @@ function CompatibilityModal({rowId}){
             )
 
 
-        }else if(rating === 5){
+    }else if(rating === 5){
             heartEmoji=(
                 <>
         <div
@@ -71,7 +72,7 @@ function CompatibilityModal({rowId}){
                 </>
             )
 
-        }else if(rating === 4){
+    }else if(rating === 4){
             heartEmoji=(
                 <>
         <div
@@ -86,7 +87,7 @@ function CompatibilityModal({rowId}){
                 </>
             )
 
-        }else if(rating === 3){
+    }else if(rating === 3){
             heartEmoji=(
                 <>
         <div
@@ -101,7 +102,7 @@ function CompatibilityModal({rowId}){
                 </>
             )
 
-        }else if(rating === 2){
+    }else if(rating === 2){
             heartEmoji=(
                 <>
         <div
@@ -117,7 +118,7 @@ function CompatibilityModal({rowId}){
             )
 
 
-        }else {
+    }else {
             heartEmoji=(
                 <>
         <div

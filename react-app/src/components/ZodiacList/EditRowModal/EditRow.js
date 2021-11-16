@@ -38,7 +38,7 @@ function EditRow({setShowModal, row, firstName, firstSignName}) {
         const errors = []
 
 
-        if(matchName === "" )errors.push("Please Enter Name or Friend")
+        if(matchName === "" )errors.push("Please Choose Friend or Type Match Name")
         setValidationErrors(errors)
         if(matchName.length < 3 )errors.push("Name must longer than 3 characters")
         setValidationErrors(errors)
@@ -74,20 +74,27 @@ function EditRow({setShowModal, row, firstName, firstSignName}) {
 
     }
 
-
+    const close = () =>{
+        setShowModal(false)
+    }
 
     return(
         <>
-            <div className="univ-modal-wrapper">
+            <div className="univ-modal-wrapper edit-list">
+
         <form
         onSubmit={handleSubmit}
-        className="univ-form-wrapper">
+        className="univ-form-wrapper edit-list">
+                      <p
+               onClick={close}
+            style={{textAlign:"left",padding:0,margin:0}}>CLOSE</p>
                <div className="univ-form-errors">
                 {validationErrors.map((error, int) => (<div key={int}>{error}</div>))}
 
         </div>
         <div
-        className="first-match">
+        className="first-match"
+        style={{alignItems:"center"}}>
         <p>
           1st Match Name:
           <span>
