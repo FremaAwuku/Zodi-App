@@ -5,7 +5,7 @@ from app.models import db, ZodiacList
 def seed_zodiac_lists():
     zodi_list1 = ZodiacList(
     user_id=1,
-    first_name='Guest',
+    first_name='Demo-Lisa',
     first_name_id=1,
     first_name_sign='Aries',
     match_name='Fremy',
@@ -13,9 +13,30 @@ def seed_zodiac_lists():
     match_name_sign='Taurus',
     compatibility=3
     )
+    zodi_list2 = ZodiacList(
+    user_id=1,
+    first_name='Demo-Lisa',
+    first_name_id=1,
+    first_name_sign='Aries',
+    match_name='ChiChi',
+    match_name_id=9,
+    match_name_sign='Sagittarius',
+    compatibility=7
+    )
+    zodi_list3 = ZodiacList(
+    user_id=1,
+    first_name='Momma',
+    first_name_id=5,
+    first_name_sign='Leo',
+    match_name=None,
+    match_name_id=None,
+    match_name_sign=None,
+    compatibility=None
+    )
 
     db.session.add(zodi_list1)
-
+    db.session.add(zodi_list2)
+    db.session.add(zodi_list3)
 
     db.session.commit()
 
