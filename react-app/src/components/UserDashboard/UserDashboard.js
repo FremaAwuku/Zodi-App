@@ -21,6 +21,7 @@ useEffect(()=>{
 
     if (Number(userId) === Number(user.id)) {
         return(
+            <div className="dash-cont">
             <div
             className="main-dashboard-container">
             <div className="user-deet-cont">
@@ -36,6 +37,7 @@ useEffect(()=>{
             <UserHoroscopes user={user}/>
             </div>
             </section>
+            </div>
             </div>
             )
 

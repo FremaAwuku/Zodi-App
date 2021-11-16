@@ -9,10 +9,8 @@ const aztroJs = require("aztro-js")
 const DailyHoroscope =({user}) =>{
 
     const [todaysHoro ,setTodaysHoro] =useState({})
-
     const [yesterday,setYesterday]=useState({})
     const [tomorrow,setTomorrow]=useState({})
-
     const [showToday,setShowToday]=useState(true)
     const [showYest,setShowYest]=useState(false)
     const [showTom,setShowTom]=useState(false)
@@ -26,13 +24,8 @@ const DailyHoroscope =({user}) =>{
         sign = userSign.toLowerCase()
     }
 
-
-
-
-
-
+    // FETCH TO AZTROS API FOR HOROSCOPE
     let property = 'description'
-
     useEffect(()=>{
         aztroJs.getTodaysHoroscope(sign, function(res) {
             setTodaysHoro(res)
@@ -46,9 +39,9 @@ const DailyHoroscope =({user}) =>{
             setYesterday(res)
         }, property)
 
-
     },[userSign,aztroJs])
 
+    // ONCLICKS FUNCS FOR HOROSCOPE PANEL BUTTONS
     const hideToday = ()=>{
         if(!showToday){
             setShowTom(false)
@@ -79,75 +72,56 @@ const DailyHoroscope =({user}) =>{
         }
     }
 
-
-
-
-
 if(user.sun_sign_id){
     return(
         <>
 {showToday&&<div
 className='horo-cont'
 >
+    <div
+    id="today"
+    >
+        <h2>
+            {`Today's Horoscope for ${userSign}`}
+        </h2>
+        <h4>
+        {`"${todaysHoro}"`}
+        </h4>
+        <AddHoroscopeModal horoscope={todaysHoro} userId={user?.id}/>
 
-<div
-id="today"
->
-<h2>
-    {`Today's Horoscope for ${userSign}`}
-</h2>
-
-
-<h4>
-{`"${todaysHoro}"`}
-</h4>
-
-
-<AddHoroscopeModal horoscope={todaysHoro} userId={user?.id}/>
-
-</div>
+    </div>
 </div>}
 
 {showTom&&<div
 className='horo-cont'
 >
+    <div
+    id="tom"
+    >
+        <h2>
+        {` Tomorrow's Horoscope for ${userSign}`}
 
-<div
-id="tom"
->
-<h2>
-{` Tomorrow's Horoscope for ${userSign}`}
-
-</h2>
-
-
-<h4>
-{`"${tomorrow}"`}
-</h4>
-
-
-</div>
+        </h2>
+        <h4>
+        {`"${tomorrow}"`}
+        </h4>
+    </div>
 </div>}
 
 {showYest&&<div
 className='horo-cont'
 >
+    <div
+    id="yest"
+    >
+        <h2>
+        {` Yesterdays's Horoscope for ${userSign}`}
 
-<div
-id="yest"
->
-<h2>
-{` Yesterdays's Horoscope for ${userSign}`}
-
-</h2>
-
-
-<h4>
-{`"${yesterday}"`}
-</h4>
-
-
-</div>
+        </h2>
+        <h4>
+        {`"${yesterday}"`}
+        </h4>
+    </div>
 </div>}
 
 <div
