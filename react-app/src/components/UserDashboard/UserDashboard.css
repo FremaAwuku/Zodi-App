@@ -1,28 +1,43 @@
 
 *{
     box-sizing: border-box;
+    /* border:.5px red solid; */
 }
 /* MAIN  */
+.dash-cont{
+    display: flex;
+   justify-content: center;
+  align-items: center;
+
+  min-height: 100vh;
+}
 .main-dashboard-container{
     background-image: linear-gradient(to bottom left,var(--wa-deep-emoji-purple), var(--wa-deep-purple),var(--wa-dark-purple), var(--wa-deep-purple),var(--wa-deep-emoji-purple));
-    max-width: 1100px;
-    max-height: 900px;
+    /* max-width: 70vw;
+    max-height: 70vw; */
+    max-width: 1000px;
+    min-height:55%;
+    height: 55%;
+    max-height: 55%;
     padding: 30px;
      margin:30px;
     /*margin-bottom: 80px; */
     border: 5px inset var(--wa-emoji-purple);
     border-style: solid inset solid solid;
     border-radius: 30px;
-    position: absolute;
-    left: 35vh;
-    /* display: ; */
+    /* position: relative;
+    top:0px;
+    left: 0px; */
+  align-content: center;
+}
+    /* display: ;
 }
 /* BOTTOM HALF CONTAINER HOLDING FRIENDS AND HOROSCOPE COMPONENT */
 .bottom-panel-sect{
     display: flex;
     flex-direction: row;
     margin-top: 15px;
-    max-height: 400px;
+    max-height: max-content;
     padding: 15px;
 
 }
@@ -316,38 +331,41 @@ li.pending-req>img{
     background-color: white;
     padding: 8px;
     border-radius: 20px;
-
-    max-height:400px;
+    height: 105%;
+    max-height:105%;
     margin:10px
 
 
 }
 .friend-section{
-    max-height: 250px;
+    height: 85%;
+    max-height:85%;
     padding: 10px;
         overflow: scroll;
 }
 .incoming-req-cont{
-    min-width: 300px;
-    max-width: 300px;
-    max-height: 250px;
+
+    height: 85%;
+    max-height:85%;
     padding: 10px;
         overflow: scroll;
 }
 .pending-req-cont{
-    min-width: 300px;
-    max-width: 300px;
-    max-height: 250px;
+  
+    height: 85%;
+    max-height:85%;
     padding: 10px;
         overflow: scroll;
 }
 .user-actions{
-    padding: 8px;
+    padding: 2px;
+    padding-bottom: 5px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     /* flex-wrap: ; */
     justify-content: space-between;
     align-content: space-around;
+    height: min-content;
     gap: 5px;
 
 }
@@ -370,11 +388,12 @@ li.pending-req>img{
 
 .main-horoscope-cont{
     padding: 20px;
-    background-color: whitesmoke;
-    max-height: 400px;
-    height: 400px;
-    margin-bottom: 30px;
-    max-width: 600px;
+    background-color: white;
+    max-height:  95%;
+    height: 95%;
+
+    width: 95%;
+    max-width: 95%;
     border-radius: 20px;
     border: 5px inset var(--wa-emoji-purple);
     border-style: solid inset solid solid;
@@ -385,6 +404,7 @@ li.pending-req>img{
 
     /* max-height: 400px; */
 
+    height: fit-content;
     padding: 10px;
 }
 #horoscope-header{
@@ -401,8 +421,8 @@ li.pending-req>img{
     background-color: var(--wa-deep-emoji-purple);
     margin-top: 10px;
     border-radius: 20px;
-    max-height:225px ;
-    min-height:215px ;
+    max-height:fit-content ;
+    min-height:fit-content ;
     padding: 15px;
 }
 .horo-cont>div>h2{
@@ -419,10 +439,10 @@ li.pending-req>img{
 
 background-color: white;
 border-radius: 20px;
-min-height: 70px;
-max-height: 100px;
+min-height: max-content;
+max-height: max-content;
 text-align: center;
-padding: 4px;
+padding: 10px;
 margin: 0px;
 }
 
