@@ -81,6 +81,7 @@ grid-area:login-splash ;
 
 
 
+
 }
 .user-actions{
     display: flex;
@@ -88,10 +89,12 @@ grid-area:login-splash ;
     align-items: center;
     align-self: center;
 
+
 }
 .user-bttn-container{
 
     grid-area:login-splash ;
+
 
 
 }
@@ -233,11 +236,12 @@ justify-content: space-between;
     .main-splash-cont{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.3fr 1.9fr 0.2fr;
+    grid-template-rows: 0.3fr 1.9fr 0.4fr 0.2fr;
     gap: 0px 0px;
     grid-template-areas:
     "zodi-app-header"
     "splash-container"
+    "user-actions"
     "about-me";
     }
 
@@ -269,7 +273,12 @@ justify-content: space-between;
         display: none;
 
     }
-
+    .user-actions{
+        grid-area: user-actions;
+    }
+    .user-bttn-container{
+        width: 100%;
+    }
     .splash-container {
         display: grid;
         grid-template-columns: 1fr;
