@@ -73,9 +73,9 @@ export const updateProfilePic = ({profilePic,userId}) => async () => {
 
 
     const data = new FormData()
-    console.log(profilePic,">>>>>>>>>>>THUNK PROFILE")
+   
     data.append("profile_picture", profilePic)
-    console.log(data,"<<<<<<<<DATA SENT TO BACK")
+    
 
     const response = await fetch(`/api/users/${userId}/photo`, {
         method: 'PUT',
@@ -84,7 +84,7 @@ export const updateProfilePic = ({profilePic,userId}) => async () => {
 
     if (response.ok) {
         const updatedUser = await response.json()
-        loadOneUser(updatedUser)
+        dispatchloadOneUser(updatedUser)
     }
 }
 
